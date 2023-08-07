@@ -30,6 +30,9 @@
                 </ProgressBar.Triggers>
             </ProgressBar>
         </StackPanel>
-        <TextBlock x:Name="tbErrorMsg" Grid.Column="0"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" Visibility="Visible" VerticalAlignment="Top" Margin="40,360,0,0" Height="161" Width="238"/>
+        <Border Name="tbErrorBrd" Visibility="Visible" BorderBrush="GreenYellow"  BorderThickness="1" CornerRadius="8"  Margin="20,360,20,44">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Name="tbErrorMsg" Text="" TextWrapping="Wrap" Width="250"  />
+        </Border>
+
     </Grid>
 </Window>

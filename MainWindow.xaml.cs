@@ -27,6 +27,7 @@ namespace GUI_Database_app
     {
         Data.Connection conn = new Data.Connection();
         MySqlCommand query = new MySqlCommand();
+        public string ErrorMessage { get; set; }
 
         public MainWindow()
         {
@@ -47,7 +48,9 @@ namespace GUI_Database_app
 
                     tbConResult.Text = "Sucessfully connected";
                     tbConResult.Foreground = Brushes.Green;
+
                     tbErrorMsg.Text = "";
+                    tbErrorBrd.Visibility = Visibility.Hidden;
                     tbErrorMsg.Visibility = Visibility.Hidden;
                 }
                 else
@@ -60,8 +63,10 @@ namespace GUI_Database_app
             {
                 tbConResult.Text = "Failed to connect";
                 tbConResult.Foreground = Brushes.Red;
+
                 tbErrorMsg.Foreground = Brushes.Red;
                 tbErrorMsg.Text = "Error" + ex.Message;
+                tbErrorBrd.Visibility = Visibility.Visible;
                 tbErrorMsg.Visibility = Visibility.Visible;
             }
             finally
