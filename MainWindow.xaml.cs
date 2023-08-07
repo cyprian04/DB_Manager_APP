@@ -51,7 +51,6 @@ namespace GUI_Database_app
 
                     tbErrorMsg.Text = "";
                     tbErrorBrd.Visibility = Visibility.Hidden;
-                    tbErrorMsg.Visibility = Visibility.Hidden;
                 }
                 else
                 {
@@ -67,7 +66,6 @@ namespace GUI_Database_app
                 tbErrorMsg.Foreground = Brushes.Red;
                 tbErrorMsg.Text = "Error" + ex.Message;
                 tbErrorBrd.Visibility = Visibility.Visible;
-                tbErrorMsg.Visibility = Visibility.Visible;
             }
             finally
             {
