@@ -33,10 +33,10 @@ namespace GUI_Database_app
             InitializeComponent();
         }
 
-        private  void btnToggle_Run_Click(object sender, RoutedEventArgs e)
+        private async void btnToggle_Run_Click(object sender, RoutedEventArgs e)
         {
-            StartLoadingAnimation();
-            
+            await StartLoadingAnimation(); // try catch finally wykona się po zakończeniu animacji w funkcji 
+
             try
             {
                 if(DB_name.Text !="")
@@ -44,6 +44,7 @@ namespace GUI_Database_app
                     conn.Initialize("127.0.0.1", DB_name.Text, "root", "");
                     Data.Connection.dataSource();
                     conn.connOpen();
+
                     tbConResult.Text = "Sucessfully connected";
                     tbConResult.Foreground = Brushes.Green;
                     tbErrorMsg.Text = "";
@@ -59,6 +60,7 @@ namespace GUI_Database_app
             {
                 tbConResult.Text = "Failed to connect";
                 tbConResult.Foreground = Brushes.Red;
+                tbErrorMsg.Foreground = Brushes.Red;
                 tbErrorMsg.Text = "Error" + ex.Message;
                 tbErrorMsg.Visibility = Visibility.Visible;
             }
@@ -68,7 +70,7 @@ namespace GUI_Database_app
             }
         }
 
-        private void StartLoadingAnimation()
+        private async Task StartLoadingAnimation() // stworzenie pure async function 
         {
             loadProgressBar.Visibility = Visibility.Visible; // Pokaż pasek postępu
             loadProgressBar.Value = 0; // Zresetuj wartość paska postępu
@@ -77,6 +79,7 @@ namespace GUI_Database_app
             };
 
             loadProgressBar.BeginAnimation(ProgressBar.ValueProperty, animation);
+            await Task.Delay(TimeSpan.FromSeconds(1));
         }
     }
 }

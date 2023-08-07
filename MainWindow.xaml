@@ -11,29 +11,25 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Height="268" Margin="1,0,0,301" Width="310">
-            <TextBlock  TextWrapping="Wrap"  FontSize="20" Margin="62,54,61,0" Height="35"><Run Text="Database Name:"/></TextBlock>
-            <TextBox x:Name="DB_name" VerticalContentAlignment="Center" Height="38" TextWrapping="Wrap" Text=""  Width="186" Margin="62,0,61,0" />
-            <Button  x:Name="btnToggle_Run" Height="40" Content="Run" FontSize="20"  Click="btnToggle_Run_Click" Margin="62,0,61,0"/>
-            <TextBlock x:Name="tbConResult" TextWrapping="Wrap" Text="" FontStyle="Italic" FontSize="15" Height="30" Margin="62,0,61,0"/>
-            <ProgressBar x:Name="loadProgressBar"  Value="0" Maximum="100" Height="20" Margin="50" Visibility="Collapsed">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Height="316" Margin="1,0,0,253" Width="310">
+            <TextBlock  TextWrapping="Wrap"  FontSize="20"  Height="35" Text="Database Name:" Foreground="White" Margin="62,50,62,20"/>
+            <TextBox x:Name="DB_name" VerticalContentAlignment="Center" Height="38" TextWrapping="Wrap" Text="" Margin="62,0,62,20"/>
+            <Button  x:Name="btnToggle_Run" Height="40" Content="Run" FontSize="20"  Click="btnToggle_Run_Click" Margin="62,0,62,0"/>
+            <TextBlock x:Name="tbConResult" TextWrapping="Wrap" Text="" FontStyle="Italic" FontSize="15" Height="30" Margin="62,10,62,0"/>
+            <ProgressBar x:Name="loadProgressBar" Visibility="Collapsed" Value="0" Maximum="100" Height="20" Margin="62,10,62,0" HorizontalAlignment="Left" Width="186" >
                 <ProgressBar.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation
+                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
                                 Storyboard.TargetProperty="Value"
                                 From="0" To="100" Duration="0:0:5" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
                 </ProgressBar.Triggers>
             </ProgressBar>
         </StackPanel>
-        <TextBlock x:Name="tbErrorMsg" Grid.Column="0" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" Visibility="Hidden" VerticalAlignment="Top" Margin="33,321,0,0" Height="161" Width="243">
-            <TextBlock.Background>
-                <ImageBrush ImageSource="Images/error.jpg"/>
-            </TextBlock.Background>
-        </TextBlock>
+        <TextBlock x:Name="tbErrorMsg" Grid.Column="0"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" Visibility="Visible" VerticalAlignment="Top" Margin="40,360,0,0" Height="161" Width="238"/>
     </Grid>
 </Window>
