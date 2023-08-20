@@ -29,6 +29,12 @@ namespace GUI_Database_app
             DragMove();
         }
 
+        private void btn_Minimalize(object sender, RoutedEventArgs e)
+        {
+           WindowState = WindowState.Minimized;
+        }
+
+
         //private void Button_Login_Click(object sender, RoutedEventArgs e)
         //{
         //    if( UserName.Text == "admin" && UserPass.Password == "1234")

@@ -36,7 +36,40 @@
 
 
             <Grid>
-                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+                               Grid.Column="0"
+                               Text="LOG IN"
+                               Foreground="AliceBlue"
+                               FontFamily="Montserrat"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
+
+                    <Button Grid.Row="0"
+                            Grid.Column="1"
+                            BorderThickness="0"
+                            FontSize="16"
+                            Content="-"
+                            FontFamily="Montserrat"
+                            Foreground="White"
+                            Cursor="Hand"
+                            Click="btn_Minimalize">
+                            
+                    </Button>
+                    
+                </Grid>
                 
             </Grid>
 
