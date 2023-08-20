@@ -41,24 +41,17 @@ namespace GUI_Database_app
 
         private void btn_LogIn(object sender, RoutedEventArgs e)
         {
-            // coming soon...
+            if (txtUser.Text == "admin" && txtPassword.Password == "1234")
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                txtUser.Text = "";
+                txtPassword.Password = "";
+            }
         }
-
-
-        //private void Button_Login_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if( UserName.Text == "admin" && UserPass.Password == "1234")
-        //    {
-        //        MainWindow mainWindow = new MainWindow();
-        //        mainWindow.Show();
-        //        this.Close();
-        //    }
-        //    else
-        //    {
-        //        UserName.Text = "";
-        //        UserPass.Password = "";
-        //        tbLoginResult.Text = "Invalid data, try again";
-        //    }
-        //}
     }
 }
