@@ -5,34 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_Database_app"
         mc:Ignorable="d"
-        Title=" DB Manager" Height="600" Width="800" Background="#272537" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Height="316" Margin="1,0,0,253" Width="310">
-            <TextBlock  TextWrapping="Wrap"  FontSize="20"  Height="35" Text="Database Name:" Foreground="White" Margin="62,50,62,20"/>
-            <TextBox x:Name="DB_name" VerticalContentAlignment="Center" Height="38" TextWrapping="Wrap" Text="" Margin="62,0,62,20"/>
-            <Button  x:Name="btnToggle_Run" Height="40" Content="Run" FontSize="20"  Click="btnToggle_Run_Click" Margin="62,0,62,0"/>
-            <TextBlock x:Name="tbConResult" TextWrapping="Wrap" Text="" FontStyle="Italic" FontSize="15" Height="30" Margin="62,10,62,0"/>
-            <ProgressBar x:Name="loadProgressBar" Visibility="Collapsed" Value="0" Maximum="100" Height="20" Margin="62,10,62,0" HorizontalAlignment="Left" Width="186" >
-                <ProgressBar.Triggers>
-                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation
-                                Storyboard.TargetProperty="Value"
-                                From="0" To="100" Duration="0:0:5" />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </ProgressBar.Triggers>
-            </ProgressBar>
-        </StackPanel>
-        <Border Name="tbErrorBrd" Visibility="Hidden" BorderBrush="GreenYellow"  BorderThickness="1" CornerRadius="8"  Margin="20,360,20,44">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Name="tbErrorMsg" Text="" TextWrapping="Wrap" Width="250"  />
-        </Border>
+        Title=" DB Manager" 
+        Height="600" 
+        Width="800" 
+        Background="#272537" 
+        WindowStartupLocation="CenterScreen">
 
-    </Grid>
 </Window>

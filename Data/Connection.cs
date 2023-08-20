@@ -14,7 +14,7 @@ namespace GUI_Database_app.Data
     class Connection
     {
         public static MySqlConnection connection = new MySqlConnection();
-        static string serverIp, dbName, user, pass;
+        private static string dbName, user, pass;
         
         public void Initialize(string serverIp_in, string dbName_in, string user_in, string pass_in)
         {
@@ -24,7 +24,7 @@ namespace GUI_Database_app.Data
             pass = pass_in;
         }
 
-        public static MySqlConnection dataSource() // korzystanie z settnigs dla Ip servera
+        public static MySqlConnection dataSource() // korzystanie z settn
         {                                               
             return connection = new MySqlConnection($"server={Properties.Settings.Default.IP}; database={dbName}; Uid={user}; password={pass};");
         }
