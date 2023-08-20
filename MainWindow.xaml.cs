@@ -27,7 +27,6 @@ namespace GUI_Database_app
     {
         Data.Connection conn = new Data.Connection();
         MySqlCommand query = new MySqlCommand();
-        public string ErrorMessage { get; set; }
 
         public MainWindow()
         {
@@ -78,8 +77,7 @@ namespace GUI_Database_app
             loadProgressBar.Visibility = Visibility.Visible; // Pokaż pasek postępu
             loadProgressBar.Value = 0; // Zresetuj wartość paska postępu
 
-            DoubleAnimation animation = new DoubleAnimation{From = 0, To = 100, Duration = TimeSpan.FromSeconds(1)
-            };
+            DoubleAnimation animation = new DoubleAnimation{From = 0, To = 100, Duration = TimeSpan.FromSeconds(1)};
 
             loadProgressBar.BeginAnimation(ProgressBar.ValueProperty, animation);
             await Task.Delay(TimeSpan.FromSeconds(1));

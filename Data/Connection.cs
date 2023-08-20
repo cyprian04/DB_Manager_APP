@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using GUI_Database_app.Properties;
 
 namespace GUI_Database_app.Data
 {
@@ -17,15 +18,15 @@ namespace GUI_Database_app.Data
         
         public void Initialize(string serverIp_in, string dbName_in, string user_in, string pass_in)
         {
-            serverIp = serverIp_in;
+            //serverIp = serverIp_in;
             dbName = dbName_in;
             user = user_in;
             pass = pass_in;
         }
 
-        public static MySqlConnection dataSource()
-        {
-            return connection = new MySqlConnection($"server={serverIp}; database={dbName}; Uid={user}; password={pass};");
+        public static MySqlConnection dataSource() // korzystanie z settnigs dla Ip servera
+        {                                               
+            return connection = new MySqlConnection($"server={Properties.Settings.Default.IP}; database={dbName}; Uid={user}; password={pass};");
         }
         public void connOpen()
         {
