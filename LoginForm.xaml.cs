@@ -24,20 +24,25 @@ namespace GUI_Database_app
             InitializeComponent();
         }
 
-        private void Button_Login_Click(object sender, RoutedEventArgs e)
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (UserName.Text == "admin" && UserPass.Password == "1234")
-            {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
-            }
-            else
-            {
-                UserName.Text = "";
-                UserPass.Password = "";
-                tbLoginResult.Text = "Invalid data, try again";
-            }
+            DragMove();
         }
+
+        //private void Button_Login_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if( UserName.Text == "admin" && UserPass.Password == "1234")
+        //    {
+        //        MainWindow mainWindow = new MainWindow();
+        //        mainWindow.Show();
+        //        this.Close();
+        //    }
+        //    else
+        //    {
+        //        UserName.Text = "";
+        //        UserPass.Password = "";
+        //        tbLoginResult.Text = "Invalid data, try again";
+        //    }
+        //}
     }
 }

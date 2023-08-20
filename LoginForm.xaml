@@ -1,17 +1,47 @@
 ﻿<Window x:Class="GUI_Database_app.LoginForm" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title=" DB Manager" Height="300" Width="400" WindowStartupLocation="CenterScreen" Background="#272537">
-    <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="197" Margin="82,42,93,30" Width="217">
-            <TextBlock Text="Username:" FontSize="15" Foreground="white" Margin="5"/>
-            <TextBox Name="UserName" VerticalContentAlignment="Center" Margin="10,5" Height="25"/>
-            <TextBlock Text="Password:" FontSize="15" Foreground="white" Margin="5"/>
-            <PasswordBox Name="UserPass" VerticalContentAlignment="Center" Margin="10,5" Height="25"/>
-            <Border BorderBrush="GreenYellow" BorderThickness="1" CornerRadius="8" Background="GreenYellow" Height="46" Margin="10,0">
-                <Button Content="Login" Margin="9,5" Click="Button_Login_Click" Background="GreenYellow" BorderThickness="0" Height="35"/>
-            </Border>
-            <TextBlock Name="tbLoginResult" HorizontalAlignment="Center" TextWrapping="wrap" Text="" FontStyle="Italic" Foreground="red"  VerticalAlignment="Top"  Height="19" Width="202" Margin="10,0,5,0"/>
-        </StackPanel>
-    </Grid>
+        Title=" DB Manager" 
+        Height="500" Width="800" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        MouseDown="Window_MouseDown">
+        
+
+
+    <Border CornerRadius="12">
+        <Border.Background>
+            <ImageBrush ImageSource="/Resources/back-image.jpg"/>
+        </Border.Background>
+
+        <Border CornerRadius="10"
+                BorderThickness="2"
+                Opacity="0.7">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#632D5E" Offset="0"/>
+                    <GradientStop Color="#488CFF" Offset="0.5"/>
+                    <GradientStop Color="#F1C0E8" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#90DBF4" Offset="0"/>
+                    <GradientStop Color="#6E3E89" Offset="0.6"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+
+            <Grid>
+                
+                
+            </Grid>
+
+        </Border>
+        
+    </Border>
+    
 </Window>
