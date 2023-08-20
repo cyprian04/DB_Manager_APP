@@ -18,7 +18,7 @@
 
         <Border CornerRadius="10"
                 BorderThickness="2"
-                Opacity="0.7">
+                Opacity="0.9">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#632D5E" Offset="0"/>
@@ -66,7 +66,29 @@
                             Foreground="White"
                             Cursor="Hand"
                             Click="btn_Minimalize">
-                            
+                        
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18" 
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <!-- Sync and binding background color of the button to the background of the border-->
+                                    <ContentPresenter VerticalAlignment="Center" 
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
                     </Button>
 
                     <Button Grid.Row="0"
@@ -79,9 +101,50 @@
                             Cursor="Hand"
                             Click="btn_Close">
 
-                    </Button>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
 
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18" 
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" 
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                 </Grid>
+
+                <StackPanel Grid.Row="1"
+                            Width="250"
+                            Orientation="Vertical"
+                            Margin="0,40,0,0">
+
+                    <Image Source="/Resources/logo.png"
+                           Width="120"
+                           Height="120"/>
+
+                    <TextBlock Text="Learning  to  code  is  useful  no  matter   what your career ambitions are."
+                               Foreground="DarkGray"
+                               FontSize="12"
+                               FontWeight="DemiBold"
+                               FontFamily="Montserrat"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"
+                               Margin="0,5,0,0"/>
+                    
+                    
+                </StackPanel>
                 
             </Grid>
 
