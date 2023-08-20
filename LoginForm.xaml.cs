@@ -39,6 +39,10 @@ namespace GUI_Database_app
             Application.Current.Shutdown(); 
         }
 
+        private void btn_LogIn(object sender, RoutedEventArgs e)
+        {
+            // coming soon...
+        }
 
 
         //private void Button_Login_Click(object sender, RoutedEventArgs e)
