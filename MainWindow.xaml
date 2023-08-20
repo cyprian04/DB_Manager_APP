@@ -14,11 +14,37 @@
         WindowStyle="None"
         MouseDown="Window_MouseDown">
 
+    <Window.Resources>
+        <Style x:Key="CustomButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter Opacity="0" Visibility="Hidden"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+           
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/Resources/icon-add.png" />
+                    
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Width" Value="50" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Margin" Value="0,20,0,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <!-- Other common setters -->
+        </Style>
+    </Window.Resources>
+
+
     <Border CornerRadius="12">
 
         <Border CornerRadius="10"
-                BorderThickness="2"
-                Opacity="0.9">
+                BorderThickness="2">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#632D5E" Offset="0"/>
@@ -134,11 +160,38 @@
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    
+
                     <Border Grid.Column="0"
                             CornerRadius="0,0,0,10"
                             BorderThickness="0">
-                    
+                        
+                        <StackPanel>
+                            
+                        <Button Style="{StaticResource CustomButtonStyle}">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/icon-home.png"/>
+                            </Button.Background>
+                        </Button>
+
+                        <Button Style="{StaticResource CustomButtonStyle}">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/icons-view.png"/>
+                            </Button.Background>
+                        </Button>
+
+                        <Button Style="{StaticResource CustomButtonStyle}">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/icon-add.png"/>
+                            </Button.Background>
+                        </Button>
+
+                        <Button Style="{StaticResource CustomButtonStyle}">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/icons-gear.png"/>
+                            </Button.Background>
+                        </Button>
+
+                        </StackPanel>
                         
                     </Border>
 

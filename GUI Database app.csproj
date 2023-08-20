@@ -180,6 +180,10 @@
   <ItemGroup>
     <Content Include="Resources\back-video.mp4" />
     <Content Include="Resources\back-video.wmv" />
+    <Resource Include="Resources\icons-view.png" />
+    <Resource Include="Resources\icons-gear.png" />
+    <Resource Include="Resources\icon-home.png" />
+    <Resource Include="Resources\icon-add.png" />
     <Resource Include="Resources\user-icon.png" />
     <Resource Include="Resources\key-icon.png" />
     <Resource Include="Resources\logo.png" />
