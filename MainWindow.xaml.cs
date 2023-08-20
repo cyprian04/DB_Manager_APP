@@ -38,6 +38,16 @@ namespace GUI_Database_app
             DragMove();
         }
 
+        private void btn_Minimalize(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void btn_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
         //private async void btnToggle_Run_Click(object sender, RoutedEventArgs e)
         //{
         //     await StartLoadingAnimation(); // try catch finally wykona się po zakończeniu animacji w funkcji 
