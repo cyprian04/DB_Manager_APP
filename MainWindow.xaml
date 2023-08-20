@@ -9,6 +9,8 @@
         Height="600" 
         Width="800" 
         Background="#272537" 
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown">
+        
 
 </Window>

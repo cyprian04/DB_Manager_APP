@@ -33,6 +33,11 @@ namespace GUI_Database_app
             InitializeComponent();
         }
 
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
         //private async void btnToggle_Run_Click(object sender, RoutedEventArgs e)
         //{
         //     await StartLoadingAnimation(); // try catch finally wykona się po zakończeniu animacji w funkcji 
