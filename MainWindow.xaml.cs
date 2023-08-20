@@ -48,6 +48,27 @@ namespace GUI_Database_app
             Application.Current.Shutdown();
         }
 
+        private void btn_home(object sender, RoutedEventArgs e)
+        {
+            MainContentColum.Text = "home";
+        }
+
+        private void btn_view(object sender, RoutedEventArgs e)
+        {
+            MainContentColum.Text = "view";
+        }
+
+        private void btn_add(object sender, RoutedEventArgs e)
+        {
+            MainContentColum.Text = "adding data";
+        }
+
+        private void btn_settings(object sender, RoutedEventArgs e)
+        {
+            MainContentColum.Text = "setting";
+        }
+
+
         //private async void btnToggle_Run_Click(object sender, RoutedEventArgs e)
         //{
         //     await StartLoadingAnimation(); // try catch finally wykona się po zakończeniu animacji w funkcji 

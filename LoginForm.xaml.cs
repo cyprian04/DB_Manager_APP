@@ -26,7 +26,7 @@ namespace GUI_Database_app
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            if(e.LeftButton == MouseButtonState.Pressed) DragMove();
         }
 
         private void btn_Minimalize(object sender, RoutedEventArgs e)

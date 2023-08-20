@@ -28,7 +28,7 @@
            
             <Setter Property="Background">
                 <Setter.Value>
-                    <ImageBrush ImageSource="/Resources/icon-add.png" />
+                    <ImageBrush ImageSource="/Resources/icon-add.png"/>
                     
                 </Setter.Value>
             </Setter>
@@ -81,7 +81,7 @@
                                Foreground="AliceBlue"
                                FontFamily="Montserrat"
                                VerticalAlignment="Center"
-                               Margin="10,0,0,0"/>
+                               Margin="5,0,0,0"/>
 
                     <Button Grid.Row="0"
                             Grid.Column="1"
@@ -164,51 +164,54 @@
                     <Border Grid.Column="0"
                             CornerRadius="0,0,0,10"
                             BorderThickness="0">
-                        
+
                         <StackPanel>
-                            
-                        <Button Style="{StaticResource CustomButtonStyle}">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/Resources/icon-home.png"/>
-                            </Button.Background>
-                        </Button>
 
-                        <Button Style="{StaticResource CustomButtonStyle}">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/Resources/icons-view.png"/>
-                            </Button.Background>
-                        </Button>
+                            <Button Style="{StaticResource CustomButtonStyle}"
+                                    Click="btn_home">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Resources/icon-home.png"/>
+                                </Button.Background>
+                            </Button>
 
-                        <Button Style="{StaticResource CustomButtonStyle}">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/Resources/icon-add.png"/>
-                            </Button.Background>
-                        </Button>
+                            <Button Style="{StaticResource CustomButtonStyle}"
+                                    Click="btn_view">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Resources/icons-view.png"/>
+                                </Button.Background>
+                            </Button>
 
-                        <Button Style="{StaticResource CustomButtonStyle}">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/Resources/icons-gear.png"/>
-                            </Button.Background>
-                        </Button>
+                            <Button Style="{StaticResource CustomButtonStyle}"
+                                    Click="btn_add">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Resources/icon-add.png"/>
+                                </Button.Background>
+                            </Button>
+
+                            <Button Style="{StaticResource CustomButtonStyle}"
+                                    Click="btn_settings">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Resources/icons-gear.png"/>
+                                </Button.Background>
+                            </Button>
 
                         </StackPanel>
-                        
+
                     </Border>
 
                     <Border Grid.Column="1"
                             CornerRadius="10,0,10,0"
-                            BorderThickness="0">
+                            BorderThickness="0"
+                            Background="#333">
 
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                <GradientStop Color="Black" Offset="0"/>
-                                <GradientStop Color="#333" Offset="0.7"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
+                        <TextBlock x:Name="MainContentColum" 
+                                   Text="home" 
+                                   FontSize="20"
+                                   Padding="5,0,0,0"/>
+                        
                     </Border>
 
                 </Grid>
-                 
 
             </Grid>
 
