@@ -68,7 +68,19 @@
                             Click="btn_Minimalize">
                             
                     </Button>
-                    
+
+                    <Button Grid.Row="0"
+                            Grid.Column="2"
+                            BorderThickness="0"
+                            FontSize="16"
+                            Content="x"
+                            FontFamily="Montserrat"
+                            Foreground="White"
+                            Cursor="Hand"
+                            Click="btn_Close">
+
+                    </Button>
+
                 </Grid>
                 
             </Grid>

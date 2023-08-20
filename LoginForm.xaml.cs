@@ -34,6 +34,12 @@ namespace GUI_Database_app
            WindowState = WindowState.Minimized;
         }
 
+        private void btn_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown(); 
+        }
+
+
 
         //private void Button_Login_Click(object sender, RoutedEventArgs e)
         //{
