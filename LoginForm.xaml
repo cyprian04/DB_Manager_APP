@@ -103,10 +103,10 @@
 
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#28AEED"/>
+                                <Setter Property="Background" Value="#b33b72"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#278BEF"/>
+                                        <Setter Property="Background" Value="#8e3563"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -135,15 +135,37 @@
                            Height="120"/>
 
                     <TextBlock Text="Learning  to  code  is  useful  no  matter   what your career ambitions are."
-                               Foreground="DarkGray"
+                               Foreground="AliceBlue"
                                FontSize="12"
                                FontWeight="DemiBold"
                                FontFamily="Montserrat"
                                TextWrapping="Wrap"
                                TextAlignment="Center"
                                Margin="0,5,0,0"/>
-                    
-                    
+
+                    <TextBlock Text="Username"
+                               Foreground="AliceBlue"
+                               FontSize="12"
+                               FontWeight="DemiBold"
+                               FontFamily="Montserrat"
+                               TextWrapping="Wrap"
+                               Margin="0,35,0,0"
+                               />
+                    <TextBox x:Name="txtUser"
+                             Background="Transparent"
+                             BorderThickness="0,0,0,1"/>
+
+                    <TextBlock Text="Password"
+                               Foreground="AliceBlue"
+                               FontSize="12"
+                               FontWeight="DemiBold"
+                               FontFamily="Montserrat"
+                               TextWrapping="Wrap"
+                               Margin="0,35,0,0"
+                               />
+                    <TextBox x:Name="txtPassword"
+                             Background="Transparent"
+                             BorderThickness="0,0,0,1"/>
                 </StackPanel>
                 
             </Grid>

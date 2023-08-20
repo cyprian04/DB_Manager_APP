@@ -180,6 +180,8 @@
   <ItemGroup>
     <Content Include="Resources\back-video.mp4" />
     <Content Include="Resources\back-video.wmv" />
+    <Resource Include="Resources\user-icon.png" />
+    <Resource Include="Resources\key-icon.png" />
     <Resource Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
