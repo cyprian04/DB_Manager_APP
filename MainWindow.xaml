@@ -150,9 +150,8 @@
                         </Button.Template>
                     </Button>
 
-                    
 
-                    
+
                 </Grid>
 
                 <Grid Grid.Row="1">
@@ -204,10 +203,7 @@
                             BorderThickness="0"
                             Background="#333">
 
-                        <TextBlock x:Name="MainContentColum" 
-                                   Text="home" 
-                                   FontSize="20"
-                                   Padding="5,0,0,0"/>
+                        <ContentControl x:Name="ContentArea" Grid.Column="1" />
                         
                     </Border>
 

@@ -50,22 +50,22 @@ namespace GUI_Database_app
 
         private void btn_home(object sender, RoutedEventArgs e)
         {
-            MainContentColum.Text = "home";
+            ContentArea.Content = new CustomControls.HomeControl();
         }
 
         private void btn_view(object sender, RoutedEventArgs e)
         {
-            MainContentColum.Text = "view";
+            ContentArea.Content = new CustomControls.ViewControl();
         }
 
         private void btn_add(object sender, RoutedEventArgs e)
         {
-            MainContentColum.Text = "adding data";
+            //MainContentColum.Text = "adding data";
         }
 
         private void btn_settings(object sender, RoutedEventArgs e)
         {
-            MainContentColum.Text = "setting";
+            //MainContentColum.Text = "setting";
         }
 
 
