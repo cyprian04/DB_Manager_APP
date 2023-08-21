@@ -22,6 +22,7 @@ namespace GUI_Database_app
         public LoginForm()
         {
             InitializeComponent();
+            HomeMediaVideo.Play();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -45,12 +46,22 @@ namespace GUI_Database_app
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
+                HomeMediaVideo.Stop();
                 this.Close();
             }
             else
             {
                 txtUser.Text = "";
                 txtPassword.Password = "";
+            }
+        }
+
+        private void HomeMediaVideo_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            if (HomeMediaVideo.Source != null)
+            {
+                HomeMediaVideo.Position = TimeSpan.Zero; // Reset the position to the beginning
+                HomeMediaVideo.Play(); // Start playing again
             }
         }
     }

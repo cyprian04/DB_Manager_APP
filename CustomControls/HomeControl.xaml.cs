@@ -23,6 +23,17 @@ namespace GUI_Database_app.CustomControls
         public HomeControl()
         {
             InitializeComponent();
+            HomeMediaVideo.Play();
+        }
+
+        private void HomeMediaVideo_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            if (HomeMediaVideo.Source != null)
+            {
+                HomeMediaVideo.Position = TimeSpan.Zero; // Reset the position to the beginning
+                HomeMediaVideo.Play(); // Start playing again
+            }
         }
     }
 }
+

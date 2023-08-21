@@ -69,7 +69,7 @@ namespace GUI_Database_app
             IsCurrentContentAreaSame(new CustomControls.ViewControl());
         }
 
-        private void btn_add(object sender, RoutedEventArgs e)
+        private void btn_Sql(object sender, RoutedEventArgs e)
         {
             IsCurrentContentAreaSame(new CustomControls.SqlCommandControl());
         }
@@ -78,7 +78,6 @@ namespace GUI_Database_app
         {
             IsCurrentContentAreaSame(new CustomControls.DbSettingsControl());
         }
-
 
         //private async void btnToggle_Run_Click(object sender, RoutedEventArgs e)
         //{

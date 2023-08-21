@@ -13,7 +13,14 @@
 
     <Border CornerRadius="12">
         <Border.Background>
-            <ImageBrush ImageSource="/Resources/back-image.jpg"/>
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <MediaElement x:Name="HomeMediaVideo" 
+                                      Source="C:\Users\Cypu\source\repos\GUI Database app\Resources\home-video.mp4"
+                                      LoadedBehavior="Manual" 
+                                      MediaEnded="HomeMediaVideo_MediaEnded"/>
+                </VisualBrush.Visual>
+            </VisualBrush>
         </Border.Background>
 
         <Border CornerRadius="10"
