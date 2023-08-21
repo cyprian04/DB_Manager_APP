@@ -41,7 +41,7 @@ namespace GUI_Database_app
             {
                 ContentArea.Content = null;
                 ContentArea.Content = control;
-            }   
+            }
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -71,12 +71,12 @@ namespace GUI_Database_app
 
         private void btn_add(object sender, RoutedEventArgs e)
         {
-            //MainContentColum.Text = "adding data";
+            IsCurrentContentAreaSame(new CustomControls.SqlCommandControl());
         }
 
         private void btn_settings(object sender, RoutedEventArgs e)
         {
-            //MainContentColum.Text = "setting";
+            IsCurrentContentAreaSame(new CustomControls.DbSettingsControl());
         }
 
 

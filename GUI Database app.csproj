@@ -126,7 +126,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CustomControls\DbSettingsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomControls\HomeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\SqlCommandControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,8 +154,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CustomControls\DbSettingsControl.xaml.cs">
+      <DependentUpon>DbSettingsControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\SqlCommandControl.xaml.cs">
+      <DependentUpon>SqlCommandControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\ViewControl.xaml.cs">
       <DependentUpon>ViewControl.xaml</DependentUpon>
