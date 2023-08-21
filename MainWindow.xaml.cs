@@ -31,6 +31,7 @@ namespace GUI_Database_app
         public MainWindow()
         {
             InitializeComponent();
+            ContentArea.Content = new CustomControls.HomeControl();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -50,11 +51,13 @@ namespace GUI_Database_app
 
         private void btn_home(object sender, RoutedEventArgs e)
         {
+            ContentArea.Content = null;
             ContentArea.Content = new CustomControls.HomeControl();
         }
 
         private void btn_view(object sender, RoutedEventArgs e)
         {
+            ContentArea.Content = null;
             ContentArea.Content = new CustomControls.ViewControl();
         }
 

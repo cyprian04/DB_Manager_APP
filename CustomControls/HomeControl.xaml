@@ -9,13 +9,17 @@
 
 
     <Border CornerRadius="10,0,10,0"
-          BorderThickness="5"
+          BorderThickness="5,5,0,0"
           Background="#333">
 
-        <Grid Background="Aquamarine">
-            <TextBlock Text="This is custom Home Control"
-                       FontSize="20"/>
+        <Grid>
+            <Border CornerRadius="9,0,9,0"
+                    Background="Aquamarine">
+
+                <TextBlock Text="This is custom Home Control"
+                   FontSize="20"/>
+
+            </Border>
         </Grid>
-    
     </Border>
 </UserControl>
