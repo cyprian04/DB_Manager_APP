@@ -28,10 +28,21 @@ namespace GUI_Database_app
         Data.Connection conn = new Data.Connection();
         MySqlCommand query = new MySqlCommand();
 
+
         public MainWindow()
         {
             InitializeComponent();
             ContentArea.Content = new CustomControls.HomeControl();
+        }
+
+        private void IsCurrentContentArea(UserControl control)
+        {
+            if (ContentArea.Content is CustomControls.HomeControl) {/* Do nothing */ }
+            else
+            {
+                ContentArea.Content = null;
+                ContentArea.Content = control;
+            }     
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -51,14 +62,12 @@ namespace GUI_Database_app
 
         private void btn_home(object sender, RoutedEventArgs e)
         {
-            ContentArea.Content = null;
-            ContentArea.Content = new CustomControls.HomeControl();
+            IsCurrentContentArea(new CustomControls.HomeControl());
         }
 
         private void btn_view(object sender, RoutedEventArgs e)
         {
-            ContentArea.Content = null;
-            ContentArea.Content = new CustomControls.ViewControl();
+            IsCurrentContentArea(new CustomControls.ViewControl());
         }
 
         private void btn_add(object sender, RoutedEventArgs e)
@@ -74,7 +83,6 @@ namespace GUI_Database_app
 
         //private async void btnToggle_Run_Click(object sender, RoutedEventArgs e)
         //{
-        //     await StartLoadingAnimation(); // try catch finally wykona się po zakończeniu animacji w funkcji 
         //
         //    try
         //    {
@@ -99,15 +107,5 @@ namespace GUI_Database_app
         //    }
         //}
 
-        //private async Task StartLoadingAnimation() // stworzenie pure async function 
-        //{
-        //    loadProgressBar.Visibility = Visibility.Visible; // Pokaż pasek postępu
-        //    loadProgressBar.Value = 0; // Zresetuj wartość paska postępu
-        //
-        //    DoubleAnimation animation = new DoubleAnimation{From = 0, To = 100, Duration = TimeSpan.FromSeconds(1)};
-        //
-        //    loadProgressBar.BeginAnimation(ProgressBar.ValueProperty, animation);
-        //    await Task.Delay(TimeSpan.FromSeconds(1));
-        //}
     }
 }

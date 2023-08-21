@@ -15,9 +15,14 @@
         <Grid>
             <Border CornerRadius="9,0,9,0"
                     Background="Aquamarine">
+                <Grid>
 
-                <TextBlock Text="This is custom Home Control"
-                   FontSize="20"/>
+                    <TextBlock Text="This is custom Home Control"
+                               FontSize="20"/>
+                    <TextBox Height="20"
+                             Width="100"
+                             />
+                </Grid>
 
             </Border>
         </Grid>

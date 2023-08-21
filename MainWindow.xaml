@@ -81,6 +81,7 @@
                                Foreground="AliceBlue"
                                FontFamily="Montserrat"
                                VerticalAlignment="Center"
+                               Padding="4,0,0,0"
                                Margin="5,0,0,0"/>
 
                     <Button Grid.Row="0"
