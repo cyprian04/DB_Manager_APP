@@ -35,14 +35,13 @@ namespace GUI_Database_app
             ContentArea.Content = new CustomControls.HomeControl();
         }
 
-        private void IsCurrentContentArea(UserControl control)
+        private void IsCurrentContentAreaSame(UserControl control) 
         {
-            if (ContentArea.Content is CustomControls.HomeControl) {/* Do nothing */ }
-            else
+            if (ContentArea.Content.GetType() != control.GetType())
             {
                 ContentArea.Content = null;
                 ContentArea.Content = control;
-            }     
+            }   
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -62,12 +61,12 @@ namespace GUI_Database_app
 
         private void btn_home(object sender, RoutedEventArgs e)
         {
-            IsCurrentContentArea(new CustomControls.HomeControl());
+            IsCurrentContentAreaSame(new CustomControls.HomeControl());
         }
 
         private void btn_view(object sender, RoutedEventArgs e)
         {
-            IsCurrentContentArea(new CustomControls.ViewControl());
+            IsCurrentContentAreaSame(new CustomControls.ViewControl());
         }
 
         private void btn_add(object sender, RoutedEventArgs e)
