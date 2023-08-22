@@ -65,8 +65,7 @@
                     <Image Source="/Resources/logo.png"
                            Width="100"
                            Height="100"
-                           HorizontalAlignment="Center"
-                           Margin="0,0,15,0"/>
+                           HorizontalAlignment="Center"/>
 
                     <TextBlock Text="With it, you have the power to seamlessly connect to your XAMPP database and take control of your data just like you would with phpMyAdmin. Our user-friendly interface make database management a breeze."
                                FontSize="16"
@@ -77,6 +76,13 @@
                                Margin="10,20,10,0"
                                TextWrapping="Wrap"
                                FontWeight="DemiBold"/>
+
+                    <TextBlock Text="Features"
+                               Margin="0,10,0,0"
+                               HorizontalAlignment="Center"
+                               Foreground="Aquamarine"
+                               FontWeight="DemiBold"
+                               FontSize="15"/>
 
                     <TextBlock Text="Database Connection: Connect effortlessly to your XAMPP database using the provided credentials."
                                Style="{StaticResource FeatureTextStyle}"/>
@@ -131,20 +137,53 @@
                     Opacity="0.75" 
                     Grid.Column="1"
                     Margin="20,20,20,20"
-                    Visibility="Hidden">
+                    Visibility="Visible">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                        <GradientStop Color="#FFE3F2FD" Offset="0"/>
+                        <GradientStop Color="#A89CAC" Offset="0"/>
                         <GradientStop Color="#ff8164" Offset="0.7"/>
                     </LinearGradientBrush>
                 </Border.Background>
 
 
-                <TextBlock Text="Info"
-                           FontSize="30"
-                           Foreground="Aqua"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
+                    <Grid Grid.Row="0">
+
+                        <TextBlock Text="Introduction"
+                                   FontSize="17"
+                                   Foreground="Aquamarine"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top"
+                                   FontFamily="Montserrat"
+                                   FontWeight="DemiBold"
+                                   Margin="0,20,0,15"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            
+                        
+                        <Image Source="/Resources/icon-home.png"
+                               Width="30"
+                               Height="30"/>
+                        </StackPanel>
+                    </Grid>
+                    
+                    
+                </Grid>
+                    
             </Border>
+
         </Grid>
 
     </Border>
