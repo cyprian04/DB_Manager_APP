@@ -15,10 +15,10 @@
         <Border.Background>
             <VisualBrush>
                 <VisualBrush.Visual>
-                    <MediaElement x:Name="HomeMediaVideo" 
-                                      Source="C:\Users\Cypu\source\repos\GUI Database app\Resources\home-video.mp4"
+                    <MediaElement x:Name="LoginMediaVideo" 
+                                      Source="C:\Users\Cypu\source\repos\GUI Database app\Resources\login-video.mp4"
                                       LoadedBehavior="Manual" 
-                                      MediaEnded="HomeMediaVideo_MediaEnded"/>
+                                      MediaEnded="LoginMediaVideo_MediaEnded"/>
                 </VisualBrush.Visual>
             </VisualBrush>
         </Border.Background>
