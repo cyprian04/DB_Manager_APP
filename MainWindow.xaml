@@ -26,17 +26,11 @@
                 </Setter.Value>
             </Setter>
             
-            <Setter Property="Background">
-                <Setter.Value>
-                    <ImageBrush ImageSource="/Resources/icon-add.png"/>
-                    
-                </Setter.Value>
-            </Setter>
             <Setter Property="Width" Value="50" />
             <Setter Property="Height" Value="50" />
             <Setter Property="Margin" Value="0,20,0,0"/>
             <Setter Property="Cursor" Value="Hand"/>
-            <!-- Other common setters -->
+
         </Style>
     </Window.Resources>
 
