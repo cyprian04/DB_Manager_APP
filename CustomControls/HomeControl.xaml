@@ -28,6 +28,7 @@
             <Setter Property="Margin" Value="30,30,30,0"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="AliceBlue"/>
         </Style>
     </UserControl.Resources>
 

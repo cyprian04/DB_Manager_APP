@@ -79,6 +79,13 @@ namespace GUI_Database_app
             IsCurrentContentAreaSame(new CustomControls.DbSettingsControl());
         }
 
+        private void btn_LogOut(object sender, RoutedEventArgs e)
+        {
+            LoginForm LoginWindow = new LoginForm();
+            LoginWindow.Show();
+            this.Close();
+        }
+
         //private async void btnToggle_Run_Click(object sender, RoutedEventArgs e)
         //{
         //
