@@ -25,7 +25,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-           
+            
             <Setter Property="Background">
                 <Setter.Value>
                     <ImageBrush ImageSource="/Resources/icon-add.png"/>

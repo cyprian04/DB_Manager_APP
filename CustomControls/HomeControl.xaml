@@ -8,10 +8,10 @@
              d:DesignHeight="700" d:DesignWidth="1000">
 
 
-    <Grid>
-        <Border CornerRadius="10,0,10,0"
+    
+    <Border CornerRadius="10,0,10,0"
                 BorderThickness="5,5,0,0">
-
+            
             <Border.Background>
                 <VisualBrush>
                     <VisualBrush.Visual>
@@ -22,23 +22,71 @@
                     </VisualBrush.Visual>
                 </VisualBrush>
             </Border.Background>
-            
-            <Grid>
-                <Border CornerRadius="9,0,9,0">
-                    <Border.Background>
-                        <LinearGradientBrush>
-                            <GradientStop/>
-                        </LinearGradientBrush>
-                    </Border.Background>
-                    
-                    <Grid>
-                       
-                        <!-- Your content here -->
-                        
 
-                    </Grid>
-                </Border>
-            </Grid>
-        </Border>
-    </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border CornerRadius="9,9,9,9"
+                    Opacity="0.75" 
+                    Grid.Column="0"
+                    Margin="20,20,20,20">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                        <GradientStop Color="#A89CAC" Offset="0"/>
+                        <GradientStop Color="#474973" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel>
+                    <TextBlock Text="Welcome to Control - Your Database Management app"
+                               FontSize="17"
+                               Foreground="Aquamarine"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontFamily="Montserrat"
+                               Margin="0,20,0,15"/>
+
+                    <Image Source="/Resources/logo.png"
+                           Width="100"
+                           Height="100"
+                           HorizontalAlignment="Left"
+                           Margin="20,0,0,0"/>
+
+                    <TextBlock Text="With [Your App Name], you have the power to seamlessly connect to your XAMPP database and take control of your data just like you would with phpMyAdmin. Our user-friendly interface and feature-rich tools make database management a breeze."
+                               FontSize="15"
+                               Foreground="AliceBlue"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontFamily="Montserrat"
+                               Margin="10,20,10,0"
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+
+            </Border>
+
+            <Border CornerRadius="9,9,9,9"
+                    Opacity="0.75" 
+                    Grid.Column="1"
+                    Margin="20,20,20,20"
+                    Visibility="Visible">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                        <GradientStop Color="#FFE3F2FD" Offset="0"/>
+                        <GradientStop Color="#ff8164" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+
+                <TextBlock Text="Info"
+                           FontSize="30"
+                           Foreground="Aqua"/>
+
+            </Border>
+        </Grid>
+            
+    </Border>
+    
 </UserControl>
