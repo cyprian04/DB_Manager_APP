@@ -6,22 +6,34 @@
              xmlns:local="clr-namespace:GUI_Database_app.CustomControls"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <Style x:Key="FeatureTextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="AliceBlue"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="FontFamily" Value="Montserrat"/>
+            <Setter Property="Margin" Value="50,20,50,0"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Width" Value="355"/>
+            <!-- Add more common setters, triggers, or event handlers as needed -->
+        </Style>
+    </UserControl.Resources>
 
 
-    
     <Border CornerRadius="10,0,10,0"
                 BorderThickness="5,5,0,0">
-            
-            <Border.Background>
-                <VisualBrush>
-                    <VisualBrush.Visual>
-                        <MediaElement x:Name="HomeMediaVideo" 
+
+        <Border.Background>
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <MediaElement x:Name="HomeMediaVideo" 
                                       Source="C:\Users\Cypu\source\repos\GUI Database app\Resources\home-video.mp4"
                                       LoadedBehavior="Manual" 
                                       MediaEnded="HomeMediaVideo_MediaEnded"/>
-                    </VisualBrush.Visual>
-                </VisualBrush>
-            </Border.Background>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Border.Background>
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -47,31 +59,79 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontFamily="Montserrat"
+                               FontWeight="DemiBold"
                                Margin="0,20,0,15"/>
 
                     <Image Source="/Resources/logo.png"
                            Width="100"
                            Height="100"
-                           HorizontalAlignment="Left"
-                           Margin="20,0,0,0"/>
+                           HorizontalAlignment="Center"
+                           Margin="0,0,15,0"/>
 
-                    <TextBlock Text="With [Your App Name], you have the power to seamlessly connect to your XAMPP database and take control of your data just like you would with phpMyAdmin. Our user-friendly interface and feature-rich tools make database management a breeze."
-                               FontSize="15"
+                    <TextBlock Text="With it, you have the power to seamlessly connect to your XAMPP database and take control of your data just like you would with phpMyAdmin. Our user-friendly interface make database management a breeze."
+                               FontSize="16"
                                Foreground="AliceBlue"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontFamily="Montserrat"
                                Margin="10,20,10,0"
-                               TextWrapping="Wrap"/>
+                               TextWrapping="Wrap"
+                               FontWeight="DemiBold"/>
+
+                    <TextBlock Text="Database Connection: Connect effortlessly to your XAMPP database using the provided credentials."
+                               Style="{StaticResource FeatureTextStyle}"/>
+
+                    <TextBlock Text="Table Management: View all your database tables in an organized manner. Add, edit, or delete records with ease"
+                               Style="{StaticResource FeatureTextStyle}"/>
+
+                    <TextBlock Text="SQL Query: Write and execute SQL queries directly within the app. Get real-time results and insights into your data."
+                               Style="{StaticResource FeatureTextStyle}"/>
+
+                    <TextBlock Text="Database Connection: Connect effortlessly to your XAMPP database using the provided credentials. Your data's security is our priority."
+                               Style="{StaticResource FeatureTextStyle}"/>
+
+
+                    <Button BorderThickness="0"
+                            FontSize="16"
+                            Content="Get Started"
+                            FontFamily="Montserrat"
+                            Foreground="White"
+                            Cursor="Hand"
+                            Margin="0,30,0,0"
+                            Click="btn_GetStarted">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Aquamarine"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="100" Height="40" 
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" 
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                 </StackPanel>
 
             </Border>
 
-            <Border CornerRadius="9,9,9,9"
+            <Border x:Name="InfoContentBorder" 
+                    CornerRadius="9,9,9,9"
                     Opacity="0.75" 
                     Grid.Column="1"
                     Margin="20,20,20,20"
-                    Visibility="Visible">
+                    Visibility="Hidden">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                         <GradientStop Color="#FFE3F2FD" Offset="0"/>
@@ -86,7 +146,7 @@
 
             </Border>
         </Grid>
-            
+
     </Border>
-    
+
 </UserControl>

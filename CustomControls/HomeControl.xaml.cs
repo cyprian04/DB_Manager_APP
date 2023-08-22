@@ -34,6 +34,11 @@ namespace GUI_Database_app.CustomControls
                 HomeMediaVideo.Play(); // Start playing again
             }
         }
+
+        private void btn_GetStarted(object sender, RoutedEventArgs e)
+        {
+            InfoContentBorder.Visibility = Visibility.Visible;
+        }
     }
 }
 
