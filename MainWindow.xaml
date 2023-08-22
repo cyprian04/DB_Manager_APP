@@ -177,7 +177,7 @@
                             <Button Style="{StaticResource CustomButtonStyle}"
                                     Click="btn_view">
                                 <Button.Background>
-                                    <ImageBrush ImageSource="/Resources/icons-view.png"/>
+                                    <ImageBrush ImageSource="/Resources/icon-view.png"/>
                                 </Button.Background>
                             </Button>
 
@@ -191,7 +191,7 @@
                             <Button Style="{StaticResource CustomButtonStyle}"
                                     Click="btn_settings">
                                 <Button.Background>
-                                    <ImageBrush ImageSource="/Resources/icons-gear.png"/>
+                                    <ImageBrush ImageSource="/Resources/icon-gear.png"/>
                                 </Button.Background>
                             </Button>
 

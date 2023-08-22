@@ -206,8 +206,8 @@
     <Resource Include="Resources\back-image.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\icons-view.png" />
-    <Resource Include="Resources\icons-gear.png" />
+    <Resource Include="Resources\icon-view.png" />
+    <Resource Include="Resources\icon-gear.png" />
     <Resource Include="Resources\icon-home.png" />
     <Resource Include="Resources\icon-add.png" />
     <Resource Include="Resources\user-icon.png" />
