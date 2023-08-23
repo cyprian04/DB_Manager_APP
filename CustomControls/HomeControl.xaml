@@ -79,7 +79,7 @@
                            Height="100"
                            HorizontalAlignment="Center"/>
 
-                    <TextBlock Text="With it, you have the power to seamlessly connect to your XAMPP database and take control of your data just like you would with phpMyAdmin. Our user-friendly interface make database management a breeze."
+                    <TextBlock Text="With it you have the power to seamlessly connect to your XAMPP database and take control of your data just like you would with phpMyAdmin. Our user-friendly interface make database management a breeze."
                                FontSize="16"
                                Foreground="AliceBlue"
                                HorizontalAlignment="Center"
