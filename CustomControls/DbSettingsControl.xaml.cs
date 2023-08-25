@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace GUI_Database_app.CustomControls
 {
@@ -23,6 +24,11 @@ namespace GUI_Database_app.CustomControls
         public DbSettingsControl()
         {
             InitializeComponent();
+        }
+
+        private void btn_Connect(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

@@ -16,7 +16,7 @@
             <VisualBrush>
                 <VisualBrush.Visual>
                     <MediaElement x:Name="LoginMediaVideo" 
-                                  Source="C:\Users\Cypu\source\repos\GUI Database app\Resources\login-video.mp4"
+                                  Source="C:\Users\Cyprian\source\repos\WPF_DB_Manager_APP\Resources\login-video.mp4"
                                   LoadedBehavior="Manual" 
                                   MediaEnded="LoginMediaVideo_MediaEnded"/>
                 </VisualBrush.Visual>
@@ -135,7 +135,7 @@
                 <StackPanel Grid.Row="1"
                             Width="250"
                             Orientation="Vertical"
-                            Margin="0,40,0,0">
+                            Margin="0,5,0,0">
 
                     <Image Source="/Resources/logo.png"
                            Width="120"
@@ -156,7 +156,7 @@
                                FontWeight="DemiBold"
                                FontFamily="Montserrat"
                                TextWrapping="Wrap"
-                               Margin="0,35,0,0"/>
+                               Margin="0,25,0,0"/>
                     
                     <TextBox x:Name="txtUser"
                              BorderThickness="0,0,0,1"
@@ -184,7 +184,7 @@
                                FontWeight="DemiBold"
                                FontFamily="Montserrat"
                                TextWrapping="Wrap"
-                               Margin="0,35,0,0"
+                               Margin="0,25,0,0"
                                />
 
                     <PasswordBox x:Name="txtPassword"
@@ -206,6 +206,34 @@
                         </PasswordBox.Background>
                     </PasswordBox>
 
+                    <TextBlock Text="ServerIp"
+                               Foreground="AliceBlue"
+                               FontSize="12"
+                               FontWeight="DemiBold"
+                               FontFamily="Montserrat"
+                               TextWrapping="Wrap"
+                               Margin="0,25,0,0"/>
+
+                    <TextBox x:Name="txtIp"
+                             BorderThickness="0,0,0,1"
+                             Padding="20,0,0,0"
+                             Margin="5,0,0,0"
+                             Height="28"
+                             FontSize="14"
+                             FontFamily="Montserrat"
+                             Foreground="Aqua"
+                             FontWeight="Medium"
+                             CaretBrush="Aqua"
+                             BorderBrush="DarkGray"
+                             VerticalContentAlignment="Center">
+
+                        <TextBox.Background>
+                            <ImageBrush ImageSource="/Resources/user-icon.png"
+                                        Stretch="None"
+                                        AlignmentX="Left"/>
+                        </TextBox.Background>
+                    </TextBox>
+
                     <Button Grid.Row="1"
                            
                             BorderThickness="0"
@@ -214,7 +242,7 @@
                             FontFamily="Montserrat"
                             Foreground="White"
                             Cursor="Hand"
-                            Margin="0,35,0,0"
+                            Margin="0,25,0,0"
                             Click="btn_LogIn">
 
                         <Button.Style>

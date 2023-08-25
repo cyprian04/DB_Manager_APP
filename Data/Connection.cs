@@ -4,29 +4,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using GUI_Database_app.Properties;
 
 namespace GUI_Database_app.Data
 {
     /// <summary>
     /// Logika połączenia z DB
     /// </summary>
-    class Connection
+    public class Connection
     {
         public static MySqlConnection connection = new MySqlConnection();
-        private static string dbName, user, pass;
-        
-        public void Initialize(string serverIp_in, string dbName_in, string user_in, string pass_in)
+        private static string dbName, username, password, serverIp;
+
+        public static string DbName {get => dbName; set => dbName = value;}
+
+        public static string User {get => username; set => username = value;}
+
+        public static string Password {get => password; set => password = value; }
+
+        public static string ServerIp {get => serverIp; set => serverIp = value;}
+    
+        public void Initialize(string serverIp_in, string user_in, string pass_in)
         {
-            //serverIp = serverIp_in;
-            dbName = dbName_in;
-            user = user_in;
-            pass = pass_in;
+            serverIp = serverIp_in;
+            username = user_in;
+            password = pass_in;
         }
 
-        public static MySqlConnection dataSource() // korzystanie z settn
+        public bool VerifyCredentials()
+        {
+            string connectionString = $"Server={serverIp};Uid={username};Password={password};";
+
+            try
+            {
+                using (var connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    return true;
+                }
+            }
+            catch (MySqlException)
+            {
+                return false;
+            }
+        }
+
+        public static MySqlConnection dataSource()
         {                                               
-            return connection = new MySqlConnection($"server={Properties.Settings.Default.IP}; database={dbName}; Uid={user}; password={pass};");
+            return connection = new MySqlConnection($"server={serverIp}; database={dbName}; Uid={username}; password={password};");
         }
         public void connOpen()
         {

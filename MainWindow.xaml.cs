@@ -13,8 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
-using System.Data.SQLite;
-using MySql.Data.MySqlClient;
 using System.Windows.Media.Animation;
 
 
@@ -25,8 +23,7 @@ namespace GUI_Database_app
     /// </summary>
     public partial class MainWindow : Window
     {
-        Data.Connection conn = new Data.Connection();
-        MySqlCommand query = new MySqlCommand();
+       // MySqlCommand query = new MySqlCommand();
 
 
         public MainWindow()

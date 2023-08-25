@@ -80,6 +80,39 @@
                                          Background="Transparent"
                                          HorizontalAlignment="Left"/>
 
+                            <Button BorderThickness="0"
+                            FontSize="16"
+                            Content="Connect"
+                            FontFamily="Montserrat"
+                            Foreground="White"
+                            Cursor="Hand"
+                            HorizontalAlignment="Left"
+                            Margin="20,30,0,0"
+                            Click="btn_Connect">
+
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#28AEED"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="Aquamarine"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Width="100" Height="40" 
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center" 
+                                                      HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+
                         </StackPanel>
                         
                     </Grid>
