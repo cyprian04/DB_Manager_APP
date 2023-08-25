@@ -13,7 +13,7 @@ namespace GUI_Database_app.Data
     public class Connection
     {
         public static MySqlConnection connection = new MySqlConnection();
-        private static string dbName, username, password, serverIp;
+        private static string dbName, username, password, hostName;
 
         public static string DbName {get => dbName; set => dbName = value;}
 
@@ -21,18 +21,18 @@ namespace GUI_Database_app.Data
 
         public static string Password {get => password; set => password = value; }
 
-        public static string ServerIp {get => serverIp; set => serverIp = value;}
+        public static string ServerIp {get => hostName; set => hostName = value;}
     
         public void Initialize(string serverIp_in, string user_in, string pass_in)
         {
-            serverIp = serverIp_in;
+            hostName = serverIp_in;
             username = user_in;
             password = pass_in;
         }
 
         public bool VerifyCredentials()
         {
-            string connectionString = $"Server={serverIp};Uid={username};Password={password};";
+            string connectionString = $"Server={hostName};Uid={username};Password={password};";
 
             try
             {
@@ -46,11 +46,15 @@ namespace GUI_Database_app.Data
             {
                 return false;
             }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static MySqlConnection dataSource()
         {                                               
-            return connection = new MySqlConnection($"server={serverIp}; database={dbName}; Uid={username}; password={password};");
+            return connection = new MySqlConnection($"server={hostName}; database={dbName}; Uid={username}; password={password};");
         }
         public void connOpen()
         {

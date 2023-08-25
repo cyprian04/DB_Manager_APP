@@ -19,6 +19,8 @@ namespace GUI_Database_app
     /// </summary>
     public partial class LoginForm : Window
     {
+        Data.Connection connection = new Data.Connection();
+
         public LoginForm()
         {
             InitializeComponent();
@@ -42,17 +44,23 @@ namespace GUI_Database_app
 
         private void btn_LogIn(object sender, RoutedEventArgs e)
         {
-            if (txtUser.Text == "admin" && txtPassword.Password == "1234")
+            if(!string.IsNullOrEmpty(txtUser.Text) || !string.IsNullOrEmpty(txtPassword.Password) || !string.IsNullOrEmpty(txtHost.Text))
             {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                LoginMediaVideo.Stop();
-                this.Close();
-            }
-            else
-            {
-                txtUser.Text = "";
-                txtPassword.Password = "";
+                connection.Initialize(txtHost.Text, txtUser.Text, txtPassword.Password);
+
+                if (connection.VerifyCredentials())
+                {
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    LoginMediaVideo.Stop();
+                    this.Close();
+                }
+                else
+                {
+                    txtUser.Text = "";
+                    txtPassword.Password = "";
+                    txtHost.Text = "";
+                }
             }
         }
 

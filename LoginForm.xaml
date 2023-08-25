@@ -206,7 +206,7 @@
                         </PasswordBox.Background>
                     </PasswordBox>
 
-                    <TextBlock Text="ServerIp"
+                    <TextBlock Text="Host"
                                Foreground="AliceBlue"
                                FontSize="12"
                                FontWeight="DemiBold"
@@ -214,7 +214,7 @@
                                TextWrapping="Wrap"
                                Margin="0,25,0,0"/>
 
-                    <TextBox x:Name="txtIp"
+                    <TextBox x:Name="txtHost"
                              BorderThickness="0,0,0,1"
                              Padding="20,0,0,0"
                              Margin="5,0,0,0"
