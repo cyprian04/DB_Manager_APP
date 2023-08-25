@@ -167,6 +167,7 @@
       <DependentUpon>ViewControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\Connection.cs" />
+    <Compile Include="Data\CurrentUser.cs" />
     <Compile Include="LoginForm.xaml.cs">
       <DependentUpon>LoginForm.xaml</DependentUpon>
     </Compile>

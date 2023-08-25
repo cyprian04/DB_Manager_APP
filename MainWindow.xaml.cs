@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data;
 using System.Windows.Media.Animation;
 
 
@@ -23,13 +22,15 @@ namespace GUI_Database_app
     /// </summary>
     public partial class MainWindow : Window
     {
-       // MySqlCommand query = new MySqlCommand();
+        Data.CurrentUser User = null;
 
-
-        public MainWindow()
+        public MainWindow(Data.Connection  CurrentUserConn_in)
         {
             InitializeComponent();
+
+            User = new Data.CurrentUser(CurrentUserConn_in);
             ContentArea.Content = new CustomControls.HomeControl();
+            MessageBox.Show(User.Username);
         }
 
         private void IsCurrentContentAreaSame(UserControl control) 
@@ -82,32 +83,6 @@ namespace GUI_Database_app
             LoginWindow.Show();
             this.Close();
         }
-
-        //private async void btnToggle_Run_Click(object sender, RoutedEventArgs e)
-        //{
-        //
-        //    try
-        //    {
-        //        if(DB_name.Text !="")
-        //        {
-        //            conn.Initialize("127.0.0.1", DB_name.Text, "root", "");
-        //            Data.Connection.dataSource();
-        //            conn.connOpen();
-        //        }
-        //        else
-        //        {
-        //            
-        //        }
-        //    }
-        //    catch (MySqlException ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        conn.connClose();
-        //    }
-        //}
 
     }
 }

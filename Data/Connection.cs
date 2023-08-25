@@ -15,13 +15,13 @@ namespace GUI_Database_app.Data
         public static MySqlConnection connection = new MySqlConnection();
         private static string dbName, username, password, hostName;
 
-        public static string DbName {get => dbName; set => dbName = value;}
+        public string DbName {get => dbName; set => dbName = value;}
+              
+        public string Username {get => username; set => username = value;}
 
-        public static string User {get => username; set => username = value;}
-
-        public static string Password {get => password; set => password = value; }
-
-        public static string ServerIp {get => hostName; set => hostName = value;}
+        public string Password {get => password; set => password = value; }
+              
+        public string ServerIp {get => hostName; set => hostName = value;}
     
         public void Initialize(string serverIp_in, string user_in, string pass_in)
         {
@@ -44,6 +44,10 @@ namespace GUI_Database_app.Data
             }
             catch (MySqlException)
             {
+                username = "";
+                password = "";
+                hostName = "";
+
                 return false;
             }
             finally
@@ -52,14 +56,16 @@ namespace GUI_Database_app.Data
             }
         }
 
-        public static MySqlConnection dataSource()
+        public static MySqlConnection ConnectionWithDb()
         {                                               
             return connection = new MySqlConnection($"server={hostName}; database={dbName}; Uid={username}; password={password};");
         }
+
         public void connOpen()
         {
             connection.Open();
         }
+
         public void connClose()
         {
            connection.Close();

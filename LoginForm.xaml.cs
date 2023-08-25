@@ -50,7 +50,7 @@ namespace GUI_Database_app
 
                 if (connection.VerifyCredentials())
                 {
-                    MainWindow mainWindow = new MainWindow();
+                    MainWindow mainWindow = new MainWindow(connection);
                     mainWindow.Show();
                     LoginMediaVideo.Stop();
                     this.Close();
