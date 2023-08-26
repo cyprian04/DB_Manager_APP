@@ -160,7 +160,7 @@
                     
                     <TextBox x:Name="txtUser"
                              BorderThickness="0,0,0,1"
-                             Padding="20,0,0,0"
+                             Padding="18,0,0,0"
                              Margin="5,0,0,0"
                              Height="28"
                              FontSize="14"
@@ -172,7 +172,7 @@
                              VerticalContentAlignment="Center">
 
                         <TextBox.Background>
-                            <ImageBrush ImageSource="/Resources/user-icon.png"
+                            <ImageBrush ImageSource="/Resources/icon-user.png"
                                         Stretch="None"
                                         AlignmentX="Left"/>
                         </TextBox.Background>
@@ -200,7 +200,7 @@
                              BorderBrush="DarkGray"
                              VerticalContentAlignment="Center">
                         <PasswordBox.Background>
-                            <ImageBrush ImageSource="/Resources/key-icon.png"
+                            <ImageBrush ImageSource="/Resources/icon-password.png"
                                         Stretch="None"
                                         AlignmentX="Left"/>
                         </PasswordBox.Background>
@@ -228,7 +228,7 @@
                              VerticalContentAlignment="Center">
 
                         <TextBox.Background>
-                            <ImageBrush ImageSource="/Resources/user-icon.png"
+                            <ImageBrush ImageSource="/Resources/icon-server.png"
                                         Stretch="None"
                                         AlignmentX="Left"/>
                         </TextBox.Background>

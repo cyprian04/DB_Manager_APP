@@ -211,13 +211,14 @@
     <Resource Include="Resources\icon-gear.png" />
     <Resource Include="Resources\icon-home.png" />
     <Resource Include="Resources\icon-add.png" />
-    <Resource Include="Resources\user-icon.png" />
-    <Resource Include="Resources\key-icon.png" />
     <Resource Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\home-video.mp4" />
     <Resource Include="Resources\icon-logout.png" />
+    <Resource Include="Resources\icon-server.png" />
+    <Resource Include="Resources\icon-password.png" />
+    <Resource Include="Resources\icon-user.png" />
     <Content Include="Resources\login-video.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

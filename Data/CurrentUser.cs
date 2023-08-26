@@ -9,7 +9,7 @@ namespace GUI_Database_app.Data
     class CurrentUser
     {
         private static string dbName, username, password, hostName;
-        private object currentUserConn;
+        Data.Connection currentUserConn = null;
 
         public string DbName { get => dbName; set => dbName = value; }
 
