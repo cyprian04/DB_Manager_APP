@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Windows;
 
 namespace GUI_Database_app.Data
 {
@@ -60,31 +61,43 @@ namespace GUI_Database_app.Data
 
         public void DisplayAvaliableDatabases(System.Windows.Controls.ComboBox databaseComboBox)
         {
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            connection.Open();
+
+            string query = "SHOW DATABASES;";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+
+            using (MySqlDataReader reader = cmd.ExecuteReader())
             {
-                connection.Open();
+                List<string> AvailableDatabases = new List<string>();
 
-                string query = "SHOW DATABASES;";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-
-                using (MySqlDataReader reader = cmd.ExecuteReader())
+                while (reader.Read())
                 {
-                    List<string> AvailableDatabases = new List<string>();
-
-                    while (reader.Read())
-                    {
-                        string databaseName = reader.GetString(0);
-                        AvailableDatabases.Add(databaseName);
-                    }
-
-                    databaseComboBox.ItemsSource = AvailableDatabases;
+                    string databaseName = reader.GetString(0);
+                    AvailableDatabases.Add(databaseName);
                 }
+
+                databaseComboBox.ItemsSource = AvailableDatabases;
             }
+            
         }
 
-        public static MySqlConnection ConnectionWithDb()
-        {                                               
-            return connection = new MySqlConnection($"server={hostName}; database={dbName}; Uid={username}; password={password};");
+        public void ConnectionWithDb(string DbName_in)
+        {
+            DbName = DbName_in;
+            try
+            {
+                connection.ChangeDatabase(DbName);
+                connection.Open();
+                 
+            }
+            catch(MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public void connOpen()
