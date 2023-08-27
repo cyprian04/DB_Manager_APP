@@ -19,17 +19,25 @@ namespace GUI_Database_app.CustomControls
     /// <summary>
     /// Logika interakcji dla klasy DbSettingsControl.xaml
     /// </summary>
+    /// 
     public partial class DbSettingsControl : UserControl
-    {
+    { 
+
         public DbSettingsControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
-            
+            CurrentUserConn_in.DisplayAvaliableDatabases(databaseComboBox);
         }
 
         private void btn_Connect(object sender, RoutedEventArgs e)
         {
            
         }
+
+        //public string SelectedDb()
+        //{
+        //    return CurrentUserConn.DbName.ToString();
+        //}
+
     }
 }

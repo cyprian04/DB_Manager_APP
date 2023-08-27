@@ -40,7 +40,7 @@
                             <TextBlock Text="Database Name"
                                        Style="{StaticResource SettingsTextStyle1}"/>
 
-                            <ComboBox Name="myListBox"/>
+                            <ComboBox Name="databaseComboBox"/>
 
                             <Button BorderThickness="0"
                             FontSize="16"

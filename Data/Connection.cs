@@ -13,6 +13,7 @@ namespace GUI_Database_app.Data
     public class Connection
     {
         public static MySqlConnection connection = new MySqlConnection();
+        string connectionString;
         private static string dbName, username, password, hostName;
 
         public string DbName {get => dbName; set => dbName = value;}
@@ -32,7 +33,7 @@ namespace GUI_Database_app.Data
 
         public bool VerifyCredentials()
         {
-            string connectionString = $"Server={hostName};Uid={username};Password={password};";
+            connectionString = $"Server={hostName};Uid={username};Password={password};";
 
             try
             {
@@ -47,12 +48,37 @@ namespace GUI_Database_app.Data
                 username = "";
                 password = "";
                 hostName = "";
+                connectionString = "";
 
                 return false;
             }
             finally
             {
                 connection.Close();
+            }
+        }
+
+        public void DisplayAvaliableDatabases(System.Windows.Controls.ComboBox databaseComboBox)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SHOW DATABASES;";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    List<string> AvailableDatabases = new List<string>();
+
+                    while (reader.Read())
+                    {
+                        string databaseName = reader.GetString(0);
+                        AvailableDatabases.Add(databaseName);
+                    }
+
+                    databaseComboBox.ItemsSource = AvailableDatabases;
+                }
             }
         }
 

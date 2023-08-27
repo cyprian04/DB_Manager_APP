@@ -34,7 +34,6 @@ namespace GUI_Database_app
             ContentArea.Content = Home;
 
             User = new Data.CurrentUser(CurrentUserConn_in);
-
             View = new CustomControls.ViewControl(CurrentUserConn_in);
             SqlCommand = new CustomControls.SqlCommandControl(CurrentUserConn_in);
             DbSettings = new CustomControls.DbSettingsControl(CurrentUserConn_in);
