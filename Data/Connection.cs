@@ -38,11 +38,10 @@ namespace GUI_Database_app.Data
 
             try
             {
-                using (var connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
-                    return true;
-                }
+                connection = new MySqlConnection(connectionString);
+                connection.Open();
+                return true;
+                
             }
             catch (MySqlException)
             {
