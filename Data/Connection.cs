@@ -60,34 +60,24 @@ namespace GUI_Database_app.Data
 
         public void DisplayAvaliableDatabases(System.Windows.Controls.ComboBox databaseComboBox)
         {
-            connection.Open();
-
-            string query = "SHOW DATABASES;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-
-            using (MySqlDataReader reader = cmd.ExecuteReader())
-            {
-                List<string> AvailableDatabases = new List<string>();
-
-                while (reader.Read())
-                {
-                    string databaseName = reader.GetString(0);
-                    AvailableDatabases.Add(databaseName);
-                }
-
-                databaseComboBox.ItemsSource = AvailableDatabases;
-            }
-            
-        }
-
-        public void ConnectionWithDb(string DbName_in)
-        {
-            DbName = DbName_in;
             try
             {
-                connection.ChangeDatabase(DbName);
                 connection.Open();
-                 
+                string query = "SHOW DATABASES;";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    List<string> AvailableDatabases = new List<string>();
+
+                    while (reader.Read())
+                    {
+                        string databaseName = reader.GetString(0);
+                        AvailableDatabases.Add(databaseName);
+                    }
+
+                    databaseComboBox.ItemsSource = AvailableDatabases;
+                }
             }
             catch(MySqlException ex)
             {
@@ -97,6 +87,30 @@ namespace GUI_Database_app.Data
             {
                 connection.Close();
             }
+        }
+
+        public void ConnectionWithDb(string DbName_in)
+        {
+            if (DbName != DbName_in)
+            {
+                DbName = DbName_in;
+
+                try
+                {
+                    connection.Open();
+                    connection.ChangeDatabase(DbName); // changes db
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            else
+                MessageBox.Show("Select database first!");
         }
 
         public void connOpen()

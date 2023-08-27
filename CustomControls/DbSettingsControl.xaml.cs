@@ -21,17 +21,28 @@ namespace GUI_Database_app.CustomControls
     /// </summary>
     /// 
     public partial class DbSettingsControl : UserControl
-    { 
+    {
+        Data.Connection CurrentUserConn = null;
 
         public DbSettingsControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
-            CurrentUserConn_in.DisplayAvaliableDatabases(databaseComboBox);
+            CurrentUserConn = CurrentUserConn_in;
+            CurrentUserConn.DisplayAvaliableDatabases(databaseComboBox);
         }
 
         private void btn_Connect(object sender, RoutedEventArgs e)
         {
-           
+            if (databaseComboBox.SelectedItem != null)
+            {
+                // Get the selected option
+                CurrentUserConn.ConnectionWithDb((databaseComboBox.SelectedItem).ToString());
+                MessageBox.Show(CurrentUserConn.DbName);
+            }
+            else
+            {
+                MessageBox.Show("Please select database before confirming.");
+            }
         }
 
         //public string SelectedDb()
