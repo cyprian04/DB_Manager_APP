@@ -16,18 +16,6 @@
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="FontWeight" Value="DemiBold"/>
         </Style>
-
-        <Style x:Key="SettingsTextBoxStyle" TargetType="TextBox">
-            <Setter Property="FontSize" Value="15"/>
-            <Setter Property="Foreground" Value="AliceBlue"/>
-            <Setter Property="Width" Value="150"/>
-            <Setter Property="Height" Value="28"/>
-            <Setter Property="FontFamily" Value="Montserrat"/>
-            <Setter Property="BorderThickness" Value="0,0,0,1"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="Margin" Value="0,0,0,20"/>
-        </Style>
     </UserControl.Resources>
 
 
@@ -51,34 +39,8 @@
 
                             <TextBlock Text="Database Name"
                                        Style="{StaticResource SettingsTextStyle1}"/>
-                            
-                            <TextBox x:Name="DbNameBox" 
-                                     Style="{StaticResource SettingsTextBoxStyle}"/>
 
-                            <TextBlock Text="Host Name"
-                                       Style="{StaticResource SettingsTextStyle1}"/>
-
-                            <TextBox x:Name="HostNameBox" 
-                                     Style="{StaticResource SettingsTextBoxStyle}"/>
-
-                            <TextBlock Text="Server Ip"
-                                       Style="{StaticResource SettingsTextStyle1}"/>
-
-                            <TextBox x:Name="ServerIpValueBox" 
-                                     Style="{StaticResource SettingsTextBoxStyle}"/>
-
-                            <TextBlock Text="Host Password"
-                                       Style="{StaticResource SettingsTextStyle1}"/>
-
-                            <PasswordBox x:Name="HostPasswordBox" 
-                                         BorderThickness="0,0,0,1"
-                                         Margin="0,5,0,0"
-                                         Width="150"
-                                         Height="28"
-                                         FontSize="14"
-                                         FontFamily="Montserrat"
-                                         Background="Transparent"
-                                         HorizontalAlignment="Left"/>
+                            <ComboBox Name="myListBox"/>
 
                             <Button BorderThickness="0"
                             FontSize="16"

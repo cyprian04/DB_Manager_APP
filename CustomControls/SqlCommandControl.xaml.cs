@@ -20,7 +20,7 @@ namespace GUI_Database_app.CustomControls
     /// </summary>
     public partial class SqlCommandControl : UserControl
     {
-        public SqlCommandControl()
+        public SqlCommandControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
         }

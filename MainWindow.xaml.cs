@@ -23,22 +23,30 @@ namespace GUI_Database_app
     public partial class MainWindow : Window
     {
         Data.CurrentUser User = null;
+        CustomControls.ViewControl View = null;
+        CustomControls.SqlCommandControl SqlCommand = null;
+        CustomControls.DbSettingsControl DbSettings = null;
+        CustomControls.HomeControl Home = new CustomControls.HomeControl();
 
         public MainWindow(Data.Connection  CurrentUserConn_in)
         {
             InitializeComponent();
+            ContentArea.Content = Home;
 
             User = new Data.CurrentUser(CurrentUserConn_in);
-            ContentArea.Content = new CustomControls.HomeControl();
-            MessageBox.Show(User.Username);
+
+            View = new CustomControls.ViewControl(CurrentUserConn_in);
+            SqlCommand = new CustomControls.SqlCommandControl(CurrentUserConn_in);
+            DbSettings = new CustomControls.DbSettingsControl(CurrentUserConn_in);
+            
         }
 
-        private void IsCurrentContentAreaSame(UserControl control) 
+        private void IsCurrentContentAreaSame(UserControl ChosenControl) 
         {
-            if (ContentArea.Content.GetType() != control.GetType())
+            if (ContentArea.Content.GetType() != ChosenControl.GetType())
             {
                 ContentArea.Content = null;
-                ContentArea.Content = control;
+                ContentArea.Content = ChosenControl;
             }
         }
 
@@ -59,22 +67,22 @@ namespace GUI_Database_app
 
         private void btn_home(object sender, RoutedEventArgs e)
         {
-            IsCurrentContentAreaSame(new CustomControls.HomeControl());
+            IsCurrentContentAreaSame(Home);
         }
 
         private void btn_view(object sender, RoutedEventArgs e)
         {
-            IsCurrentContentAreaSame(new CustomControls.ViewControl());
+            IsCurrentContentAreaSame(View);
         }
 
         private void btn_Sql(object sender, RoutedEventArgs e)
         {
-            IsCurrentContentAreaSame(new CustomControls.SqlCommandControl());
+            IsCurrentContentAreaSame(SqlCommand);
         }
 
         private void btn_settings(object sender, RoutedEventArgs e)
         {
-            IsCurrentContentAreaSame(new CustomControls.DbSettingsControl());
+            IsCurrentContentAreaSame(DbSettings);
         }
 
         private void btn_LogOut(object sender, RoutedEventArgs e)

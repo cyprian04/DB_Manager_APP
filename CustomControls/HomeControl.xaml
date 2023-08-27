@@ -109,14 +109,16 @@
                                Style="{StaticResource FeatureTextStyle}"/>
 
 
-                    <Button BorderThickness="0"
+                    <Button x:Name="GetStaredBorder"
+                            BorderThickness="0"
                             FontSize="16"
                             Content="Get Started"
                             FontFamily="Montserrat"
                             Foreground="White"
                             Cursor="Hand"
                             Margin="0,30,0,0"
-                            Click="btn_GetStarted">
+                            Click="btn_GetStarted"
+                            Visibility="Visible">
 
                         <Button.Style>
                             <Style TargetType="Button">

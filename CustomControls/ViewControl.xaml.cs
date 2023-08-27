@@ -20,7 +20,7 @@ namespace GUI_Database_app.CustomControls
     /// </summary>
     public partial class ViewControl : UserControl
     {
-        public ViewControl()
+        public ViewControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
         }

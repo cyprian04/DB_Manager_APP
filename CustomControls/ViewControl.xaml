@@ -15,9 +15,16 @@
             <Border CornerRadius="9,0,9,0"
                     Background="Purple">
                 
-                <TextBlock Text="This is custom View Control"
-                   FontSize="20"/>
+                <StackPanel Width="500"
+                            Height="600"
+                            HorizontalAlignment="Left">
+                    
                 
+                <DataGrid x:Name="TableData">
+                      
+                    
+                </DataGrid>
+                </StackPanel>
             </Border>
             
         </Grid>

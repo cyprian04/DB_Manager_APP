@@ -38,6 +38,7 @@ namespace GUI_Database_app.CustomControls
         private void btn_GetStarted(object sender, RoutedEventArgs e)
         {
             InfoContentBorder.Visibility = Visibility.Visible;
+            GetStaredBorder.Visibility = Visibility.Hidden;
         }
     }
 }
