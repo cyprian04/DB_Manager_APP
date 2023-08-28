@@ -18,9 +18,9 @@ namespace GUI_Database_app.CustomControls
     /// <summary>
     /// Logika interakcji dla klasy SqlCommandControl.xaml
     /// </summary>
-    public partial class SqlCommandControl : UserControl
+    public partial class MainInteractionControl : UserControl
     {
-        public SqlCommandControl(Data.Connection CurrentUserConn_in)
+        public MainInteractionControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
         }

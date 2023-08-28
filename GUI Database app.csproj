@@ -134,7 +134,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControls\SqlCommandControl.xaml">
+    <Page Include="CustomControls\MainInteractionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,8 +160,8 @@
     <Compile Include="CustomControls\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\SqlCommandControl.xaml.cs">
-      <DependentUpon>SqlCommandControl.xaml</DependentUpon>
+    <Compile Include="CustomControls\MainInteractionControl.xaml.cs">
+      <DependentUpon>MainInteractionControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\ViewControl.xaml.cs">
       <DependentUpon>ViewControl.xaml</DependentUpon>

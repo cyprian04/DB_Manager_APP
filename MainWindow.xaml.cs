@@ -23,7 +23,7 @@ namespace GUI_Database_app
     public partial class MainWindow : Window
     {
         CustomControls.ViewControl View = null;
-        CustomControls.SqlCommandControl SqlCommand = null;
+        CustomControls.MainInteractionControl MainInteraction = null;
         CustomControls.DbSettingsControl DbSettings = null;
         CustomControls.HomeControl Home = new CustomControls.HomeControl();
 
@@ -33,7 +33,7 @@ namespace GUI_Database_app
             ContentArea.Content = Home;
 
             View = new CustomControls.ViewControl(CurrentUserConn_in);
-            SqlCommand = new CustomControls.SqlCommandControl(CurrentUserConn_in);
+            MainInteraction = new CustomControls.MainInteractionControl(CurrentUserConn_in);
             DbSettings = new CustomControls.DbSettingsControl(CurrentUserConn_in);
         }
 
@@ -71,9 +71,9 @@ namespace GUI_Database_app
             IsCurrentContentAreaSame(View);
         }
 
-        private void btn_Sql(object sender, RoutedEventArgs e)
+        private void btn_Main(object sender, RoutedEventArgs e)
         {
-            IsCurrentContentAreaSame(SqlCommand);
+            IsCurrentContentAreaSame(MainInteraction);
         }
 
         private void btn_settings(object sender, RoutedEventArgs e)
