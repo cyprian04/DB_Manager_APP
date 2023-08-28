@@ -28,15 +28,15 @@ namespace GUI_Database_app.CustomControls
         {
             InitializeComponent();
             CurrentUserConn = CurrentUserConn_in;
-            CurrentUserConn.DisplayAvaliableDatabases(databaseComboBox);
+            CurrentUserConn.DisplayAvaliableDatabases(DatabasesListBox);
         }
 
         private void btn_Connect(object sender, RoutedEventArgs e)
         {
-            if (databaseComboBox.SelectedItem != null)
+            if (DatabasesListBox.SelectedItem != null)
             {
                 // Get the selected option
-                CurrentUserConn.ConnectionWithDb((databaseComboBox.SelectedItem).ToString());
+                CurrentUserConn.ConnectionWithDb((DatabasesListBox.SelectedItem).ToString());
                 MessageBox.Show(CurrentUserConn.DbName);
             }
             else           

@@ -58,7 +58,7 @@ namespace GUI_Database_app.Data
             }
         }
 
-        public void DisplayAvaliableDatabases(System.Windows.Controls.ComboBox databaseComboBox)
+        public void DisplayAvaliableDatabases(System.Windows.Controls.ListBox databaseComboBox)
         {
             try
             {
