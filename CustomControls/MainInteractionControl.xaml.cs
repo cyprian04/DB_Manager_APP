@@ -20,9 +20,25 @@ namespace GUI_Database_app.CustomControls
     /// </summary>
     public partial class MainInteractionControl : UserControl
     {
+        Data.Connection CurrentUserConn = null;
+
         public MainInteractionControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
+            CurrentUserConn = CurrentUserConn_in;
+            CurrentUserConn.DisplayAvaliableDatabases(DatabasesListBox);
+        }
+
+        private void DatabasesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DatabasesListBox.SelectedItem != null)
+            {
+                // Get the selected option
+                CurrentUserConn.ConnectionWithDb((DatabasesListBox.SelectedItem).ToString());
+                MessageBox.Show(CurrentUserConn.DbName);
+            }
+            else
+                MessageBox.Show("Please select database before confirming.");
         }
     }
 }

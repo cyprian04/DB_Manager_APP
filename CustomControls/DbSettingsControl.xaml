@@ -40,37 +40,6 @@
                             <TextBlock Text="Database Name"
                                        Style="{StaticResource SettingsTextStyle1}"/>
 
-                            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                <ListBox x:Name="DatabasesListBox" 
-                                         Margin="20,30,0,0"
-                                         MaxHeight="200">
-                                    <ListBox.ItemContainerStyle>
-                                        <Style TargetType="ListBoxItem">
-                                            <Setter Property="Background" Value="#28AEED"/>
-                                            <Setter Property="BorderThickness" Value="0"/>
-                                            <Setter Property="Margin" Value="0,5"/>
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="ListBoxItem">
-                                                        <Border Background="{TemplateBinding Background}"
-                                    CornerRadius="10">
-                                                            <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                                                        </Border>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                            <Style.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Background" Value="Aquamarine"/>
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </ListBox.ItemContainerStyle>
-                                    <!-- Your ListBox items here -->
-                                </ListBox>
-                            </ScrollViewer>
-
                             <Button BorderThickness="0"
                             FontSize="16"
                             Content="Connect"
