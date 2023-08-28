@@ -115,10 +115,11 @@ namespace GUI_Database_app.Data
 
         public void DisconnectUserFromServer()
         {
-            dbName = "";
-            password = "";
-            hostName = "";
-            connectionString = "";
+            username = null;
+            dbName = null;
+            password = null;
+            hostName = null;
+            connectionString = null;
             connection = null;
         }
     }

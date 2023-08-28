@@ -91,6 +91,7 @@ namespace GUI_Database_app
             LoginForm LoginWindow = new LoginForm();
             LoginWindow.Show();
             CurrentUserConn.DisconnectUserFromServer();
+            CurrentUserConn = null;
             Home = null;
             View = null;
             MainInteraction = null;
