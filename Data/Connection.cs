@@ -112,15 +112,5 @@ namespace GUI_Database_app.Data
             else
                 MessageBox.Show("Already connected to this database");
         }
-
-        public void connOpen()
-        {
-            connection.Open();
-        }
-
-        public void connClose()
-        {
-           connection.Close();
-        }
     }
 }
