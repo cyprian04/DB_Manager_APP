@@ -110,7 +110,7 @@ namespace GUI_Database_app.Data
                 }
             }
             else
-                MessageBox.Show("Select database first!");
+                MessageBox.Show("Already connected to this database");
         }
 
         public void connOpen()

@@ -44,11 +44,5 @@ namespace GUI_Database_app.CustomControls
                 MessageBox.Show("Please select database before confirming.");
             }
         }
-
-        //public string SelectedDb()
-        //{
-        //    return CurrentUserConn.DbName.ToString();
-        //}
-
     }
 }

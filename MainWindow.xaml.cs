@@ -22,7 +22,6 @@ namespace GUI_Database_app
     /// </summary>
     public partial class MainWindow : Window
     {
-        Data.CurrentUser User = null;
         CustomControls.ViewControl View = null;
         CustomControls.SqlCommandControl SqlCommand = null;
         CustomControls.DbSettingsControl DbSettings = null;
@@ -33,11 +32,9 @@ namespace GUI_Database_app
             InitializeComponent();
             ContentArea.Content = Home;
 
-            User = new Data.CurrentUser(CurrentUserConn_in);
             View = new CustomControls.ViewControl(CurrentUserConn_in);
             SqlCommand = new CustomControls.SqlCommandControl(CurrentUserConn_in);
             DbSettings = new CustomControls.DbSettingsControl(CurrentUserConn_in);
-            
         }
 
         private void IsCurrentContentAreaSame(UserControl ChosenControl) 
