@@ -31,14 +31,16 @@ namespace GUI_Database_app.CustomControls
 
         private void DatabasesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //testing
+            MessageBox.Show(CurrentUserConn.DbName);
             if (DatabasesListBox.SelectedItem != null)
             {
                 // Get the selected option
                 CurrentUserConn.ConnectionWithDb((DatabasesListBox.SelectedItem).ToString());
+
+                //testing
                 MessageBox.Show(CurrentUserConn.DbName);
             }
-            else
-                MessageBox.Show("Please select database before confirming.");
         }
     }
 }

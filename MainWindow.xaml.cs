@@ -22,22 +22,24 @@ namespace GUI_Database_app
     /// </summary>
     public partial class MainWindow : Window
     {
+        Data.Connection CurrentUserConn = null;
         CustomControls.ViewControl View = null;
         CustomControls.MainInteractionControl MainInteraction = null;
         CustomControls.DbSettingsControl DbSettings = null;
         CustomControls.HomeControl Home = new CustomControls.HomeControl();
 
-        public MainWindow(Data.Connection  CurrentUserConn_in)
+        public MainWindow(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
             ContentArea.Content = Home;
+            CurrentUserConn = CurrentUserConn_in;
 
-            View = new CustomControls.ViewControl(CurrentUserConn_in);
-            MainInteraction = new CustomControls.MainInteractionControl(CurrentUserConn_in);
-            DbSettings = new CustomControls.DbSettingsControl(CurrentUserConn_in);
+            View = new CustomControls.ViewControl(CurrentUserConn);
+            MainInteraction = new CustomControls.MainInteractionControl(CurrentUserConn);
+            DbSettings = new CustomControls.DbSettingsControl(CurrentUserConn);
         }
 
-        private void IsCurrentContentAreaSame(UserControl ChosenControl) 
+        private void IsCurrentContentAreaSame(UserControl ChosenControl)
         {
             if (ContentArea.Content.GetType() != ChosenControl.GetType())
             {
@@ -73,6 +75,9 @@ namespace GUI_Database_app
 
         private void btn_Main(object sender, RoutedEventArgs e)
         {
+            //for testing
+            string temp = CurrentUserConn.DbName +" " + CurrentUserConn.ServerIp + " " + CurrentUserConn.Username;
+            MessageBox.Show(temp);
             IsCurrentContentAreaSame(MainInteraction);
         }
 
@@ -85,6 +90,11 @@ namespace GUI_Database_app
         {
             LoginForm LoginWindow = new LoginForm();
             LoginWindow.Show();
+            CurrentUserConn.DisconnectUserFromServer();
+            Home = null;
+            View = null;
+            MainInteraction = null;
+            DbSettings = null;
             this.Close();
         }
 

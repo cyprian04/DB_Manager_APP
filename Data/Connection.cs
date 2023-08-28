@@ -112,5 +112,14 @@ namespace GUI_Database_app.Data
             else
                 MessageBox.Show("Already connected to this database");
         }
+
+        public void DisconnectUserFromServer()
+        {
+            dbName = "";
+            password = "";
+            hostName = "";
+            connectionString = "";
+            connection = null;
+        }
     }
 }
