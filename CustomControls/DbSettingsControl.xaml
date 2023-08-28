@@ -40,7 +40,10 @@
                             <TextBlock Text="Database Name"
                                        Style="{StaticResource SettingsTextStyle1}"/>
 
-                            <ComboBox Name="databaseComboBox"/>
+                            <ComboBox Name="databaseComboBox"
+                                      Width="200"
+                                      HorizontalAlignment="Left"
+                                      Foreground="Blue"/>
 
                             <Button BorderThickness="0"
                             FontSize="16"
@@ -79,12 +82,9 @@
                         
                     </Grid>
 
-                    
-
                     <Grid Grid.Column="1">
 
                     </Grid>
-
 
                 </Grid>
 

@@ -178,7 +178,7 @@
                             <Button Style="{StaticResource CustomButtonStyle}"
                                     Click="btn_Sql">
                                 <Button.Background>
-                                    <ImageBrush ImageSource="/Resources/icon-add.png"/>
+                                    <ImageBrush ImageSource="/Resources/icon-sql.png"/>
                                 </Button.Background>
                             </Button>
 

@@ -39,10 +39,8 @@ namespace GUI_Database_app.CustomControls
                 CurrentUserConn.ConnectionWithDb((databaseComboBox.SelectedItem).ToString());
                 MessageBox.Show(CurrentUserConn.DbName);
             }
-            else
-            {
+            else           
                 MessageBox.Show("Please select database before confirming.");
-            }
         }
     }
 }

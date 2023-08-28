@@ -209,7 +209,6 @@
     <Resource Include="Resources\icon-view.png" />
     <Resource Include="Resources\icon-gear.png" />
     <Resource Include="Resources\icon-home.png" />
-    <Resource Include="Resources\icon-add.png" />
     <Resource Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +217,7 @@
     <Resource Include="Resources\icon-server.png" />
     <Resource Include="Resources\icon-password.png" />
     <Resource Include="Resources\icon-user.png" />
+    <Resource Include="Resources\icon-sql.png" />
     <Content Include="Resources\login-video.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
