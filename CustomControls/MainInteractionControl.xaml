@@ -33,7 +33,7 @@
 
         <Grid>
             <Border CornerRadius="9,0,9,0"
-                    Background="DarkCyan">
+                    Background="#333">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200"/>
@@ -42,41 +42,53 @@
 
                     <Grid Grid.Column="0">
 
-                        <ScrollViewer VerticalScrollBarVisibility="Auto">
-                            <ListBox x:Name="DatabasesListBox" 
-                                         Margin="20,30,0,30"
-                                         MaxHeight="300"
-                                         Width="150"
-                                         HorizontalAlignment="Left"
-                                         Background="Transparent"
-                                         BorderThickness="0"
-                                         SelectionChanged="DatabasesListBox_SelectionChanged">
-                                <ListBox.ItemContainerStyle>
-                                    <Style TargetType="ListBoxItem">
-                                        <Setter Property="Background" Value="#28AEED"/>
-                                        <Setter Property="BorderThickness" Value="0"/>
-                                        <Setter Property="Margin" Value="0,2"/>
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="ListBoxItem">
-                                                    <Border Background="{TemplateBinding Background}"
-                                                                CornerRadius="5">
-                                                        <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                                                    </Border>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="Aquamarine"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </ListBox.ItemContainerStyle>
-                                <!-- Your ListBox items here -->
-                            </ListBox>
-                        </ScrollViewer>
+                        <StackPanel>
+                            
+                          <TextBlock Text="Databases"
+                                 Margin="0,15,0,0"
+                                 HorizontalAlignment="Center"
+                                 Foreground="Aquamarine"
+                                 FontWeight="DemiBold"
+                                 FontSize="17"/>
+                          
+                          <ScrollViewer VerticalScrollBarVisibility="Auto">
+                              <ListBox x:Name="DatabasesListBox" 
+                                           Margin="0,30,0,30"
+                                           MaxHeight="600"
+                                           Width="150"
+                                           HorizontalAlignment="Center"
+                                           Background="Transparent"
+                                           BorderThickness="0"
+                                           SelectionChanged="DatabasesListBox_SelectionChanged">
+                                  <ListBox.ItemContainerStyle>
+                                      <Style TargetType="ListBoxItem">
+                                          <Setter Property="Background" Value="#28AEED"/>
+                                          <Setter Property="BorderThickness" Value="0"/>
+                                          <Setter Property="Margin" Value="0,2"/>
+                                          <Setter Property="FontWeight" Value="DemiBold"/>
+                                          <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Foreground" Value="AliceBlue"/>
+                                            <Setter Property="Template">
+                                              <Setter.Value>
+                                                  <ControlTemplate TargetType="ListBoxItem">
+                                                      <Border Background="{TemplateBinding Background}"
+                                                                  CornerRadius="5">
+                                                          <ContentPresenter VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"/>
+                                                      </Border>
+                                                  </ControlTemplate>
+                                              </Setter.Value>
+                                          </Setter>
+                                          <Style.Triggers>
+                                              <Trigger Property="IsMouseOver" Value="True">
+                                                  <Setter Property="Background" Value="Aquamarine"/>
+                                              </Trigger>
+                                          </Style.Triggers>
+                                      </Style>
+                                  </ListBox.ItemContainerStyle>
+                              </ListBox>
+                          </ScrollViewer>
+                        </StackPanel>
                     </Grid>
                     
                     <Grid Grid.Column="1">

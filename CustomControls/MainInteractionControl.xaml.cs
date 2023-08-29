@@ -31,14 +31,12 @@ namespace GUI_Database_app.CustomControls
 
         private void DatabasesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //testing
-            MessageBox.Show(CurrentUserConn.DbName);
             if (DatabasesListBox.SelectedItem != null)
             {
                 // Get the selected option
-                CurrentUserConn.ConnectionWithDb((DatabasesListBox.SelectedItem).ToString());
+                CurrentUserConn.ConnectionWithDb(DatabasesListBox.SelectedItem.ToString());
 
-                //testing
+                //for testing
                 MessageBox.Show(CurrentUserConn.DbName);
             }
         }

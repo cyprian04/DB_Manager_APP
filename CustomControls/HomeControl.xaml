@@ -114,7 +114,7 @@
                             FontSize="16"
                             Content="Get Started"
                             FontFamily="Montserrat"
-                            Foreground="White"
+                            Foreground="AliceBlue"
                             Cursor="Hand"
                             Margin="0,30,0,0"
                             Click="btn_GetStarted"
@@ -194,7 +194,7 @@
                                      Style="{StaticResource IconIntroductionStyle}"
                                      />
                               
-                              <Image Source="/Resources/icon-add.png"
+                              <Image Source="/Resources/icon-sql.png"
                                      Style="{StaticResource IconIntroductionStyle}"
                                      />
                               
@@ -212,7 +212,7 @@
                               <TextBlock Text="View Icon represents  window where you can see tables inside your currently selected database."
                                          Style="{StaticResource IntroductionTextStyle}"/>
                                
-                              <TextBlock Text="Add Icon represents window where you can insert Sql Commands onto your database with returened result."
+                              <TextBlock Text="Sql Icon represents window where you can insert Sql Commands onto your database with returened result."
                                          Style="{StaticResource IntroductionTextStyle}"/>
                                
                               <TextBlock Text="Gear Icon represents settings window where you set and specify your connection to database you choose."

@@ -76,8 +76,8 @@ namespace GUI_Database_app
         private void btn_Main(object sender, RoutedEventArgs e)
         {
             //for testing
-            string temp = CurrentUserConn.DbName +" " + CurrentUserConn.ServerIp + " " + CurrentUserConn.Username;
-            MessageBox.Show(temp);
+            //string temp = CurrentUserConn.DbName +" " + CurrentUserConn.ServerIp + " " + CurrentUserConn.Username + " " + CurrentUserConn.Password;
+            //MessageBox.Show(temp);
             IsCurrentContentAreaSame(MainInteraction);
         }
 
