@@ -25,7 +25,7 @@
 
         <!-- Button template -->
         <ControlTemplate x:Key="NavButtonTemplate" TargetType="Button">
-            <Border Width="100" Height="40" CornerRadius="10" Background="{TemplateBinding Background}">
+            <Border Width="100" Height="30" CornerRadius="10" Background="{TemplateBinding Background}">
                 <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Border>
         </ControlTemplate>
@@ -107,19 +107,23 @@
                                         Orientation="Horizontal">
                                     <Button Content="Structure"
                                         Style="{StaticResource NavButtonStyle}"
-                                        Template="{StaticResource NavButtonTemplate}" />
+                                        Template="{StaticResource NavButtonTemplate}"
+                                        Click="btn_Structure"/>
 
                                     <Button Content="SQL"
                                         Style="{StaticResource NavButtonStyle}"
-                                        Template="{StaticResource NavButtonTemplate}" />
+                                        Template="{StaticResource NavButtonTemplate}"
+                                            Click="Button_Click_1"/>
 
                                     <Button Content="Authorized"
                                         Style="{StaticResource NavButtonStyle}"
-                                        Template="{StaticResource NavButtonTemplate}" />
+                                        Template="{StaticResource NavButtonTemplate}"
+                                        Click="Button_Click_2"/>
 
                                     <Button Content="Relations"
                                         Style="{StaticResource NavButtonStyle}"
-                                        Template="{StaticResource NavButtonTemplate}" />
+                                        Template="{StaticResource NavButtonTemplate}"
+                                        Click="Button_Click_3"/>
                             </StackPanel>
                         </Grid>
                      
@@ -129,9 +133,11 @@
                             <Border Grid.Column="1"
                             CornerRadius="10,0,10,0"
                             BorderThickness="0"
-                            Background="#555">
+                            Background="#555"
+                            >
 
-                                <ContentControl x:Name="MainInteractionContentArea" Grid.Column="1" />
+                                <ContentControl x:Name="MainInteractionContentArea" 
+                                                Grid.Column="1" />
                             </Border>
                         </Grid>
                     </Grid>

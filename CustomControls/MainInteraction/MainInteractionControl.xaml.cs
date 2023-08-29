@@ -21,6 +21,10 @@ namespace GUI_Database_app.CustomControls
     public partial class MainInteractionControl : UserControl
     {
         Data.Connection CurrentUserConn = null;
+        MainInteraction.MainContentArea.StructureControl  Structure = null;
+        MainInteraction.MainContentArea.SQLControl SQL = null;
+        MainInteraction.MainContentArea.AuthorizedControl Authorized = null;
+        MainInteraction.MainContentArea.RelationsControl Relations = null;
 
         public MainInteractionControl(Data.Connection CurrentUserConn_in)
         {
@@ -35,10 +39,34 @@ namespace GUI_Database_app.CustomControls
             {
                 // Get the selected option
                 CurrentUserConn.ConnectionWithDb(DatabasesListBox.SelectedItem.ToString());
-
                 //for testing
                 MessageBox.Show(CurrentUserConn.DbName);
+                //
+                Structure = new MainInteraction.MainContentArea.StructureControl();
+                SQL = new MainInteraction.MainContentArea.SQLControl();
+                Authorized = new MainInteraction.MainContentArea.AuthorizedControl();
+                Relations = new MainInteraction.MainContentArea.RelationsControl();
             }
+        }
+
+        private void btn_Structure(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
