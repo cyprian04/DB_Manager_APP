@@ -155,7 +155,7 @@
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                         <GradientStop Color="#A89CAC" Offset="0"/>
-                        <GradientStop Color="#ff8164" Offset="0.7"/>
+                        <GradientStop Color="#A5CAD2" Offset="0.7"/>
                     </LinearGradientBrush>
                 </Border.Background>
 

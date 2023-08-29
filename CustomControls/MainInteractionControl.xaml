@@ -15,6 +15,7 @@
             <Setter Property="Margin" Value="0,0,20,0"/>
             <Setter Property="Foreground" Value="AliceBlue"/>
             <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="Aquamarine"/>
@@ -32,19 +33,16 @@
 
     <Border CornerRadius="10,0,10,0"
           BorderThickness="5,5,0,0"
-          Background="#333">
+            Background="#333">
 
         <Grid>
-            <Border CornerRadius="9,0,9,0"
-                    Background="#333">
-                <Grid>
+            <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Grid Grid.Column="0"
-                          Background="#444">
+                    <Grid Grid.Column="0">
 
                         <StackPanel>
                             
@@ -103,34 +101,41 @@
                         </Grid.RowDefinitions>
 
                         <Grid Grid.Row="0">
-                            
+
                             <StackPanel HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         Orientation="Horizontal">
-                                <Button Content="Structure"
+                                    <Button Content="Structure"
                                         Style="{StaticResource NavButtonStyle}"
                                         Template="{StaticResource NavButtonTemplate}" />
 
-                                <Button Content="SQL"
+                                    <Button Content="SQL"
                                         Style="{StaticResource NavButtonStyle}"
                                         Template="{StaticResource NavButtonTemplate}" />
 
-                                <Button Content="Authorized"
+                                    <Button Content="Authorized"
                                         Style="{StaticResource NavButtonStyle}"
                                         Template="{StaticResource NavButtonTemplate}" />
 
-                                <Button Content="Relations"
+                                    <Button Content="Relations"
                                         Style="{StaticResource NavButtonStyle}"
                                         Template="{StaticResource NavButtonTemplate}" />
                             </StackPanel>
                         </Grid>
+                     
 
-                    <Grid Grid.Row="1">
+                        <Grid Grid.Row="1">
                         
+                            <Border Grid.Column="1"
+                            CornerRadius="10,0,10,0"
+                            BorderThickness="0"
+                            Background="#555">
+
+                                <ContentControl x:Name="MainInteractionContentArea" Grid.Column="1" />
+                            </Border>
+                        </Grid>
                     </Grid>
                 </Grid>
-                </Grid>
-            </Border>
         </Grid>
     </Border>
 </UserControl>
