@@ -126,19 +126,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="CustomControls\DbSettingsControl.xaml">
+    <Page Include="CustomControls\DbSettings\DbSettingsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControls\HomeControl.xaml">
+    <Page Include="CustomControls\Home\HomeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControls\MainInteractionControl.xaml">
+    <Page Include="CustomControls\MainInteraction\MainInteractionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControls\ViewControl.xaml">
+    <Page Include="CustomControls\View\ViewControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,16 +154,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CustomControls\DbSettingsControl.xaml.cs">
+    <Compile Include="CustomControls\DbSettings\DbSettingsControl.xaml.cs">
       <DependentUpon>DbSettingsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\HomeControl.xaml.cs">
+    <Compile Include="CustomControls\Home\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\MainInteractionControl.xaml.cs">
+    <Compile Include="CustomControls\MainInteraction\MainInteractionControl.xaml.cs">
       <DependentUpon>MainInteractionControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\ViewControl.xaml.cs">
+    <Compile Include="CustomControls\View\ViewControl.xaml.cs">
       <DependentUpon>ViewControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\Connection.cs" />
