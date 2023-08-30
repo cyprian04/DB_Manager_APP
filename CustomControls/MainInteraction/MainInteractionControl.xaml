@@ -113,17 +113,17 @@
                                     <Button Content="SQL"
                                         Style="{StaticResource NavButtonStyle}"
                                         Template="{StaticResource NavButtonTemplate}"
-                                            Click="Button_Click_1"/>
+                                            Click="btn_SQL"/>
 
                                     <Button Content="Authorized"
                                         Style="{StaticResource NavButtonStyle}"
                                         Template="{StaticResource NavButtonTemplate}"
-                                        Click="Button_Click_2"/>
+                                        Click="btn_Authorized"/>
 
                                     <Button Content="Relations"
                                         Style="{StaticResource NavButtonStyle}"
                                         Template="{StaticResource NavButtonTemplate}"
-                                        Click="Button_Click_3"/>
+                                        Click="btn_Relations"/>
                             </StackPanel>
                         </Grid>
                      

@@ -49,24 +49,35 @@ namespace GUI_Database_app.CustomControls
             }
         }
 
+        private void IsCurrentMainContentAreaSame(UserControl ChosenControl)
+        {
+            if (!string.IsNullOrWhiteSpace(CurrentUserConn.DbName))
+            {
+                if (MainInteractionContentArea.Content.GetType() != ChosenControl.GetType())
+                    MainInteractionContentArea.Content = ChosenControl;
+            }
+            else
+                MessageBox.Show("No database selected");
+        }
+
         private void btn_Structure(object sender, RoutedEventArgs e)
         {
-            
+            IsCurrentMainContentAreaSame(Structure);
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void btn_SQL(object sender, RoutedEventArgs e)
         {
-
+            IsCurrentMainContentAreaSame(SQL);
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void btn_Authorized(object sender, RoutedEventArgs e)
         {
-
+            IsCurrentMainContentAreaSame(Authorized);
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void btn_Relations(object sender, RoutedEventArgs e)
         {
-
+            IsCurrentMainContentAreaSame(Relations);
         }
     }
 }

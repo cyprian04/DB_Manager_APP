@@ -42,10 +42,7 @@ namespace GUI_Database_app
         private void IsCurrentContentAreaSame(UserControl ChosenControl)
         {
             if (ContentArea.Content.GetType() != ChosenControl.GetType())
-            {
-                ContentArea.Content = null;
                 ContentArea.Content = ChosenControl;
-            }
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
