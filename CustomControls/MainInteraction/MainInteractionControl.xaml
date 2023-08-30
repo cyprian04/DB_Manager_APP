@@ -105,6 +105,12 @@
                             <StackPanel HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         Orientation="Horizontal">
+
+                                    <Button Content="Informations"
+                                        Style="{StaticResource NavButtonStyle}"
+                                        Template="{StaticResource NavButtonTemplate}"
+                                        Click="btn_Informations"/>
+
                                     <Button Content="Structure"
                                         Style="{StaticResource NavButtonStyle}"
                                         Template="{StaticResource NavButtonTemplate}"

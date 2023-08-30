@@ -60,6 +60,11 @@ namespace GUI_Database_app.CustomControls
                 MessageBox.Show("No database selected");
         }
 
+        private void btn_Informations(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void btn_Structure(object sender, RoutedEventArgs e)
         {
             IsCurrentMainContentAreaSame(Structure);
@@ -79,5 +84,7 @@ namespace GUI_Database_app.CustomControls
         {
             IsCurrentMainContentAreaSame(Relations);
         }
+
+        
     }
 }
