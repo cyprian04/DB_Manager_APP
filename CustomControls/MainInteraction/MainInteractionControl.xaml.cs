@@ -22,15 +22,17 @@ namespace GUI_Database_app.CustomControls
     {
         Data.Connection CurrentUserConn = null;
         MainInteraction.MainContentArea.StructureControl  Structure = null;
-        MainInteraction.MainContentArea.SQLControl SQL = null;
         MainInteraction.MainContentArea.AuthorizedControl Authorized = null;
         MainInteraction.MainContentArea.RelationsControl Relations = null;
+        MainInteraction.MainContentArea.SQLControl SQL = new MainInteraction.MainContentArea.SQLControl();
 
         public MainInteractionControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
             CurrentUserConn = CurrentUserConn_in;
             CurrentUserConn.DisplayAvaliableDatabases(DatabasesListBox);
+
+            MainInteractionContentArea.Content = SQL;
         }
 
         private void DatabasesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -43,7 +45,6 @@ namespace GUI_Database_app.CustomControls
                 MessageBox.Show(CurrentUserConn.DbName);
                 //
                 Structure = new MainInteraction.MainContentArea.StructureControl();
-                SQL = new MainInteraction.MainContentArea.SQLControl();
                 Authorized = new MainInteraction.MainContentArea.AuthorizedControl();
                 Relations = new MainInteraction.MainContentArea.RelationsControl();
             }
@@ -60,19 +61,14 @@ namespace GUI_Database_app.CustomControls
                 MessageBox.Show("No database selected");
         }
 
-        private void btn_Informations(object sender, RoutedEventArgs e)
+        private void btn_SQL(object sender, RoutedEventArgs e)
         {
-
+            MainInteractionContentArea.Content = SQL; // don't need to use IsCurrentMainContentAreaSame (just window for executing sql commands on server)
         }
 
         private void btn_Structure(object sender, RoutedEventArgs e)
         {
             IsCurrentMainContentAreaSame(Structure);
-        }
-
-        private void btn_SQL(object sender, RoutedEventArgs e)
-        {
-            IsCurrentMainContentAreaSame(SQL);
         }
 
         private void btn_Authorized(object sender, RoutedEventArgs e)

@@ -106,21 +106,16 @@
                                         VerticalAlignment="Center"
                                         Orientation="Horizontal">
 
-                                    <Button Content="Informations"
-                                        Style="{StaticResource NavButtonStyle}"
-                                        Template="{StaticResource NavButtonTemplate}"
-                                        Click="btn_Informations"/>
-
-                                    <Button Content="Structure"
-                                        Style="{StaticResource NavButtonStyle}"
-                                        Template="{StaticResource NavButtonTemplate}"
-                                        Click="btn_Structure"/>
-
-                                    <Button Content="SQL"
+                            <Button Content="SQL"
                                         Style="{StaticResource NavButtonStyle}"
                                         Template="{StaticResource NavButtonTemplate}"
                                             Click="btn_SQL"/>
 
+                            <Button Content="Structure"
+                                        Style="{StaticResource NavButtonStyle}"
+                                        Template="{StaticResource NavButtonTemplate}"
+                                        Click="btn_Structure"/>
+                                    
                                     <Button Content="Authorized"
                                         Style="{StaticResource NavButtonStyle}"
                                         Template="{StaticResource NavButtonTemplate}"
