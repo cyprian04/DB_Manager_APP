@@ -42,7 +42,7 @@ namespace GUI_Database_app.CustomControls
                 // Get the selected option
                 CurrentUserConn.ConnectionWithDb(DatabasesListBox.SelectedItem.ToString());
                 //for testing
-                MessageBox.Show(CurrentUserConn.DbName);
+                //MessageBox.Show(CurrentUserConn.DbName);
                 //
                 Structure = new MainInteraction.MainContentArea.StructureControl();
                 Authorized = new MainInteraction.MainContentArea.AuthorizedControl();
