@@ -20,9 +20,12 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
     /// </summary>
     public partial class StructureControl : UserControl
     {
-        public StructureControl()
+        Data.Connection CurrentUserConn = null;
+
+        public StructureControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
+            CurrentUserConn = CurrentUserConn_in;
         }
     }
 }

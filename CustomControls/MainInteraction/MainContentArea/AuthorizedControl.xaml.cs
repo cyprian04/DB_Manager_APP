@@ -20,9 +20,12 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
     /// </summary>
     public partial class AuthorizedControl : UserControl
     {
-        public AuthorizedControl()
+        Data.Connection CurrentUserConn = null;
+
+        public AuthorizedControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
+            CurrentUserConn = CurrentUserConn_in;
         }
     }
 }

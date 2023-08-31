@@ -44,9 +44,9 @@ namespace GUI_Database_app.CustomControls
                 //for testing
                 //MessageBox.Show(CurrentUserConn.DbName);
                 //
-                Structure = new MainInteraction.MainContentArea.StructureControl();
-                Authorized = new MainInteraction.MainContentArea.AuthorizedControl();
-                Relations = new MainInteraction.MainContentArea.RelationsControl();
+                Structure = new MainInteraction.MainContentArea.StructureControl(CurrentUserConn);
+                Authorized = new MainInteraction.MainContentArea.AuthorizedControl(CurrentUserConn);
+                Relations = new MainInteraction.MainContentArea.RelationsControl(CurrentUserConn);
             }
         }
 
@@ -80,7 +80,5 @@ namespace GUI_Database_app.CustomControls
         {
             IsCurrentMainContentAreaSame(Relations);
         }
-
-        
     }
 }
