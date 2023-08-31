@@ -37,23 +37,23 @@
 
         <Grid>
             <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-                    <Grid Grid.Column="0">
+                <Grid Grid.Column="0">
 
-                        <StackPanel>
-                            
-                          <TextBlock Text="Databases"
-                                 Margin="0,20,0,0"
-                                 HorizontalAlignment="Center"
-                                 Foreground="AliceBlue"
-                                 FontWeight="DemiBold"
-                                 FontSize="17"/>
-                          
-                          <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        
+                      <TextBlock Text="Databases"
+                             Margin="0,20,0,0"
+                             HorizontalAlignment="Center"
+                             Foreground="AliceBlue"
+                             FontWeight="DemiBold"
+                             FontSize="17"/>
+                      
+                      <ScrollViewer VerticalScrollBarVisibility="Auto">
                               <ListBox x:Name="DatabasesListBox" 
                                            Margin="0,30,0,30"
                                            MaxHeight="600"
@@ -90,59 +90,57 @@
                                   </ListBox.ItemContainerStyle>
                               </ListBox>
                           </ScrollViewer>
-                            
+                        
+                    </StackPanel>
+                </Grid>
+                
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+
+                        <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+
+                        <Button Content="SQL"
+                                    Style="{StaticResource NavButtonStyle}"
+                                    Template="{StaticResource NavButtonTemplate}"
+                                        Click="btn_SQL"/>
+
+                        <Button Content="Structure"
+                                    Style="{StaticResource NavButtonStyle}"
+                                    Template="{StaticResource NavButtonTemplate}"
+                                    Click="btn_Structure"/>
+                                
+                                <Button Content="Authorized"
+                                    Style="{StaticResource NavButtonStyle}"
+                                    Template="{StaticResource NavButtonTemplate}"
+                                    Click="btn_Authorized"/>
+
+                                <Button Content="Relations"
+                                    Style="{StaticResource NavButtonStyle}"
+                                    Template="{StaticResource NavButtonTemplate}"
+                                    Click="btn_Relations"/>
                         </StackPanel>
                     </Grid>
+                 
+                    <Grid Grid.Row="1">
                     
-                    <Grid Grid.Column="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60"/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
+                        <Border Grid.Column="1"
+                        CornerRadius="10,0,10,0"
+                        BorderThickness="0"
+                        Background="#555">
 
-                        <Grid Grid.Row="0">
-
-                            <StackPanel HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Orientation="Horizontal">
-
-                            <Button Content="SQL"
-                                        Style="{StaticResource NavButtonStyle}"
-                                        Template="{StaticResource NavButtonTemplate}"
-                                            Click="btn_SQL"/>
-
-                            <Button Content="Structure"
-                                        Style="{StaticResource NavButtonStyle}"
-                                        Template="{StaticResource NavButtonTemplate}"
-                                        Click="btn_Structure"/>
-                                    
-                                    <Button Content="Authorized"
-                                        Style="{StaticResource NavButtonStyle}"
-                                        Template="{StaticResource NavButtonTemplate}"
-                                        Click="btn_Authorized"/>
-
-                                    <Button Content="Relations"
-                                        Style="{StaticResource NavButtonStyle}"
-                                        Template="{StaticResource NavButtonTemplate}"
-                                        Click="btn_Relations"/>
-                            </StackPanel>
-                        </Grid>
-                     
-
-                        <Grid Grid.Row="1">
-                        
-                            <Border Grid.Column="1"
-                            CornerRadius="10,0,10,0"
-                            BorderThickness="0"
-                            Background="#555"
-                            >
-
-                                <ContentControl x:Name="MainInteractionContentArea" 
-                                                Grid.Column="1" />
-                            </Border>
-                        </Grid>
+                            <ContentControl x:Name="MainInteractionContentArea" 
+                                            Grid.Column="1" />
+                        </Border>
                     </Grid>
                 </Grid>
+            </Grid>
         </Grid>
     </Border>
 </UserControl>

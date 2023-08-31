@@ -6,15 +6,14 @@
              xmlns:local="clr-namespace:GUI_Database_app.CustomControls.MainInteraction.MainContentArea"
              mc:Ignorable="d" 
              d:DesignHeight="640" d:DesignWidth="800">
-    
-    <Border>
+
+    <Border CornerRadius="9,0,9,0"
+            Background="Purple"
+            BorderBrush="#222"
+            BorderThickness="2,2,0,0">
 
         <Grid>
-            <Border CornerRadius="9,0,9,0"
-                    Background="Purple"
-                    BorderBrush="#222"
-                    BorderThickness="2,2,0,0">
-
+            <Border >
                 <TextBlock Text="Structure"
                            FontSize="19"/>
             </Border>

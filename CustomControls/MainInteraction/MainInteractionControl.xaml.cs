@@ -67,7 +67,6 @@ namespace GUI_Database_app.CustomControls
                 MessageBox.Show("No database selected");
                 return true;
             }
-                
         }
 
         private void btn_SQL(object sender, RoutedEventArgs e)
