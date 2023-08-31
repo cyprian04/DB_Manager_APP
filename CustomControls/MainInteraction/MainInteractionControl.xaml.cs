@@ -50,15 +50,24 @@ namespace GUI_Database_app.CustomControls
             }
         }
 
-        private void IsCurrentMainContentAreaSame(UserControl ChosenControl)
+        private bool IsCurrentMainContentAreaSame(UserControl ChosenControl)
         {
             if (!string.IsNullOrWhiteSpace(CurrentUserConn.DbName))
             {
                 if (MainInteractionContentArea.Content.GetType() != ChosenControl.GetType())
+                {
                     MainInteractionContentArea.Content = ChosenControl;
+                    return false;
+                }
+                else
+                    return true;
             }
             else
+            {
                 MessageBox.Show("No database selected");
+                return true;
+            }
+                
         }
 
         private void btn_SQL(object sender, RoutedEventArgs e)
@@ -68,7 +77,11 @@ namespace GUI_Database_app.CustomControls
 
         private void btn_Structure(object sender, RoutedEventArgs e)
         {
-            IsCurrentMainContentAreaSame(Structure);
+            if (!IsCurrentMainContentAreaSame(Structure))
+            {
+
+            }
+                //Structure.DisplayCurrentDbTables();
         }
 
         private void btn_Authorized(object sender, RoutedEventArgs e)
