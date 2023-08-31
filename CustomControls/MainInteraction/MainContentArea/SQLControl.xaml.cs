@@ -20,9 +20,18 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
     /// </summary>
     public partial class SQLControl : UserControl
     {
-        public SQLControl()
+        Data.Connection CurrentUserConn = null;
+        string querryText = null;
+        public SQLControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
+            CurrentUserConn = CurrentUserConn_in;
+        }
+
+        private void btn_ExecuteSqlCommand(object sender, RoutedEventArgs e)
+        {
+           // querryText = 
+           // CurrentUserConn.ExecuteSqlQuerry();
         }
     }
 }

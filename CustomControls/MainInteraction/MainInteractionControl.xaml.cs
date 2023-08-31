@@ -24,7 +24,7 @@ namespace GUI_Database_app.CustomControls
         MainInteraction.MainContentArea.StructureControl  Structure = null;
         MainInteraction.MainContentArea.AuthorizedControl Authorized = null;
         MainInteraction.MainContentArea.RelationsControl Relations = null;
-        MainInteraction.MainContentArea.SQLControl SQL = new MainInteraction.MainContentArea.SQLControl();
+        MainInteraction.MainContentArea.SQLControl SQL = null;
 
         public MainInteractionControl(Data.Connection CurrentUserConn_in)
         {
@@ -32,6 +32,7 @@ namespace GUI_Database_app.CustomControls
             CurrentUserConn = CurrentUserConn_in;
             CurrentUserConn.DisplayAvaliableDatabases(DatabasesListBox);
 
+            SQL = new MainInteraction.MainContentArea.SQLControl(CurrentUserConn);
             MainInteractionContentArea.Content = SQL;
         }
 

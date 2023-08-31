@@ -13,12 +13,57 @@
             BorderThickness="2,2,0,0">
 
         <Grid>
-            <TextBlock Text="SQL"
-                       FontSize="19"/>
-            <TextBox x:Name="SqlCommandTextBox"
-                     Width="600"
-                     Height="300"/>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    
+                    <TextBlock Text="SQL"
+                               FontSize="19"/>
+                    
+                    <RichTextBox x:Name="SqlCommandTextBox"
+                             Width="600"
+                             Height="200"
+                             Padding="4"
+                              />
 
+                    <Button BorderThickness="0"
+                            FontSize="16"
+                            Content="Execute"
+                            FontFamily="Montserrat"
+                            Foreground="White"
+                            Cursor="Hand"
+                            Margin="0,25,0,0"
+                            Click="btn_ExecuteSqlCommand">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Aquamarine"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="100" Height="40" 
+                                                CornerRadius="10"
+                                                Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" 
+                                                              HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    
+                </StackPanel>
+            </Grid>
         </Grid>
     </Border>
 </UserControl>
