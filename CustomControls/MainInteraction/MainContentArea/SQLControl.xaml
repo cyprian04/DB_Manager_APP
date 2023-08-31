@@ -64,6 +64,13 @@
                     
                 </StackPanel>
             </Grid>
+
+            <Grid Grid.Row="1">
+                <ScrollViewer>
+                    <DataGrid x:Name="QuerryrRsultDataGrid" AutoGenerateColumns="True" />
+                </ScrollViewer>
+
+            </Grid>
         </Grid>
     </Border>
 </UserControl>

@@ -22,6 +22,7 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
     {
         Data.Connection CurrentUserConn = null;
         string querryText = null;
+
         public SQLControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
@@ -30,8 +31,8 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
 
         private void btn_ExecuteSqlCommand(object sender, RoutedEventArgs e)
         {
-           // querryText = 
-           // CurrentUserConn.ExecuteSqlQuerry();
+            querryText = new TextRange(SqlCommandTextBox.Document.ContentStart, SqlCommandTextBox.Document.ContentEnd).Text; ;
+            CurrentUserConn.ExecuteSqlQuerry(querryText, QuerryrRsultDataGrid);
         }
     }
 }

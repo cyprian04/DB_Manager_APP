@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace GUI_Database_app.Data
 {
@@ -111,6 +113,32 @@ namespace GUI_Database_app.Data
             }
             else
                 MessageBox.Show("Already connected to this database");
+        }
+
+        public void ExecuteSqlQuerry(string query, DataGrid QuerryresultDataGrid)
+        {
+            try
+            {
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                DataTable dataTable = new DataTable();
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    dataTable.Load(reader); // Load data into DataTable from reader
+                }
+
+                QuerryresultDataGrid.ItemsSource = dataTable.DefaultView; // Set DataGrid's ItemsSource
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public void DisconnectUserFromServer()
