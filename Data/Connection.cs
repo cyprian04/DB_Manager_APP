@@ -16,7 +16,7 @@ namespace GUI_Database_app.Data
     public class Connection
     {
         public static MySqlConnection connection = new MySqlConnection();
-        string connectionString;
+        private string connectionString;
         private static string dbName, username, password, hostName;
 
         public string DbName {get => dbName; set => dbName = value;}
@@ -60,7 +60,7 @@ namespace GUI_Database_app.Data
             }
         }
 
-        public void DisplayAvaliableDatabases(System.Windows.Controls.ListBox databaseComboBox)
+        public void DisplayAvaliableDatabases(ListBox databaseComboBox)
         {
             try
             {

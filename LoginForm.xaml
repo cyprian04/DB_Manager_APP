@@ -16,7 +16,7 @@
             <VisualBrush>
                 <VisualBrush.Visual>
                     <MediaElement x:Name="LoginMediaVideo" 
-                                  Source="C:\Users\Cypu\source\repos\GUI Database app\Resources\login-video.mp4"
+                                  Source="./Resources/login-video.mp4"
                                   LoadedBehavior="Manual" 
                                   MediaEnded="LoginMediaVideo_MediaEnded"/>
                 </VisualBrush.Visual>
