@@ -117,28 +117,33 @@ namespace GUI_Database_app.Data
 
         public void ExecuteSqlQuerry(string query, DataGrid QuerryresultDataGrid)
         {
-            try
-            {
-                connection.Open();
-                MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                DataTable dataTable = new DataTable();
-                using (MySqlDataReader reader = cmd.ExecuteReader())
+            if (!string.IsNullOrWhiteSpace(query)) 
+            { 
+                try
                 {
-                    dataTable.Load(reader); // Load data into DataTable from reader
+                    connection.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    DataTable dataTable = new DataTable(); // special object from System.Data that stores data
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        dataTable.Load(reader); // Load data into DataTable from reader
+                    }
+
+                    QuerryresultDataGrid.ItemsSource = dataTable.DefaultView; // Set DataGrid's ItemsSource
                 }
-
-                QuerryresultDataGrid.ItemsSource = dataTable.DefaultView; // Set DataGrid's ItemsSource
-
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                connection.Close();
-            }
+            else
+                MessageBox.Show("Type in SQL querry first!");
         }
 
         public void DisconnectUserFromServer()

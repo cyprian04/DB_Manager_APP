@@ -22,24 +22,23 @@
 
     <Border CornerRadius="10,0,10,0"
           BorderThickness="5,5,0,0"
-          Background="#333">
+          Background="#444">
 
         <Grid>
-            <Border>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-                    <Grid Grid.Column="0">
+                <Grid Grid.Column="0">
 
-                        <StackPanel Margin="40,40,40,40">
+                    <StackPanel Margin="40,40,40,40">
 
-                            <TextBlock Text="Database Name"
+                        <TextBlock Text="Database Name"
                                        Style="{StaticResource SettingsTextStyle1}"/>
 
-                            <Button BorderThickness="0"
+                        <Button BorderThickness="0"
                             FontSize="16"
                             Content="Connect"
                             FontFamily="Montserrat"
@@ -49,40 +48,38 @@
                             Margin="20,30,0,0"
                             Click="btn_Connect">
 
-                                <Button.Style>
-                                    <Style TargetType="Button">
-                                        <Setter Property="Background" Value="#28AEED"/>
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="Aquamarine"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Button.Style>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Aquamarine"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
 
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Width="100" Height="40" 
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="100" Height="40" 
                                         CornerRadius="10"
                                         Background="{TemplateBinding Background}">
-                                            <ContentPresenter VerticalAlignment="Center" 
+                                        <ContentPresenter VerticalAlignment="Center" 
                                                       HorizontalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
 
-                        </StackPanel>
-                        
-                    </Grid>
-
-                    <Grid Grid.Column="1">
-
-                    </Grid>
+                    </StackPanel>
 
                 </Grid>
 
-            </Border>
+                <Grid Grid.Column="1">
+
+                </Grid>
+
+            </Grid>
         </Grid>
     </Border>
 </UserControl>

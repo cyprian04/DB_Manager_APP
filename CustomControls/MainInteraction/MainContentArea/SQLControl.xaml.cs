@@ -31,7 +31,8 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
 
         private void btn_ExecuteSqlCommand(object sender, RoutedEventArgs e)
         {
-            querryText = new TextRange(SqlCommandTextBox.Document.ContentStart, SqlCommandTextBox.Document.ContentEnd).Text; ;
+            // setting string value by getting first and last pointer in the textRange from our SqlCommandTextBox (RichTextBox)
+            querryText = new TextRange(SqlCommandTextBox.Document.ContentStart, SqlCommandTextBox.Document.ContentEnd).Text;
             CurrentUserConn.ExecuteSqlQuerry(querryText, QuerryrRsultDataGrid);
         }
     }
