@@ -155,52 +155,46 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <Border Grid.Column="0"
-                            CornerRadius="0,0,0,10"
-                            BorderThickness="0">
+                    <StackPanel>
 
-                        <StackPanel>
-
-                            <Button Style="{StaticResource CustomButtonStyle}"
+                        <Button Style="{StaticResource CustomButtonStyle}"
                                     Click="btn_home">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Resources/icon-home.png"/>
-                                </Button.Background>
-                            </Button>
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/icon-home.png"/>
+                            </Button.Background>
+                        </Button>
 
-                            <Button Style="{StaticResource CustomButtonStyle}"
+                        <Button Style="{StaticResource CustomButtonStyle}"
                                     Click="btn_view">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Resources/icon-view.png"/>
-                                </Button.Background>
-                            </Button>
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/icon-view.png"/>
+                            </Button.Background>
+                        </Button>
 
-                            <Button Style="{StaticResource CustomButtonStyle}"
+                        <Button Style="{StaticResource CustomButtonStyle}"
                                     Click="btn_Main">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Resources/icon-sql.png"/>
-                                </Button.Background>
-                            </Button>
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/icon-sql.png"/>
+                            </Button.Background>
+                        </Button>
 
-                            <Button Style="{StaticResource CustomButtonStyle}"
+                        <Button Style="{StaticResource CustomButtonStyle}"
                                     Click="btn_settings">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Resources/icon-gear.png"/>
-                                </Button.Background>
-                            </Button>
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/icon-gear.png"/>
+                            </Button.Background>
+                        </Button>
 
-                            <Button Style="{StaticResource CustomButtonStyle}"
+                        <Button Style="{StaticResource CustomButtonStyle}"
                                     Click="btn_LogOut"
                                     Margin="0,430,0,0">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Resources/icon-logout.png"/>
-                                </Button.Background>
-                            </Button>
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/icon-logout.png"/>
+                            </Button.Background>
+                        </Button>
 
-                        </StackPanel>
-
-                    </Border>
-
+                    </StackPanel>
+                    
                     <Border Grid.Column="1"
                             CornerRadius="10,0,10,0"
                             BorderThickness="0"
