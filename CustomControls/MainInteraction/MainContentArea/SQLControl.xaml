@@ -66,11 +66,12 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <DataGrid x:Name="QuerryrRsultDataGrid" 
-                              AutoGenerateColumns="True"
-                              Background="Transparent"
-                              BorderThickness="0"
-                              Margin="10">
+                <DataGrid x:Name="QuerryrResultDataGrid" 
+                           AutoGenerateColumns="True"
+                           Background="Transparent"
+                           BorderThickness="0"
+                           Margin="10"
+                           >
 
                     <DataGrid.CellStyle>
                         <Style TargetType="DataGridCell">
@@ -103,7 +104,15 @@
                         </Style>
                     </DataGrid.RowHeaderStyle>
 
-
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#00695C"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Foreground" Value="AliceBlue"/>
+                            <Setter Property="Padding" Value="5"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
 
                 </DataGrid>
             </Grid>

@@ -33,7 +33,7 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
         {
             // setting string value by getting first and last pointer in the textRange from our SqlCommandTextBox (RichTextBox)
             querryText = new TextRange(SqlCommandTextBox.Document.ContentStart, SqlCommandTextBox.Document.ContentEnd).Text;
-            CurrentUserConn.ExecuteSqlQuerry(querryText, QuerryrRsultDataGrid);
+            CurrentUserConn.ExecuteSqlQuerry(querryText, QuerryrResultDataGrid);
         }
     }
 }
