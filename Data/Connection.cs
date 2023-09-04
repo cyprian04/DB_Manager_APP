@@ -115,9 +115,9 @@ namespace GUI_Database_app.Data
                 MessageBox.Show("Already connected to this database");
         }
 
-        public void ExecuteSqlQuerry(string query, DataGrid QuerryresultDataGrid)
+        public bool ExecuteAndCheckSQLQuerry(string query, DataGrid QuerryresultDataGrid)
         {
-
+            bool success = false;
             if (!string.IsNullOrWhiteSpace(query)) 
             { 
                 try
@@ -132,10 +132,12 @@ namespace GUI_Database_app.Data
                     }
 
                     QuerryresultDataGrid.ItemsSource = dataTable.DefaultView; // Set DataGrid's ItemsSource
+                    success = true;
                 }
                 catch (MySqlException ex)
                 {
                     MessageBox.Show(ex.ToString());
+                    success = false;
                 }
                 finally
                 {
@@ -143,7 +145,12 @@ namespace GUI_Database_app.Data
                 }
             }
             else
+            {
                 MessageBox.Show("Type in SQL querry first!");
+                success = false;
+            }
+
+            return success;
         }
 
         public void DisconnectUserFromServer()

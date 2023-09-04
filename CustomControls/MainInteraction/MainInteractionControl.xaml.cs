@@ -72,16 +72,13 @@ namespace GUI_Database_app.CustomControls
 
         private void btn_SQL(object sender, RoutedEventArgs e)
         {
-            MainInteractionContentArea.Content = SQL; // don't need to use IsCurrentMainContentAreaSame (just window for executing sql commands on server)
+            if (MainInteractionContentArea.Content != SQL)
+                MainInteractionContentArea.Content = SQL; // don't need to use IsCurrentMainContentAreaSame (just window for executing sql commands on server)
         }
 
         private void btn_Structure(object sender, RoutedEventArgs e)
         {
-            if (!IsCurrentMainContentAreaSame(Structure))
-            {
-
-            }
-                //Structure.DisplayCurrentDbTables();
+            IsCurrentMainContentAreaSame(Structure);
         }
 
         private void btn_Authorized(object sender, RoutedEventArgs e)

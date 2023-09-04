@@ -71,7 +71,7 @@
                            Background="Transparent"
                            BorderThickness="0"
                            Margin="10"
-                           >
+                           Visibility="Hidden">
 
                     <DataGrid.CellStyle>
                         <Style TargetType="DataGridCell">
