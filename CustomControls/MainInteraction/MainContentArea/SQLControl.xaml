@@ -45,37 +45,55 @@
                              FontFamily="Montserrat"
                              BorderThickness="0"/>
                     </Border>
-                    <Button BorderThickness="0"
-                            FontSize="16"
-                            Content="Execute"
-                            FontFamily="Montserrat"
-                            Foreground="White"
-                            Cursor="Hand"
-                            Margin="0,25,0,0"
-                            Click="btn_ExecuteSqlCommand">
 
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#28AEED"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="Aquamarine"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,25,0,0"
+                                HorizontalAlignment="Right">
 
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="100" Height="40" 
-                                                CornerRadius="10"
-                                                Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center" 
-                                                              HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                        <Border x:Name="BorderQuerryResultInfo"  
+                                CornerRadius="9,9,9,9">
+
+                            <TextBlock x:Name="TextQuerryResultInfo" 
+                                       Text=""
+                                       Width="485"
+                                       Padding="3"
+                                       Foreground="AliceBlue"
+                                       FontWeight="DemiBold"
+                                       />
+                        </Border>
+
+                            <Button BorderThickness="0"
+                                FontSize="16"
+                                Content="Execute"
+                                FontFamily="Montserrat"
+                                Foreground="White"
+                                Cursor="Hand"
+                                Margin="15,0,0,0"
+                                Click="btn_ExecuteSqlCommand">
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Aquamarine"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="100" Height="40" 
+                                                    CornerRadius="10"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" 
+                                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
                     
                 </StackPanel>
             </Grid>
