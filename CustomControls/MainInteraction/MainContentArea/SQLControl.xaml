@@ -19,17 +19,32 @@
             </Grid.RowDefinitions>
             
             <Grid Grid.Row="0">
-                <StackPanel>
+                <StackPanel HorizontalAlignment="Center">
                     
-                    <TextBlock Text="SQL"
-                               FontSize="19"/>
-                    
-                    <RichTextBox x:Name="SqlCommandTextBox"
+                    <TextBlock Text="Type in SQL querry"
+                               FontSize="13"
+                               Margin="0,10,0,5"
+                               Foreground="AliceBlue"
+                               FontFamily="Montserrat"
+                               FontWeight="DemiBold"/>
+
+                    <Border CornerRadius="9,9,9,9">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                <GradientStop Color="#A89CAC" Offset="0"/>
+                                <GradientStop Color="#474973" Offset="0.5"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <RichTextBox x:Name="SqlCommandTextBox"
                              Width="600"
                              Height="200"
                              Padding="4"
-                              />
-
+                             Background="Transparent"
+                             Foreground="AliceBlue"
+                             FontFamily="Montserrat"
+                             BorderThickness="0"/>
+                    </Border>
                     <Button BorderThickness="0"
                             FontSize="16"
                             Content="Execute"

@@ -115,6 +115,11 @@ namespace GUI_Database_app.Data
                 MessageBox.Show("Already connected to this database");
         }
 
+        //public void DisplayCurrentDbTables()
+        //{
+        //
+        //}
+
         public bool ExecuteAndCheckSQLQuerry(string query, DataGrid QuerryresultDataGrid)
         {
             bool success = false;
