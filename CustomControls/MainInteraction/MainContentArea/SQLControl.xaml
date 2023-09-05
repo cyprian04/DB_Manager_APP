@@ -59,7 +59,7 @@
                                        Padding="3"
                                        Foreground="AliceBlue"
                                        FontWeight="DemiBold"
-                                       />
+                                       TextWrapping="Wrap"/>
                         </Border>
 
                             <Button BorderThickness="0"

@@ -33,16 +33,13 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
         {
             // setting string value by getting first and last pointer in the textRange from our SqlCommandTextBox (RichTextBox)
             querryText = new TextRange(SqlCommandTextBox.Document.ContentStart, SqlCommandTextBox.Document.ContentEnd).Text;
-            if (CurrentUserConn.ExecuteAndCheckSQLQuerry(querryText, QuerryrResultDataGrid))
+            if (CurrentUserConn.ExecuteAndCheckSQLQuerry(querryText, QuerryrResultDataGrid, TextQuerryResultInfo))
             {
-                QuerryrResultDataGrid.Visibility = Visibility.Visible;
-                TextQuerryResultInfo.Text = "Successfully executed the querrry";
+                TextQuerryResultInfo.Text = "Successfully executed the querry";
                 BorderQuerryResultInfo.Background = Brushes.Green;
             }
             else
             {
-                QuerryrResultDataGrid.Visibility = Visibility.Hidden;
-                TextQuerryResultInfo.Text = "Error occured";
                 BorderQuerryResultInfo.Background = Brushes.Red;
             }
         }

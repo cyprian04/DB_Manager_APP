@@ -120,7 +120,7 @@ namespace GUI_Database_app.Data
         //
         //}
 
-        public bool ExecuteAndCheckSQLQuerry(string query, DataGrid QuerryresultDataGrid)
+        public bool ExecuteAndCheckSQLQuerry(string query, DataGrid QuerryResultDataGrid, TextBlock TextQuerryResultInfo)
         {
             bool success = false;
             if (!string.IsNullOrWhiteSpace(query)) 
@@ -136,12 +136,26 @@ namespace GUI_Database_app.Data
                         dataTable.Load(reader); // Load data into DataTable from reader
                     }
 
-                    QuerryresultDataGrid.ItemsSource = dataTable.DefaultView; // Set DataGrid's ItemsSource
+                    if(dataTable.Rows.Count != 0 )
+                    {
+                        QuerryResultDataGrid.ItemsSource = dataTable.DefaultView; // Set DataGrid's ItemsSource
+                        QuerryResultDataGrid.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        QuerryResultDataGrid.Visibility = Visibility.Hidden;
+                        QuerryResultDataGrid.ItemsSource = null;
+                    }
                     success = true;
                 }
                 catch (MySqlException ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    QuerryResultDataGrid.Visibility = Visibility.Hidden;
+
+                    string[] Alllines = ex.Message.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                    string firstLine = Alllines.FirstOrDefault();
+                    TextQuerryResultInfo.Text = firstLine;
+
                     success = false;
                 }
                 finally
@@ -151,7 +165,7 @@ namespace GUI_Database_app.Data
             }
             else
             {
-                MessageBox.Show("Type in SQL querry first!");
+                TextQuerryResultInfo.Text = "Type in SQL querry first!";
                 success = false;
             }
 
