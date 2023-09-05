@@ -8,7 +8,6 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -33,15 +32,7 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
         {
             // setting string value by getting first and last pointer in the textRange from our SqlCommandTextBox (RichTextBox)
             querryText = new TextRange(SqlCommandTextBox.Document.ContentStart, SqlCommandTextBox.Document.ContentEnd).Text;
-            if (CurrentUserConn.ExecuteAndCheckSQLQuerry(querryText, QuerryrResultDataGrid, TextQuerryResultInfo))
-            {
-                TextQuerryResultInfo.Text = "Successfully executed the querry";
-                BorderQuerryResultInfo.Background = Brushes.Green;
-            }
-            else
-            {
-                BorderQuerryResultInfo.Background = Brushes.Red;
-            }
+            CurrentUserConn.ExecuteAndCheckSQLQuerry(querryText, QuerryrResultDataGrid, TextQuerryResultInfo, BorderQuerryResultInfo);
         }
     }
 }

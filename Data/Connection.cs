@@ -6,6 +6,7 @@ using System.Data;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Controls;
 
 namespace GUI_Database_app.Data
@@ -120,9 +121,8 @@ namespace GUI_Database_app.Data
         //
         //}
 
-        public bool ExecuteAndCheckSQLQuerry(string query, DataGrid QuerryResultDataGrid, TextBlock TextQuerryResultInfo)
+        public void ExecuteAndCheckSQLQuerry(string query, DataGrid QuerryResultDataGrid, TextBlock TextQuerryResultInfo, Border BorderQuerryResultInfo)
         {
-            bool success = false;
             if (!string.IsNullOrWhiteSpace(query)) 
             { 
                 try
@@ -146,7 +146,9 @@ namespace GUI_Database_app.Data
                         QuerryResultDataGrid.Visibility = Visibility.Hidden;
                         QuerryResultDataGrid.ItemsSource = null;
                     }
-                    success = true;
+
+                    TextQuerryResultInfo.Text = "Successfully executed the querry";
+                    BorderQuerryResultInfo.Background = Brushes.Green;
                 }
                 catch (MySqlException ex)
                 {
@@ -154,9 +156,9 @@ namespace GUI_Database_app.Data
 
                     string[] Alllines = ex.Message.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
                     string firstLine = Alllines.FirstOrDefault();
-                    TextQuerryResultInfo.Text = firstLine;
 
-                    success = false;
+                    TextQuerryResultInfo.Text = firstLine;
+                    BorderQuerryResultInfo.Background = Brushes.Red;
                 }
                 finally
                 {
@@ -166,10 +168,8 @@ namespace GUI_Database_app.Data
             else
             {
                 TextQuerryResultInfo.Text = "Type in SQL querry first!";
-                success = false;
+                BorderQuerryResultInfo.Background = Brushes.Red;
             }
-
-            return success;
         }
 
         public void DisconnectUserFromServer()
