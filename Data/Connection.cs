@@ -19,6 +19,7 @@ namespace GUI_Database_app.Data
         public static MySqlConnection connection = new MySqlConnection();
         private string connectionString;
         private static string dbName, username, password, hostName;
+        private ListBox actualizedDbListBox;
 
         public string DbName {get => dbName; set => dbName = value;}
               
@@ -61,8 +62,10 @@ namespace GUI_Database_app.Data
             }
         }
 
-        public void DisplayAvaliableDatabases(ListBox databaseComboBox)
+        public void DisplayAvaliableDatabases(ListBox databaseListBox)
         {
+            actualizedDbListBox = databaseListBox;
+
             try
             {
                 connection.Open();
@@ -79,7 +82,7 @@ namespace GUI_Database_app.Data
                         AvailableDatabases.Add(databaseName);
                     }
 
-                    databaseComboBox.ItemsSource = AvailableDatabases;
+                    actualizedDbListBox.ItemsSource = AvailableDatabases;
                 }
             }
             catch(MySqlException ex)
@@ -147,6 +150,14 @@ namespace GUI_Database_app.Data
                         QuerryResultDataGrid.ItemsSource = null;
                     }
 
+                    if(query.Trim().StartsWith("DROP DATABASE", StringComparison.OrdinalIgnoreCase) || 
+                       query.Trim().StartsWith("CREATE DATABASE", StringComparison.OrdinalIgnoreCase))
+                    {
+                        connection.Close();
+                        DisplayAvaliableDatabases(actualizedDbListBox);
+                        connection.Open();
+                    }
+
                     TextQuerryResultInfo.Text = "Successfully executed the querry";
                     BorderQuerryResultInfo.Background = Brushes.Green;
                 }
@@ -178,6 +189,7 @@ namespace GUI_Database_app.Data
             dbName = null;
             password = null;
             hostName = null;
+            actualizedDbListBox = null;
             connectionString = null;
             connection = null;
         }
