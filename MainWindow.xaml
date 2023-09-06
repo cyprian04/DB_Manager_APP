@@ -185,16 +185,17 @@
                             </Button.Background>
                         </Button>
 
-                        <Button Style="{StaticResource CustomButtonStyle}"
-                                    Click="btn_LogOut"
-                                    Margin="0,430,0,0">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/Resources/icon-logout.png"/>
-                            </Button.Background>
-                        </Button>
-
                     </StackPanel>
-                    
+
+                    <Button Style="{StaticResource CustomButtonStyle}"
+                                    Click="btn_LogOut"
+                                    Margin="0,0,0,10"
+                                    VerticalAlignment="Bottom">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Resources/icon-logout.png"/>
+                        </Button.Background>
+                    </Button>
+
                     <Border Grid.Column="1"
                             CornerRadius="10,0,10,0"
                             BorderThickness="0"
