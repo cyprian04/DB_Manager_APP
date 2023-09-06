@@ -186,6 +186,15 @@ namespace GUI_Database_app.Data
                         connection.Open();
                     }
 
+                    if (query.Trim().StartsWith("DROP TABLE", StringComparison.OrdinalIgnoreCase) ||
+                       query.Trim().StartsWith("CREATE TABLE", StringComparison.OrdinalIgnoreCase))
+                    {
+                        connection.Close();
+                        DisplayCurrentDbTables(actualizedTablesListBox);
+                        connection.Open();
+                    }
+
+
                     TextQuerryResultInfo.Text = "Successfully executed the querry";
                     BorderQuerryResultInfo.Background = Brushes.Green;
                 }
