@@ -19,7 +19,7 @@ namespace GUI_Database_app.Data
         public static MySqlConnection connection = new MySqlConnection();
         private string connectionString;
         private static string dbName, username, password, hostName;
-        private ListBox actualizedDbListBox;
+        private ListBox actualizedDbListBox, actualizedTablesListBox;
 
         public string DbName {get => dbName; set => dbName = value;}
               
@@ -119,10 +119,38 @@ namespace GUI_Database_app.Data
                 MessageBox.Show("Already connected to this database");
         }
 
-        //public void DisplayCurrentDbTables()
-        //{
-        //
-        //}
+        public void DisplayCurrentDbTables(ListBox tablesListBox)
+        {
+            actualizedTablesListBox = tablesListBox;
+
+            try
+            {
+                connection.Open();
+                string query = "SHOW TABLES;";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    List<string> AvailableTables = new List<string>();
+
+                    while (reader.Read())
+                    {
+                        string tableName = reader.GetString(0);
+                        AvailableTables.Add(tableName);
+                    }
+
+                    actualizedTablesListBox.ItemsSource = AvailableTables;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
         public void ExecuteAndCheckSQLQuerry(string query, DataGrid QuerryResultDataGrid, TextBlock TextQuerryResultInfo, Border BorderQuerryResultInfo)
         {
@@ -190,6 +218,7 @@ namespace GUI_Database_app.Data
             password = null;
             hostName = null;
             actualizedDbListBox = null;
+            actualizedTablesListBox = null;
             connectionString = null;
             connection = null;
         }

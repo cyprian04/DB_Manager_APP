@@ -33,6 +33,10 @@ namespace GUI_Database_app.CustomControls
             CurrentUserConn.DisplayAvaliableDatabases(DatabasesListBox);
 
             SQL = new MainInteraction.MainContentArea.SQLControl(CurrentUserConn);
+            Structure = new MainInteraction.MainContentArea.StructureControl(CurrentUserConn);
+            Authorized = new MainInteraction.MainContentArea.AuthorizedControl(CurrentUserConn);
+            Relations = new MainInteraction.MainContentArea.RelationsControl(CurrentUserConn);
+
             MainInteractionContentArea.Content = SQL;
         }
 
@@ -41,13 +45,11 @@ namespace GUI_Database_app.CustomControls
             if (DatabasesListBox.SelectedItem != null)
             {
                 // Get the selected option
+
                 CurrentUserConn.ConnectionWithDb(DatabasesListBox.SelectedItem.ToString());
-                //for testing
+                CurrentUserConn.DisplayCurrentDbTables(Structure.TablesListBox);
+
                 //MessageBox.Show(CurrentUserConn.DbName);
-                //
-                Structure = new MainInteraction.MainContentArea.StructureControl(CurrentUserConn);
-                Authorized = new MainInteraction.MainContentArea.AuthorizedControl(CurrentUserConn);
-                Relations = new MainInteraction.MainContentArea.RelationsControl(CurrentUserConn);
             }
         }
 
