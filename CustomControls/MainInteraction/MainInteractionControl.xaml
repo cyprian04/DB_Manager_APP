@@ -53,7 +53,6 @@
                              FontWeight="DemiBold"
                              FontSize="17"/>
                       
-                        <ScrollViewer VerticalScrollBarVisibility="Auto">
                             <ListBox x:Name="DatabasesListBox" 
                                          Margin="0,30,0,30"
                                          MaxHeight="600"
@@ -90,7 +89,6 @@
                                     </Style>
                                 </ListBox.ItemContainerStyle>
                             </ListBox>
-                        </ScrollViewer>
                         
                     </StackPanel>
                 </Grid>
