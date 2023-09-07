@@ -69,8 +69,9 @@
                                         <Setter Property="Margin" Value="0,2"/>
                                         <Setter Property="FontWeight" Value="DemiBold"/>
                                         <Setter Property="Cursor" Value="Hand"/>
-                                          <Setter Property="Foreground" Value="AliceBlue"/>
-                                          <Setter Property="Template">
+                                        <Setter Property="Foreground" Value="AliceBlue"/>
+                                        <Setter Property="Height" Value="20"/>
+                                        <Setter Property="Template">
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="ListBoxItem">
                                                     <Border Background="{TemplateBinding Background}"
@@ -107,33 +108,33 @@
                                     Orientation="Horizontal">
 
                         <Button Content="SQL"
-                                    Style="{StaticResource NavButtonStyle}"
-                                    Template="{StaticResource NavButtonTemplate}"
-                                        Click="btn_SQL"/>
+                                Style="{StaticResource NavButtonStyle}"
+                                Template="{StaticResource NavButtonTemplate}"
+                                Click="btn_SQL"/>
 
                         <Button Content="Structure"
-                                    Style="{StaticResource NavButtonStyle}"
-                                    Template="{StaticResource NavButtonTemplate}"
-                                    Click="btn_Structure"/>
+                                Style="{StaticResource NavButtonStyle}"
+                                Template="{StaticResource NavButtonTemplate}"
+                                Click="btn_Structure"/>
                                 
-                                <Button Content="Authorized"
-                                    Style="{StaticResource NavButtonStyle}"
-                                    Template="{StaticResource NavButtonTemplate}"
-                                    Click="btn_Authorized"/>
+                        <Button Content="Authorized"
+                                Style="{StaticResource NavButtonStyle}"
+                                Template="{StaticResource NavButtonTemplate}"
+                                Click="btn_Authorized"/>
 
-                                <Button Content="Relations"
-                                    Style="{StaticResource NavButtonStyle}"
-                                    Template="{StaticResource NavButtonTemplate}"
-                                    Click="btn_Relations"/>
+                        <Button Content="Relations"
+                                Style="{StaticResource NavButtonStyle}"
+                                Template="{StaticResource NavButtonTemplate}"
+                                Click="btn_Relations"/>
                         </StackPanel>
                     </Grid>
                  
                     <Grid Grid.Row="1">
                     
                         <Border Grid.Column="1"
-                        CornerRadius="10,0,10,0"
-                        BorderThickness="0"
-                        Background="#555">
+                                CornerRadius="10,0,10,0"
+                                BorderThickness="0"
+                                Background="#555">
 
                             <ContentControl x:Name="MainInteractionContentArea" 
                                             Grid.Column="1" />
