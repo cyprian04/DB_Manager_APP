@@ -24,11 +24,14 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
         ImageBrush show = null;
         ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
 
-        CornerRadius rightColFullVisible = new CornerRadius(0,0,9,0);
-        CornerRadius rightColNotFullVisible = new CornerRadius(9, 0, 9, 0);
+        CornerRadius adjutedRightCol = new CornerRadius(0,0,9,0);
+        CornerRadius defaultRightCol = new CornerRadius(9, 0, 9, 0);
 
         GridLength defaultLeftColWidth = new GridLength(200);
-        GridLength hiddenLeftColWidth = new GridLength(0);
+        GridLength adjustedLeftColWidth = new GridLength(0);
+
+        Thickness defaultBorder = new Thickness(2, 2, 0, 0);
+        Thickness adjustedBorder = new Thickness(0, 2, 0, 0);
 
         private bool Hidden = false;
 
@@ -45,10 +48,11 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
             {
                 HideShowBtn.Background = hide;
 
-                TablesLeftColumn.Width = hiddenLeftColWidth;
+                TablesLeftColumn.Width = adjustedLeftColWidth;
                 ContentRightColumn.SetValue(Grid.ColumnProperty, 0);
 
-                RightContentBorder.CornerRadius = rightColFullVisible;
+                RightContentBorder.CornerRadius = adjutedRightCol;
+                RightContentBorder.BorderThickness = adjustedBorder;
                 Hidden = true;
             }
             else
@@ -56,7 +60,8 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
                 HideShowBtn.Background = show;
                 TablesLeftColumn.Width = defaultLeftColWidth;
 
-                RightContentBorder.CornerRadius = rightColNotFullVisible;
+                RightContentBorder.CornerRadius = defaultRightCol;
+                RightContentBorder.BorderThickness = defaultBorder;
 
                 Hidden = false;
             }
