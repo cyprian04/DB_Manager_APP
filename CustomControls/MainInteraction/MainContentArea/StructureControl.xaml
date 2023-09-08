@@ -51,14 +51,23 @@
             BorderThickness="2,2,0,0">
 
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
 
-            <Grid Grid.Column="0">
+            <Grid Grid.Row="0">
 
-                <StackPanel Orientation="Horizontal"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+
+                    <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Center">
                     
                     <TextBlock Text="Tables"
@@ -77,14 +86,46 @@
                         </Button.Background>
                     </Button>
 
-                </StackPanel>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <StackPanel HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+
+                        <Button Content="Table Structure"
+                                Style="{StaticResource TableButtonStyle}"
+                                Template="{StaticResource TableButtonTemplate}"
+                                />
+
+                        <Button Content="Table Data"
+                                Style="{StaticResource TableButtonStyle}"
+                                Template="{StaticResource TableButtonTemplate}"
+                                />
+                    </StackPanel>
+
+                </Grid>
+                
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+
+                <Border CornerRadius="0,0,9,0"
+                            Background="#777"
+                            BorderBrush="#222"
+                            BorderThickness="0,2,0,0">
+
+                    <StackPanel Orientation="Horizontal">
 
                         <ListBox x:Name="TablesListBox" 
                                    Margin="0,30,0,30"
                                    MaxHeight="600"
                                    HorizontalAlignment="Center"
                                    Background="Transparent"
-                                   BorderThickness="0">
+                                   BorderThickness="0"
+                                   Visibility="Visible">
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem">
                                     <Setter Property="Background" Value="#5d3a6f"/>
@@ -113,48 +154,13 @@
                                 </Style>
                             </ListBox.ItemContainerStyle>
                         </ListBox>
-            </Grid>
 
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0">
-
-                    <StackPanel HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Orientation="Horizontal">
-                        
-                        <Button Content="Table Structure"
-                                Style="{StaticResource TableButtonStyle}"
-                                Template="{StaticResource TableButtonTemplate}"
-                                />
-
-                        <Button Content="Table Data"
-                                Style="{StaticResource TableButtonStyle}"
-                                Template="{StaticResource TableButtonTemplate}"
-                                />
-                        
-                    </StackPanel>
-
-                        
-                </Grid>
-
-                <Grid Grid.Row="1">
-
-                    <Border CornerRadius="9,0,9,0"
-                            Background="#777"
-                            BorderBrush="#222"
-                            BorderThickness="2,2,0,0">
-                        
-                    
                         <ContentControl x:Name="TableContentArea" 
                                             Grid.Column="1" />
-                    
-                    </Border>
-                </Grid>
+                    </StackPanel>
+
+                </Border>
 
             </Grid>
 
