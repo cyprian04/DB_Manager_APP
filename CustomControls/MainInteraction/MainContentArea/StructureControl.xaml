@@ -104,28 +104,29 @@
                                 Template="{StaticResource TableButtonTemplate}"
                                 />
                     </StackPanel>
-
                 </Grid>
                 
             </Grid>
 
             <Grid Grid.Row="1">
 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" x:Name="TablesLeftColumn"/>
+                    <ColumnDefinition Width="*" x:Name="ContentRightColumn"/>
+                </Grid.ColumnDefinitions>
 
-                <Border CornerRadius="0,0,9,0"
-                            Background="#777"
-                            BorderBrush="#222"
-                            BorderThickness="0,2,0,0">
+                <Grid Grid.Column="0"
+                      Visibility="Visible">
+                    <Border>
 
-                    <StackPanel Orientation="Horizontal">
-
-                        <ListBox x:Name="TablesListBox" 
-                                   Margin="0,30,0,30"
-                                   MaxHeight="600"
-                                   HorizontalAlignment="Center"
-                                   Background="Transparent"
-                                   BorderThickness="0"
-                                   Visibility="Visible">
+                    <ListBox x:Name="TablesListBox" 
+                               MaxHeight="600"
+                               Margin="0,10,0,0"
+                               HorizontalAlignment="Center"
+                               Background="Transparent"
+                               BorderThickness="0"
+                               VerticalAlignment="Top">
+                        
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem">
                                     <Setter Property="Background" Value="#5d3a6f"/>
@@ -140,7 +141,7 @@
                                             <ControlTemplate TargetType="ListBoxItem">
                                                 <Border Background="{TemplateBinding Background}"
                                                                 CornerRadius="5">
-                                                    <ContentPresenter VerticalAlignment="Center"
+                                                    <ContentPresenter VerticalAlignment="Top"
                                                   HorizontalAlignment="Center"/>
                                                 </Border>
                                             </ControlTemplate>
@@ -154,13 +155,23 @@
                                 </Style>
                             </ListBox.ItemContainerStyle>
                         </ListBox>
+                        
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Border x:Name="RightContentBorder" 
+                              CornerRadius="9,0,9,0"
+                              Background="#777"
+                              BorderBrush="#222"
+                              BorderThickness="2,2,0,0">
 
 
                         <ContentControl x:Name="TableContentArea" 
-                                            Grid.Column="1" />
-                    </StackPanel>
-
-                </Border>
+                                            Grid.Row="1" />
+                    </Border>
+                </Grid>
+                
 
             </Grid>
 

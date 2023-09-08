@@ -38,13 +38,17 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
             if (!Hidden)
             {
                 HideShowBtn.Background = hide;
-                TablesListBox.Visibility = Visibility.Collapsed;
+
+                TablesLeftColumn.Width = new GridLength(0);
+                ContentRightColumn.SetValue(Grid.ColumnProperty, 0);
+
                 Hidden = true;
             }
             else
             {
                 HideShowBtn.Background = show;
-                TablesListBox.Visibility = Visibility.Visible;
+                TablesLeftColumn.Width = new GridLength(200);
+
                 Hidden = false;
             }
         }
