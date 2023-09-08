@@ -248,6 +248,8 @@
     <Resource Include="Resources\icon-password.png" />
     <Resource Include="Resources\icon-user.png" />
     <Resource Include="Resources\icon-sql.png" />
+    <Resource Include="Resources\icon-hide.png" />
+    <Resource Include="Resources\icon-show.png" />
     <Content Include="Resources\login-video.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
