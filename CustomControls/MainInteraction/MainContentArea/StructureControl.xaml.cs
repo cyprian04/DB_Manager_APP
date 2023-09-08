@@ -24,6 +24,12 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
         ImageBrush show = null;
         ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
 
+        CornerRadius rightColFullVisible = new CornerRadius(0,0,9,0);
+        CornerRadius rightColNotFullVisible = new CornerRadius(9, 0, 9, 0);
+
+        GridLength defaultLeftColWidth = new GridLength(200);
+        GridLength hiddenLeftColWidth = new GridLength(0);
+
         private bool Hidden = false;
 
         public StructureControl(Data.Connection CurrentUserConn_in)
@@ -39,15 +45,18 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
             {
                 HideShowBtn.Background = hide;
 
-                TablesLeftColumn.Width = new GridLength(0);
+                TablesLeftColumn.Width = hiddenLeftColWidth;
                 ContentRightColumn.SetValue(Grid.ColumnProperty, 0);
 
+                RightContentBorder.CornerRadius = rightColFullVisible;
                 Hidden = true;
             }
             else
             {
                 HideShowBtn.Background = show;
-                TablesLeftColumn.Width = new GridLength(200);
+                TablesLeftColumn.Width = defaultLeftColWidth;
+
+                RightContentBorder.CornerRadius = rightColNotFullVisible;
 
                 Hidden = false;
             }
