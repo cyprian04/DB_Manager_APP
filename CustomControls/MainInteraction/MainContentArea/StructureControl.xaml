@@ -8,7 +8,6 @@
              d:DesignHeight="640" d:DesignWidth="800">
 
     <UserControl.Resources>
-        <!-- Button style -->
         <Style TargetType="Button" x:Key="TableButtonStyle">
             <Setter Property="Background" Value="#28AEED"/>
             <Setter Property="Margin" Value="0,0,20,0"/>
@@ -22,12 +21,28 @@
             </Style.Triggers>
         </Style>
 
-        <!-- Button template -->
         <ControlTemplate x:Key="TableButtonTemplate" TargetType="Button">
             <Border Width="100" Height="30" CornerRadius="10" Background="{TemplateBinding Background}">
                 <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Border>
         </ControlTemplate>
+
+        <Style x:Key="HideShowButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter Opacity="0" Visibility="Hidden"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Width" Value="35" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="Margin" Value="5,10,0,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        
     </UserControl.Resources>
 
     <Border CornerRadius="9,0,9,0"
@@ -52,8 +67,16 @@
                               Foreground="AliceBlue"
                               FontWeight="DemiBold"
                               FontSize="17"/>
-                    
-                    
+
+                    <Button x:Name="HideShowBtn" 
+                            Style="{StaticResource HideShowButtonStyle}" 
+                            Click="btn_HideShow"
+                            VerticalAlignment="Top">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Resources/icon-show.png"/>
+                        </Button.Background>
+                    </Button>
+
                 </StackPanel>
 
                         <ListBox x:Name="TablesListBox" 

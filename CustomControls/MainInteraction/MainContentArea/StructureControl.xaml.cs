@@ -21,11 +21,30 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
     public partial class StructureControl : UserControl
     {
         Data.Connection CurrentUserConn = null;
+        ImageBrush show = null;
+        ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
+
+        private bool Hidden = false;
 
         public StructureControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
             CurrentUserConn = CurrentUserConn_in;
+            show = HideShowBtn.Background as ImageBrush; // getting the path of the imageSource set as default at start up
+        }
+
+        private void btn_HideShow(object sender, RoutedEventArgs e)
+        {
+            if (!Hidden)
+            {
+                HideShowBtn.Background = hide;
+                Hidden = true;
+            }
+            else
+            {
+                HideShowBtn.Background = show;
+                Hidden = false;
+            }
         }
     }
 }
