@@ -51,7 +51,12 @@
             Background="#333">
 
         <Grid>
-            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200"/>
                     <ColumnDefinition/>
@@ -59,11 +64,9 @@
 
                 <Grid Grid.Column="0">
 
-
                     <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Center">
-                        
-                    
+
                         <TextBlock Text="Databases"
                              Margin="0,20,0,0"
                              HorizontalAlignment="Center"
@@ -80,55 +83,11 @@
                             </Button.Background>
                         </Button>
                     </StackPanel>
-                    
-                        <ListBox x:Name="DatabasesListBox" 
-                                         Margin="0,30,0,30"
-                                         MaxHeight="600"
-                                         Width="150"
-                                         HorizontalAlignment="Center"
-                                         Background="Transparent"
-                                         BorderThickness="0"
-                                         SelectionChanged="DatabasesListBox_SelectionChanged">
-                                <ListBox.ItemContainerStyle>
-                                    <Style TargetType="ListBoxItem">
-                                        <Setter Property="Background" Value="#5d3a6f"/>
-                                        <Setter Property="BorderThickness" Value="0"/>
-                                        <Setter Property="Margin" Value="0,2"/>
-                                        <Setter Property="FontWeight" Value="DemiBold"/>
-                                        <Setter Property="Cursor" Value="Hand"/>
-                                        <Setter Property="Foreground" Value="AliceBlue"/>
-                                        <Setter Property="Height" Value="20"/>
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="ListBoxItem">
-                                                    <Border Background="{TemplateBinding Background}"
-                                                                CornerRadius="5">
-                                                        <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                                                    </Border>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#6200ea"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </ListBox.ItemContainerStyle>
-                            </ListBox>
-                        
                 </Grid>
-                
+
                 <Grid Grid.Column="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="0">
-
-                        <StackPanel HorizontalAlignment="Center"
+                    <StackPanel HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     Orientation="Horizontal">
 
@@ -141,7 +100,7 @@
                                 Style="{StaticResource NavButtonStyle}"
                                 Template="{StaticResource NavButtonTemplate}"
                                 Click="btn_Structure"/>
-                                
+
                         <Button Content="Authorized"
                                 Style="{StaticResource NavButtonStyle}"
                                 Template="{StaticResource NavButtonTemplate}"
@@ -151,21 +110,67 @@
                                 Style="{StaticResource NavButtonStyle}"
                                 Template="{StaticResource NavButtonTemplate}"
                                 Click="btn_Relations"/>
-                        </StackPanel>
-                    </Grid>
-                 
-                    <Grid Grid.Row="1">
-                    
-                        <Border Grid.Column="1"
-                                CornerRadius="10,0,10,0"
-                                BorderThickness="0"
-                                Background="#555">
-
-                            <ContentControl x:Name="MainInteractionContentArea" 
-                                            Grid.Column="1" />
-                        </Border>
-                    </Grid>
+                    </StackPanel>
                 </Grid>
+
+            </Grid>
+            
+            <Grid Grid.Row="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <ListBox x:Name="DatabasesListBox" 
+                               Margin="0,30,0,30"
+                               MaxHeight="600"
+                               Width="150"
+                               HorizontalAlignment="Center"
+                               Background="Transparent"
+                               BorderThickness="0"
+                               SelectionChanged="DatabasesListBox_SelectionChanged">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="Background" Value="#5d3a6f"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="Margin" Value="0,2"/>
+                                <Setter Property="FontWeight" Value="DemiBold"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Setter Property="Foreground" Value="AliceBlue"/>
+                                <Setter Property="Height" Value="20"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListBoxItem">
+                                            <Border Background="{TemplateBinding Background}"
+                                                                CornerRadius="5">
+                                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#6200ea"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Border CornerRadius="10,0,10,0"
+                            BorderThickness="0"
+                            Background="#555">
+
+                        <ContentControl x:Name="MainInteractionContentArea" 
+                                        Grid.Column="1" />
+                    </Border>
+                </Grid>
+                
             </Grid>
         </Grid>
     </Border>

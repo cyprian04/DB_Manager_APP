@@ -51,15 +51,13 @@
             BorderThickness="2,2,0,0">
 
         <Grid>
-            
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            
+
 
             <Grid Grid.Row="0">
-
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200"/>
                     <ColumnDefinition/>
