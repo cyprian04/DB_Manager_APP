@@ -9,7 +9,6 @@
 
 
     <UserControl.Resources>
-        <!-- Button style -->
         <Style TargetType="Button" x:Key="NavButtonStyle">
             <Setter Property="Background" Value="#28AEED"/>
             <Setter Property="Margin" Value="0,0,20,0"/>
@@ -23,12 +22,28 @@
             </Style.Triggers>
         </Style>
 
-        <!-- Button template -->
         <ControlTemplate x:Key="NavButtonTemplate" TargetType="Button">
             <Border Width="100" Height="30" CornerRadius="10" Background="{TemplateBinding Background}">
                 <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Border>
         </ControlTemplate>
+
+        <Style x:Key="HideShowButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter Opacity="0" Visibility="Hidden"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Width" Value="35" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="Margin" Value="5,15,0,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
     </UserControl.Resources>
 
     <Border CornerRadius="10,0,10,0"
@@ -44,16 +59,29 @@
 
                 <Grid Grid.Column="0">
 
-                    <StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
                         
+                    
                         <TextBlock Text="Databases"
                              Margin="0,20,0,0"
                              HorizontalAlignment="Center"
                              Foreground="AliceBlue"
                              FontWeight="DemiBold"
                              FontSize="17"/>
-                      
-                            <ListBox x:Name="DatabasesListBox" 
+
+                        <Button x:Name="HideShowBtn" 
+                            Style="{StaticResource HideShowButtonStyle}" 
+                            Click="btn_HideShow"
+                            VerticalAlignment="Top">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/icon-show.png"/>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                    
+                        <ListBox x:Name="DatabasesListBox" 
                                          Margin="0,30,0,30"
                                          MaxHeight="600"
                                          Width="150"
@@ -90,7 +118,6 @@
                                 </ListBox.ItemContainerStyle>
                             </ListBox>
                         
-                    </StackPanel>
                 </Grid>
                 
                 <Grid Grid.Column="1">

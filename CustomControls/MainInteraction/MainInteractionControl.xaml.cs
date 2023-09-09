@@ -92,5 +92,10 @@ namespace GUI_Database_app.CustomControls
         {
             IsCurrentMainContentAreaSame(Relations);
         }
+
+        private void btn_HideShow(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
