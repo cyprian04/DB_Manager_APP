@@ -47,22 +47,20 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
             if (!Hidden)
             {
                 HideShowBtn.Background = hide;
+                LeftContentColumn.Width = adjustedLeftColWidth;
+                RightContentColumn.SetValue(Grid.ColumnProperty, 0);
 
-                TablesLeftColumn.Width = adjustedLeftColWidth;
-                ContentRightColumn.SetValue(Grid.ColumnProperty, 0);
-
-                RightContentBorder.CornerRadius = adjutedRightCol;
-                RightContentBorder.BorderThickness = adjustedBorder;
+                RightContentColumnBorder.CornerRadius = adjutedRightCol;
+                RightContentColumnBorder.BorderThickness = adjustedBorder;
                 Hidden = true;
             }
             else
             {
                 HideShowBtn.Background = show;
-                TablesLeftColumn.Width = defaultLeftColWidth;
+                LeftContentColumn.Width = defaultLeftColWidth;
 
-                RightContentBorder.CornerRadius = defaultRightCol;
-                RightContentBorder.BorderThickness = defaultBorder;
-
+                RightContentColumnBorder.CornerRadius = defaultRightCol;
+                RightContentColumnBorder.BorderThickness = defaultBorder;
                 Hidden = false;
             }
         }
