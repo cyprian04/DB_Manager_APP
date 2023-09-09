@@ -33,7 +33,7 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
         Thickness defaultBorder = new Thickness(2, 2, 0, 0);
         Thickness adjustedBorder = new Thickness(0, 2, 0, 0);
 
-        private bool Hidden = false;
+        private bool hidden = false;
 
         public StructureControl(Data.Connection CurrentUserConn_in)
         {
@@ -44,7 +44,7 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
 
         private void btn_HideShow(object sender, RoutedEventArgs e)
         {
-            if (!Hidden)
+            if (!hidden)
             {
                 HideShowBtn.Background = hide;
                 LeftContentColumn.Width = adjustedLeftColWidth;
@@ -52,7 +52,7 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
 
                 RightContentColumnBorder.CornerRadius = adjutedRightCol;
                 RightContentColumnBorder.BorderThickness = adjustedBorder;
-                Hidden = true;
+                hidden = true;
             }
             else
             {
@@ -61,7 +61,7 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
 
                 RightContentColumnBorder.CornerRadius = defaultRightCol;
                 RightContentColumnBorder.BorderThickness = defaultBorder;
-                Hidden = false;
+                hidden = false;
             }
         }
     }

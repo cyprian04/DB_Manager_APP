@@ -47,7 +47,6 @@
     </UserControl.Resources>
 
     <Border CornerRadius="10,0,10,0"
-          BorderThickness="5,5,0,0"
             Background="#333">
 
         <Grid>
@@ -118,8 +117,8 @@
             <Grid Grid.Row="1">
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="200" x:Name="LeftContentColumn"/>
+                    <ColumnDefinition Width="*" x:Name="RightContentColumn"/>
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
@@ -162,9 +161,7 @@
                 </Grid>
 
                 <Grid Grid.Column="1">
-                    <Border CornerRadius="10,0,10,0"
-                            BorderThickness="0"
-                            Background="#555">
+                    <Border>
 
                         <ContentControl x:Name="MainInteractionContentArea" 
                                         Grid.Column="1" />

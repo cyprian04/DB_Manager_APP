@@ -29,20 +29,18 @@ namespace GUI_Database_app.CustomControls
         ImageBrush show = null;
         ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
 
-        CornerRadius adjutedRightCol = new CornerRadius(0, 0, 9, 0);
-        CornerRadius defaultRightCol = new CornerRadius(9, 0, 9, 0);
-
         GridLength defaultLeftColWidth = new GridLength(200);
         GridLength adjustedLeftColWidth = new GridLength(0);
 
-        Thickness defaultBorder = new Thickness(2, 2, 0, 0);
-        Thickness adjustedBorder = new Thickness(0, 2, 0, 0);
+        bool hidden = false;
 
         public MainInteractionControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
             CurrentUserConn = CurrentUserConn_in;
             CurrentUserConn.DisplayAvaliableDatabases(DatabasesListBox);
+            show = HideShowBtn.Background as ImageBrush; 
+
 
             SQL = new MainInteraction.MainContentArea.SQLControl(CurrentUserConn);
             Structure = new MainInteraction.MainContentArea.StructureControl(CurrentUserConn);
@@ -107,7 +105,21 @@ namespace GUI_Database_app.CustomControls
 
         private void btn_HideShow(object sender, RoutedEventArgs e)
         {
+            if (!hidden)
+            {
+                HideShowBtn.Background = hide;
+                LeftContentColumn.Width = adjustedLeftColWidth;
+                RightContentColumn.SetValue(Grid.ColumnProperty, 0);
 
+                hidden = true;
+            }
+            else
+            {
+                HideShowBtn.Background = show;
+                LeftContentColumn.Width = defaultLeftColWidth;
+
+                hidden = false;
+            }
         }
     }
 }
