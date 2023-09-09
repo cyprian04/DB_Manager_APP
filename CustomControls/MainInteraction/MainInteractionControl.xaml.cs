@@ -26,6 +26,18 @@ namespace GUI_Database_app.CustomControls
         MainInteraction.MainContentArea.RelationsControl Relations = null;
         MainInteraction.MainContentArea.SQLControl SQL = null;
 
+        ImageBrush show = null;
+        ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
+
+        CornerRadius adjutedRightCol = new CornerRadius(0, 0, 9, 0);
+        CornerRadius defaultRightCol = new CornerRadius(9, 0, 9, 0);
+
+        GridLength defaultLeftColWidth = new GridLength(200);
+        GridLength adjustedLeftColWidth = new GridLength(0);
+
+        Thickness defaultBorder = new Thickness(2, 2, 0, 0);
+        Thickness adjustedBorder = new Thickness(0, 2, 0, 0);
+
         public MainInteractionControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
