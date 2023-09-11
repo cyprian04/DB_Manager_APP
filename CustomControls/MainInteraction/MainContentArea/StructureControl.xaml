@@ -164,9 +164,55 @@
                               BorderBrush="#222"
                               BorderThickness="2,2,0,0">
 
+                        <DataGrid x:Name="TableStructureDataGrid" 
+                           AutoGenerateColumns="True"
+                           Background="Transparent"
+                           BorderThickness="0"
+                           Margin="10"
+                           Visibility="Hidden">
 
-                        <ContentControl x:Name="TableContentArea" 
-                                            Grid.Row="1" />
+                            <DataGrid.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="#4DB6AC"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="FontWeight" Value="DemiBold"/>
+                                    <Setter Property="Foreground" Value="AliceBlue"/>
+
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#00695C"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+
+
+                            </DataGrid.CellStyle>
+
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Style>
+                            </DataGrid.RowStyle>
+
+                            <DataGrid.RowHeaderStyle>
+                                <Style TargetType="DataGridRowHeader">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Style>
+                            </DataGrid.RowHeaderStyle>
+
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#00695C"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                    <Setter Property="Foreground" Value="AliceBlue"/>
+                                    <Setter Property="Padding" Value="5"/>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+
+                        </DataGrid>
                     </Border>
                 </Grid>
                 
