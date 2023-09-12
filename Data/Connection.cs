@@ -220,7 +220,6 @@ namespace GUI_Database_app.Data
 
                             break;
                     }
-
                 }
                 catch (MySqlException ex)
                 {

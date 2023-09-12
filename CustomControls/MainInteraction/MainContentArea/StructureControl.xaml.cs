@@ -71,12 +71,14 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
             if (TablesListBox.SelectedItem != null)
             {
                 CurrentUserConn.TbName = TablesListBox.SelectedItem.ToString();
+                TableStructureDataGrid.Visibility = Visibility.Hidden;
+                TableStructureDataGrid.ItemsSource = null;
             }
         }
 
         private void Struct_btn(object sender, RoutedEventArgs e)
         {
-            querry = "DESCRIBE " + CurrentUserConn.TbName + ";";
+            querry = "DESCRIBE " + CurrentUserConn.TbName +";";
             CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowStruct, querry, TableStructureDataGrid);
         }
 
