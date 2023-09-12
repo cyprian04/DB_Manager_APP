@@ -226,6 +226,7 @@ namespace GUI_Database_app.Data
         {
             username = null;
             dbName = null;
+            tbName = null;
             password = null;
             hostName = null;
             actualizedDbListBox = null;

@@ -64,5 +64,15 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
                 hidden = false;
             }
         }
+
+        private void TablesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (TablesListBox.SelectedItem != null)
+            {
+                MessageBox.Show(CurrentUserConn.TbName);
+                CurrentUserConn.TbName = TablesListBox.SelectedItem.ToString();
+                MessageBox.Show(CurrentUserConn.TbName);
+            }
+        }
     }
 }
