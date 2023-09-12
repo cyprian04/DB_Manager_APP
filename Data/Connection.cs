@@ -16,6 +16,13 @@ namespace GUI_Database_app.Data
     /// </summary>
     public class Connection
     {
+        public enum TypeOfQuerry
+        { 
+            defaultQuerry,
+            ShowStruct,
+            ShowData
+        }
+
         public static MySqlConnection connection = new MySqlConnection();
         private string connectionString;
         private static string dbName, tbName, username, password, hostName;
@@ -95,7 +102,7 @@ namespace GUI_Database_app.Data
             {
                 connection.Close();
             }
-        }
+        } // połączyć 
 
         public void ConnectionWithDb(string DbName_in)
         {
@@ -152,9 +159,9 @@ namespace GUI_Database_app.Data
             {
                 connection.Close();
             }
-        }
+        } // połączyć
 
-        public void ExecuteAndCheckSQLQuerry(string query, DataGrid QuerryResultDataGrid, TextBlock TextQuerryResultInfo, Border BorderQuerryResultInfo)
+        public void ExecuteAndCheckSQLQuerry(TypeOfQuerry type, string query, DataGrid QuerryResultDataGrid, TextBlock TextQuerryResultInfo = null, Border BorderQuerryResultInfo = null)
         {
             if (!string.IsNullOrWhiteSpace(query)) 
             { 
@@ -169,46 +176,66 @@ namespace GUI_Database_app.Data
                         dataTable.Load(reader); // Load data into DataTable from reader
                     }
 
-                    if(dataTable.Rows.Count != 0 )
+                    switch(type)
                     {
-                        QuerryResultDataGrid.ItemsSource = dataTable.DefaultView; // Set DataGrid's ItemsSource
-                        QuerryResultDataGrid.Visibility = Visibility.Visible;
-                    }
-                    else
-                    {
-                        QuerryResultDataGrid.Visibility = Visibility.Hidden;
-                        QuerryResultDataGrid.ItemsSource = null;
+                        case TypeOfQuerry.defaultQuerry: // for executing querries from SQLControl
+
+                            if (dataTable.Rows.Count != 0)
+                            {
+                                QuerryResultDataGrid.ItemsSource = dataTable.DefaultView; // Set DataGrid's ItemsSource
+                                QuerryResultDataGrid.Visibility = Visibility.Visible;
+                            }
+                            else
+                            {
+                                QuerryResultDataGrid.Visibility = Visibility.Hidden;
+                                QuerryResultDataGrid.ItemsSource = null;
+                            }
+
+                            if (query.Trim().StartsWith("DROP DATABASE", StringComparison.OrdinalIgnoreCase) ||
+                               query.Trim().StartsWith("CREATE DATABASE", StringComparison.OrdinalIgnoreCase))
+                            {
+                                connection.Close();
+                                DisplayAvaliableDatabases(actualizedDbListBox);
+                                connection.Open();
+                            }
+
+                            if (query.Trim().StartsWith("DROP TABLE", StringComparison.OrdinalIgnoreCase) ||
+                               query.Trim().StartsWith("CREATE TABLE", StringComparison.OrdinalIgnoreCase))
+                            {
+                                connection.Close();
+                                DisplayCurrentDbTables(actualizedTablesListBox);
+                                connection.Open();
+                            }
+
+                            TextQuerryResultInfo.Text = "Successfully executed the querry";
+                            BorderQuerryResultInfo.Background = Brushes.Green;
+
+                            break;
+
+                        case TypeOfQuerry.ShowData: // in case when one of the buttons in StructureControl is pressed
+                        case TypeOfQuerry.ShowStruct:
+
+                            QuerryResultDataGrid.ItemsSource = dataTable.DefaultView; 
+                            QuerryResultDataGrid.Visibility = Visibility.Visible;
+
+                            break;
                     }
 
-                    if(query.Trim().StartsWith("DROP DATABASE", StringComparison.OrdinalIgnoreCase) || 
-                       query.Trim().StartsWith("CREATE DATABASE", StringComparison.OrdinalIgnoreCase))
-                    {
-                        connection.Close();
-                        DisplayAvaliableDatabases(actualizedDbListBox);
-                        connection.Open();
-                    }
-
-                    if (query.Trim().StartsWith("DROP TABLE", StringComparison.OrdinalIgnoreCase) ||
-                       query.Trim().StartsWith("CREATE TABLE", StringComparison.OrdinalIgnoreCase))
-                    {
-                        connection.Close();
-                        DisplayCurrentDbTables(actualizedTablesListBox);
-                        connection.Open();
-                    }
-
-
-                    TextQuerryResultInfo.Text = "Successfully executed the querry";
-                    BorderQuerryResultInfo.Background = Brushes.Green;
                 }
                 catch (MySqlException ex)
                 {
-                    QuerryResultDataGrid.Visibility = Visibility.Hidden;
+                    if (type == TypeOfQuerry.defaultQuerry)
+                    {
+                        QuerryResultDataGrid.Visibility = Visibility.Hidden;
 
-                    string[] Alllines = ex.Message.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                    string firstLine = Alllines.FirstOrDefault();
+                        string[] Alllines = ex.Message.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                        string firstLine = Alllines.FirstOrDefault();
 
-                    TextQuerryResultInfo.Text = firstLine;
-                    BorderQuerryResultInfo.Background = Brushes.Red;
+                        TextQuerryResultInfo.Text = firstLine;
+                        BorderQuerryResultInfo.Background = Brushes.Red;
+                    }
+                    else
+                        MessageBox.Show("Can't display content for table");
                 }
                 finally
                 {
