@@ -18,7 +18,7 @@ namespace GUI_Database_app.Data
     {
         public static MySqlConnection connection = new MySqlConnection();
         private string connectionString;
-        private static string dbName, username, password, hostName;
+        private static string dbName, tbName, username, password, hostName;
         private ListBox actualizedDbListBox, actualizedTablesListBox;
 
         public string DbName {get => dbName; set => dbName = value;}
@@ -27,8 +27,10 @@ namespace GUI_Database_app.Data
 
         public string Password {get => password; set => password = value; }
               
-        public string ServerIp {get => hostName; set => hostName = value;}
-    
+        public string HostName {get => hostName; set => hostName = value;}
+
+        public string TbName { get => tbName; set => tbName = value; }
+
         public void Initialize(string serverIp_in, string user_in, string pass_in)
         {
             hostName = serverIp_in;
