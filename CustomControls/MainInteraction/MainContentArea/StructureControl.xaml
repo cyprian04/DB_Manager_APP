@@ -95,12 +95,12 @@
                         <Button Content="Table Structure"
                                 Style="{StaticResource TableButtonStyle}"
                                 Template="{StaticResource TableButtonTemplate}"
-                                />
+                                Click="Struct_btn"/>
 
                         <Button Content="Table Data"
                                 Style="{StaticResource TableButtonStyle}"
                                 Template="{StaticResource TableButtonTemplate}"
-                                />
+                                Click="Data_btn"/>
                     </StackPanel>
                 </Grid>
                 

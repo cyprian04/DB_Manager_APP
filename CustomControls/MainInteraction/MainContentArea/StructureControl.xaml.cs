@@ -32,8 +32,9 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
 
         Thickness defaultBorder = new Thickness(2, 2, 0, 0);
         Thickness adjustedBorder = new Thickness(0, 2, 0, 0);
-
+        
         private bool hidden = false;
+        private string querry = null;
 
         public StructureControl(Data.Connection CurrentUserConn_in)
         {
@@ -71,6 +72,18 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
             {
                 CurrentUserConn.TbName = TablesListBox.SelectedItem.ToString();
             }
+        }
+
+        private void Struct_btn(object sender, RoutedEventArgs e)
+        {
+            querry = "DESCRIBE " + CurrentUserConn.TbName + ";";
+            CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowStruct, querry, TableStructureDataGrid);
+        }
+
+        private void Data_btn(object sender, RoutedEventArgs e)
+        {
+            querry = "SELECT * FROM " + CurrentUserConn.TbName +";";
+            CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowData, querry, TableStructureDataGrid);
         }
     }
 }
