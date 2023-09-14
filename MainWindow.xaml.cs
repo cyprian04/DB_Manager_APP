@@ -55,7 +55,6 @@ namespace GUI_Database_app
             WindowState = WindowState.Minimized;
         }
 
-        
         private void btn_WindowMinMax(object sender, RoutedEventArgs e)
         {
             if (WindowState != WindowState.Maximized)

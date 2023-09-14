@@ -37,6 +37,14 @@ namespace GUI_Database_app
            WindowState = WindowState.Minimized;
         }
 
+        private void btn_WindowMinMax(object sender, RoutedEventArgs e)
+        {
+            if (WindowState != WindowState.Maximized)
+                WindowState = WindowState.Maximized;
+            else
+                WindowState = WindowState.Normal;
+        }
+
         private void btn_Close(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown(); 

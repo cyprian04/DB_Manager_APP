@@ -148,7 +148,6 @@
                         </Button.Template>
                     </Button>
 
-
                     <Button Grid.Row="0"
                             Grid.Column="2"
                             BorderThickness="0"
@@ -181,8 +180,6 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
-
-
 
                 </Grid>
 
