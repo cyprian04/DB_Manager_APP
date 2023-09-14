@@ -66,6 +66,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="5"/>
                     </Grid.ColumnDefinitions>
 
@@ -112,8 +113,10 @@
                         </Button.Template>
                     </Button>
 
+
+
                     <Button Grid.Row="0"
-                            Grid.Column="2"
+                            Grid.Column="3"
                             BorderThickness="0"
                             FontSize="16"
                             Content="x"
@@ -128,6 +131,40 @@
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="#8e3563"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18" 
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" 
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+
+                    <Button Grid.Row="0"
+                            Grid.Column="2"
+                            BorderThickness="0"
+                            FontSize="16"
+                            Content="="
+                            FontFamily="Montserrat"
+                            Foreground="White"
+                            Cursor="Hand"
+                            Click="btn_WindowMinMax">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#EABB95"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#D87F81"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
