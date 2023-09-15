@@ -228,9 +228,8 @@ namespace GUI_Database_app.Data
                         QuerryResultDataGrid.Visibility = Visibility.Hidden;
 
                         string[] Alllines = ex.Message.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                        string firstLine = Alllines.FirstOrDefault();
 
-                        TextQuerryResultInfo.Text = firstLine;
+                        TextQuerryResultInfo.Text = Alllines.FirstOrDefault();
                         BorderQuerryResultInfo.Background = Brushes.Red;
                     }
                     else

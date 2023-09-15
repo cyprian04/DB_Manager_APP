@@ -54,12 +54,10 @@ namespace GUI_Database_app.CustomControls
         {
             if (DatabasesListBox.SelectedItem != null)
             {
-                // Get the selected option
+                if (MainInteractionContentArea.Content == Structure) Structure.TableStructureDataGrid.Visibility = Visibility.Hidden;
 
                 CurrentUserConn.ConnectionWithDb(DatabasesListBox.SelectedItem.ToString());
                 CurrentUserConn.DisplayCurrentDbTables(Structure.TablesListBox);
-
-                //MessageBox.Show(CurrentUserConn.DbName);
             }
         }
 
