@@ -235,6 +235,11 @@ namespace GUI_Database_app.Data
                     else
                         MessageBox.Show("Can't display content for table");
                 }
+                catch(Exception ex)
+                {
+                    string[] Alllines = ex.Message.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                    MessageBox.Show(Alllines.FirstOrDefault());
+                }
                 finally
                 {
                     connection.Close();
