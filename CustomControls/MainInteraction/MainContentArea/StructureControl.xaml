@@ -117,7 +117,11 @@
                 </Grid>
 
                 <Grid Grid.Column="2">
-                    <StackPanel HorizontalAlignment="Center"
+
+                    <ScrollViewer VerticalScrollBarVisibility="Disabled"
+                                  HorizontalScrollBarVisibility="Auto"
+                                  Margin="0,0,0,2">
+                        <StackPanel HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Orientation="Horizontal">
 
@@ -131,6 +135,7 @@
                                 Template="{StaticResource TableButtonTemplate}"
                                 Click="Data_btn"/>
                     </StackPanel>
+                    </ScrollViewer>
                 </Grid>
                 
             </Grid>
