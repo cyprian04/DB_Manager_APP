@@ -112,30 +112,34 @@
                 
                 <Grid Grid.Column="2">
 
-                    <StackPanel HorizontalAlignment="Center"
+                    <ScrollViewer VerticalScrollBarVisibility="Disabled"
+                                  HorizontalScrollBarVisibility="Auto"
+                                  Margin="0,0,0,2">
+                        <StackPanel HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     Orientation="Horizontal">
 
-                        <Button Content="SQL"
-                                Style="{StaticResource NavButtonStyle}"
-                                Template="{StaticResource NavButtonTemplate}"
-                                Click="btn_SQL"/>
+                            <Button Content="SQL"
+                                    Style="{StaticResource NavButtonStyle}"
+                                    Template="{StaticResource NavButtonTemplate}"
+                                    Click="btn_SQL"/>
 
-                        <Button Content="Structure"
-                                Style="{StaticResource NavButtonStyle}"
-                                Template="{StaticResource NavButtonTemplate}"
-                                Click="btn_Structure"/>
+                            <Button Content="Structure"
+                                    Style="{StaticResource NavButtonStyle}"
+                                    Template="{StaticResource NavButtonTemplate}"
+                                    Click="btn_Structure"/>
 
-                        <Button Content="Authorized"
-                                Style="{StaticResource NavButtonStyle}"
-                                Template="{StaticResource NavButtonTemplate}"
-                                Click="btn_Authorized"/>
+                            <Button Content="Authorized"
+                                    Style="{StaticResource NavButtonStyle}"
+                                    Template="{StaticResource NavButtonTemplate}"
+                                    Click="btn_Authorized"/>
 
-                        <Button Content="Relations"
-                                Style="{StaticResource NavButtonStyle}"
-                                Template="{StaticResource NavButtonTemplate}"
-                                Click="btn_Relations"/>
-                    </StackPanel>
+                            <Button Content="Relations"
+                                    Style="{StaticResource NavButtonStyle}"
+                                    Template="{StaticResource NavButtonTemplate}"
+                                    Click="btn_Relations"/>
+                        </StackPanel>
+                    </ScrollViewer>
                 </Grid>
 
             </Grid>
