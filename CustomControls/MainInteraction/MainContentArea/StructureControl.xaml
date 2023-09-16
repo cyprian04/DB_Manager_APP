@@ -110,7 +110,6 @@
                                        Foreground="AliceBlue"
                                        FontWeight="Light"
                                        FontSize="15"
-                                       MaxHeight="20"
                                        TextWrapping="Wrap"
                                        />
                         </ScrollViewer>
