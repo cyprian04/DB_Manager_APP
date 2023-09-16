@@ -90,8 +90,8 @@
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Margin="5,0,0,0">
-                        
-                        <TextBlock Text="Current DB "
+
+                        <TextBlock Text="Current DB"
                                    HorizontalAlignment="Center"
                                    Foreground="AliceBlue"
                                    FontWeight="DemiBold"
@@ -108,7 +108,6 @@
                     </StackPanel>
                 </Grid>
                 
-
                 <Grid Grid.Column="2">
 
                     <StackPanel HorizontalAlignment="Center"

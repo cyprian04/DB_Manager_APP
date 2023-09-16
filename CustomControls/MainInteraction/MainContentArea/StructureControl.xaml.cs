@@ -73,6 +73,7 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
                 CurrentUserConn.TbName = TablesListBox.SelectedItem.ToString();
                 TableStructureDataGrid.Visibility = Visibility.Hidden;
                 TableStructureDataGrid.ItemsSource = null;
+                CurrentTableTextBlock.Text = TablesListBox.SelectedItem.ToString();
             }
         }
 

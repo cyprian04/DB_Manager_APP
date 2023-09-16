@@ -60,7 +60,9 @@
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="160"/>
                     <ColumnDefinition/>
+
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
@@ -87,7 +89,31 @@
                     </StackPanel>
                 </Grid>
 
+
                 <Grid Grid.Column="1">
+                    <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="5,0,0,0">
+
+                        <TextBlock Text="Current Table"
+                                   HorizontalAlignment="Center"
+                                   Foreground="AliceBlue"
+                                   FontWeight="DemiBold"
+                                   FontSize="15"
+                                   />
+                        <TextBlock x:Name="CurrentTableTextBlock"
+                                   Text="Not choosen"
+                                   HorizontalAlignment="Center"
+                                   Foreground="AliceBlue"
+                                   FontWeight="Light"
+                                   FontSize="15"
+                                   TextWrapping="Wrap"/>
+
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Column="2">
                     <StackPanel HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Orientation="Horizontal">
