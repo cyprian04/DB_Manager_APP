@@ -169,7 +169,8 @@
                 <StackPanel Grid.Row="1"
                             Width="250"
                             Orientation="Vertical"
-                            Margin="0,5,0,0">
+                            VerticalAlignment="Center"
+                            Margin="0,0,0,10">
 
                     <Image Source="/Resources/logo.png"
                            Width="120"
