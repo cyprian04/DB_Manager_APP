@@ -84,7 +84,6 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
                 querry = "DESCRIBE " + CurrentUserConn.TbName +";";
                 CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowStruct, querry, TableStructureDataGrid);
             }
-            
         }
 
         private void Data_btn(object sender, RoutedEventArgs e)
