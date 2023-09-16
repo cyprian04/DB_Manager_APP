@@ -12,7 +12,11 @@
             BorderBrush="#222"
             BorderThickness="2,2,0,0">
 
-        <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled"
+                      Margin="5">
+                
+            <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -28,15 +32,10 @@
                                FontFamily="Montserrat"
                                FontWeight="DemiBold"/>
 
-                    <Border CornerRadius="9,9,9,9">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                                <GradientStop Color="#A89CAC" Offset="0"/>
-                                <GradientStop Color="#474973" Offset="0.5"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
-
-                        <RichTextBox x:Name="SqlCommandTextBox"
+                    <Border CornerRadius="9,9,9,9"
+                            Background="#474973">
+                            
+                                <RichTextBox x:Name="SqlCommandTextBox"
                              Width="600"
                              Height="200"
                              Padding="4"
@@ -150,5 +149,6 @@
                 </DataGrid>
             </Grid>
         </Grid>
+        </ScrollViewer>
     </Border>
 </UserControl>
