@@ -58,6 +58,7 @@ namespace GUI_Database_app.CustomControls
 
                 CurrentUserConn.ConnectionWithDb(DatabasesListBox.SelectedItem.ToString());
                 CurrentUserConn.DisplayCurrentDbTables(Structure.TablesListBox);
+                CurrentDBTextBlock.Text = DatabasesListBox.SelectedItem.ToString();
             }
         }
 
