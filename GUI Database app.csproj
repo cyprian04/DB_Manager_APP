@@ -134,10 +134,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControls\MainInteraction\MainContentArea\AuthorizedControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="CustomControls\MainInteraction\MainContentArea\RelationsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,9 +171,6 @@
     </Compile>
     <Compile Include="CustomControls\Home\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CustomControls\MainInteraction\MainContentArea\AuthorizedControl.xaml.cs">
-      <DependentUpon>AuthorizedControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\MainInteraction\MainContentArea\RelationsControl.xaml.cs">
       <DependentUpon>RelationsControl.xaml</DependentUpon>

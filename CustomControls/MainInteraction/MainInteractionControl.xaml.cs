@@ -22,7 +22,6 @@ namespace GUI_Database_app.CustomControls
     {
         Data.Connection CurrentUserConn = null;
         MainInteraction.MainContentArea.StructureControl  Structure = null;
-        MainInteraction.MainContentArea.AuthorizedControl Authorized = null;
         MainInteraction.MainContentArea.RelationsControl Relations = null;
         MainInteraction.MainContentArea.SQLControl SQL = null;
 
@@ -44,7 +43,6 @@ namespace GUI_Database_app.CustomControls
 
             SQL = new MainInteraction.MainContentArea.SQLControl(CurrentUserConn);
             Structure = new MainInteraction.MainContentArea.StructureControl(CurrentUserConn);
-            Authorized = new MainInteraction.MainContentArea.AuthorizedControl(CurrentUserConn);
             Relations = new MainInteraction.MainContentArea.RelationsControl(CurrentUserConn);
 
             MainInteractionContentArea.Content = SQL;
@@ -90,11 +88,6 @@ namespace GUI_Database_app.CustomControls
         private void btn_Structure(object sender, RoutedEventArgs e)
         {
             IsCurrentMainContentAreaSame(Structure);
-        }
-
-        private void btn_Authorized(object sender, RoutedEventArgs e)
-        {
-            IsCurrentMainContentAreaSame(Authorized);
         }
 
         private void btn_Relations(object sender, RoutedEventArgs e)
