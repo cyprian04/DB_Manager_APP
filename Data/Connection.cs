@@ -23,7 +23,7 @@ namespace GUI_Database_app.Data
             ShowData
         }
 
-        public static MySqlConnection connection = new MySqlConnection();
+        private static MySqlConnection connection = new MySqlConnection();
         private string connectionString;
         private static string dbName, tbName, username, password, hostName;
         private ListBox actualizedDbListBox, actualizedTablesListBox;
@@ -250,6 +250,16 @@ namespace GUI_Database_app.Data
                 TextQuerryResultInfo.Text = "Type in SQL querry first!";
                 BorderQuerryResultInfo.Background = Brushes.Red;
             }
+        }
+
+        public void ImportDB(string scriptPath)
+        {
+           
+        }
+
+        public void ExportDB()
+        {
+
         }
 
         public void DisconnectUserFromServer()

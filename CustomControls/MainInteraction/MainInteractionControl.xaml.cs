@@ -70,7 +70,10 @@ namespace GUI_Database_app.CustomControls
                     return false;
                 }
                 else
+                {
+                    MessageBox.Show("No database selected");
                     return true;
+                }
             }
             else
             {
@@ -93,6 +96,17 @@ namespace GUI_Database_app.CustomControls
         private void btn_Relations(object sender, RoutedEventArgs e)
         {
             IsCurrentMainContentAreaSame(Relations);
+        }
+
+        private void btn_Import(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe");
+            //CurrentUserConn.ImportDB();
+        }
+
+        private void btn_Export(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void btn_HideShow(object sender, RoutedEventArgs e)

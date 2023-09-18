@@ -137,12 +137,12 @@
                             <Button Content="Import"
                                     Style="{StaticResource NavButtonStyle}"
                                     Template="{StaticResource NavButtonTemplate}"
-                                    />
+                                    Click="btn_Import"/>
 
                             <Button Content="Export"
                                     Style="{StaticResource NavButtonStyle}"
                                     Template="{StaticResource NavButtonTemplate}"
-                                    />
+                                    Click="btn_Export"/>
 
                         </StackPanel>
                     </ScrollViewer>
