@@ -113,13 +113,13 @@ namespace GUI_Database_app.CustomControls
             {
                 selectedFilePath = openFileDialog.FileName;
                 MessageBox.Show("Selected file: " + selectedFilePath);
+
+                CurrentUserConn.ImportDB(selectedFilePath);
             }
             else
             {
                 MessageBox.Show("Abortet action");
             }
-
-            //CurrentUserConn.ImportDB(selectedFilePath);
         }
 
         private void btn_Export(object sender, RoutedEventArgs e)
