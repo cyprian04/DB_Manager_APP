@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace GUI_Database_app.CustomControls
 {
@@ -100,8 +101,25 @@ namespace GUI_Database_app.CustomControls
 
         private void btn_Import(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("explorer.exe");
-            //CurrentUserConn.ImportDB();
+            string selectedFilePath = "";
+
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Select a File",
+                Filter = "All Files (*.*)|*.*"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                selectedFilePath = openFileDialog.FileName;
+                MessageBox.Show("Selected file: " + selectedFilePath);
+            }
+            else
+            {
+                MessageBox.Show("Abortet action");
+            }
+
+            //CurrentUserConn.ImportDB(selectedFilePath);
         }
 
         private void btn_Export(object sender, RoutedEventArgs e)
