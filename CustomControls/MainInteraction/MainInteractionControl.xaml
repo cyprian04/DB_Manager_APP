@@ -23,7 +23,7 @@
         </Style>
 
         <ControlTemplate x:Key="NavButtonTemplate" TargetType="Button">
-            <Border Width="100" Height="30" CornerRadius="10" Background="{TemplateBinding Background}">
+            <Border Width="80" Height="25" CornerRadius="10" Background="{TemplateBinding Background}">
                 <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Border>
         </ControlTemplate>
@@ -128,16 +128,22 @@
                                     Style="{StaticResource NavButtonStyle}"
                                     Template="{StaticResource NavButtonTemplate}"
                                     Click="btn_Structure"/>
-
-                            <Button Content="Authorized"
-                                    Style="{StaticResource NavButtonStyle}"
-                                    Template="{StaticResource NavButtonTemplate}"
-                                    Click="btn_Authorized"/>
-
+                            
                             <Button Content="Relations"
                                     Style="{StaticResource NavButtonStyle}"
                                     Template="{StaticResource NavButtonTemplate}"
                                     Click="btn_Relations"/>
+
+                            <Button Content="Import"
+                                    Style="{StaticResource NavButtonStyle}"
+                                    Template="{StaticResource NavButtonTemplate}"
+                                    />
+
+                            <Button Content="Export"
+                                    Style="{StaticResource NavButtonStyle}"
+                                    Template="{StaticResource NavButtonTemplate}"
+                                    />
+
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
