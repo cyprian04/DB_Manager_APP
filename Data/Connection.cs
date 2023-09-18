@@ -254,7 +254,27 @@ namespace GUI_Database_app.Data
 
         public void ImportDB(string scriptPath)
         {
-           
+            try
+            {
+                connection.Open();
+
+                string sqlScript = System.IO.File.ReadAllText(scriptPath);
+
+                using (MySqlCommand cmd = new MySqlCommand(sqlScript, connection))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Database and tables created successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public void ExportDB()
