@@ -287,7 +287,6 @@ namespace GUI_Database_app.Data
                 string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
                 string exportPath = System.IO.Path.Combine(downloadsFolder, $"{chosenDB}.sql");
 
-
                 // Get the list of tables in the database
                 DataTable tableList = new DataTable();
                 using (MySqlCommand cmd = new MySqlCommand("SHOW TABLES", connection))
@@ -329,10 +328,26 @@ namespace GUI_Database_app.Data
 
                                 while (dataReader.Read())
                                 {
-                                    string values = string.Join(", ", dataReader.OfType<object>().Select(x => x.ToString()));
-                                    writer.WriteLine($"INSERT INTO {tableName} VALUES ({values});");
-                                }
+                                    writer.Write($"INSERT INTO `{tableName}` (");
 
+                                    // Write column names
+                                    for (int i = 0; i < dataReader.FieldCount; i++)
+                                    {
+                                        writer.Write($"`{dataReader.GetName(i)}`");
+                                        if (i < dataReader.FieldCount - 1)
+                                            writer.Write(", ");
+                                    }
+                                    writer.WriteLine(") VALUES (");
+
+                                    // Write column values
+                                    for (int i = 0; i < dataReader.FieldCount; i++)
+                                    {
+                                        writer.Write($"'{EscapeSqlString(dataReader[i].ToString())}'");
+                                        if (i < dataReader.FieldCount - 1)
+                                            writer.Write(", ");
+                                    }
+                                    writer.WriteLine(");");
+                                }
                                 writer.WriteLine();
                             }
                         }
@@ -348,6 +363,11 @@ namespace GUI_Database_app.Data
             {
                 connection.Close();
             }
+        }
+
+        private string EscapeSqlString(string value)
+        {
+            return value.Replace("'", "''");
         }
 
         public void DisconnectUserFromServer()

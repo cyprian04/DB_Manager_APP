@@ -123,7 +123,6 @@ namespace GUI_Database_app.CustomControls
             if (DatabasesListBox.SelectedItem != null) CurrentUserConn.ExportDB(DatabasesListBox.SelectedItem.ToString());
             else MessageBox.Show("No database selected");
         }
-    
 
         private void btn_HideShow(object sender, RoutedEventArgs e)
         {
