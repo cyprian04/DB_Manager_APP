@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Controls;
+using System.IO;
 
 namespace GUI_Database_app.Data
 {
@@ -277,9 +279,75 @@ namespace GUI_Database_app.Data
             }
         }
 
-        public void ExportDB()
+        public void ExportDB(string chosenDB)
         {
+            try
+            {
+                connection.Open();
+                string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                string exportPath = System.IO.Path.Combine(downloadsFolder, $"{chosenDB}.sql");
 
+
+                // Get the list of tables in the database
+                DataTable tableList = new DataTable();
+                using (MySqlCommand cmd = new MySqlCommand("SHOW TABLES", connection))
+                {
+                    tableList.Load(cmd.ExecuteReader());
+                }
+
+                // Write the database schema to the export file
+                using (StreamWriter writer = new StreamWriter(exportPath))
+                {
+                    writer.WriteLine("-- Database export for: " + dbName);
+                    writer.WriteLine("-- Timestamp: " + DateTime.Now);
+                    writer.WriteLine();
+
+                    foreach (DataRow row in tableList.Rows)
+                    {
+                        string tableName = row[0].ToString();
+
+                        // Retrieve table structure
+                        using (MySqlCommand schemaCmd = new MySqlCommand($"SHOW CREATE TABLE {tableName}", connection))
+                        {
+                            using (MySqlDataReader schemaReader = schemaCmd.ExecuteReader())
+                            {
+                                if (schemaReader.Read())
+                                {
+                                    writer.WriteLine(schemaReader.GetString(1) + ";");
+                                    writer.WriteLine();
+                                }
+                            }
+                        }
+
+                        // Retrieve and export table data
+                        using (MySqlCommand dataCmd = new MySqlCommand($"SELECT * FROM {tableName}", connection))
+                        {
+                            using (MySqlDataReader dataReader = dataCmd.ExecuteReader())
+                            {
+                                writer.WriteLine($"-- Data for table: {tableName}");
+                                writer.WriteLine();
+
+                                while (dataReader.Read())
+                                {
+                                    string values = string.Join(", ", dataReader.OfType<object>().Select(x => x.ToString()));
+                                    writer.WriteLine($"INSERT INTO {tableName} VALUES ({values});");
+                                }
+
+                                writer.WriteLine();
+                            }
+                        }
+                    }
+                }
+                MessageBox.Show($"Database exported successfully to: {exportPath}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public void DisconnectUserFromServer()

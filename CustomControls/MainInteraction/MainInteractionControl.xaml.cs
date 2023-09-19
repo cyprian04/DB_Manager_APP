@@ -101,8 +101,6 @@ namespace GUI_Database_app.CustomControls
 
         private void btn_Import(object sender, RoutedEventArgs e)
         {
-            string selectedFilePath = "";
-
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Title = "Select a File",
@@ -111,10 +109,8 @@ namespace GUI_Database_app.CustomControls
 
             if (openFileDialog.ShowDialog() == true)
             {
-                selectedFilePath = openFileDialog.FileName;
-                MessageBox.Show("Selected file: " + selectedFilePath);
-
-                CurrentUserConn.ImportDB(selectedFilePath);
+                MessageBox.Show("Selected file: " + openFileDialog.FileName);
+                CurrentUserConn.ImportDB(openFileDialog.FileName);
             }
             else
             {
@@ -124,8 +120,10 @@ namespace GUI_Database_app.CustomControls
 
         private void btn_Export(object sender, RoutedEventArgs e)
         {
-
+            if (DatabasesListBox.SelectedItem != null) CurrentUserConn.ExportDB(DatabasesListBox.SelectedItem.ToString());
+            else MessageBox.Show("No database selected");
         }
+    
 
         private void btn_HideShow(object sender, RoutedEventArgs e)
         {
