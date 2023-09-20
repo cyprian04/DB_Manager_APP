@@ -8,41 +8,7 @@
              d:DesignHeight="640" d:DesignWidth="800">
 
     <UserControl.Resources>
-        <Style TargetType="Button" x:Key="TableButtonStyle">
-            <Setter Property="Background" Value="#28AEED"/>
-            <Setter Property="Margin" Value="0,0,20,0"/>
-            <Setter Property="Foreground" Value="AliceBlue"/>
-            <Setter Property="FontWeight" Value="DemiBold"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Aquamarine"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <ControlTemplate x:Key="TableButtonTemplate" TargetType="Button">
-            <Border Width="100" Height="30" CornerRadius="10" Background="{TemplateBinding Background}">
-                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            </Border>
-        </ControlTemplate>
-
-        <Style x:Key="HideShowButtonStyle" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}">
-                            <ContentPresenter Opacity="0" Visibility="Hidden"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Width" Value="35" />
-            <Setter Property="Height" Value="35" />
-            <Setter Property="Margin" Value="5,15,0,0"/>
-            <Setter Property="Cursor" Value="Hand"/>
-        </Style>
-        
+        <ResourceDictionary Source="/StylesDictionary/Dictionary.xaml"/>
     </UserControl.Resources>
 
     <Border CornerRadius="9,0,9,0"
@@ -78,7 +44,7 @@
                               FontSize="17"/>
 
                     <Button x:Name="HideShowBtn" 
-                            Style="{StaticResource HideShowButtonStyle}" 
+                            Style="{StaticResource HideShowButtonStyle }" 
                             Click="btn_HideShow"
                             VerticalAlignment="Top">
                         <Button.Background>
@@ -126,13 +92,13 @@
                                 Orientation="Horizontal">
 
                         <Button Content="Table Structure"
-                                Style="{StaticResource TableButtonStyle}"
-                                Template="{StaticResource TableButtonTemplate}"
+                                Style="{StaticResource NavButtonStyle}"
+                                Template="{StaticResource NavButtonTemplate}"
                                 Click="Struct_btn"/>
 
                         <Button Content="Table Data"
-                                Style="{StaticResource TableButtonStyle}"
-                                Template="{StaticResource TableButtonTemplate}"
+                                Style="{StaticResource NavButtonStyle}"
+                                Template="{StaticResource NavButtonTemplate}"
                                 Click="Data_btn"/>
                     </StackPanel>
                     </ScrollViewer>
@@ -151,42 +117,15 @@
                       Visibility="Visible">
                     <Border>
 
-                    <ListBox x:Name="TablesListBox" 
+                        <ListBox x:Name="TablesListBox" 
                                MaxHeight="600"
                                Margin="0,10,0,0"
                                HorizontalAlignment="Center"
                                Background="Transparent"
                                BorderThickness="0"
                                VerticalAlignment="Top"
-                               SelectionChanged="TablesListBox_SelectionChanged">
-                        
-                            <ListBox.ItemContainerStyle>
-                                <Style TargetType="ListBoxItem">
-                                    <Setter Property="Background" Value="#5d3a6f"/>
-                                    <Setter Property="BorderThickness" Value="0"/>
-                                    <Setter Property="Margin" Value="0,2"/>
-                                    <Setter Property="FontWeight" Value="DemiBold"/>
-                                    <Setter Property="Cursor" Value="Hand"/>
-                                    <Setter Property="Foreground" Value="AliceBlue"/>
-                                    <Setter Property="Height" Value="20"/>
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="ListBoxItem">
-                                                <Border Background="{TemplateBinding Background}"
-                                                                CornerRadius="5">
-                                                    <ContentPresenter VerticalAlignment="Top"
-                                                  HorizontalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#6200ea"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </ListBox.ItemContainerStyle>
+                               SelectionChanged="TablesListBox_SelectionChanged"
+                                ItemContainerStyle="{StaticResource ListBoxCustomItemStyle}">
                         </ListBox>
                         
                     </Border>

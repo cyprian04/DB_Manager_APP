@@ -39,10 +39,36 @@
     </Style>
 
     <ControlTemplate x:Key="NavButtonTemplate" TargetType="Button">
-        <Border Width="80" Height="25" CornerRadius="10" Background="{TemplateBinding Background}">
+        <Border Width="90" Height="30" CornerRadius="10" Background="{TemplateBinding Background}">
             <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Border>
     </ControlTemplate>
+
+    <Style x:Key="ListBoxCustomItemStyle" TargetType="ListBoxItem" >
+        <Setter Property="Background" Value="#5d3a6f"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="0,2"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Foreground" Value="AliceBlue"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="5">
+                        <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#6200ea"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
     <Style x:Key="HideShowButtonStyle" TargetType="Button">
         <Setter Property="Template">

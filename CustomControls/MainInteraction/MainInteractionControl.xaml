@@ -80,8 +80,7 @@
 
                     <ScrollViewer Grid.Row="1" Style="{DynamicResource FavsScrollViewer}" 
                                   ScrollViewer.HorizontalScrollBarVisibility="Auto" 
-                                  ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                  Margin="6,0,0,0">
+                                  ScrollViewer.VerticalScrollBarVisibility="Auto">
                         <StackPanel HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     Orientation="Horizontal">
@@ -133,34 +132,9 @@
                                VerticalAlignment="Top"
                                Background="Transparent"
                                BorderThickness="0"
-                               SelectionChanged="DatabasesListBox_SelectionChanged">
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem">
-                                <Setter Property="Background" Value="#5d3a6f"/>
-                                <Setter Property="BorderThickness" Value="0"/>
-                                <Setter Property="Margin" Value="0,2"/>
-                                <Setter Property="FontWeight" Value="DemiBold"/>
-                                <Setter Property="Cursor" Value="Hand"/>
-                                <Setter Property="Foreground" Value="AliceBlue"/>
-                                <Setter Property="Height" Value="20"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="ListBoxItem">
-                                            <Border Background="{TemplateBinding Background}"
-                                                                CornerRadius="5">
-                                                <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#6200ea"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </ListBox.ItemContainerStyle>
+                               SelectionChanged="DatabasesListBox_SelectionChanged"
+                               ItemContainerStyle="{StaticResource ListBoxCustomItemStyle}">
+                        
                     </ListBox>
                 </Grid>
 
