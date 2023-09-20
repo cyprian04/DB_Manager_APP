@@ -8,7 +8,10 @@
         AllowsTransparency="True"
         Background="Transparent"
         MouseDown="Window_MouseDown">
-        
+
+    <Window.Resources>
+        <ResourceDictionary Source="/StylesDictionary/Dictionary.xaml"/>
+    </Window.Resources>
 
 
     <Border CornerRadius="12">
@@ -73,7 +76,8 @@
                             FontFamily="Montserrat"
                             Foreground="White"
                             Cursor="Hand"
-                            Click="btn_Minimalize">
+                            Click="btn_Minimalize"
+                            Template="{StaticResource WindowMaiBtnTemplate}">
 
                         <Button.Style>
                             <Style TargetType="Button">
@@ -85,18 +89,6 @@
                                 </Style.Triggers>
                             </Style>
                         </Button.Style>
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18" 
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <!-- Sync and binding background color of the button to the background of the border-->
-                                    <ContentPresenter VerticalAlignment="Center" 
-                                                      HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
                     </Button>
 
                     <Button Grid.Row="0"
@@ -107,7 +99,8 @@
                             FontFamily="Montserrat"
                             Foreground="White"
                             Cursor="Hand"
-                            Click="btn_WindowMinMax">
+                            Click="btn_WindowMinMax"
+                            Template="{StaticResource WindowMaiBtnTemplate}">
 
                         <Button.Style>
                             <Style TargetType="Button">
@@ -119,17 +112,6 @@
                                 </Style.Triggers>
                             </Style>
                         </Button.Style>
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18" 
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center" 
-                                                      HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
                     </Button>
 
                     <Button Grid.Row="0"
@@ -140,7 +122,8 @@
                             FontFamily="Montserrat"
                             Foreground="White"
                             Cursor="Hand"
-                            Click="btn_Close">
+                            Click="btn_Close"
+                            Template="{StaticResource WindowMaiBtnTemplate}">
 
                         <Button.Style>
                             <Style TargetType="Button">
@@ -152,17 +135,6 @@
                                 </Style.Triggers>
                             </Style>
                         </Button.Style>
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18" 
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center" 
-                                                      HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
                     </Button>
                 </Grid>
 
