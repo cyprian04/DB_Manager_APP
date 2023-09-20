@@ -15,23 +15,7 @@
         MouseDown="Window_MouseDown">
 
     <Window.Resources>
-        <Style x:Key="CustomButtonStyle" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}">
-                            <ContentPresenter Opacity="0" Visibility="Hidden"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            
-            <Setter Property="Width" Value="50" />
-            <Setter Property="Height" Value="50" />
-            <Setter Property="Margin" Value="0,20,0,0"/>
-            <Setter Property="Cursor" Value="Hand"/>
-
-        </Style>
+        <ResourceDictionary Source="/StylesDictionary/Dictionary.xaml"/>
     </Window.Resources>
 
 
@@ -182,28 +166,28 @@
 
                     <StackPanel>
 
-                        <Button Style="{StaticResource CustomButtonStyle}"
+                        <Button Style="{StaticResource LeftMenuBarBtnStyle}"
                                     Click="btn_home">
                             <Button.Background>
                                 <ImageBrush ImageSource="/Resources/icon-home.png"/>
                             </Button.Background>
                         </Button>
 
-                        <Button Style="{StaticResource CustomButtonStyle}"
+                        <Button Style="{StaticResource LeftMenuBarBtnStyle}"
                                     Click="btn_view">
                             <Button.Background>
                                 <ImageBrush ImageSource="/Resources/icon-view.png"/>
                             </Button.Background>
                         </Button>
 
-                        <Button Style="{StaticResource CustomButtonStyle}"
+                        <Button Style="{StaticResource LeftMenuBarBtnStyle}"
                                     Click="btn_Main">
                             <Button.Background>
                                 <ImageBrush ImageSource="/Resources/icon-sql.png"/>
                             </Button.Background>
                         </Button>
 
-                        <Button Style="{StaticResource CustomButtonStyle}"
+                        <Button Style="{StaticResource LeftMenuBarBtnStyle}"
                                     Click="btn_settings">
                             <Button.Background>
                                 <ImageBrush ImageSource="/Resources/icon-gear.png"/>
@@ -212,7 +196,7 @@
 
                     </StackPanel>
 
-                    <Button Style="{StaticResource CustomButtonStyle}"
+                    <Button Style="{StaticResource LeftMenuBarBtnStyle}"
                                     Click="btn_LogOut"
                                     Margin="0,0,0,10"
                                     VerticalAlignment="Bottom">
