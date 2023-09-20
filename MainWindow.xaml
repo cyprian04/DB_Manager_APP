@@ -62,7 +62,8 @@
                             FontFamily="Montserrat"
                             Foreground="White"
                             Cursor="Hand"
-                            Click="btn_Minimalize">
+                            Click="btn_Minimalize"
+                            Template="{StaticResource WindowMaiBtnTemplate}">
 
                         <Button.Style>
                             <Style TargetType="Button">
@@ -74,54 +75,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Button.Style>
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18" 
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <!-- Sync and binding background color of the button to the background of the border-->
-                                    <ContentPresenter VerticalAlignment="Center" 
-                                                      HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-
-
-
-                    <Button Grid.Row="0"
-                            Grid.Column="3"
-                            BorderThickness="0"
-                            FontSize="15"
-                            Content="x"
-                            FontFamily="Montserrat"
-                            Foreground="White"
-                            Cursor="Hand"
-                            Click="btn_Close">
-
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#b33b72"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#8e3563"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18" 
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center" 
-                                                      HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                        </Button>
 
                     <Button Grid.Row="0"
                             Grid.Column="2"
@@ -131,7 +85,8 @@
                             FontFamily="Montserrat"
                             Foreground="White"
                             Cursor="Hand"
-                            Click="btn_WindowMinMax">
+                            Click="btn_WindowMinMax"
+                            Template="{StaticResource WindowMaiBtnTemplate}">
 
                         <Button.Style>
                             <Style TargetType="Button">
@@ -143,17 +98,29 @@
                                 </Style.Triggers>
                             </Style>
                         </Button.Style>
+                    </Button>
+                    
+                    <Button Grid.Row="0"
+                            Grid.Column="3"
+                            BorderThickness="0"
+                            FontSize="15"
+                            Content="x"
+                            FontFamily="Montserrat"
+                            Foreground="White"
+                            Cursor="Hand"
+                            Click="btn_Close"
+                            Template="{StaticResource WindowMaiBtnTemplate}">
 
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18" 
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center" 
-                                                      HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#b33b72"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#8e3563"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
                     </Button>
 
                 </Grid>
