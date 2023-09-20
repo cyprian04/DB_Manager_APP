@@ -137,18 +137,24 @@
                         </Button.Style>
                     </Button>
                 </Grid>
-
-                <StackPanel Grid.Row="1"
+                
+                <Grid Grid.Row="1">
+                    
+                    <ScrollViewer Grid.Row="1" Style="{DynamicResource FavsScrollViewer}" 
+                              ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                              ScrollViewer.VerticalScrollBarVisibility="Auto"
+                              >
+                        <StackPanel Grid.Row="1"
                             Width="250"
                             Orientation="Vertical"
                             VerticalAlignment="Center"
                             Margin="0,0,0,10">
 
-                    <Image Source="/Resources/logo.png"
+                            <Image Source="/Resources/logo.png"
                            Width="120"
                            Height="120"/>
 
-                    <TextBlock Text="Learning  to  code  is  useful  no  matter   what your career ambitions are."
+                            <TextBlock Text="Learning  to  code  is  useful  no  matter   what your career ambitions are."
                                Foreground="Aquamarine"
                                FontSize="12"
                                FontWeight="DemiBold"
@@ -157,15 +163,15 @@
                                TextAlignment="Center"
                                Margin="0,5,0,0"/>
 
-                    <TextBlock Text="Username"
+                            <TextBlock Text="Username"
                                Foreground="AliceBlue"
                                FontSize="12"
                                FontWeight="DemiBold"
                                FontFamily="Montserrat"
                                TextWrapping="Wrap"
                                Margin="0,25,0,0"/>
-                    
-                    <TextBox x:Name="txtUser"
+
+                            <TextBox x:Name="txtUser"
                              BorderThickness="0,0,0,1"
                              Padding="18,0,0,0"
                              Margin="5,0,0,0"
@@ -178,14 +184,14 @@
                              BorderBrush="DarkGray"
                              VerticalContentAlignment="Center">
 
-                        <TextBox.Background>
-                            <ImageBrush ImageSource="/Resources/icon-user.png"
+                                <TextBox.Background>
+                                    <ImageBrush ImageSource="/Resources/icon-user.png"
                                         Stretch="None"
                                         AlignmentX="Left"/>
-                        </TextBox.Background>
-                    </TextBox>
-                    
-                    <TextBlock Text="Password"
+                                </TextBox.Background>
+                            </TextBox>
+
+                            <TextBlock Text="Password"
                                Foreground="AliceBlue"
                                FontSize="12"
                                FontWeight="DemiBold"
@@ -194,7 +200,7 @@
                                Margin="0,25,0,0"
                                />
 
-                    <PasswordBox x:Name="txtPassword"
+                            <PasswordBox x:Name="txtPassword"
                              BorderThickness="0,0,0,1"
                              Padding="20,0,0,0"
                              Margin="5,0,0,0"
@@ -206,14 +212,14 @@
                              CaretBrush="Aqua"
                              BorderBrush="DarkGray"
                              VerticalContentAlignment="Center">
-                        <PasswordBox.Background>
-                            <ImageBrush ImageSource="/Resources/icon-password.png"
+                                <PasswordBox.Background>
+                                    <ImageBrush ImageSource="/Resources/icon-password.png"
                                         Stretch="None"
                                         AlignmentX="Left"/>
-                        </PasswordBox.Background>
-                    </PasswordBox>
+                                </PasswordBox.Background>
+                            </PasswordBox>
 
-                    <TextBlock Text="Host"
+                            <TextBlock Text="Host"
                                Foreground="AliceBlue"
                                FontSize="12"
                                FontWeight="DemiBold"
@@ -221,7 +227,7 @@
                                TextWrapping="Wrap"
                                Margin="0,25,0,0"/>
 
-                    <TextBox x:Name="txtHost"
+                            <TextBox x:Name="txtHost"
                              BorderThickness="0,0,0,1"
                              Padding="20,0,0,0"
                              Margin="5,0,0,0"
@@ -234,14 +240,14 @@
                              BorderBrush="DarkGray"
                              VerticalContentAlignment="Center">
 
-                        <TextBox.Background>
-                            <ImageBrush ImageSource="/Resources/icon-server.png"
+                                <TextBox.Background>
+                                    <ImageBrush ImageSource="/Resources/icon-server.png"
                                         Stretch="None"
                                         AlignmentX="Left"/>
-                        </TextBox.Background>
-                    </TextBox>
+                                </TextBox.Background>
+                            </TextBox>
 
-                    <Button Grid.Row="1"
+                            <Button Grid.Row="1"
                            
                             BorderThickness="0"
                             FontSize="16"
@@ -252,50 +258,51 @@
                             Margin="0,25,0,0"
                             Click="btn_LogIn">
 
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#28AEED"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="Aquamarine"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#28AEED"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="Aquamarine"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
 
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="100" Height="40" 
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Width="100" Height="40" 
                                         CornerRadius="10"
                                         Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center" 
+                                            <ContentPresenter VerticalAlignment="Center" 
                                                       HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                    
-                    <StackPanel Orientation="Horizontal"
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+
+                            <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Center"
                                 Margin="0,15,0,0">
-                        
-                        <TextBlock Text="Forgot Password?"
+
+                                <TextBlock Text="Forgot Password?"
                                    Foreground="DarkGray"
                                    FontSize="12"
                                    FontWeight="Medium"
                                    FontFamily="Montserrat"/>
 
-                        <TextBlock Text="Reset"
+                                <TextBlock Text="Reset"
                                    Foreground="AliceBlue"
                                    FontSize="12"
                                    FontWeight="Medium"
                                    FontFamily="Montserrat"
                                    Cursor="Hand"
                                    Margin="8,0,0,0"/>
-                    </StackPanel>
-                    
-                </StackPanel>
-                
+                            </StackPanel>
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
             </Grid>
 
         </Border>
