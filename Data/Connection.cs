@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Data;
-using System.Diagnostics;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows;
 using System.Windows.Media;
@@ -285,7 +282,7 @@ namespace GUI_Database_app.Data
             {
                 connection.Open();
                 string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-                string exportPath = System.IO.Path.Combine(downloadsFolder, $"{chosenDB}.sql");
+                string exportPath = Path.Combine(downloadsFolder, $"{chosenDB}.sql");
 
                 // Get the list of tables in the database
                 DataTable tableList = new DataTable();
