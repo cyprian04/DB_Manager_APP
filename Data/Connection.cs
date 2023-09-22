@@ -14,7 +14,7 @@ namespace GUI_Database_app.Data
     /// Logika połączenia z DB
     /// </summary>
     public class Connection
-    {
+    { 
         public enum TypeOfQuerry
         { 
             defaultQuerry,
@@ -70,27 +70,37 @@ namespace GUI_Database_app.Data
             }
         }
 
-        public void DisplayAvaliableDatabases(ListBox databaseListBox)
+        public void DisplayCurrentListBox(ListBox ListBox_in)
         {
-            actualizedDbListBox = databaseListBox;
+            string query = null;
 
+            if(ListBox_in.Name is "DatabasesListBox")
+            {
+                actualizedDbListBox = ListBox_in;
+                query = "SHOW DATABASES;";
+            }
+            else
+            {
+                actualizedTablesListBox = ListBox_in;
+                query = "SHOW TABLES;";
+            } 
             try
             {
                 connection.Open();
-                string query = "SHOW DATABASES;";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
-                    List<string> AvailableDatabases = new List<string>();
+                    List<string> content = new List<string>();
 
                     while (reader.Read())
                     {
-                        string databaseName = reader.GetString(0);
-                        AvailableDatabases.Add(databaseName);
+                        string element = reader.GetString(0);
+                        content.Add(element);
                     }
 
-                    actualizedDbListBox.ItemsSource = AvailableDatabases;
+                    if(ListBox_in.Name is "DatabasesListBox") actualizedDbListBox.ItemsSource = content;
+                    else  actualizedTablesListBox.ItemsSource = content;
                 }
             }
             catch(MySqlException ex)
@@ -101,7 +111,7 @@ namespace GUI_Database_app.Data
             {
                 connection.Close();
             }
-        } // połączyć 
+        }
 
         public void ConnectionWithDb(string DbName_in)
         {
@@ -126,39 +136,6 @@ namespace GUI_Database_app.Data
             else
                 MessageBox.Show("Already connected to this database");
         }
-
-        public void DisplayCurrentDbTables(ListBox tablesListBox)
-        {
-            actualizedTablesListBox = tablesListBox;
-
-            try
-            {
-                connection.Open();
-                string query = "SHOW TABLES;";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-
-                using (MySqlDataReader reader = cmd.ExecuteReader())
-                {
-                    List<string> AvailableTables = new List<string>();
-
-                    while (reader.Read())
-                    {
-                        string tableName = reader.GetString(0);
-                        AvailableTables.Add(tableName);
-                    }
-
-                    actualizedTablesListBox.ItemsSource = AvailableTables;
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                connection.Close();
-            }
-        } // połączyć
 
         public void ExecuteAndCheckSQLQuerry(TypeOfQuerry type, string query, DataGrid QuerryResultDataGrid, TextBlock TextQuerryResultInfo = null, Border BorderQuerryResultInfo = null)
         {
@@ -194,7 +171,7 @@ namespace GUI_Database_app.Data
                                query.Trim().StartsWith("CREATE DATABASE", StringComparison.OrdinalIgnoreCase))
                             {
                                 connection.Close();
-                                DisplayAvaliableDatabases(actualizedDbListBox);
+                                DisplayCurrentListBox(actualizedDbListBox);
                                 connection.Open();
                             }
 
@@ -202,7 +179,7 @@ namespace GUI_Database_app.Data
                                query.Trim().StartsWith("CREATE TABLE", StringComparison.OrdinalIgnoreCase))
                             {
                                 connection.Close();
-                                DisplayCurrentDbTables(actualizedTablesListBox);
+                                DisplayCurrentListBox(actualizedTablesListBox);
                                 connection.Open();
                             }
 
@@ -257,7 +234,7 @@ namespace GUI_Database_app.Data
             {
                 connection.Open();
 
-                string sqlScript = System.IO.File.ReadAllText(scriptPath);
+                string sqlScript = File.ReadAllText(scriptPath);
 
                 using (MySqlCommand cmd = new MySqlCommand(sqlScript, connection))
                 {

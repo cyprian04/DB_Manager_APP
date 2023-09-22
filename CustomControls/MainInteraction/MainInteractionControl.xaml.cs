@@ -38,7 +38,7 @@ namespace GUI_Database_app.CustomControls
         {
             InitializeComponent();
             CurrentUserConn = CurrentUserConn_in;
-            CurrentUserConn.DisplayAvaliableDatabases(DatabasesListBox);
+            CurrentUserConn.DisplayCurrentListBox(DatabasesListBox);
             show = HideShowBtn.Background as ImageBrush; 
 
 
@@ -56,7 +56,7 @@ namespace GUI_Database_app.CustomControls
                 if (MainInteractionContentArea.Content == Structure) Structure.TableStructureDataGrid.Visibility = Visibility.Hidden;
 
                 CurrentUserConn.ConnectionWithDb(DatabasesListBox.SelectedItem.ToString());
-                CurrentUserConn.DisplayCurrentDbTables(Structure.TablesListBox);
+                CurrentUserConn.DisplayCurrentListBox(Structure.TablesListBox);
                 CurrentDBTextBlock.Text = DatabasesListBox.SelectedItem.ToString();
             }
         }
