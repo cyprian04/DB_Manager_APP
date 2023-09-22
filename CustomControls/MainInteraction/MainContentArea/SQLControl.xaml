@@ -7,6 +7,10 @@
              mc:Ignorable="d" 
             d:DesignHeight="640" d:DesignWidth="800">
 
+    <UserControl.Resources>
+        <ResourceDictionary Source="/StylesDictionary/Dictionary.xaml"/>
+    </UserControl.Resources>
+    
     <Border CornerRadius="9,0,9,0"
             Background="#555"
             BorderBrush="#222"
@@ -68,30 +72,20 @@
                                 Foreground="White"
                                 Cursor="Hand"
                                 Margin="15,0,0,0"
-                                Click="btn_ExecuteSqlCommand">
+                                Click="btn_ExecuteSqlCommand"
+                                Template="{StaticResource NavButtonTemplate}">
 
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Background" Value="#28AEED"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="Aquamarine"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Width="100" Height="40" 
-                                                    CornerRadius="10"
-                                                    Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center" 
-                                                          HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#28AEED"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="Aquamarine"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
                     </StackPanel>
                     
                 </StackPanel>
