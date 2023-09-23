@@ -39,14 +39,15 @@
                     <Border CornerRadius="9,9,9,9"
                             Background="#474973">
                             
-                                <RichTextBox x:Name="SqlCommandTextBox"
-                             Width="600"
-                             Height="200"
-                             Padding="4"
-                             Background="Transparent"
-                             Foreground="AliceBlue"
-                             FontFamily="Montserrat"
-                             BorderThickness="0"/>
+                        <RichTextBox x:Name="SqlCommandTextBox"
+                                     Width="600"
+                                     Height="200"
+                                     Padding="4"
+                                     Background="Transparent"
+                                     Foreground="AliceBlue"
+                                     CaretBrush="AliceBlue"
+                                     FontFamily="Montserrat"
+                                     BorderThickness="0"/>
                     </Border>
 
                     <StackPanel Orientation="Horizontal"
