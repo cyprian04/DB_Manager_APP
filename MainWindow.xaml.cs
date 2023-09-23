@@ -104,5 +104,27 @@ namespace GUI_Database_app
             this.Close();
         }
 
+        private void Btn_MouseMove(object sender, MouseEventArgs e)
+        {
+            var button = (Button)sender;
+            var pos = e.GetPosition(button);
+            var centerX = button.ActualWidth /2;
+            var centerY = button.ActualHeight /2;
+
+            var distance = Math.Sqrt(Math.Pow(pos.X - centerX, 2) + Math.Pow(pos.Y - centerY, 2)); 
+
+            if(distance <= 15)
+            {
+                button.Height = 45;
+                button.Width = 45;
+            }
+        }
+
+        private void Btn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            var button = (Button)sender;
+            button.Height= 50;
+            button.Width = 50;
+        }
     }
 }

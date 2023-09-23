@@ -136,7 +136,9 @@
                                 Height="60"
                                 Margin="0,10,0,10">
                             <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                    Click="btn_home">
+                                    Click="btn_home"
+                                    MouseMove="Btn_MouseMove"
+                                    MouseLeave="Btn_MouseLeave">
                                 <Button.Background>
                                     <ImageBrush ImageSource="/Resources/icon-home.png"/>
                                 </Button.Background>
@@ -147,7 +149,9 @@
                                 Height="50"
                                 Margin="0,0,0,20">
                             <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                    Click="btn_view">
+                                    Click="btn_view"
+                                    MouseMove="Btn_MouseMove"
+                                    MouseLeave="Btn_MouseLeave">
                                 <Button.Background>
                                     <ImageBrush ImageSource="/Resources/icon-view.png"/>
                                 </Button.Background>
@@ -158,7 +162,9 @@
                                 Height="50"
                                 Margin="0,0,0,20">
                             <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                    Click="btn_Main">
+                                    Click="btn_Main"
+                                    MouseMove="Btn_MouseMove"
+                                    MouseLeave="Btn_MouseLeave">
                                 <Button.Background>
                                     <ImageBrush ImageSource="/Resources/icon-sql.png"/>
                                 </Button.Background>
@@ -169,7 +175,9 @@
                                 Height="50"
                                 Margin="0,0,0,20">
                             <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                    Click="btn_settings">
+                                    Click="btn_settings"
+                                    MouseMove="Btn_MouseMove"
+                                    MouseLeave="Btn_MouseLeave">
                                 <Button.Background>
                                     <ImageBrush ImageSource="/Resources/icon-gear.png"/>
                                 </Button.Background>
@@ -184,7 +192,9 @@
                                 VerticalAlignment="Bottom">
                         <Button Style="{StaticResource LeftMenuBarBtnStyle}"
                                     Click="btn_LogOut"
-                                    Margin="0,0,0,10">
+                                    Margin="0,0,0,10"
+                                    MouseMove="Btn_MouseMove"
+                                    MouseLeave="Btn_MouseLeave">
                             <Button.Background>
                                 <ImageBrush ImageSource="/Resources/icon-logout.png"/>
                             </Button.Background>
