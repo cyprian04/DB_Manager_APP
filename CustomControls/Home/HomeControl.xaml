@@ -6,43 +6,20 @@
              xmlns:local="clr-namespace:GUI_Database_app.CustomControls"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1000">
+    
     <UserControl.Resources>
-        <Style x:Key="FeatureTextStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Foreground" Value="AliceBlue"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="FontFamily" Value="Montserrat"/>
-            <Setter Property="Margin" Value="50,20,50,0"/>
-            <Setter Property="TextWrapping" Value="Wrap"/>
-            <Setter Property="Width" Value="355"/>
-        </Style>
-        
-        <Style  x:Key="IconIntroductionStyle" TargetType="Image">
-            <Setter Property="Width" Value="30"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Margin" Value="20,40,0,0"/>
-        </Style>
-
-        <Style x:Key="IntroductionTextStyle" TargetType="TextBlock">
-            <Setter Property="Margin" Value="30,30,30,0"/>
-            <Setter Property="TextWrapping" Value="Wrap"/>
-            <Setter Property="FontSize" Value="15"/>
-            <Setter Property="Foreground" Value="AliceBlue"/>
-        </Style>
+        <ResourceDictionary Source="/StylesDictionary/Dictionary.xaml"/>
     </UserControl.Resources>
-
 
     <Border CornerRadius="10,0,10,0"
                 BorderThickness="5,5,0,0">
-
         <Border.Background>
             <VisualBrush>
                 <VisualBrush.Visual>
                     <MediaElement x:Name="HomeMediaVideo" 
-                                      Source="./Resources/home-video.mp4"
-                                      LoadedBehavior="Manual" 
-                                      MediaEnded="HomeMediaVideo_MediaEnded"/>
+                                    Source="./Resources/home-video.mp4"
+                                    LoadedBehavior="Manual" 
+                                    MediaEnded="HomeMediaVideo_MediaEnded"/>
                 </VisualBrush.Visual>
             </VisualBrush>
         </Border.Background>
@@ -158,17 +135,15 @@
                         <GradientStop Color="#A5CAD2" Offset="0.7"/>
                     </LinearGradientBrush>
                 </Border.Background>
-
-
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
-                        <RowDefinition/>
+                            <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="0">
+                        <Grid Grid.Row="0">
 
-                        <TextBlock Text="Introduction"
+                            <TextBlock Text="Introduction"
                                    FontSize="17"
                                    Foreground="Aquamarine"
                                    HorizontalAlignment="Center"
@@ -176,55 +151,72 @@
                                    FontFamily="Montserrat"
                                    FontWeight="DemiBold"
                                    Margin="0,20,0,10" />
-                    </Grid>
+                        </Grid>
 
-                    <Grid Grid.Row="1">
-                        
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal">
+                    <ScrollViewer Grid.Row="1" Style="{DynamicResource FavsScrollViewer}" 
+                              ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                              ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <Grid Grid.Row="1"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Top">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="350"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80"/>
+                                <RowDefinition Height="80"/>
+                                <RowDefinition Height="80"/>
+                                <RowDefinition Height="80"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
                                 <Image Source="/Resources/icon-home.png"
-                                     Style="{StaticResource IconIntroductionStyle}"
-                                     />
-                                <TextBlock Text="Home Icon represents window where basic informations are provided."
-                                         Style="{StaticResource IntroductionTextStyle}"
-                                         />
-                            </StackPanel>
-
-                            <StackPanel Orientation="Horizontal">
+                                 Style="{StaticResource IconIntroductionStyle}"/>
+                            </Grid>
+                            <Grid Grid.Row="1">
                                 <Image Source="/Resources/icon-view.png"
-                                     Style="{StaticResource IconIntroductionStyle}"
-                                     />
-                                <TextBlock Text="View Icon represents  window where you can see tables inside your currently selected database."
-                                         Style="{StaticResource IntroductionTextStyle}"/>
-                            </StackPanel>
-
-                            <StackPanel Orientation="Horizontal">
+                                 Style="{StaticResource IconIntroductionStyle}"/>
+                            </Grid>
+                            <Grid Grid.Row="2">
                                 <Image Source="/Resources/icon-sql.png"
-                                     Style="{StaticResource IconIntroductionStyle}"
-                                     />
-                                <TextBlock Text="Sql Icon represents window where you can insert SQL commands, view the tables structure and data, Import and Export databasese."
-                                         Style="{StaticResource IntroductionTextStyle}"/>
-                            </StackPanel>
-
-                            <StackPanel Orientation="Horizontal">
+                                 Style="{StaticResource IconIntroductionStyle}"/>
+                            </Grid>
+                            <Grid Grid.Row="3">
                                 <Image Source="/Resources/icon-gear.png"
-                                     Style="{StaticResource IconIntroductionStyle}"
-                                     />
+                                  Style="{StaticResource IconIntroductionStyle}"/>
+                            </Grid>
+
+
+                            <Grid Grid.Column="1"
+                              Grid.Row="0">
+                                <TextBlock Text="Home Icon represents window where basic informations are provided."
+                                       Style="{StaticResource IntroductionTextStyle}"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1"
+                              Grid.Row="1">
+                                <TextBlock Text="View Icon represents  window where you can see tables inside your currently selected database."
+                                       Style="{StaticResource IntroductionTextStyle}"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1"
+                              Grid.Row="2">
+                                <TextBlock Text="Sql Icon represents window where you can insert SQL commands, view the tables structure and data, Import and Export databasese."
+                                       Style="{StaticResource IntroductionTextStyle}"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1"
+                              Grid.Row="3">
                                 <TextBlock Text="Gear Icon represents settings window where you can set fonts style, dark/bright mode and other settings."
-                                         Style="{StaticResource IntroductionTextStyle}"/>
-                            </StackPanel>
+                                       Style="{StaticResource IntroductionTextStyle}"/>
+                            </Grid>
 
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="For more informations look into the settings."
-                                         Foreground="Purple"
-                                         Style="{StaticResource IntroductionTextStyle}"/>
-                            </StackPanel>
-
-                        </StackPanel>
-                    </Grid>
-                    
+                        </Grid>
+                    </ScrollViewer>
                 </Grid>
-                    
+                
             </Border>
 
         </Grid>
