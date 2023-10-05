@@ -179,48 +179,46 @@
                     </Grid>
 
                     <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                           <StackPanel Grid.Column="0">
-                               
-                              <Image Source="/Resources/icon-home.png"
+                        
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/icon-home.png"
                                      Style="{StaticResource IconIntroductionStyle}"
                                      />
-                              
-                              <Image Source="/Resources/icon-view.png"
-                                     Style="{StaticResource IconIntroductionStyle}"
-                                     />
-                              
-                              <Image Source="/Resources/icon-sql.png"
-                                     Style="{StaticResource IconIntroductionStyle}"
-                                     />
-                              
-                              <Image Source="/Resources/icon-gear.png"
-                                     Style="{StaticResource IconIntroductionStyle}"
-                                     />
-                           </StackPanel>
-                           
-                           <StackPanel Grid.Column="1">
-
-                              <TextBlock Text="Home Icon represents window where basic informations are provided."
+                                <TextBlock Text="Home Icon represents window where basic informations are provided."
                                          Style="{StaticResource IntroductionTextStyle}"
-                                         Margin="30,35,30,0"/>
-                               
-                              <TextBlock Text="View Icon represents  window where you can see tables inside your currently selected database."
+                                         />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/icon-view.png"
+                                     Style="{StaticResource IconIntroductionStyle}"
+                                     />
+                                <TextBlock Text="View Icon represents  window where you can see tables inside your currently selected database."
                                          Style="{StaticResource IntroductionTextStyle}"/>
-                               
-                              <TextBlock Text="Sql Icon represents window where you can insert SQL commands, view the tables structure and data, Import and Export databasese."
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/icon-sql.png"
+                                     Style="{StaticResource IconIntroductionStyle}"
+                                     />
+                                <TextBlock Text="Sql Icon represents window where you can insert SQL commands, view the tables structure and data, Import and Export databasese."
                                          Style="{StaticResource IntroductionTextStyle}"/>
-                               
-                              <TextBlock Text="Gear Icon represents settings window where you can set fonts style, dark/bright mode and other settings."
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/icon-gear.png"
+                                     Style="{StaticResource IconIntroductionStyle}"
+                                     />
+                                <TextBlock Text="Gear Icon represents settings window where you can set fonts style, dark/bright mode and other settings."
                                          Style="{StaticResource IntroductionTextStyle}"/>
-                               
-                              <TextBlock Text="For more informations look into the settings."
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="For more informations look into the settings."
                                          Foreground="Purple"
                                          Style="{StaticResource IntroductionTextStyle}"/>
+                            </StackPanel>
 
                         </StackPanel>
                     </Grid>
