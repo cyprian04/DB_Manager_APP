@@ -128,7 +128,7 @@
                     Opacity="0.75" 
                     Grid.Column="1"
                     Margin="20,20,20,20"
-                    Visibility="Visible">
+                    Visibility="Hidden">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                         <GradientStop Color="#A89CAC" Offset="0"/>

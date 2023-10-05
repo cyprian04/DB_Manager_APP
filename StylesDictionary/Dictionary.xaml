@@ -86,16 +86,16 @@
         <Setter Property="Cursor" Value="Hand"/>
     </Style>
 
-    <SolidColorBrush x:Key="StandardBorderBrush" Color="#777" />
-    <SolidColorBrush x:Key="HoverBorderBrush" Color="#DDD" />
-    <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="Gray" />
-    <SolidColorBrush x:Key="SelectedForegroundBrush" Color="White" />
-    <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#777" />
-    <SolidColorBrush x:Key="GlyphBrush" Color="#444" />
-    <SolidColorBrush x:Key="NormalBrush" Color="#777" />
-    <SolidColorBrush x:Key="NormalBorderBrush" Color="#777" />
-    <SolidColorBrush x:Key="HorizontalNormalBrush" Color="#FF686868" />
-    <SolidColorBrush x:Key="HorizontalNormalBorderBrush" Color="#777" />
+    <SolidColorBrush x:Key="StandardBorderBrush" Color="Aquamarine" />
+    <SolidColorBrush x:Key="HoverBorderBrush" Color="Aquamarine" />
+    <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="Aquamarine" />
+    <SolidColorBrush x:Key="SelectedForegroundBrush" Color="Aquamarine" />
+    <SolidColorBrush x:Key="DisabledForegroundBrush" Color="Aquamarine" />
+    <SolidColorBrush x:Key="GlyphBrush" Color="Aquamarine" />
+    <SolidColorBrush x:Key="NormalBrush" Color="Aquamarine" />
+    <SolidColorBrush x:Key="NormalBorderBrush" Color="Aquamarine" />
+    <SolidColorBrush x:Key="HorizontalNormalBrush" Color="Aquamarine" />
+    <SolidColorBrush x:Key="HorizontalNormalBorderBrush" Color="Aquamarine" />
 
     <Style x:Key="ScrollBarThumbHor" TargetType="{x:Type Thumb}">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -106,7 +106,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <Border CornerRadius="4" 
-                                Background="#c8c8c8" 
+                                Background="Aquamarine" 
                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                 BorderThickness="0"  
                                 Height="8" 
@@ -301,10 +301,11 @@
 
     <Style x:Key="IntroductionTextStyle" TargetType="TextBlock">
         <Setter Property="TextWrapping" Value="Wrap"/>
-        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontSize" Value="16"/>
         <Setter Property="Foreground" Value="AliceBlue"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Padding" Value="10,0,10,0"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
     </Style>
 
 </ResourceDictionary>
