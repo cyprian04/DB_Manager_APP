@@ -113,7 +113,7 @@ namespace GUI_Database_app
 
             var distance = Math.Sqrt(Math.Pow(pos.X - centerX, 2) + Math.Pow(pos.Y - centerY, 2)); 
 
-            if(distance <= 15)
+            if(distance <= 20)
             {
                 button.Height = 45;
                 button.Width = 45;
