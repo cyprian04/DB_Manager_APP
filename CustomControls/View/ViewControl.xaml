@@ -9,15 +9,18 @@
 
     <Border CornerRadius="10,0,10,0"
           BorderThickness="5,5,0,0"
-          Background="Purple">
+          Background="#333">
 
         <Grid>
             <StackPanel HorizontalAlignment="Left">
-                
+
                 <TextBlock Text="View"
                            FontSize="20"/>
-                
             </StackPanel>
+            <TextBlock Text="Coming soon"
+                           FontSize="40"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
         </Grid>
     </Border>
 </UserControl>
