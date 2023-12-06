@@ -154,7 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoginForm.xaml">
+    <Page Include="View\LoginForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,7 +188,8 @@
       <DependentUpon>ViewControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\Connection.cs" />
-    <Compile Include="LoginForm.xaml.cs">
+    <Compile Include="ViewModel\LoginFormVM.cs" />
+    <Compile Include="View\LoginForm.xaml.cs">
       <DependentUpon>LoginForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -254,8 +255,6 @@
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

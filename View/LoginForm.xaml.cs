@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace GUI_Database_app
 {
-    /// <summary>
-    /// Logika interakcji dla klasy LoginForm.xaml
-    /// </summary>
     public partial class LoginForm : Window
     {
         Data.Connection connection = new Data.Connection();
