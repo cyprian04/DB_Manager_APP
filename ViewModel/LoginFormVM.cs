@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows;
+using System.Windows.Input;
 
 namespace GUI_Database_app.ViewModel
 {
@@ -12,8 +13,6 @@ namespace GUI_Database_app.ViewModel
         private string _username;
         private string _password;
         private string _host;
-
-        private RelayCommand _loginCommand;
 
         public string Username
         {
@@ -46,5 +45,36 @@ namespace GUI_Database_app.ViewModel
         }
 
 
+
+        //private void btn_LogIn(object sender, RoutedEventArgs e)
+        //{
+        //    if (!string.IsNullOrEmpty(txtUser.Text) || !string.IsNullOrEmpty(txtPassword.Password) || !string.IsNullOrEmpty(txtHost.Text))
+        //    {
+        //        connection.Initialize(txtHost.Text, txtUser.Text, txtPassword.Password);
+        //
+        //        if (connection.VerifyCredentials())
+        //        {
+        //            MainWindow mainWindow = new MainWindow(connection);
+        //            mainWindow.Show();
+        //            LoginMediaVideo.Stop();
+        //            this.Close();
+        //        }
+        //        else
+        //        {
+        //            txtUser.Text = "";
+        //            txtPassword.Password = "";
+        //            txtHost.Text = "";
+        //        }
+        //    }
+        //}
+        //
+        //private void LoginMediaVideo_MediaEnded(object sender, RoutedEventArgs e)
+        //{
+        //    if (LoginMediaVideo.Source != null)
+        //    {
+        //        LoginMediaVideo.Position = TimeSpan.Zero; // Reset the position to the beginning
+        //        LoginMediaVideo.Play(); // Start playing again
+        //    }
+        //}
     }
 }

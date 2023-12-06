@@ -20,7 +20,6 @@ namespace GUI_Database_app
                   {
                       var mainWindow = new MainWindow();
                       mainWindow.Show();
-                      loginForm.Close();
                   }
               };
         }
