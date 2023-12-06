@@ -45,11 +45,6 @@ namespace GUI_Database_app.ViewModel
             }
         }
 
-        public ICommand LoginCommand
-        {
-            get
-            {
-                return _loginCommand ?? (_loginCommand = new RelayCommand(param => ExecuteLogin(), param => CanExecuteLogin()));
-            }
-        }
+
     }
+}

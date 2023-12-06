@@ -8,10 +8,21 @@ using System.Windows;
 
 namespace GUI_Database_app
 {
-    /// <summary>
-    /// Logika interakcji dla klasy App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        protected void ApplicationStart(object sender, StartupEventArgs e)
+        {
+            var loginForm = new LoginForm();
+            loginForm.Show();
+            loginForm.IsVisibleChanged += (s, ev) =>
+              {
+                  if (!loginForm.IsVisible && loginForm.IsLoaded)
+                  {
+                      var mainWindow = new MainWindow();
+                      mainWindow.Show();
+                      loginForm.Close();
+                  }
+              };
+        }
     }
 }

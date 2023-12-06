@@ -28,6 +28,11 @@ namespace GUI_Database_app
         CustomControls.DbSettingsControl DbSettings = null;
         CustomControls.HomeControl Home = new CustomControls.HomeControl();
 
+        public MainWindow()
+        {
+
+        }
+
         public MainWindow(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();
