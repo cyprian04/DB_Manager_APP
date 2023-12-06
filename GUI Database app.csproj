@@ -189,6 +189,7 @@
     </Compile>
     <Compile Include="Data\Connection.cs" />
     <Compile Include="ViewModel\LoginFormVM.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\LoginForm.xaml.cs">
       <DependentUpon>LoginForm.xaml</DependentUpon>
     </Compile>
