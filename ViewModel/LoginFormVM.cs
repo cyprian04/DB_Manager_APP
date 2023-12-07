@@ -43,8 +43,33 @@ namespace GUI_Database_app.ViewModel
                 OnPropertyChanged(nameof(Host));
             }
         }
+       
+        public ICommand LoginCommand{ get; }
 
+        public LoginFormVM()
+        {
+            LoginCommand = new RelayCommand(Login, CanLogin);
+        }
 
+        private void Login(object parameter)
+        {
+            //There gonna be the server conn logic func.
+            if(Username == "Cyprian")
+                MessageBox.Show("ACCEPTED");
+            else
+            {
+                MessageBox.Show("DENIED");
+                Username = string.Empty;
+                Password = string.Empty;
+                Host = string.Empty;
+            }
+        }
+
+        private bool CanLogin(object parameter)
+        {
+            // Logika sprawdzająca, czy przycisk logowania może być aktywowany
+             return !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Host);// host for tests!!!(instead of pass)
+        }
 
         //private void btn_LogIn(object sender, RoutedEventArgs e)
         //{

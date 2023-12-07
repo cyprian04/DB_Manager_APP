@@ -231,7 +231,7 @@
                                TextWrapping="Wrap"
                                Margin="0,25,0,0"/>
 
-                            <TextBox x:Name="txtHost"
+                            <TextBox Text="{Binding Host, Mode=TwoWay}"
                              BorderThickness="0,0,0,1"
                              Padding="20,0,0,0"
                              Margin="5,0,0,0"
@@ -260,7 +260,7 @@
                             Foreground="White"
                             Cursor="Hand"
                             Margin="0,25,0,0"
-                            >
+                            Command="{Binding LoginCommand}">
 
                                 <Button.Style>
                                     <Style TargetType="Button">
