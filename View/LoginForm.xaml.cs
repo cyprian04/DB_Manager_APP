@@ -20,6 +20,13 @@ namespace GUI_Database_app
         {
             InitializeComponent();
             LoginMediaVideo.Play();
+            Resources.Add("BooleanToVisibility", new BooleanToVisibilityConverter());
+            var binding = new Binding("IsVisible")
+            {
+                Mode = BindingMode.TwoWay,
+                Converter = Resources["BooleanToVisibility"] as IValueConverter
+            };
+            SetBinding(VisibilityProperty, binding);
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -45,28 +52,6 @@ namespace GUI_Database_app
             Application.Current.Shutdown(); 
         }
         
-        //private void btn_LogIn(object sender, RoutedEventArgs e)
-        //{
-        //    if(!string.IsNullOrEmpty(txtUser.Text) || !string.IsNullOrEmpty(txtPassword.Password) || !string.IsNullOrEmpty(txtHost.Text))
-        //    {
-        //        connection.Initialize(txtHost.Text, txtUser.Text, txtPassword.Password);
-        //
-        //        if (connection.VerifyCredentials())
-        //        {
-        //            MainWindow mainWindow = new MainWindow(connection);
-        //            mainWindow.Show();
-        //            LoginMediaVideo.Stop();
-        //            this.Close();
-        //        }
-        //        else
-        //        {
-        //            txtUser.Text = "";
-        //            txtPassword.Password = "";
-        //            txtHost.Text = "";
-        //        }
-        //    }
-        //}
-        //
         private void LoginMediaVideo_MediaEnded(object sender, RoutedEventArgs e)
         {
             if (LoginMediaVideo.Source != null)

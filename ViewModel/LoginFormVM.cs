@@ -13,6 +13,20 @@ namespace GUI_Database_app.ViewModel
         private string _username;
         private string _password;
         private string _host;
+        private bool _isVisible;
+
+        public bool IsVisible
+        {
+            get { return _isVisible; }
+            set
+            {
+                if (_isVisible != value)
+                {
+                    _isVisible = value;
+                    OnPropertyChanged(nameof(IsVisible));
+                }
+            }
+        }
 
         public string Username
         {
@@ -54,8 +68,11 @@ namespace GUI_Database_app.ViewModel
         private void Login(object parameter)
         {
             //There gonna be the server conn logic func.
-            if(Username == "Cyprian")
+            if (Username == "Cyprian")
+            {
                 MessageBox.Show("ACCEPTED");
+                IsVisible = false;
+            }
             else
             {
                 MessageBox.Show("DENIED");
@@ -67,7 +84,6 @@ namespace GUI_Database_app.ViewModel
 
         private bool CanLogin(object parameter)
         {
-            // Logika sprawdzająca, czy przycisk logowania może być aktywowany
              return !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Host);// host for tests!!!(instead of pass)
         }
 
@@ -90,15 +106,6 @@ namespace GUI_Database_app.ViewModel
         //            txtPassword.Password = "";
         //            txtHost.Text = "";
         //        }
-        //    }
-        //}
-        //
-        //private void LoginMediaVideo_MediaEnded(object sender, RoutedEventArgs e)
-        //{
-        //    if (LoginMediaVideo.Source != null)
-        //    {
-        //        LoginMediaVideo.Position = TimeSpan.Zero; // Reset the position to the beginning
-        //        LoginMediaVideo.Play(); // Start playing again
         //    }
         //}
     }
