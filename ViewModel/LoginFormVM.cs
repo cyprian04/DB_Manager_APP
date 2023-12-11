@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using GUI_Database_app.Model;
+using SimpleInjector;
 
 
 namespace GUI_Database_app.ViewModel
@@ -17,6 +18,7 @@ namespace GUI_Database_app.ViewModel
         private string _host;
         private bool _isVisible;
         private readonly ICurrentUser _currentUser;
+        public Container Container { get; set; }
 
         public bool IsVisible
         {
