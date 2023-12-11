@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GUI_Database_app.Model
 {
-    interface ICurrentUser
+    public interface ICurrentUser
     {
         string Username { get; set; }
         string Password { get; set; }

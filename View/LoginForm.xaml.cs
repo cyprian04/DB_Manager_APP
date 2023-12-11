@@ -20,13 +20,6 @@ namespace GUI_Database_app
         {
             InitializeComponent();
             LoginMediaVideo.Play();
-            Resources.Add("BooleanToVisibility", new BooleanToVisibilityConverter());
-            var binding = new Binding("IsVisible")
-            {
-                Mode = BindingMode.TwoWay,
-                Converter = Resources["BooleanToVisibility"] as IValueConverter
-            };
-            SetBinding(VisibilityProperty, binding);
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

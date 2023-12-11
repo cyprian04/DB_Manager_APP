@@ -10,10 +10,6 @@
         Background="Transparent"
         MouseDown="Window_MouseDown">
 
-    <Window.DataContext>
-        <viewModel:LoginFormVM/>
-    </Window.DataContext>
-    
     <Window.Resources>
         <ResourceDictionary Source="/StylesDictionary/Dictionary.xaml"/>
     </Window.Resources>

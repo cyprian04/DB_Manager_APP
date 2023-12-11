@@ -65,8 +65,9 @@ namespace GUI_Database_app.ViewModel
        
         public ICommand LoginCommand{ get; }
 
-        public LoginFormVM()
+        public LoginFormVM(ICurrentUser currentUser)
         {
+            _currentUser = currentUser;
             LoginCommand = new RelayCommand(Login);
         }
 
