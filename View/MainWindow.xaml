@@ -1,0 +1,221 @@
+﻿<Window x:Class="GUI_Database_app.View.MainWindow" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_Database_app"
+        mc:Ignorable="d"
+        Title=" DB Manager" 
+        Height="800" 
+        Width="1200" 
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown">
+
+    <Window.Resources>
+        <ResourceDictionary Source="/StylesDictionary/Dictionary.xaml"/>
+    </Window.Resources>
+
+
+    <Border CornerRadius="12">
+
+        <Border CornerRadius="10"
+                BorderThickness="2">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#632D5E" Offset="0"/>
+                    <GradientStop Color="#488CFF" Offset="0.5"/>
+                    <GradientStop Color="#F1C0E8" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#90DBF4" Offset="0"/>
+                    <GradientStop Color="#6E3E89" Offset="0.6"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Row="0"
+                            Grid.Column="1"
+                            BorderThickness="0"
+                            FontSize="15"
+                            Content="-"
+                            FontFamily="Montserrat"
+                            Foreground="White"
+                            Cursor="Hand"
+                            Click="btn_Minimalize"
+                            Template="{StaticResource WindowMaiBtnTemplate}">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        </Button>
+
+                    <Button Grid.Row="0"
+                            Grid.Column="2"
+                            BorderThickness="0"
+                            FontSize="15"
+                            Content="="
+                            FontFamily="Montserrat"
+                            Foreground="White"
+                            Cursor="Hand"
+                            Click="btn_WindowMinMax"
+                            Template="{StaticResource WindowMaiBtnTemplate}">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#EABB95"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#D87F81"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    
+                    <Button Grid.Row="0"
+                            Grid.Column="3"
+                            BorderThickness="0"
+                            FontSize="15"
+                            Content="x"
+                            FontFamily="Montserrat"
+                            Foreground="White"
+                            Cursor="Hand"
+                            Click="btn_Close"
+                            Template="{StaticResource WindowMaiBtnTemplate}">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#b33b72"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#8e3563"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel>
+                        <Border Width="60"
+                                Height="60"
+                                Margin="0,10,0,10">
+                            <Button Style="{StaticResource LeftMenuBarBtnStyle}"
+                                    Click="btn_home"
+                                    MouseMove="Btn_MouseMove"
+                                    MouseLeave="Btn_MouseLeave">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Resources/icon-home.png"/>
+                                </Button.Background>
+                            </Button>
+                        </Border>
+
+                        <Border Width="50"
+                                Height="50"
+                                Margin="0,0,0,20">
+                            <Button Style="{StaticResource LeftMenuBarBtnStyle}"
+                                    Click="btn_view"
+                                    MouseMove="Btn_MouseMove"
+                                    MouseLeave="Btn_MouseLeave">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Resources/icon-view.png"/>
+                                </Button.Background>
+                            </Button>
+                        </Border>
+
+                        <Border Width="50"
+                                Height="50"
+                                Margin="0,0,0,20">
+                            <Button Style="{StaticResource LeftMenuBarBtnStyle}"
+                                    Click="btn_Main"
+                                    MouseMove="Btn_MouseMove"
+                                    MouseLeave="Btn_MouseLeave">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Resources/icon-sql.png"/>
+                                </Button.Background>
+                            </Button>
+                        </Border>
+
+                        <Border Width="50"
+                                Height="50"
+                                Margin="0,0,0,20">
+                            <Button Style="{StaticResource LeftMenuBarBtnStyle}"
+                                    Click="btn_settings"
+                                    MouseMove="Btn_MouseMove"
+                                    MouseLeave="Btn_MouseLeave">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Resources/icon-gear.png"/>
+                                </Button.Background>
+                            </Button>
+                        </Border>
+                    </StackPanel>
+
+
+                    <Border Width="50"
+                                Height="50"
+                                Margin="0,0,0,0"
+                                VerticalAlignment="Bottom">
+                        <Button Style="{StaticResource LeftMenuBarBtnStyle}"
+                                    Click="btn_LogOut"
+                                    Margin="0,0,0,10"
+                                    MouseMove="Btn_MouseMove"
+                                    MouseLeave="Btn_MouseLeave">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/icon-logout.png"/>
+                            </Button.Background>
+                        </Button>
+                    </Border>
+
+                    <Border Grid.Column="1"
+                            CornerRadius="10,0,10,0"
+                            BorderThickness="0"
+                            Background="#333">
+
+                        <ContentControl x:Name="ContentArea" Grid.Column="1" />
+                        
+                    </Border>
+
+                </Grid>
+
+            </Grid>
+
+        </Border>
+
+    </Border>
+
+</Window>
