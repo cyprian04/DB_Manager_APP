@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using GUI_Database_app.Model;
+
 
 namespace GUI_Database_app.ViewModel
 {
@@ -14,6 +16,7 @@ namespace GUI_Database_app.ViewModel
         private string _password;
         private string _host;
         private bool _isVisible;
+        private readonly ICurrentUser _currentUser;
 
         public bool IsVisible
         {
@@ -67,7 +70,7 @@ namespace GUI_Database_app.ViewModel
 
         private void Login(object parameter)
         {
-            //There gonna be the server conn logic func.
+            
             if (Username == "Cyprian")
             {
                 MessageBox.Show("ACCEPTED");
