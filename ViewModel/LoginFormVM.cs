@@ -16,7 +16,7 @@ namespace GUI_Database_app.ViewModel
         private string _username;
         private string _password;
         private string _host;
-        private bool _isVisible;
+        private bool _isVisible = true;
         private readonly ICurrentUser _currentUser;
         public Container Container { get; set; }
 
@@ -87,27 +87,5 @@ namespace GUI_Database_app.ViewModel
                 Host = string.Empty;
             }
         }
-
-        //private void btn_LogIn(object sender, RoutedEventArgs e)
-        //{
-        //    if (!string.IsNullOrEmpty(txtUser.Text) || !string.IsNullOrEmpty(txtPassword.Password) || !string.IsNullOrEmpty(txtHost.Text))
-        //    {
-        //        connection.Initialize(txtHost.Text, txtUser.Text, txtPassword.Password);
-        //
-        //        if (connection.VerifyCredentials())
-        //        {
-        //            MainWindow mainWindow = new MainWindow(connection);
-        //            mainWindow.Show();
-        //            LoginMediaVideo.Stop();
-        //            this.Close();
-        //        }
-        //        else
-        //        {
-        //            txtUser.Text = "";
-        //            txtPassword.Password = "";
-        //            txtHost.Text = "";
-        //        }
-        //    }
-        //}
     }
 }
