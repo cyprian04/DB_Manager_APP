@@ -12,7 +12,6 @@ namespace GUI_Database_app
 {
     public partial class App : Application
     {
-
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -27,16 +26,15 @@ namespace GUI_Database_app
             var loginViewModel = container.GetInstance<ViewModel.LoginFormVM>();
             var mainViewModel = container.GetInstance<ViewModel.MainWindowVM>();
 
-            var loginForm = new LoginForm() {DataContext = loginViewModel };
+            var loginForm = new LoginForm() {DataContext = loginViewModel};
             loginForm.Show();
             loginForm.IsVisibleChanged += (s, ev) =>
             {
                 if (loginForm.IsLoaded && !loginForm.IsVisible)
                 {
                     MessageBox.Show(currentUser.Username);
-                    var mainWindow = new MainWindow { DataContext = loginViewModel };
+                    var mainWindow = new MainWindow { DataContext = mainViewModel };
                     mainWindow.Show();
-                    loginForm.Close();
                 }
             };
         }

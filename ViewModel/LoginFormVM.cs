@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using GUI_Database_app.Model;
-using SimpleInjector;
 
 
 namespace GUI_Database_app.ViewModel
 {
-    public class LoginFormVM : ViewModelBase
+    class LoginFormVM : ViewModelBase
     {
         private string _username;
         private string _password;

@@ -30,7 +30,8 @@ namespace GUI_Database_app
 
         public MainWindow()
         {
-
+            InitializeComponent();
+            ContentArea.Content = Home;
         }
 
         public MainWindow(Data.Connection CurrentUserConn_in)

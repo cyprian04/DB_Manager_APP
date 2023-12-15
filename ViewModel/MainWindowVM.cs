@@ -9,5 +9,6 @@ namespace GUI_Database_app.ViewModel
 {
     class MainWindowVM
     {
+
     }
 }

@@ -8,8 +8,7 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
-        MouseDown="Window_MouseDown"
-        >
+        MouseDown="Window_MouseDown">
 
     <Window.Resources>
         <ResourceDictionary>
