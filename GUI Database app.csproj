@@ -194,6 +194,7 @@
     <Compile Include="Model\CurrentUser.cs" />
     <Compile Include="Model\ICurrentUser.cs" />
     <Compile Include="ViewModel\LoginFormVM.cs" />
+    <Compile Include="ViewModel\MainWindowVM.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\LoginForm.xaml.cs">

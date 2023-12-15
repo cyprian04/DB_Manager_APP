@@ -18,27 +18,25 @@ namespace GUI_Database_app
             base.OnStartup(e);
 
             var container = new Container();
-            container.Register<ViewModel.LoginFormVM>();
-            container.Register<Model.ICurrentUser, Model.CurrentUser>();
+            container.Register<ViewModel.LoginFormVM>(Lifestyle.Singleton);
+            container.Register<ViewModel.MainWindowVM>(Lifestyle.Singleton);
+            container.Register<Model.ICurrentUser, Model.CurrentUser>(Lifestyle.Singleton);
             container.Verify();
 
-            var currentUser = new Model.CurrentUser();
-            var loginViewModel = new ViewModel.LoginFormVM(currentUser) ;
-
-            // Przekazuj ViewModeli referencje do kontenera
-            loginViewModel.Container = container;
-            // var mainViewModel = container.GetInstance<ViewModel.MainWindowVM>();
-            // mainViewModel.Container = container;
+            var currentUser = container.GetInstance<Model.ICurrentUser>();
+            var loginViewModel = container.GetInstance<ViewModel.LoginFormVM>();
+            var mainViewModel = container.GetInstance<ViewModel.MainWindowVM>();
 
             var loginForm = new LoginForm() {DataContext = loginViewModel };
-            loginForm.Visibility = Visibility.Visible;
             loginForm.Show();
             loginForm.IsVisibleChanged += (s, ev) =>
             {
                 if (loginForm.IsLoaded && !loginForm.IsVisible)
                 {
+                    MessageBox.Show(currentUser.Username);
                     var mainWindow = new MainWindow { DataContext = loginViewModel };
                     mainWindow.Show();
+                    loginForm.Close();
                 }
             };
         }

@@ -18,7 +18,6 @@ namespace GUI_Database_app.ViewModel
         private string _host;
         private bool _isVisible = true;
         private readonly ICurrentUser _currentUser;
-        public Container Container { get; set; }
 
         public bool IsVisible
         {
@@ -76,6 +75,7 @@ namespace GUI_Database_app.ViewModel
             
             if (Username == "Cyprian")
             {
+                _currentUser.Username = "CYPU";
                 MessageBox.Show("ACCEPTED");
                 IsVisible = false;
             }
