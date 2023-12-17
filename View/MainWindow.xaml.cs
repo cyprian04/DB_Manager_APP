@@ -1,9 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
-namespace GUI_Database_app.View
+
+namespace GUI_Database_app
 {
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
@@ -24,7 +36,8 @@ namespace GUI_Database_app.View
 
         public MainWindow(Data.Connection CurrentUserConn_in)
         {
-            
+            InitializeComponent();
+            ContentArea.Content = Home;
             CurrentUserConn = CurrentUserConn_in;
 
             View = new CustomControls.ViewControl(CurrentUserConn);
@@ -36,7 +49,6 @@ namespace GUI_Database_app.View
         {
             if (ContentArea.Content.GetType() != ChosenControl.GetType())
                 ContentArea.Content = ChosenControl;
-
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
