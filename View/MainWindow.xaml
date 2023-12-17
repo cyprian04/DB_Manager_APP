@@ -20,18 +20,6 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/StylesDictionary/Dictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <local1:ViewModelTemplateSelector x:Key="ViewModelTemplateSelector">
-                <local1:ViewModelTemplateSelector.HomeTemplate>
-                    <DataTemplate>
-                        <local2:HomeControl/>
-                    </DataTemplate>
-                </local1:ViewModelTemplateSelector.HomeTemplate>
-                <local1:ViewModelTemplateSelector.DbSettingsTemplate>
-                    <DataTemplate>
-                        <local2:DbSettingsControl/>
-                    </DataTemplate>
-                </local1:ViewModelTemplateSelector.DbSettingsTemplate>
-            </local1:ViewModelTemplateSelector>
         </ResourceDictionary>
     </Window.Resources>
 
@@ -153,7 +141,7 @@
                                 Height="60"
                                 Margin="0,10,0,10">
                             <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                    Click="btn_home"
+                                    Command="{Binding NavigateToCommand}" CommandParameter="Home"
                                     MouseMove="Btn_MouseMove"
                                     MouseLeave="Btn_MouseLeave">
                                 <Button.Background>
@@ -192,7 +180,7 @@
                                 Height="50"
                                 Margin="0,0,0,20">
                             <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                    Click="btn_settings"
+                                    Command="{Binding NavigateToCommand}" CommandParameter="DbSettings"
                                     MouseMove="Btn_MouseMove"
                                     MouseLeave="Btn_MouseLeave">
                                 <Button.Background>
@@ -223,8 +211,9 @@
                             BorderThickness="0"
                             Background="#333">
 
-                        <ContentControl x:Name="ContentArea" Grid.Column="1" />
-                        
+
+                        <ContentControl x:Name="ContentArea" Grid.Column="1" Content="{Binding CurrentControl}"/>
+
                     </Border>
 
                 </Grid>

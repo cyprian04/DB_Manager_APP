@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GUI_Database_app.ViewModel
 {
-    class HomeVM
+    class HomeVM : ViewModelBase
     {
     }
 }

@@ -1,39 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Controls;
 using GUI_Database_app.ViewModel;
 
 namespace GUI_Database_app.Navigation
 {
     public class NavigationService
     {
-        private readonly Dictionary<string, Func<ViewModelBase>> viewModels;
-        private ViewModelBase currentViewModel;
+        private readonly Dictionary<string, Func<UserControl>> userControls;
 
         public NavigationService()
         {
-            viewModels = new Dictionary<string, Func<ViewModelBase>>();
+            userControls = new Dictionary<string, Func<UserControl>>();
         }
 
-        public void RegisterViewModel(string key, Func<ViewModelBase> viewModelFactory)
+        public void Register(string key, Func<UserControl> controlFactory)
         {
-            if (!viewModels.ContainsKey(key))
+            if (!userControls.ContainsKey(key))
             {
-                viewModels.Add(key, viewModelFactory);
+                userControls.Add(key, controlFactory);
             }
         }
 
-        public void NavigateTo(string key)
+        public UserControl NavigateTo(string key)
         {
-            if (viewModels.ContainsKey(key))
+            if (userControls.ContainsKey(key))
             {
-                currentViewModel = viewModels[key].Invoke();
-                OnNavigationChanged?.Invoke(this, EventArgs.Empty);
+                return userControls[key].Invoke();
             }
+
+            return null;
         }
-
-        public ViewModelBase CurrentViewModel => currentViewModel;
-
-        public event EventHandler OnNavigationChanged;
     }
-
 }

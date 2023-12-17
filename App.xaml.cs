@@ -27,11 +27,13 @@ namespace GUI_Database_app
             container.Register<ViewModel.LoginFormVM>(Lifestyle.Singleton);
             container.Register<ViewModel.MainWindowVM>(Lifestyle.Singleton);
             container.Register<Model.ICurrentUser, Model.CurrentUser>(Lifestyle.Singleton);
+            container.Register<Navigation.NavigationService>(Lifestyle.Singleton);
             container.Verify();
         }
 
         private void CreateAndShowLoginForm()
         {
+            var navigation = container.GetInstance<Navigation.NavigationService>();
             var currentUser = container.GetInstance<Model.ICurrentUser>();
             var loginViewModel = container.GetInstance<ViewModel.LoginFormVM>();
             var mainViewModel = container.GetInstance<ViewModel.MainWindowVM>();
