@@ -1,24 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
-using GUI_Database_app.ViewModel;
+using SimpleInjector;
 
 namespace GUI_Database_app.Navigation
 {
     public class NavigationService
     {
+        private readonly Container container;
         private readonly Dictionary<string, Func<UserControl>> userControls;
 
-        public NavigationService()
+        public NavigationService(Container container)
         {
             userControls = new Dictionary<string, Func<UserControl>>();
+            this.container = container;
         }
 
-        public void Register(string key, Func<UserControl> controlFactory)
+        public void Register<T>(string key) where T : UserControl
         {
             if (!userControls.ContainsKey(key))
             {
-                userControls.Add(key, controlFactory);
+                userControls.Add(key, () => container.GetInstance<T>());
             }
         }
 
