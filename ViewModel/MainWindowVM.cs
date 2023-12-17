@@ -37,6 +37,5 @@ namespace GUI_Database_app.ViewModel
         {
             CurrentControl = navigationService.NavigateTo(destination);
         }
-
     }
 }
