@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using GUI_Database_app.ViewModel;
 
-namespace GUI_Database_app.View.Navigation
+namespace GUI_Database_app.Navigation
 {
     public class NavigationService
     {

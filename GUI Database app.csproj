@@ -129,7 +129,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="View\Navigation\NavigationService.cs" />
+    <Compile Include="Navigation\NavigationService.cs" />
     <Page Include="CustomControls\DbSettings\DbSettingsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
