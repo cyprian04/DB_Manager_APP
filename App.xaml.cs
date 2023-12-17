@@ -35,8 +35,6 @@ namespace GUI_Database_app
 
         private void CreateAndShowLoginForm()
         {
-            var navigation = container.GetInstance<Navigation.NavigationService>();
-            var currentUser = container.GetInstance<Model.ICurrentUser>();
             var loginViewModel = container.GetInstance<ViewModel.LoginFormVM>();
             var mainViewModel = container.GetInstance<ViewModel.MainWindowVM>();
 
@@ -47,7 +45,7 @@ namespace GUI_Database_app
             {
                 if (loginForm.IsLoaded && !loginForm.IsVisible)
                 {
-                    MessageBox.Show(currentUser.Username);
+                    MessageBox.Show(container.GetInstance<Model.ICurrentUser>().Username);
                     var mainWindow = new MainWindow { DataContext = mainViewModel };
                     mainWindow.Show();
                 }
