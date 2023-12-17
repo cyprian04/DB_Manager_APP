@@ -35,7 +35,10 @@ namespace GUI_Database_app.ViewModel
 
         private void NavigateTo(string destination)
         {
-            CurrentControl = navigationService.NavigateTo(destination);
+            UserControl newControl = navigationService.NavigateTo(destination);
+
+            if (CurrentControl == null || CurrentControl.GetType() != newControl.GetType())
+                CurrentControl = newControl;
         }
     }
 }
