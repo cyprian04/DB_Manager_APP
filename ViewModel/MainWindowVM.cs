@@ -1,6 +1,9 @@
 ﻿using System.Windows.Input;
 using System.Windows.Controls;
 using GUI_Database_app.Navigation;
+using System.Reflection;
+using System.Diagnostics;
+using System.Windows;
 
 namespace GUI_Database_app.ViewModel
 {
@@ -30,6 +33,7 @@ namespace GUI_Database_app.ViewModel
         }
 
         public ICommand NavigateToCommand => new RelayCommand(param => NavigateTo(param.ToString()));
+        public ICommand ResetSessionCommand => new RelayCommand(param => LogOut());
 
         private void NavigateTo(string destination)
         {
@@ -37,6 +41,18 @@ namespace GUI_Database_app.ViewModel
 
             if (CurrentControl == null || CurrentControl.GetType() != newControl.GetType())
                 CurrentControl = newControl;
+        }
+
+        private void LogOut()
+        {
+            var exePath = Assembly.GetEntryAssembly().Location;
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = exePath,
+                UseShellExecute = true,
+                CreateNoWindow = false
+            });
+            Application.Current.Shutdown();
         }
     }
 }

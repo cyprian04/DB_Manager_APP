@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Media.Animation;
-
 
 namespace GUI_Database_app
 {
@@ -65,20 +53,6 @@ namespace GUI_Database_app
         private void btn_Close(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-        }
-
-
-        private void btn_LogOut(object sender, RoutedEventArgs e)
-        {
-            LoginForm LoginWindow = new LoginForm();
-            LoginWindow.Show();
-            //CurrentUserConn.DisconnectUserFromServer();
-            //CurrentUserConn = null;
-            //Home = null;
-            //View = null;
-            //MainInteraction = null;
-            //DbSettings = null;
-            this.Close();
         }
 
         private void Btn_MouseMove(object sender, MouseEventArgs e)
