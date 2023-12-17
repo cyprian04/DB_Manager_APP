@@ -22,33 +22,27 @@ namespace GUI_Database_app
     /// </summary>
     public partial class MainWindow : Window
     {
-        Data.Connection CurrentUserConn = null;
-        CustomControls.ViewControl View = null;
-        CustomControls.MainInteractionControl MainInteraction = null;
-        CustomControls.DbSettingsControl DbSettings = null;
-        CustomControls.HomeControl Home = new CustomControls.HomeControl();
+       // Data.Connection CurrentUserConn = null;
+       // CustomControls.ViewControl View = null;
+       // CustomControls.MainInteractionControl MainInteraction = null;
+       // CustomControls.DbSettingsControl DbSettings = null;
+       // CustomControls.HomeControl Home = new CustomControls.HomeControl();
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        public MainWindow(Data.Connection CurrentUserConn_in)
-        {
-            InitializeComponent();
-            ContentArea.Content = Home;
-            CurrentUserConn = CurrentUserConn_in;
-
-            View = new CustomControls.ViewControl(CurrentUserConn);
-            MainInteraction = new CustomControls.MainInteractionControl(CurrentUserConn);
-            DbSettings = new CustomControls.DbSettingsControl(CurrentUserConn);
-        }
-
-        private void IsCurrentContentAreaSame(UserControl ChosenControl)
-        {
-            if (ContentArea.Content.GetType() != ChosenControl.GetType())
-                ContentArea.Content = ChosenControl;
-        }
+        //public MainWindow(Data.Connection CurrentUserConn_in)
+        //{
+        //    InitializeComponent();
+        //    ContentArea.Content = Home;
+        //    CurrentUserConn = CurrentUserConn_in;
+        //
+        //    View = new CustomControls.ViewControl(CurrentUserConn);
+        //    MainInteraction = new CustomControls.MainInteractionControl(CurrentUserConn);
+        //    DbSettings = new CustomControls.DbSettingsControl(CurrentUserConn);
+        //}
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -73,39 +67,17 @@ namespace GUI_Database_app
             Application.Current.Shutdown();
         }
 
-        private void btn_home(object sender, RoutedEventArgs e)
-        {
-            IsCurrentContentAreaSame(Home);
-        }
-
-        private void btn_view(object sender, RoutedEventArgs e)
-        {
-            IsCurrentContentAreaSame(View);
-        }
-
-        private void btn_Main(object sender, RoutedEventArgs e)
-        {
-            //for testing
-            //string temp = CurrentUserConn.DbName +" " + CurrentUserConn.ServerIp + " " + CurrentUserConn.Username + " " + CurrentUserConn.Password;
-            //MessageBox.Show(temp);
-            IsCurrentContentAreaSame(MainInteraction);
-        }
-
-        private void btn_settings(object sender, RoutedEventArgs e)
-        {
-            IsCurrentContentAreaSame(DbSettings);
-        }
 
         private void btn_LogOut(object sender, RoutedEventArgs e)
         {
             LoginForm LoginWindow = new LoginForm();
             LoginWindow.Show();
-            CurrentUserConn.DisconnectUserFromServer();
-            CurrentUserConn = null;
-            Home = null;
-            View = null;
-            MainInteraction = null;
-            DbSettings = null;
+            //CurrentUserConn.DisconnectUserFromServer();
+            //CurrentUserConn = null;
+            //Home = null;
+            //View = null;
+            //MainInteraction = null;
+            //DbSettings = null;
             this.Close();
         }
 

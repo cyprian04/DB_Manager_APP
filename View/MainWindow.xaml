@@ -3,8 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local1="clr-namespace:GUI_Database_app.ViewModel"
-        xmlns:local2="clr-namespace:GUI_Database_app.CustomControls"
         mc:Ignorable="d"
         Title=" DB Manager" 
         Height="800" 
@@ -154,7 +152,6 @@
                                 Height="50"
                                 Margin="0,0,0,20">
                             <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                    Click="btn_view"
                                     MouseMove="Btn_MouseMove"
                                     MouseLeave="Btn_MouseLeave">
                                 <Button.Background>
@@ -167,7 +164,6 @@
                                 Height="50"
                                 Margin="0,0,0,20">
                             <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                    Click="btn_Main"
                                     MouseMove="Btn_MouseMove"
                                     MouseLeave="Btn_MouseLeave">
                                 <Button.Background>

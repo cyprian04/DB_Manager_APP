@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI_Database_app.CustomControls
+namespace GUI_Database_app.View.DbSettings
 {
     /// <summary>
     /// Logika interakcji dla klasy DbSettingsControl.xaml
@@ -25,17 +25,6 @@ namespace GUI_Database_app.CustomControls
         public DbSettingsControl()
         {
             InitializeComponent();
-
-        }
-
-        public DbSettingsControl(Data.Connection CurrentUserConn_in)
-        {
-            InitializeComponent();
-        }
-
-        private void btn_Connect(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System.Windows.Input;
 using System.Windows.Controls;
 using GUI_Database_app.Navigation;
-using GUI_Database_app.CustomControls;
-using System;
 
 namespace GUI_Database_app.ViewModel
 {
@@ -25,8 +23,8 @@ namespace GUI_Database_app.ViewModel
         {
             this.navigationService = navigationService;
 
-            navigationService.Register("Home", () => new HomeControl());
-            navigationService.Register("DbSettings", () => new DbSettingsControl());
+            navigationService.Register("Home", () => new View.Home.HomeControl());
+            navigationService.Register("DbSettings", () => new View.DbSettings.DbSettingsControl());
 
             NavigateTo("Home");
         }
