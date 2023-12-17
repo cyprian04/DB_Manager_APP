@@ -22,6 +22,12 @@ namespace GUI_Database_app.CustomControls
     public partial class DbSettingsControl : UserControl
     {
 
+        public DbSettingsControl()
+        {
+            InitializeComponent();
+
+        }
+
         public DbSettingsControl(Data.Connection CurrentUserConn_in)
         {
             InitializeComponent();

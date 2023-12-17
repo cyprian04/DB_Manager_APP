@@ -194,6 +194,8 @@
     <Compile Include="Data\Connection.cs" />
     <Compile Include="Model\CurrentUser.cs" />
     <Compile Include="Model\ICurrentUser.cs" />
+    <Compile Include="ViewModel\DbSettingsVM.cs" />
+    <Compile Include="ViewModel\HomeVM.cs" />
     <Compile Include="ViewModel\LoginFormVM.cs" />
     <Compile Include="ViewModel\MainWindowVM.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
