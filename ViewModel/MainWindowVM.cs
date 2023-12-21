@@ -38,9 +38,7 @@ namespace GUI_Database_app.ViewModel
         private void NavigateTo(string destination)
         {
             UserControl newControl = navigationService.NavigateTo(destination);
-
-            if (CurrentControl == null || CurrentControl.GetType() != newControl.GetType())
-                CurrentControl = newControl;
+            CurrentControl = (CurrentControl == null || CurrentControl.GetType() != newControl.GetType()) ? newControl : CurrentControl;
         }
 
         private void LogOut()

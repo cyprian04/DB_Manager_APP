@@ -217,7 +217,8 @@
                                 <ListView  x:Name="sideBarPanel"
                                            Background="Transparent"
                                            BorderBrush="Transparent"
-                                           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                           ItemContainerStyle="{StaticResource ListViewItem_style}">
 
                                     <ListViewItem HorizontalAlignment="Left"
                                                   Margin="0,0,0,15" 
@@ -323,47 +324,9 @@
                                                      Content="Sign Out"
                                                      Style="{StaticResource tool_tips_style}"/>
                                         </ListViewItem.ToolTip>
-
+                                        
                                     </ListViewItem>
 
-                                    <ListView.ItemContainerStyle>
-                                        <Style TargetType="ListViewItem">
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
-
-                                                        <Border x:Name="Border_style"
-                                                                Height="50"
-                                                                BorderBrush="{TemplateBinding BorderBrush}"
-                                                                BorderThickness="{TemplateBinding BorderThickness}"
-                                                                Background="{TemplateBinding Background}"
-                                                                Padding="{TemplateBinding Padding}"
-                                                                SnapsToDevicePixels="True">
-
-                                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                                                        </Border>
-
-                                                        <ControlTemplate.Triggers>
-                                                            <MultiTrigger>
-                                                                <MultiTrigger.Conditions>
-                                                                    <Condition Property="IsMouseOver" Value="True"/>
-                                                                </MultiTrigger.Conditions>
-                                                                <Setter Property="Background"
-                                                                        TargetName="Border_style"
-                                                                        Value="#666"/>
-                                                                <Setter Property="BorderBrush"
-                                                                        TargetName="Border_style"
-                                                                        Value="#666"/>
-                                                            </MultiTrigger>
-                                                        </ControlTemplate.Triggers>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </ListView.ItemContainerStyle>
-                                    
                                 </ListView>
                             </StackPanel>
                             
