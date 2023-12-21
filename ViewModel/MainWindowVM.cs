@@ -20,6 +20,19 @@ namespace GUI_Database_app.ViewModel
                 _currentControl = value;
                 OnPropertyChanged(nameof(CurrentControl));
             }
+        }        
+        private bool _isToolTipVisible = true;
+        public bool IsToolTipVisible
+        {
+            get => _isToolTipVisible;
+            set
+            {
+                if (_isToolTipVisible != value)
+                {
+                    _isToolTipVisible = value;
+                    OnPropertyChanged(nameof(IsToolTipVisible));
+                }
+            }
         }
 
         public MainWindowVM(NavigationService navigationService)
@@ -34,6 +47,7 @@ namespace GUI_Database_app.ViewModel
 
         public ICommand NavigateToCommand => new RelayCommand(param => NavigateTo(param.ToString()));
         public ICommand ResetSessionCommand => new RelayCommand(param => LogOut());
+        public ICommand ToggleButtonCommand => new RelayCommand(param => ToggleButtonClick());
 
         private void NavigateTo(string destination)
         {
@@ -51,6 +65,11 @@ namespace GUI_Database_app.ViewModel
                 CreateNoWindow = false
             });
             Application.Current.Shutdown();
+        }
+
+        private void ToggleButtonClick()
+        {
+            IsToolTipVisible = !IsToolTipVisible;
         }
     }
 }

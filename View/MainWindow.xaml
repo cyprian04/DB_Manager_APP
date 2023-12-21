@@ -18,6 +18,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/StylesDictionary/Dictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         </ResourceDictionary>
     </Window.Resources>
 
@@ -177,7 +178,8 @@
                                                   Width="30"
                                                   BorderThickness="0"
                                                   Cursor="Hand"
-                                                  Style="{StaticResource toggleBtn_style}">
+                                                  Style="{StaticResource toggleBtn_style}"
+                                                  Command="{Binding ToggleButtonCommand}">
 
                                         <ToggleButton.Background>
                                             <ImageBrush  Stretch="None" ImageSource="/Resources/icon-menu.png"/>
@@ -221,14 +223,14 @@
                                            ItemContainerStyle="{StaticResource ListViewItem_style}">
 
                                     <ListViewItem HorizontalAlignment="Left"
-                                                  Margin="0,0,0,15" 
-                                                  MouseEnter="ListViewItem_MouseEnter">
+                                                  Margin="0,0,0,15">
 
                                         <StackPanel Orientation="Horizontal"
                                                     Width="230">
 
                                             <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                                    Command="{Binding NavigateToCommand}" CommandParameter="Home">
+                                                    Command="{Binding NavigateToCommand}" CommandParameter="Home"
+                                                    >
                                                 <Button.Background>
                                                     <ImageBrush Stretch="None" ImageSource="/Resources/icon-home.png"/>
                                                 </Button.Background>
@@ -242,14 +244,15 @@
                                         <ListViewItem.ToolTip>
                                             <ToolTip x:Name="tip_home"
                                                      Content="Home"
-                                                     Style="{StaticResource tool_tips_style}"/>
+                                                     Style="{StaticResource tool_tips_style}"
+                                                     Visibility="{Binding IsToolTipVisible, Converter={StaticResource BooleanToVisibilityConverter} ,Mode=TwoWay}"/>
                                         </ListViewItem.ToolTip>
                                         
                                     </ListViewItem>
 
                                     <ListViewItem HorizontalAlignment="Left"
                                                   Margin="0,0,0,15" 
-                                                  MouseEnter="ListViewItem_MouseEnter">
+                                                  >
 
                                         <StackPanel Orientation="Horizontal"
                                                     Width="230">
@@ -268,14 +271,15 @@
                                         <ListViewItem.ToolTip>
                                             <ToolTip x:Name="tip_contacts"
                                                      Content="Profile"
-                                                     Style="{StaticResource tool_tips_style}"/>
+                                                     Style="{StaticResource tool_tips_style}"
+                                                     Visibility="{Binding IsToolTipVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"/>
                                         </ListViewItem.ToolTip>
 
                                     </ListViewItem>
 
                                     <ListViewItem HorizontalAlignment="Left"
                                                   Margin="0,0,0,15" 
-                                                  MouseEnter="ListViewItem_MouseEnter">
+                                                  >
 
                                         <StackPanel Orientation="Horizontal"
                                                     Width="230">
@@ -289,20 +293,22 @@
 
                                             <TextBlock Text="Settings"
                                                        Margin="25,0,0,0"
-                                                       Style="{StaticResource tips_font_style}"/>
+                                                       Style="{StaticResource tips_font_style}"
+                                                       Visibility="{Binding IsToolTipVisible, Mode=TwoWay}"/>
                                         </StackPanel>
 
                                         <ListViewItem.ToolTip>
                                             <ToolTip x:Name="tip_settings"
                                                      Content="Settings"
-                                                     Style="{StaticResource tool_tips_style}"/>
+                                                     Style="{StaticResource tool_tips_style}"
+                                                     Visibility="{Binding IsToolTipVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"/>
                                         </ListViewItem.ToolTip>
 
                                     </ListViewItem>
 
                                     <ListViewItem HorizontalAlignment="Left"
                                                   Margin="0,0,0,15" 
-                                                  MouseEnter="ListViewItem_MouseEnter">
+                                                  >
 
                                         <StackPanel Orientation="Horizontal"
                                                     Width="230">
@@ -322,7 +328,8 @@
                                         <ListViewItem.ToolTip>
                                             <ToolTip x:Name="tip_signout"
                                                      Content="Sign Out"
-                                                     Style="{StaticResource tool_tips_style}"/>
+                                                     Style="{StaticResource tool_tips_style}"
+                                                     Visibility="{Binding IsToolTipVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"/>
                                         </ListViewItem.ToolTip>
                                         
                                     </ListViewItem>

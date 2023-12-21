@@ -31,28 +31,5 @@ namespace GUI_Database_app
         {
             Application.Current.Shutdown();
         }
-
-        private void BG_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Tg_Btn.IsChecked = false;
-        }
-
-        private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (Tg_Btn.IsChecked == true)
-            {
-                tip_home.Visibility = Visibility.Collapsed;
-                tip_contacts.Visibility = Visibility.Collapsed;
-                tip_settings.Visibility = Visibility.Collapsed;
-                tip_signout.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                tip_home.Visibility = Visibility.Visible;
-                tip_contacts.Visibility = Visibility.Visible;
-                tip_settings.Visibility = Visibility.Visible;
-                tip_signout.Visibility = Visibility.Visible;
-            }
-        }
     }
 }
