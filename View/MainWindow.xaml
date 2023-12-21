@@ -21,7 +21,6 @@
         </ResourceDictionary>
     </Window.Resources>
 
-
     <Border CornerRadius="12">
 
         <Border CornerRadius="10"
@@ -40,7 +39,6 @@
                     <GradientStop Color="#6E3E89" Offset="0.6"/>
                 </LinearGradientBrush>
             </Border.Background>
-
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -78,7 +76,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Button.Style>
-                        </Button>
+                    </Button>
 
                     <Button Grid.Row="0"
                             Grid.Column="2"
@@ -102,7 +100,7 @@
                             </Style>
                         </Button.Style>
                     </Button>
-                    
+
                     <Button Grid.Row="0"
                             Grid.Column="3"
                             BorderThickness="0"
@@ -130,90 +128,257 @@
 
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="60"/>
-                        <ColumnDefinition />
+                        <ColumnDefinition  />
+                        <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
+                    
+                    <Grid Panel.ZIndex="1"
+                          Grid.Column="0"   
+                          x:Name="nav_panel"
+                          HorizontalAlignment="Left"
+                          Width="65"
+                          Margin="5">
 
-                    <StackPanel>
-                        <Border Width="60"
-                                Height="60"
-                                Margin="0,10,0,10">
-                            <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                    Command="{Binding NavigateToCommand}" CommandParameter="Home"
-                                    MouseMove="Btn_MouseMove"
-                                    MouseLeave="Btn_MouseLeave">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Resources/icon-home.png"/>
-                                </Button.Background>
-                            </Button>
+                        <Border Grid.Column="1"
+                                CornerRadius="10,10,10,10"
+                                BorderThickness="0"
+                                Background="#333">
+
+                            <StackPanel x:Name="stack_panel">
+
+                                <Grid Height="90">
+                                    
+                                    <TextBlock  
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Margin="75,-20,0,0"
+                                        Text="M E N U"
+                                        Foreground="White"
+                                        FontSize="22"
+                                        Background="Transparent"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Style="{StaticResource tips_font_style}">
+                                        
+                                        <TextBlock.Effect>
+                                            <DropShadowEffect  BlurRadius="10"
+                                                   ShadowDepth="2"
+                                                   Direction="40"
+                                                   Color="White"/>
+                                        </TextBlock.Effect>
+                                    </TextBlock>
+
+                                    <ToggleButton x:Name="Tg_Btn"
+                                                  Grid.Column="0"
+                                                  VerticalAlignment="Center"
+                                                  HorizontalAlignment="Left"
+                                                  Margin="16,-20,0,0"
+                                                  Height="30"
+                                                  Width="30"
+                                                  BorderThickness="0"
+                                                  Cursor="Hand"
+                                                  Style="{StaticResource toggleBtn_style}">
+
+                                        <ToggleButton.Background>
+                                            <ImageBrush  Stretch="None" ImageSource="/Resources/icon-menu.png"/>
+                                        </ToggleButton.Background>
+
+                                        <ToggleButton.Triggers>
+                                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                                <BeginStoryboard>
+                                                    <Storyboard x:Name="HideStackPanel">
+                                                        <DoubleAnimation                                             
+                                                            Storyboard.TargetName="nav_panel"
+                                                            Storyboard.TargetProperty="Width"
+                                                            BeginTime="0:0:0"
+                                                            From="230" To="65"
+                                                            Duration="0:0:0.2">
+                                                        </DoubleAnimation>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                                <BeginStoryboard>
+                                                    <Storyboard x:Name="ShowStackPanel">
+                                                        <DoubleAnimation 
+                                                            Storyboard.TargetName="nav_panel"
+                                                            Storyboard.TargetProperty="Width"
+                                                            BeginTime="0:0:0"
+                                                            From="65" To="230"
+                                                            Duration="0:0:0.3">
+                                                        </DoubleAnimation>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                        </ToggleButton.Triggers>
+                                    </ToggleButton>
+                                </Grid>
+
+                                <ListView  x:Name="sideBarPanel"
+                                           Background="Transparent"
+                                           BorderBrush="Transparent"
+                                           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                                    <ListViewItem HorizontalAlignment="Left"
+                                                  Margin="0,0,0,15" 
+                                                  MouseEnter="ListViewItem_MouseEnter">
+
+                                        <StackPanel Orientation="Horizontal"
+                                                    Width="230">
+
+                                            <Button Style="{StaticResource LeftMenuBarBtnStyle}"
+                                                    Command="{Binding NavigateToCommand}" CommandParameter="Home">
+                                                <Button.Background>
+                                                    <ImageBrush Stretch="None" ImageSource="/Resources/icon-home.png"/>
+                                                </Button.Background>
+                                            </Button>
+
+                                            <TextBlock Text="Home"
+                                                       Margin="25,0,0,0"
+                                                       Style="{StaticResource tips_font_style}"/>
+                                        </StackPanel>
+
+                                        <ListViewItem.ToolTip>
+                                            <ToolTip x:Name="tip_home"
+                                                     Content="Home"
+                                                     Style="{StaticResource tool_tips_style}"/>
+                                        </ListViewItem.ToolTip>
+                                        
+                                    </ListViewItem>
+
+                                    <ListViewItem HorizontalAlignment="Left"
+                                                  Margin="0,0,0,15" 
+                                                  MouseEnter="ListViewItem_MouseEnter">
+
+                                        <StackPanel Orientation="Horizontal"
+                                                    Width="230">
+
+                                            <Button Style="{StaticResource LeftMenuBarBtnStyle}">
+                                                <Button.Background>
+                                                    <ImageBrush Stretch="None" ImageSource="/Resources/icon-profile.png"/>
+                                                </Button.Background>
+                                            </Button>
+
+                                            <TextBlock Text="Profile"
+                                                       Margin="25,0,0,0"
+                                                       Style="{StaticResource tips_font_style}"/>
+                                        </StackPanel>
+
+                                        <ListViewItem.ToolTip>
+                                            <ToolTip x:Name="tip_contacts"
+                                                     Content="Profile"
+                                                     Style="{StaticResource tool_tips_style}"/>
+                                        </ListViewItem.ToolTip>
+
+                                    </ListViewItem>
+
+                                    <ListViewItem HorizontalAlignment="Left"
+                                                  Margin="0,0,0,15" 
+                                                  MouseEnter="ListViewItem_MouseEnter">
+
+                                        <StackPanel Orientation="Horizontal"
+                                                    Width="230">
+
+                                            <Button Style="{StaticResource LeftMenuBarBtnStyle}"
+                                                    Command="{Binding NavigateToCommand}" CommandParameter="DbSettings">
+                                                <Button.Background>
+                                                    <ImageBrush Stretch="None" ImageSource="/Resources/icon-settings.png"/>
+                                                </Button.Background>
+                                            </Button>
+
+                                            <TextBlock Text="Settings"
+                                                       Margin="25,0,0,0"
+                                                       Style="{StaticResource tips_font_style}"/>
+                                        </StackPanel>
+
+                                        <ListViewItem.ToolTip>
+                                            <ToolTip x:Name="tip_settings"
+                                                     Content="Settings"
+                                                     Style="{StaticResource tool_tips_style}"/>
+                                        </ListViewItem.ToolTip>
+
+                                    </ListViewItem>
+
+                                    <ListViewItem HorizontalAlignment="Left"
+                                                  Margin="0,0,0,15" 
+                                                  MouseEnter="ListViewItem_MouseEnter">
+
+                                        <StackPanel Orientation="Horizontal"
+                                                    Width="230">
+
+                                            <Button Style="{StaticResource LeftMenuBarBtnStyle}"
+                                                    Command="{Binding ResetSessionCommand}">
+                                                <Button.Background>
+                                                    <ImageBrush Stretch="None" ImageSource="/Resources/icon-signout.png"/>
+                                                </Button.Background>
+                                            </Button>
+
+                                            <TextBlock Text="Sign Out"
+                                                       Margin="25,0,0,0"
+                                                       Style="{StaticResource tips_font_style}"/>
+                                        </StackPanel>
+
+                                        <ListViewItem.ToolTip>
+                                            <ToolTip x:Name="tip_signout"
+                                                     Content="Sign Out"
+                                                     Style="{StaticResource tool_tips_style}"/>
+                                        </ListViewItem.ToolTip>
+
+                                    </ListViewItem>
+
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+
+                                                        <Border x:Name="Border_style"
+                                                                Height="50"
+                                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                                Background="{TemplateBinding Background}"
+                                                                Padding="{TemplateBinding Padding}"
+                                                                SnapsToDevicePixels="True">
+
+                                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                                        </Border>
+
+                                                        <ControlTemplate.Triggers>
+                                                            <MultiTrigger>
+                                                                <MultiTrigger.Conditions>
+                                                                    <Condition Property="IsMouseOver" Value="True"/>
+                                                                </MultiTrigger.Conditions>
+                                                                <Setter Property="Background"
+                                                                        TargetName="Border_style"
+                                                                        Value="#666"/>
+                                                                <Setter Property="BorderBrush"
+                                                                        TargetName="Border_style"
+                                                                        Value="#666"/>
+                                                            </MultiTrigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    
+                                </ListView>
+                            </StackPanel>
+                            
                         </Border>
+                    </Grid >
 
-                        <Border Width="50"
-                                Height="50"
-                                Margin="0,0,0,20">
-                            <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                    MouseMove="Btn_MouseMove"
-                                    MouseLeave="Btn_MouseLeave">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Resources/icon-view.png"/>
-                                </Button.Background>
-                            </Button>
+                    <Grid Margin="75,5,5,5">
+                        <Border Grid.Column="1"
+                                CornerRadius="10,10,10,10"
+                                BorderThickness="0"
+                                Background="#333">
+                            <ContentControl x:Name="ContentArea" Content="{Binding CurrentControl}"/>
                         </Border>
-
-                        <Border Width="50"
-                                Height="50"
-                                Margin="0,0,0,20">
-                            <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                    MouseMove="Btn_MouseMove"
-                                    MouseLeave="Btn_MouseLeave">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Resources/icon-sql.png"/>
-                                </Button.Background>
-                            </Button>
-                        </Border>
-
-                        <Border Width="50"
-                                Height="50"
-                                Margin="0,0,0,20">
-                            <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                    Command="{Binding NavigateToCommand}" CommandParameter="DbSettings"
-                                    MouseMove="Btn_MouseMove"
-                                    MouseLeave="Btn_MouseLeave">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Resources/icon-gear.png"/>
-                                </Button.Background>
-                            </Button>
-                        </Border>
-                    </StackPanel>
-
-
-                    <Border Width="50"
-                                Height="50"
-                                Margin="0,0,0,0"
-                                VerticalAlignment="Bottom">
-                        <Button Style="{StaticResource LeftMenuBarBtnStyle}"
-                                    Command="{Binding ResetSessionCommand}"
-                                    Margin="0,0,0,10"
-                                    MouseMove="Btn_MouseMove"
-                                    MouseLeave="Btn_MouseLeave">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/Resources/icon-logout.png"/>
-                            </Button.Background>
-                        </Button>
-                    </Border>
-
-                    <Border Grid.Column="1"
-                            CornerRadius="10,0,10,0"
-                            BorderThickness="0"
-                            Background="#333">
-
-
-                        <ContentControl x:Name="ContentArea" Grid.Column="1" Content="{Binding CurrentControl}"/>
-
-                    </Border>
-
+                    </Grid>
                 </Grid>
-
             </Grid>
 
         </Border>
