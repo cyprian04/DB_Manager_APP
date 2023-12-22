@@ -24,7 +24,7 @@ namespace GUI_Database_app
         private void SetupContainer()
         {
             container = new Container();
-            container.Register<ViewModel.LoginFormVM>(Lifestyle.Singleton);
+            container.Register<ViewModel.LoginWindowVM>(Lifestyle.Singleton);
             container.Register<ViewModel.MainWindowVM>(Lifestyle.Singleton);
             container.Register<Model.ICurrentUser, Model.CurrentUser>(Lifestyle.Singleton);
             container.Register<Navigation.NavigationService>(Lifestyle.Singleton);
@@ -37,7 +37,7 @@ namespace GUI_Database_app
 
         private void CreateAndShowLoginForm()
         {
-            var loginViewModel = container.GetInstance<ViewModel.LoginFormVM>();
+            var loginViewModel = container.GetInstance<ViewModel.LoginWindowVM>();
             var mainViewModel = container.GetInstance<ViewModel.MainWindowVM>();
 
             var loginForm = new LoginForm() { DataContext = loginViewModel };
@@ -47,7 +47,7 @@ namespace GUI_Database_app
             {
                 if (loginForm.IsLoaded && !loginForm.IsVisible)
                 {
-                    //MessageBox.Show(container.GetInstance<Model.ICurrentUser>().Username);
+                    MessageBox.Show(container.GetInstance<Model.ICurrentUser>().Username);
                     var mainWindow = new MainWindow { DataContext = mainViewModel };
                     mainWindow.Show();
                 }

@@ -10,7 +10,7 @@ using GUI_Database_app.Model;
 
 namespace GUI_Database_app.ViewModel
 {
-    class LoginFormVM : ViewModelBase
+    class LoginWindowVM : ViewModelBase
     {
         private string _username;
         private string _password;
@@ -63,7 +63,7 @@ namespace GUI_Database_app.ViewModel
        
         public ICommand LoginCommand{ get; }
 
-        public LoginFormVM(ICurrentUser currentUser)
+        public LoginWindowVM(ICurrentUser currentUser)
         {
             _currentUser = currentUser;
             LoginCommand = new RelayCommand(Login);
