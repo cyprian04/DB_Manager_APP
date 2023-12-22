@@ -13,14 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI_Database_app.CustomControls
+namespace GUI_Database_app.View.Profile
 {
-    /// <summary>
-    /// Logika interakcji dla klasy ViewControl.xaml
-    /// </summary>
-    public partial class ViewControl : UserControl
+    public partial class ProfileControl : UserControl
     {
-        public ViewControl(Data.Connection CurrentUserConn_in)
+        public ProfileControl()
         {
             InitializeComponent();
         }

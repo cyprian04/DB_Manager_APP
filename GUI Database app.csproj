@@ -154,7 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControls\V\ViewControl.xaml">
+    <Page Include="View\Profile\ProfileControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,8 +188,8 @@
     <Compile Include="CustomControls\MainInteraction\MainInteractionControl.xaml.cs">
       <DependentUpon>MainInteractionControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\V\ViewControl.xaml.cs">
-      <DependentUpon>ViewControl.xaml</DependentUpon>
+    <Compile Include="View\Profile\ProfileControl.xaml.cs">
+      <DependentUpon>ProfileControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\Connection.cs" />
     <Compile Include="Model\CurrentUser.cs" />

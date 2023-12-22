@@ -130,11 +130,11 @@
                                  Style="{StaticResource IconIntroductionStyle}"/>
                             </Grid>
                             <Grid Grid.Row="1">
-                                <Image Source="/Resources/icon-view.png"
+                                <Image Source="/Resources/icon-Profile.png"
                                  Style="{StaticResource IconIntroductionStyle}"/>
                             </Grid>
                             <Grid Grid.Row="2">
-                                <Image Source="/Resources/icon-sql.png"
+                                <Image Source="/Resources/icon-signout.png"
                                  Style="{StaticResource IconIntroductionStyle}"/>
                             </Grid>
                             <Grid Grid.Row="3">
