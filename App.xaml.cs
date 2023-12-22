@@ -30,7 +30,7 @@ namespace GUI_Database_app
             container.Register<Navigation.NavigationService>(Lifestyle.Singleton);
             container.Register<View.HomeControl>(Lifestyle.Singleton);          
             container.Register<View.ProfileControl>(Lifestyle.Singleton);
-            container.Register<View.DbSettings.DbSettingsControl>(Lifestyle.Singleton);
+            container.Register<View.DbSettingsControl>(Lifestyle.Singleton);
 
             container.Verify();
         }
