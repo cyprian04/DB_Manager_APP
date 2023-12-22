@@ -255,7 +255,8 @@
                                         <StackPanel Orientation="Horizontal"
                                                     Width="230">
 
-                                            <Button Style="{StaticResource LeftMenuBarBtnStyle}">
+                                            <Button Style="{StaticResource LeftMenuBarBtnStyle}"
+                                                    Command="{Binding NavigateToCommand}" CommandParameter="Profile">
                                                 <Button.Background>
                                                     <ImageBrush Stretch="None" ImageSource="/Resources/icon-profile.png"/>
                                                 </Button.Background>
