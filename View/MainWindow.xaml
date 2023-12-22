@@ -29,14 +29,13 @@
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#632D5E" Offset="0"/>
-                    <GradientStop Color="#488CFF" Offset="0.5"/>
                     <GradientStop Color="#6E3E89" Offset="1"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="#F1C0E8" Offset="0"/>
+                    <GradientStop Color="#F2CFFF" Offset="0"/>
                 </LinearGradientBrush>
             </Border.Background>
 

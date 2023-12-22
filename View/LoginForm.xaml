@@ -37,7 +37,7 @@
 
         <Border CornerRadius="10"
                 BorderThickness="2"
-                Opacity="0.9">
+                Opacity="0.95">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#90DBF4" Offset="0"/>
