@@ -11,8 +11,8 @@
         <local:DbSettingsVM/>
     </UserControl.DataContext>
 
-    <Border CornerRadius="10,0,10,0"
-          BorderThickness="5,5,0,0"
+    <Border CornerRadius="10,10,10,10"
+          BorderThickness="5,5,5,5"
           Background="#333">
 
         <Grid>

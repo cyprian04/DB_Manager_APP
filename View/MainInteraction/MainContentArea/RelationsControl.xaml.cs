@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
+namespace GUI_Database_app.View.MainInteraction.MainContentArea
 {
     /// <summary>
     /// Logika interakcji dla klasy RelationsControl.xaml
@@ -21,6 +21,11 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
     public partial class RelationsControl : UserControl
     {
         Data.Connection CurrentUserConn = null;
+
+        public RelationsControl()
+        {
+            InitializeComponent();
+        }
 
         public RelationsControl(Data.Connection CurrentUserConn_in)
         {

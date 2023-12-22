@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
+namespace GUI_Database_app.View.MainInteraction.MainContentArea
 {
     /// <summary>
     /// Logika interakcji dla klasy StructureControl.xaml
@@ -35,6 +35,12 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
         
         private bool hidden = false;
         private string querry = null;
+
+        public StructureControl()
+        {
+            InitializeComponent();
+            show = HideShowBtn.Background as ImageBrush; // getting the path of the imageSource set as default at start up
+        }
 
         public StructureControl(Data.Connection CurrentUserConn_in)
         {

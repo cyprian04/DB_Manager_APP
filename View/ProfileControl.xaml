@@ -11,14 +11,14 @@
         <local:ProfileVM/>
     </UserControl.DataContext>
 
-    <Border CornerRadius="10,0,10,0"
-          BorderThickness="5,5,0,0"
+    <Border CornerRadius="10,10,10,10"
+          BorderThickness="5,5,5,5"
           Background="#333">
 
         <Grid>
             <StackPanel HorizontalAlignment="Left">
 
-                <TextBlock Text="View"
+                <TextBlock Text="Profile"
                            FontSize="20"/>
             </StackPanel>
             <TextBlock Text="Coming soon"

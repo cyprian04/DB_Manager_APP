@@ -138,19 +138,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControls\MainInteraction\MainContentArea\RelationsControl.xaml">
+    <Page Include="View\MainInteraction\MainContentArea\RelationsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControls\MainInteraction\MainContentArea\SQLControl.xaml">
+    <Page Include="View\MainInteraction\MainContentArea\SQLControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControls\MainInteraction\MainContentArea\StructureControl.xaml">
+    <Page Include="View\MainInteraction\MainContentArea\StructureControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControls\MainInteraction\MainInteractionControl.xaml">
+    <Page Include="View\MainInteraction\MainInteractionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -177,16 +177,16 @@
     <Compile Include="View\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\MainInteraction\MainContentArea\RelationsControl.xaml.cs">
+    <Compile Include="View\MainInteraction\MainContentArea\RelationsControl.xaml.cs">
       <DependentUpon>RelationsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\MainInteraction\MainContentArea\SQLControl.xaml.cs">
+    <Compile Include="View\MainInteraction\MainContentArea\SQLControl.xaml.cs">
       <DependentUpon>SQLControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\MainInteraction\MainContentArea\StructureControl.xaml.cs">
+    <Compile Include="View\MainInteraction\MainContentArea\StructureControl.xaml.cs">
       <DependentUpon>StructureControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\MainInteraction\MainInteractionControl.xaml.cs">
+    <Compile Include="View\MainInteraction\MainInteractionControl.xaml.cs">
       <DependentUpon>MainInteractionControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProfileControl.xaml.cs">

@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
+namespace GUI_Database_app.View.MainInteraction.MainContentArea
 {
     /// <summary>
     /// Logika interakcji dla klasy SQLControl.xaml
@@ -21,6 +21,12 @@ namespace GUI_Database_app.CustomControls.MainInteraction.MainContentArea
     {
         Data.Connection CurrentUserConn = null;
         string querryText = null;
+
+        public SQLControl()
+        {
+            InitializeComponent();
+        }
+
 
         public SQLControl(Data.Connection CurrentUserConn_in)
         {

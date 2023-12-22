@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="GUI_Database_app.CustomControls.MainInteractionControl"
+﻿<UserControl x:Class="GUI_Database_app.View.MainInteraction.MainInteractionControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:GUI_Database_app.CustomControls"
+             xmlns:local="clr-namespace:GUI_Database_app.ViewModel"
              mc:Ignorable="d" 
             d:DesignHeight="700" d:DesignWidth="1000">
 
