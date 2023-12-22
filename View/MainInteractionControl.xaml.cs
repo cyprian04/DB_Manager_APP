@@ -38,6 +38,7 @@ namespace GUI_Database_app.View
         {
             InitializeComponent();
             show = HideShowBtn.Background as ImageBrush;
+            SQL = new MainInteractionContent.SQLControl(CurrentUserConn);
             MainInteractionContentArea.Content = SQL;
         }
 

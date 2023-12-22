@@ -42,6 +42,7 @@ namespace GUI_Database_app.ViewModel
             navigationService.Register<View.HomeControl>("Home");
             navigationService.Register<View.ProfileControl>("Profile");
             navigationService.Register<View.DbSettingsControl>("DbSettings");
+            navigationService.Register<View.MainInteractionControl>("MainInteraction");
 
             NavigateTo("Home");
         }
