@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI_Database_app.View.Profile
+namespace GUI_Database_app.View
 {
     public partial class ProfileControl : UserControl
     {
