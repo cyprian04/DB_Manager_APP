@@ -134,7 +134,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Home\HomeControl.xaml">
+    <Page Include="View\HomeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,7 +174,7 @@
     <Compile Include="View\DbSettings\DbSettingsControl.xaml.cs">
       <DependentUpon>DbSettingsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Home\HomeControl.xaml.cs">
+    <Compile Include="View\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\MainInteraction\MainContentArea\RelationsControl.xaml.cs">

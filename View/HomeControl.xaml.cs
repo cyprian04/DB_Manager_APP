@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI_Database_app.View.Home
+namespace GUI_Database_app.View
 {
     /// <summary>
     /// Logika interakcji dla klasy HomeControl.xaml

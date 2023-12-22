@@ -39,7 +39,7 @@ namespace GUI_Database_app.ViewModel
         {
             this.navigationService = navigationService;
 
-            navigationService.Register<View.Home.HomeControl>("Home");
+            navigationService.Register<View.HomeControl>("Home");
             navigationService.Register<View.ProfileControl>("Profile");
             navigationService.Register<View.DbSettings.DbSettingsControl>("DbSettings");
 
