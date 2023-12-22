@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 
-namespace GUI_Database_app.View.MainInteraction
+namespace GUI_Database_app.View
 {
     /// <summary>
     /// Logika interakcji dla klasy SqlCommandControl.xaml
@@ -22,9 +22,9 @@ namespace GUI_Database_app.View.MainInteraction
     public partial class MainInteractionControl : UserControl
     {
        Data.Connection CurrentUserConn = null;
-       MainContentArea.StructureControl  Structure = null;
-       MainContentArea.RelationsControl Relations = null;
-       MainContentArea.SQLControl SQL = null;
+       MainInteractionContent.StructureControl  Structure = null;
+       MainInteractionContent.RelationsControl Relations = null;
+       MainInteractionContent.SQLControl SQL = null;
 
         ImageBrush show = null;
         ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));

@@ -47,7 +47,7 @@ namespace GUI_Database_app
             {
                 if (loginForm.IsLoaded && !loginForm.IsVisible)
                 {
-                    MessageBox.Show(container.GetInstance<Model.ICurrentUser>().Username);
+                    //MessageBox.Show(container.GetInstance<Model.ICurrentUser>().Username);
                     var mainWindow = new MainWindow { DataContext = mainViewModel };
                     mainWindow.Show();
                 }

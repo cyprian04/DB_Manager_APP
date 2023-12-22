@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI_Database_app.View.MainInteraction.MainContentArea
+namespace GUI_Database_app.View.MainInteractionContent
 {
     /// <summary>
     /// Logika interakcji dla klasy StructureControl.xaml
