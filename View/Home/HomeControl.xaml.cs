@@ -34,12 +34,6 @@ namespace GUI_Database_app.View.Home
                 HomeMediaVideo.Play(); // Start playing again
             }
         }
-
-        private void btn_GetStarted(object sender, RoutedEventArgs e)
-        {
-            InfoContentBorder.Visibility = Visibility.Visible;
-            GetStaredBorder.Visibility = Visibility.Hidden;
-        }
     }
 }
 

@@ -35,8 +35,8 @@
                     Margin="20,20,20,20">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                        <GradientStop Color="#A89CAC" Offset="0"/>
-                        <GradientStop Color="#474973" Offset="0.7"/>
+                        <GradientStop Color="#3c3248" Offset="0"/>
+                        <GradientStop Color="#333747" Offset="0.7"/>
                     </LinearGradientBrush>
                 </Border.Background>
 
@@ -70,7 +70,7 @@
                                HorizontalAlignment="Center"
                                Foreground="Aquamarine"
                                FontWeight="DemiBold"
-                               FontSize="15"/>
+                               FontSize="17"/>
 
                     <TextBlock Text="Database Connection: Connect effortlessly to your XAMPP database using the provided credentials."
                                Style="{StaticResource FeatureTextStyle}"/>
@@ -83,41 +83,6 @@
 
                     <TextBlock Text="Database Connection: Connect effortlessly to your XAMPP database using the provided credentials. Your data's security is our priority."
                                Style="{StaticResource FeatureTextStyle}"/>
-
-
-                    <Button x:Name="GetStaredBorder"
-                            BorderThickness="0"
-                            FontSize="16"
-                            Content="Get Started"
-                            FontFamily="Montserrat"
-                            Foreground="AliceBlue"
-                            Cursor="Hand"
-                            Margin="0,30,0,0"
-                            Click="btn_GetStarted"
-                            Visibility="Visible">
-
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#28AEED"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="Aquamarine"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="100" Height="40" 
-                                        CornerRadius="10"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center" 
-                                                      HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
                 </StackPanel>
 
             </Border>
@@ -127,11 +92,11 @@
                     Opacity="0.75" 
                     Grid.Column="1"
                     Margin="20,20,20,20"
-                    Visibility="Hidden">
+                    Visibility="Visible">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                        <GradientStop Color="#A89CAC" Offset="0"/>
-                        <GradientStop Color="#A5CAD2" Offset="0.7"/>
+                        <GradientStop Color="#3c3248" Offset="0"/>
+                        <GradientStop Color="#333747" Offset="0.7"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <Grid>
@@ -143,7 +108,7 @@
                         <Grid Grid.Row="0">
 
                             <TextBlock Text="Introduction"
-                                   FontSize="17"
+                                   FontSize="18"
                                    Foreground="Aquamarine"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
@@ -183,7 +148,7 @@
                                  Style="{StaticResource IconIntroductionStyle}"/>
                             </Grid>
                             <Grid Grid.Row="3">
-                                <Image Source="/Resources/icon-gear.png"
+                                <Image Source="/Resources/icon-settings.png"
                                   Style="{StaticResource IconIntroductionStyle}"/>
                             </Grid>
 

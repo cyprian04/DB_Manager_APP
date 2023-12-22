@@ -40,16 +40,16 @@
                 Opacity="0.9">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#632D5E" Offset="0"/>
-                    <GradientStop Color="#488CFF" Offset="0.5"/>
+                    <GradientStop Color="#90DBF4" Offset="0"/>
+                    <GradientStop Color="#488CFF" Offset="0.6"/>
                     <GradientStop Color="#F1C0E8" Offset="1"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="#90DBF4" Offset="0"/>
-                    <GradientStop Color="#6E3E89" Offset="0.6"/>
+                    <GradientStop Color="#474973" Offset="0"/>
+                    <GradientStop Color="#5f506b" Offset="0.8"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -163,7 +163,7 @@
                            Width="120"
                            Height="120"/>
 
-                            <TextBlock Text="Learning  to  code  is  useful  no  matter   what your career ambitions are."
+                            <TextBlock Text="Your gateway to seamless database management"
                                Foreground="Aquamarine"
                                FontSize="12"
                                FontWeight="DemiBold"
@@ -187,9 +187,9 @@
                              Height="28"
                              FontSize="14"
                              FontFamily="Montserrat"
-                             Foreground="Aqua"
+                             Foreground="AliceBlue"
                              FontWeight="Medium"
-                             CaretBrush="Aqua"
+                             CaretBrush="AliceBlue"
                              BorderBrush="DarkGray"
                              VerticalContentAlignment="Center">
 
@@ -216,9 +216,9 @@
                              Height="28"
                              FontSize="14"
                              FontFamily="Montserrat"
-                             Foreground="Aqua"
+                             Foreground="Aquamarine"
                              FontWeight="Medium"
-                             CaretBrush="Aqua"
+                             CaretBrush="Aquamarine"
                              BorderBrush="DarkGray"
                              VerticalContentAlignment="Center">
                                 <PasswordBox.Background>
@@ -243,9 +243,9 @@
                              Height="28"
                              FontSize="14"
                              FontFamily="Montserrat"
-                             Foreground="Aqua"
+                             Foreground="Aquamarine"
                              FontWeight="Medium"
-                             CaretBrush="Aqua"
+                             CaretBrush="Aquamarine"
                              BorderBrush="DarkGray"
                              VerticalContentAlignment="Center">
 
@@ -272,7 +272,7 @@
                                         <Setter Property="Background" Value="#28AEED"/>
                                         <Style.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="Aquamarine"/>
+                                                <Setter Property="Background" Value="#278BEF"/>
                                             </Trigger>
                                         </Style.Triggers>
                                     </Style>

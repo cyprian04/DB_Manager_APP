@@ -30,14 +30,13 @@
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#632D5E" Offset="0"/>
                     <GradientStop Color="#488CFF" Offset="0.5"/>
-                    <GradientStop Color="#F1C0E8" Offset="1"/>
+                    <GradientStop Color="#6E3E89" Offset="1"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="#90DBF4" Offset="0"/>
-                    <GradientStop Color="#6E3E89" Offset="0.6"/>
+                    <GradientStop Color="#F1C0E8" Offset="0"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -69,10 +68,10 @@
 
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#28AEED"/>
+                                <Setter Property="Background" Value="#9370db"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#278BEF"/>
+                                        <Setter Property="Background" Value="#8990db"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -92,10 +91,10 @@
 
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#EABB95"/>
+                                <Setter Property="Background" Value="#53868b"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#D87F81"/>
+                                        <Setter Property="Background" Value="#16AFa0"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -115,10 +114,10 @@
 
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#b33b72"/>
+                                <Setter Property="Background" Value="#8e3563"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#8e3563"/>
+                                        <Setter Property="Background" Value="#b33b72"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -143,7 +142,7 @@
                         <Border Grid.Column="1"
                                 CornerRadius="10,10,10,10"
                                 BorderThickness="0"
-                                Background="#333">
+                                Background="#474973">
 
                             <StackPanel x:Name="stack_panel">
 
@@ -278,8 +277,7 @@
                                     </ListViewItem>
 
                                     <ListViewItem HorizontalAlignment="Left"
-                                                  Margin="0,0,0,15" 
-                                                  >
+                                                  Margin="0,0,0,15">
 
                                         <StackPanel Orientation="Horizontal"
                                                     Width="230">
@@ -307,8 +305,7 @@
                                     </ListViewItem>
 
                                     <ListViewItem HorizontalAlignment="Left"
-                                                  Margin="0,0,0,15" 
-                                                  >
+                                                  Margin="0,0,0,15">
 
                                         <StackPanel Orientation="Horizontal"
                                                     Width="230">
@@ -344,7 +341,7 @@
                         <Border Grid.Column="1"
                                 CornerRadius="10,10,10,10"
                                 BorderThickness="0"
-                                Background="#333">
+                                Background="#474973">
                             <ContentControl x:Name="ContentArea" Content="{Binding CurrentControl}"/>
                         </Border>
                     </Grid>
