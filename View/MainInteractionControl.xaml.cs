@@ -21,11 +21,6 @@ namespace GUI_Database_app.View
     /// </summary>
     public partial class MainInteractionControl : UserControl
     {
-       Data.Connection CurrentUserConn = null;
-       MainInteractionContent.StructureControl  Structure = null;
-       MainInteractionContent.RelationsControl Relations = null;
-       MainInteractionContent.SQLControl SQL = null;
-
         ImageBrush show = null;
         ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
 
@@ -38,8 +33,6 @@ namespace GUI_Database_app.View
         {
             InitializeComponent();
             show = HideShowBtn.Background as ImageBrush;
-            SQL = new MainInteractionContent.SQLControl(CurrentUserConn);
-            MainInteractionContentArea.Content = SQL;
         }
 
         // public MainInteractionControl(Data.Connection CurrentUserConn_in)
@@ -59,52 +52,53 @@ namespace GUI_Database_app.View
 
         private void DatabasesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (DatabasesListBox.SelectedItem != null)
-            {
-                if (MainInteractionContentArea.Content == Structure) Structure.TableStructureDataGrid.Visibility = Visibility.Hidden;
-            
-                CurrentUserConn.ConnectionWithDb(DatabasesListBox.SelectedItem.ToString());
-                CurrentUserConn.DisplayCurrentListBox(Structure.TablesListBox);
-                CurrentDBTextBlock.Text = DatabasesListBox.SelectedItem.ToString();
-            }
+           // if (DatabasesListBox.SelectedItem != null)
+           // {
+           //     if (MainInteractionContentArea.Content == Structure) Structure.TableStructureDataGrid.Visibility = Visibility.Hidden;
+           // 
+           //     CurrentUserConn.ConnectionWithDb(DatabasesListBox.SelectedItem.ToString());
+           //     CurrentUserConn.DisplayCurrentListBox(Structure.TablesListBox);
+           //     CurrentDBTextBlock.Text = DatabasesListBox.SelectedItem.ToString();
+           // }
         }
        
         private bool IsCurrentMainContentAreaSame(UserControl ChosenControl)
         {
-            if (!string.IsNullOrWhiteSpace(CurrentUserConn.DbName))
-            {
-                if (MainInteractionContentArea.Content.GetType() != ChosenControl.GetType())
-                {
-                    MainInteractionContentArea.Content = ChosenControl;
-                    return false;
-                }
-                else
-                {
-                    MessageBox.Show("No database selected");
-                    return true;
-                }
-            }
-            else
-            {
-                MessageBox.Show("No database selected");
-                return true;
-            }
+            //if (!string.IsNullOrWhiteSpace(CurrentUserConn.DbName))
+            //{
+            //    if (MainInteractionContentArea.Content.GetType() != ChosenControl.GetType())
+            //    {
+            //        MainInteractionContentArea.Content = ChosenControl;
+            //        return false;
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("No database selected");
+            //        return true;
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("No database selected");
+            //    return true;
+            //}
+            return true;
          }
 
         private void btn_SQL(object sender, RoutedEventArgs e)
         {
-            if (MainInteractionContentArea.Content != SQL)
-            MainInteractionContentArea.Content = SQL; // don't need to use IsCurrentMainContentAreaSame (just window for executing sql commands on server)
+            //if (MainInteractionContentArea.Content != SQL)
+            //MainInteractionContentArea.Content = SQL; // don't need to use IsCurrentMainContentAreaSame (just window for executing sql commands on server)
         }
         
         private void btn_Structure(object sender, RoutedEventArgs e)
         {
-            IsCurrentMainContentAreaSame(Structure);
+            //IsCurrentMainContentAreaSame(Structure);
         }
         
         private void btn_Relations(object sender, RoutedEventArgs e)
         {
-            IsCurrentMainContentAreaSame(Relations);
+           // IsCurrentMainContentAreaSame(Relations);
         }
         
         private void btn_Import(object sender, RoutedEventArgs e)
@@ -118,7 +112,7 @@ namespace GUI_Database_app.View
             if (openFileDialog.ShowDialog() == true)
             {
                 MessageBox.Show("Selected file: " + openFileDialog.FileName);
-                CurrentUserConn.ImportDB(openFileDialog.FileName);
+                //CurrentUserConn.ImportDB(openFileDialog.FileName);
             }
             else
             {
@@ -128,8 +122,8 @@ namespace GUI_Database_app.View
         
         private void btn_Export(object sender, RoutedEventArgs e)
         {
-            if (DatabasesListBox.SelectedItem != null) CurrentUserConn.ExportDB(DatabasesListBox.SelectedItem.ToString());
-            else MessageBox.Show("No database selected");
+           // if (DatabasesListBox.SelectedItem != null) CurrentUserConn.ExportDB(DatabasesListBox.SelectedItem.ToString());
+           // else MessageBox.Show("No database selected");
         }
         
         private void btn_HideShow(object sender, RoutedEventArgs e)

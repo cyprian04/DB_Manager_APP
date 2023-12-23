@@ -42,13 +42,6 @@ namespace GUI_Database_app.View.MainInteractionContent
             show = HideShowBtn.Background as ImageBrush; // getting the path of the imageSource set as default at start up
         }
 
-        public StructureControl(Data.Connection CurrentUserConn_in)
-        {
-            InitializeComponent();
-            CurrentUserConn = CurrentUserConn_in;
-            show = HideShowBtn.Background as ImageBrush; // getting the path of the imageSource set as default at start up
-        }
-
         private void btn_HideShow(object sender, RoutedEventArgs e)
         {
             if (!hidden)

@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace GUI_Database_app.View.MainInteractionContent
 {
-    /// <summary>
-    /// Logika interakcji dla klasy SQLControl.xaml
-    /// </summary>
     public partial class SQLControl : UserControl
     {
         Data.Connection CurrentUserConn = null;
@@ -25,13 +22,6 @@ namespace GUI_Database_app.View.MainInteractionContent
         public SQLControl()
         {
             InitializeComponent();
-        }
-
-
-        public SQLControl(Data.Connection CurrentUserConn_in)
-        {
-            InitializeComponent();
-            CurrentUserConn = CurrentUserConn_in;
         }
 
         private void btn_ExecuteSqlCommand(object sender, RoutedEventArgs e)

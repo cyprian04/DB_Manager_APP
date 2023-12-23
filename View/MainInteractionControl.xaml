@@ -140,8 +140,7 @@
 
                 <Grid Grid.Column="1">
                     <Border>
-                        <ContentControl x:Name="MainInteractionContentArea" 
-                                        Grid.Column="1" />
+                        <ContentControl x:Name="ContentArea" Content="{Binding CurrentControl}" Grid.Column="1"/>
                     </Border>
                 </Grid>
                 

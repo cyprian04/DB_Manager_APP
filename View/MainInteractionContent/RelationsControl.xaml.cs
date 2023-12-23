@@ -20,17 +20,9 @@ namespace GUI_Database_app.View.MainInteractionContent
     /// </summary>
     public partial class RelationsControl : UserControl
     {
-        Data.Connection CurrentUserConn = null;
-
         public RelationsControl()
         {
             InitializeComponent();
-        }
-
-        public RelationsControl(Data.Connection CurrentUserConn_in)
-        {
-            InitializeComponent();
-            CurrentUserConn = CurrentUserConn_in;
         }
     }
 }

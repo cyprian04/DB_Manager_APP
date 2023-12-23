@@ -27,13 +27,20 @@ namespace GUI_Database_app
             container.Register<ViewModel.LoginWindowVM>(Lifestyle.Singleton);
             container.Register<ViewModel.MainWindowVM>(Lifestyle.Singleton);
             container.Register<ViewModel.MainInteractionVM>(Lifestyle.Singleton);
+
             container.Register<View.HomeControl>(Lifestyle.Singleton);          
             container.Register<View.ProfileControl>(Lifestyle.Singleton);
             container.Register<View.DbSettingsControl>(Lifestyle.Singleton);
             container.Register<View.MainInteractionControl>(Lifestyle.Singleton);
+
             container.Register<Navigation.NavigationService>(Lifestyle.Singleton);
             container.Register<Model.ICurrentUser, Model.CurrentUser>(Lifestyle.Singleton);
+
+            container.Register<View.MainInteractionContent.SQLControl>(Lifestyle.Singleton);
+            container.Register<View.MainInteractionContent.StructureControl>(Lifestyle.Singleton);
+            container.Register<View.MainInteractionContent.RelationsControl>(Lifestyle.Singleton);
             container.GetInstance<View.MainInteractionControl>().DataContext = container.GetInstance<ViewModel.MainInteractionVM>();
+
             container.Verify();
         }
 
