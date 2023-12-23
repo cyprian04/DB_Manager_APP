@@ -61,45 +61,6 @@ namespace GUI_Database_app.View
            //     CurrentDBTextBlock.Text = DatabasesListBox.SelectedItem.ToString();
            // }
         }
-       
-        private bool IsCurrentMainContentAreaSame(UserControl ChosenControl)
-        {
-            //if (!string.IsNullOrWhiteSpace(CurrentUserConn.DbName))
-            //{
-            //    if (MainInteractionContentArea.Content.GetType() != ChosenControl.GetType())
-            //    {
-            //        MainInteractionContentArea.Content = ChosenControl;
-            //        return false;
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("No database selected");
-            //        return true;
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No database selected");
-            //    return true;
-            //}
-            return true;
-         }
-
-        private void btn_SQL(object sender, RoutedEventArgs e)
-        {
-            //if (MainInteractionContentArea.Content != SQL)
-            //MainInteractionContentArea.Content = SQL; // don't need to use IsCurrentMainContentAreaSame (just window for executing sql commands on server)
-        }
-        
-        private void btn_Structure(object sender, RoutedEventArgs e)
-        {
-            //IsCurrentMainContentAreaSame(Structure);
-        }
-        
-        private void btn_Relations(object sender, RoutedEventArgs e)
-        {
-           // IsCurrentMainContentAreaSame(Relations);
-        }
         
         private void btn_Import(object sender, RoutedEventArgs e)
         {
