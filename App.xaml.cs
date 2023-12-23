@@ -46,7 +46,7 @@ namespace GUI_Database_app
 
         private void CreateAndShowLoginForm()
         {
-            var loginForm = new LoginForm() { DataContext = container.GetInstance<ViewModel.LoginWindowVM>()};
+            var loginForm = new View.LoginWindow() { DataContext = container.GetInstance<ViewModel.LoginWindowVM>()};
             loginForm.Show();
 
             loginForm.IsVisibleChanged += (s, ev) =>
@@ -54,7 +54,7 @@ namespace GUI_Database_app
                 if (loginForm.IsLoaded && !loginForm.IsVisible)
                 {
                     //MessageBox.Show(container.GetInstance<Model.ICurrentUser>().Username );
-                    var mainWindow = new MainWindow { DataContext = container.GetInstance<ViewModel.MainWindowVM>()};
+                    var mainWindow = new View.MainWindow { DataContext = container.GetInstance<ViewModel.MainWindowVM>()};
                     mainWindow.Show();
                 }
             };

@@ -1,4 +1,4 @@
-﻿<Window x:Class="GUI_Database_app.LoginForm" 
+﻿<Window x:Class="GUI_Database_app.View.LoginWindow" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         xmlns:view="clr-namespace:GUI_Database_app.View"

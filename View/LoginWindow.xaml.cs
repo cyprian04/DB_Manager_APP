@@ -12,11 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace GUI_Database_app
+namespace GUI_Database_app.View
 {
-    public partial class LoginForm : Window
+    public partial class LoginWindow : Window
     {
-        public LoginForm()
+        public LoginWindow()
         {
             InitializeComponent();
             LoginMediaVideo.Play();

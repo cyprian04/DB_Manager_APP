@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace GUI_Database_app
+namespace GUI_Database_app.View
 {
     public partial class MainWindow : Window
     {
