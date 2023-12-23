@@ -12,7 +12,8 @@
         <ResourceDictionary Source="/StylesDictionary/Dictionary.xaml"/>
     </UserControl.Resources>
 
-    <Border CornerRadius="10,0,10,0"
+    <Border CornerRadius="10,10,10,10"
+            BorderThickness="5"
             Background="#333">
 
         <Grid>

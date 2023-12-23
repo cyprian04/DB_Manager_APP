@@ -16,7 +16,7 @@
     </UserControl.Resources>
 
     <Border CornerRadius="10,10,10,10"
-                BorderThickness="5,5,5,5">
+                BorderThickness="5">
         <Border.Background>
             <VisualBrush>
                 <VisualBrush.Visual>
