@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using GUI_Database_app.Model;
 
-
 namespace GUI_Database_app.ViewModel
 {
     class LoginWindowVM : ViewModelBase
     {
         private string _username;
-        private string _password;
+        private SecureString _password;
         private string _host;
         private bool _isVisible = true;
         private readonly ICurrentUser _currentUser;
@@ -41,9 +41,12 @@ namespace GUI_Database_app.ViewModel
             }
         }
 
-        public string Password
+        public SecureString Password
         {
-            get => _password;
+            get
+            {
+                return _password;
+            }
             set
             {
                 _password = value;
@@ -74,7 +77,8 @@ namespace GUI_Database_app.ViewModel
             
             if (Username == "Cyprian")
             {
-                _currentUser.Username = "CYPU";
+                _currentUser.Username = Username;
+                // _currentUser.Password = Password;
                 MessageBox.Show("ACCEPTED");
                 IsVisible = false;
             }
@@ -82,7 +86,6 @@ namespace GUI_Database_app.ViewModel
             {
                 MessageBox.Show("DENIED");
                 Username = string.Empty;
-                Password = string.Empty;
                 Host = string.Empty;
             }
         }

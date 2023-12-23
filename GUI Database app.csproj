@@ -130,6 +130,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Navigation\NavigationService.cs" />
+    <Page Include="View\BindablePasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DbSettingsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +176,9 @@
     </Compile>
     <Compile Include="ViewModel\MainInteractionVM.cs" />
     <Compile Include="ViewModel\ProfileVM.cs" />
+    <Compile Include="View\BindablePasswordBox.xaml.cs">
+      <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DbSettingsControl.xaml.cs">
       <DependentUpon>DbSettingsControl.xaml</DependentUpon>
     </Compile>

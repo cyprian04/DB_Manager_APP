@@ -1,7 +1,7 @@
 ﻿<Window x:Class="GUI_Database_app.LoginForm" 
-        xmlns:local="clr-namespace:GUI_Database_app.ViewModel"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:view="clr-namespace:GUI_Database_app.View"
         Title=" DB Manager" 
         Height="500" Width="800" 
         WindowStartupLocation="CenterScreen" 
@@ -209,24 +209,7 @@
                                Margin="0,25,0,0"
                                />
 
-                            <PasswordBox x:Name="txtPassword"
-                             BorderThickness="0,0,0,1"
-                             Padding="20,0,0,0"
-                             Margin="5,0,0,0"
-                             Height="28"
-                             FontSize="14"
-                             FontFamily="Montserrat"
-                             Foreground="Aquamarine"
-                             FontWeight="Medium"
-                             CaretBrush="Aquamarine"
-                             BorderBrush="DarkGray"
-                             VerticalContentAlignment="Center">
-                                <PasswordBox.Background>
-                                    <ImageBrush ImageSource="/Resources/icon-password.png"
-                                        Stretch="None"
-                                        AlignmentX="Left"/>
-                                </PasswordBox.Background>
-                            </PasswordBox>
+                            <view:BindablePasswordBox Password="{Binding Password, Mode=TwoWay}"/>
 
                             <TextBlock Text="Host"
                                Foreground="AliceBlue"
