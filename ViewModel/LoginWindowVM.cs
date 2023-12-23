@@ -12,6 +12,8 @@ namespace GUI_Database_app.ViewModel
 {
     class LoginWindowVM : ViewModelBase
     {
+        Data.Connection conn = new Data.Connection();
+
         private string _username;
         private SecureString _password;
         private string _host;
@@ -73,20 +75,21 @@ namespace GUI_Database_app.ViewModel
         }
 
         private void Login(object parameter)
-        {
-            
-            if (Username == "Cyprian")
+        {  
+            if (conn.VerifyCredentials(Host, Username, Password))
             {
                 _currentUser.Username = Username;
-                // _currentUser.Password = Password;
+                _currentUser.Password = Password;
+                _currentUser.Host = Host;
                 MessageBox.Show("ACCEPTED");
                 IsVisible = false;
             }
             else
             {
                 MessageBox.Show("DENIED");
-                Username = string.Empty;
-                Host = string.Empty;
+                Username = null;
+                Host = null;
+                Password = null;
             }
         }
     }

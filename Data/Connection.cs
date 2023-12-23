@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Controls;
 using System.IO;
+using System.Security;
+using System.Runtime.InteropServices;
 
 namespace GUI_Database_app.Data
 {
@@ -24,29 +26,25 @@ namespace GUI_Database_app.Data
 
         private static MySqlConnection connection = new MySqlConnection();
         private string connectionString;
-        private static string dbName, tbName, username, password, hostName;
+        private static string dbName, tbName;
+   
         private ListBox actualizedDbListBox, actualizedTablesListBox;
 
         public string DbName {get => dbName; set => dbName = value;}
-              
-        public string Username {get => username; set => username = value;}
-
-        public string Password {get => password; set => password = value; }
-              
-        public string HostName {get => hostName; set => hostName = value;}
-
+             
         public string TbName { get => tbName; set => tbName = value; }
 
-        public void Initialize(string serverIp_in, string user_in, string pass_in)
+        public bool VerifyCredentials(string Host, string Username, SecureString Password)
         {
-            hostName = serverIp_in;
-            username = user_in;
-            password = pass_in;
-        }
-
-        public bool VerifyCredentials()
-        {
-            connectionString = $"Server={hostName};Uid={username};Password={password};";
+            string pass;
+            if (Password != null)
+            {
+                IntPtr unmanagedString = IntPtr.Zero;
+                unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(Password);
+                pass = Marshal.PtrToStringUni(unmanagedString);
+            }
+            else pass = null;
+            connectionString = $"Server={Host};Uid={Username};Password={pass};";
 
             try
             {
@@ -56,12 +54,8 @@ namespace GUI_Database_app.Data
                 
             }
             catch (MySqlException)
-            {
-                username = "";
-                password = "";
-                hostName = "";
-                connectionString = "";
-
+            { 
+                connectionString = null;
                 return false;
             }
             finally
@@ -346,11 +340,8 @@ namespace GUI_Database_app.Data
 
         public void DisconnectUserFromServer()
         {
-            username = null;
             dbName = null;
-            tbName = null;
-            password = null;
-            hostName = null;
+            tbName = null;      
             actualizedDbListBox = null;
             actualizedTablesListBox = null;
             connectionString = null;
