@@ -9,7 +9,7 @@ using GUI_Database_app.Navigation;
 
 namespace GUI_Database_app.ViewModel
 {
-    class MainInteractionVM : ViewModelBase
+    class ServerPanelVM : ViewModelBase
     {
         private readonly NavigationService navigationService;
         private UserControl _currentControl;
@@ -23,7 +23,7 @@ namespace GUI_Database_app.ViewModel
             }
         }
 
-        public MainInteractionVM(NavigationService navigationService)
+        public ServerPanelVM(NavigationService navigationService)
         {
             this.navigationService = navigationService;
 

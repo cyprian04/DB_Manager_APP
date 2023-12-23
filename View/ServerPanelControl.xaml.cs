@@ -19,7 +19,7 @@ namespace GUI_Database_app.View
     /// <summary>
     /// Logika interakcji dla klasy SqlCommandControl.xaml
     /// </summary>
-    public partial class MainInteractionControl : UserControl
+    public partial class ServerPanelControl : UserControl
     {
         ImageBrush show = null;
         ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
@@ -29,7 +29,7 @@ namespace GUI_Database_app.View
 
         bool hidden = false;
 
-        public MainInteractionControl()
+        public ServerPanelControl()
         {
             InitializeComponent();
             show = HideShowBtn.Background as ImageBrush;

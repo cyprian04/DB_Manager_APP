@@ -155,7 +155,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainInteractionControl.xaml">
+    <Page Include="View\ServerPanelControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,7 +175,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModel\MainInteractionVM.cs" />
+    <Compile Include="ViewModel\ServerPanelVM.cs" />
     <Compile Include="ViewModel\ProfileVM.cs" />
     <Compile Include="View\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
@@ -195,8 +195,8 @@
     <Compile Include="View\MainInteractionContent\StructureControl.xaml.cs">
       <DependentUpon>StructureControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainInteractionControl.xaml.cs">
-      <DependentUpon>MainInteractionControl.xaml</DependentUpon>
+    <Compile Include="View\ServerPanelControl.xaml.cs">
+      <DependentUpon>ServerPanelControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProfileControl.xaml.cs">
       <DependentUpon>ProfileControl.xaml</DependentUpon>

@@ -82,7 +82,6 @@ namespace GUI_Database_app.ViewModel
                 _currentUser.Username = Username;
                 _currentUser.Password = Password;
                 _currentUser.Host = Host;
-                MessageBox.Show("ACCEPTED");
                 IsVisible = false;
             }
             else
