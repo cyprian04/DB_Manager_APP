@@ -26,22 +26,20 @@ namespace GUI_Database_app
             container = new Container();
             container.Register<ViewModel.LoginWindowVM>(Lifestyle.Singleton);
             container.Register<ViewModel.MainWindowVM>(Lifestyle.Singleton);
-            container.Register<Model.ICurrentUser, Model.CurrentUser>(Lifestyle.Singleton);
-            container.Register<Navigation.NavigationService>(Lifestyle.Singleton);
+            container.Register<ViewModel.MainInteractionVM>(Lifestyle.Singleton);
             container.Register<View.HomeControl>(Lifestyle.Singleton);          
             container.Register<View.ProfileControl>(Lifestyle.Singleton);
             container.Register<View.DbSettingsControl>(Lifestyle.Singleton);
             container.Register<View.MainInteractionControl>(Lifestyle.Singleton);
-
+            container.Register<Navigation.NavigationService>(Lifestyle.Singleton);
+            container.Register<Model.ICurrentUser, Model.CurrentUser>(Lifestyle.Singleton);
+            container.GetInstance<View.MainInteractionControl>().DataContext = container.GetInstance<ViewModel.MainInteractionVM>();
             container.Verify();
         }
 
         private void CreateAndShowLoginForm()
         {
-            var loginViewModel = container.GetInstance<ViewModel.LoginWindowVM>();
-            var mainViewModel = container.GetInstance<ViewModel.MainWindowVM>();
-
-            var loginForm = new LoginForm() { DataContext = loginViewModel };
+            var loginForm = new LoginForm() { DataContext = container.GetInstance<ViewModel.LoginWindowVM>()};
             loginForm.Show();
 
             loginForm.IsVisibleChanged += (s, ev) =>
@@ -49,7 +47,7 @@ namespace GUI_Database_app
                 if (loginForm.IsLoaded && !loginForm.IsVisible)
                 {
                     //MessageBox.Show(container.GetInstance<Model.ICurrentUser>().Username);
-                    var mainWindow = new MainWindow { DataContext = mainViewModel };
+                    var mainWindow = new MainWindow { DataContext = container.GetInstance<ViewModel.MainWindowVM>()};
                     mainWindow.Show();
                 }
             };

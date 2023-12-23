@@ -170,6 +170,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModel\MainInteractionVM.cs" />
     <Compile Include="ViewModel\ProfileVM.cs" />
     <Compile Include="View\DbSettingsControl.xaml.cs">
       <DependentUpon>DbSettingsControl.xaml</DependentUpon>
