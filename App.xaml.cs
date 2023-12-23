@@ -33,9 +33,10 @@ namespace GUI_Database_app
             container.Register<View.DbSettingsControl>(Lifestyle.Singleton);
             container.Register<View.MainInteractionControl>(Lifestyle.Singleton);
 
+            container.Register<Data.Connection>(Lifestyle.Singleton);
             container.Register<Navigation.NavigationService>(Lifestyle.Singleton);
             container.Register<Model.ICurrentUser, Model.CurrentUser>(Lifestyle.Singleton);
-
+          
             container.Register<View.MainInteractionContent.SQLControl>(Lifestyle.Singleton);
             container.Register<View.MainInteractionContent.StructureControl>(Lifestyle.Singleton);
             container.Register<View.MainInteractionContent.RelationsControl>(Lifestyle.Singleton);
@@ -53,7 +54,6 @@ namespace GUI_Database_app
             {
                 if (loginForm.IsLoaded && !loginForm.IsVisible)
                 {
-                    //MessageBox.Show(container.GetInstance<Model.ICurrentUser>().Username );
                     var mainWindow = new View.MainWindow { DataContext = container.GetInstance<ViewModel.MainWindowVM>()};
                     mainWindow.Show();
                 }

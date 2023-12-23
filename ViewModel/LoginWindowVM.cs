@@ -12,13 +12,13 @@ namespace GUI_Database_app.ViewModel
 {
     class LoginWindowVM : ViewModelBase
     {
-        Data.Connection conn = new Data.Connection();
-
         private string _username;
         private SecureString _password;
         private string _host;
         private bool _isVisible = true;
+
         private readonly ICurrentUser _currentUser;
+        private readonly Data.Connection _conn;
 
         public bool IsVisible
         {
@@ -68,15 +68,16 @@ namespace GUI_Database_app.ViewModel
        
         public ICommand LoginCommand{ get; }
 
-        public LoginWindowVM(ICurrentUser currentUser)
+        public LoginWindowVM(ICurrentUser currentUser, Data.Connection conn)
         {
             _currentUser = currentUser;
+            _conn = conn;
             LoginCommand = new RelayCommand(Login);
         }
 
         private void Login(object parameter)
         {  
-            if (conn.VerifyCredentials(Host, Username, Password))
+            if (Host != null && Username !=null && _conn.VerifyCredentials(Host, Username, Password))
             {
                 _currentUser.Username = Username;
                 _currentUser.Password = Password;

@@ -129,6 +129,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\DBServerContent.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Page Include="View\BindablePasswordBox.xaml">
       <SubType>Designer</SubType>

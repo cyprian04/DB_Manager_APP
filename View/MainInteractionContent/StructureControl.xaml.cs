@@ -81,7 +81,7 @@ namespace GUI_Database_app.View.MainInteractionContent
             if (querry != "DESCRIBE " + CurrentUserConn.TbName + ";")
             {
                 querry = "DESCRIBE " + CurrentUserConn.TbName +";";
-                CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowStruct, querry, TableStructureDataGrid);
+                //CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowStruct, querry, TableStructureDataGrid);
             }
         }
 
@@ -90,7 +90,7 @@ namespace GUI_Database_app.View.MainInteractionContent
             if (querry != "SELECT * FROM " + CurrentUserConn.TbName + ";")
             {
                 querry = "SELECT * FROM " + CurrentUserConn.TbName + ";";
-                CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowData, querry, TableStructureDataGrid);
+                //CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowData, querry, TableStructureDataGrid);
             }
         }
     }

@@ -28,7 +28,7 @@ namespace GUI_Database_app.View.MainInteractionContent
         {
             // setting string value by getting first and last pointer in the textRange from our SqlCommandTextBox (RichTextBox)
             querryText = new TextRange(SqlCommandTextBox.Document.ContentStart, SqlCommandTextBox.Document.ContentEnd).Text;
-            CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.defaultQuerry, querryText, QuerryrResultDataGrid, TextQuerryResultInfo, BorderQuerryResultInfo);
+            //CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.defaultQuerry, querryText, QuerryrResultDataGrid, TextQuerryResultInfo, BorderQuerryResultInfo);
         }
     }
 }
