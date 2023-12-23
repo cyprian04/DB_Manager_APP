@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI_Database_app.View.MainInteractionContent
+namespace GUI_Database_app.View.ServerPanelContent
 {
     /// <summary>
     /// Logika interakcji dla klasy RelationsControl.xaml

@@ -143,15 +143,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainInteractionContent\RelationsControl.xaml">
+    <Page Include="View\ServerPanelContent\RelationsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainInteractionContent\SQLControl.xaml">
+    <Page Include="View\ServerPanelContent\SQLControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainInteractionContent\StructureControl.xaml">
+    <Page Include="View\ServerPanelContent\StructureControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,13 +186,13 @@
     <Compile Include="View\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainInteractionContent\RelationsControl.xaml.cs">
+    <Compile Include="View\ServerPanelContent\RelationsControl.xaml.cs">
       <DependentUpon>RelationsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainInteractionContent\SQLControl.xaml.cs">
+    <Compile Include="View\ServerPanelContent\SQLControl.xaml.cs">
       <DependentUpon>SQLControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainInteractionContent\StructureControl.xaml.cs">
+    <Compile Include="View\ServerPanelContent\StructureControl.xaml.cs">
       <DependentUpon>StructureControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ServerPanelControl.xaml.cs">

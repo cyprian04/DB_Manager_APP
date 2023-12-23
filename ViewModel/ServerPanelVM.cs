@@ -27,9 +27,9 @@ namespace GUI_Database_app.ViewModel
         {
             this.navigationService = navigationService;
 
-            navigationService.Register<View.MainInteractionContent.SQLControl>("SQL");
-            navigationService.Register<View.MainInteractionContent.StructureControl>("Struct");
-            navigationService.Register<View.MainInteractionContent.RelationsControl>("Relations");
+            navigationService.Register<View.ServerPanelContent.SQLControl>("SQL");
+            navigationService.Register<View.ServerPanelContent.StructureControl>("Struct");
+            navigationService.Register<View.ServerPanelContent.RelationsControl>("Relations");
 
             NavigateTo("SQL");
         }

@@ -37,9 +37,9 @@ namespace GUI_Database_app
             container.Register<Navigation.NavigationService>(Lifestyle.Singleton);
             container.Register<Model.ICurrentUser, Model.CurrentUser>(Lifestyle.Singleton);
           
-            container.Register<View.MainInteractionContent.SQLControl>(Lifestyle.Singleton);
-            container.Register<View.MainInteractionContent.StructureControl>(Lifestyle.Singleton);
-            container.Register<View.MainInteractionContent.RelationsControl>(Lifestyle.Singleton);
+            container.Register<View.ServerPanelContent.SQLControl>(Lifestyle.Singleton);
+            container.Register<View.ServerPanelContent.StructureControl>(Lifestyle.Singleton);
+            container.Register<View.ServerPanelContent.RelationsControl>(Lifestyle.Singleton);
             container.GetInstance<View.ServerPanelControl>().DataContext = container.GetInstance<ViewModel.ServerPanelVM>();
 
             container.Verify();
