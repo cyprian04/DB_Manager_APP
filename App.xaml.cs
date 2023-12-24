@@ -36,7 +36,10 @@ namespace GUI_Database_app
             container.Register<Data.Connection>(Lifestyle.Singleton);
             container.Register<Navigation.NavigationService>(Lifestyle.Singleton);
             container.Register<Model.ICurrentUser, Model.CurrentUser>(Lifestyle.Singleton);
-          
+
+            container.Register<ViewModel.ServerPanelVMs.SQL_VM>(Lifestyle.Singleton);
+            container.Register<ViewModel.ServerPanelVMs.StructureVM>(Lifestyle.Singleton);
+
             container.Register<View.ServerPanelContent.SQLControl>(Lifestyle.Singleton);
             container.Register<View.ServerPanelContent.StructureControl>(Lifestyle.Singleton);
             container.Register<View.ServerPanelContent.RelationsControl>(Lifestyle.Singleton);

@@ -177,6 +177,8 @@
     </Compile>
     <Compile Include="ViewModel\ServerPanelVM.cs" />
     <Compile Include="ViewModel\ProfileVM.cs" />
+    <Compile Include="ViewModel\ServerPanelVMs\SQL_VM.cs" />
+    <Compile Include="ViewModel\ServerPanelVMs\StructureVM.cs" />
     <Compile Include="View\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
