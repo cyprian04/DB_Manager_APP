@@ -9,13 +9,14 @@ namespace GUI_Database_app.Data
 {
     public class Connection
     { 
-        private static MySqlConnection connection = new MySqlConnection();
+        private MySqlConnection mySqlConn = new MySqlConnection();
         private string connectionString;
         private static string dbName, tbName;
    
         public string DbName {get => dbName; set => dbName = value;}
              
         public string TbName { get => tbName; set => tbName = value; }
+        public MySqlConnection MySqlConn { get => mySqlConn; set => mySqlConn = value; }
 
         public bool VerifyCredentials(string Host, string Username, SecureString Password)
         {
@@ -30,8 +31,8 @@ namespace GUI_Database_app.Data
 
             try
             {
-                connection = new MySqlConnection(connectionString);
-                connection.Open();
+                MySqlConn = new MySqlConnection(connectionString);
+                MySqlConn.Open();
                 return true;
             }
             catch (MySqlException)
@@ -41,8 +42,18 @@ namespace GUI_Database_app.Data
             }
             finally
             {
-                connection.Close();
+                MySqlConn.Close();
             }
+        }
+
+        public void OpenConn()
+        {
+            MySqlConn.Open();
+        }
+
+        public void CloseConn()
+        {
+            MySqlConn.Close();
         }
 
         public void ConnectionWithDb(string DbName_in)
@@ -53,8 +64,8 @@ namespace GUI_Database_app.Data
 
                 try
                 {
-                    connection.Open();
-                    connection.ChangeDatabase(DbName);
+                    MySqlConn.Open();
+                    MySqlConn.ChangeDatabase(DbName);
                 }
                 catch (MySqlException ex)
                 {
@@ -62,7 +73,7 @@ namespace GUI_Database_app.Data
                 }
                 finally
                 {
-                    connection.Close();
+                    MySqlConn.Close();
                 }
             }
             else
@@ -74,7 +85,7 @@ namespace GUI_Database_app.Data
             dbName = null;
             tbName = null;
             connectionString = null;
-            connection = null;
+            MySqlConn = null;
         }
     }
 }
