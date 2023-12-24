@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Controls;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace GUI_Database_app.Data
 {
@@ -26,50 +27,90 @@ namespace GUI_Database_app.Data
         }
         //private ListBox actualizedDbListBox, actualizedTablesListBox;
 
-       public void DisplayCurrentListBox(ListBox ListBox_in)
-       {
-           string query = null;
-      
-           if (ListBox_in.Name is "DatabasesListBox")
-           {
-               //actualizedDbListBox = ListBox_in;
-               query = "SHOW DATABASES;";
-           }
-           else
-           {
-               //actualizedTablesListBox = ListBox_in;
-               query = "SHOW TABLES;";
-           }
-           try
-           {
-               connection.OpenConn();
-               MySqlCommand cmd = new MySqlCommand(query, connection.MySqlConn);
-      
-               using (MySqlDataReader reader = cmd.ExecuteReader())
-               {
-                   List<string> content = new List<string>();
-      
-                   while (reader.Read())
-                   {
-                       string element = reader.GetString(0);
-                       content.Add(element);
-                   }
-      
-                   //if (ListBox_in.Name is "DatabasesListBox") actualizedDbListBox.ItemsSource = content;
-                   //else actualizedTablesListBox.ItemsSource = content;
-               }
-           }
-           catch (MySqlException ex)
-           {
-               MessageBox.Show(ex.ToString());
-           }
-           finally
-           {
-               connection.CloseConn();
-           }
-       }
-      
-       public void ExecuteAndCheckSQLQuerry(TypeOfQuerry type, string query, DataGrid QuerryResultDataGrid, TextBlock TextQuerryResultInfo = null, Border BorderQuerryResultInfo = null)
+        //public void DisplayCurrentListBox(ListBox ListBox_in)
+        //{
+        //    string query = null;
+        //
+        //    if (ListBox_in.Name is "DatabasesListBox")
+        //    {
+        //        //actualizedDbListBox = ListBox_in;
+        //        query = "SHOW DATABASES;";
+        //    }
+        //    else
+        //    {
+        //        //actualizedTablesListBox = ListBox_in;
+        //        query = "SHOW TABLES;";
+        //    }
+        //    try
+        //    {
+        //        connection.OpenConn();
+        //        MySqlCommand cmd = new MySqlCommand(query, connection.MySqlConn);
+        //
+        //        using (MySqlDataReader reader = cmd.ExecuteReader())
+        //        {
+        //            List<string> content = new List<string>();
+        //
+        //            while (reader.Read())
+        //            {
+        //                string element = reader.GetString(0);
+        //                content.Add(element);
+        //            }
+        //
+        //            //if (ListBox_in.Name is "DatabasesListBox") actualizedDbListBox.ItemsSource = content;
+        //            //else actualizedTablesListBox.ItemsSource = content;
+        //        }
+        //    }
+        //    catch (MySqlException ex)
+        //    {
+        //        MessageBox.Show(ex.ToString());
+        //    }
+        //    finally
+        //    {
+        //        connection.CloseConn();
+        //    }
+        //}
+
+        public void DisplayCurrentListBox(ObservableCollection<string> collection, string CurrentContext)
+        {
+            string query = CurrentContext == "Databases" ? "SHOW DATABASES;" : "SHOW TABLES;";
+
+            try
+            {
+                connection.OpenConn();
+                MySqlCommand cmd = new MySqlCommand(query, connection.MySqlConn);
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    List<string> content = new List<string>();
+
+                    while (reader.Read())
+                    {
+                        string element = reader.GetString(0);
+                        content.Add(element);
+                    }
+
+                    // Update the content of the passed ObservableCollection
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        collection.Clear();
+                        foreach (var item in content)
+                        {
+                            collection.Add(item);
+                        }
+                    });
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                connection.CloseConn();
+            }
+        }
+
+        public void ExecuteAndCheckSQLQuerry(TypeOfQuerry type, string query, DataGrid QuerryResultDataGrid, TextBlock TextQuerryResultInfo = null, Border BorderQuerryResultInfo = null)
        {
            if (!string.IsNullOrWhiteSpace(query))
            {

@@ -34,6 +34,7 @@ namespace GUI_Database_app
             container.Register<View.ServerPanelControl>(Lifestyle.Singleton);
 
             container.Register<Data.Connection>(Lifestyle.Singleton);
+            container.Register<Data.DBServerContent>(Lifestyle.Singleton);
             container.Register<Navigation.NavigationService>(Lifestyle.Singleton);
             container.Register<Model.ICurrentUser, Model.CurrentUser>(Lifestyle.Singleton);
 
@@ -55,9 +56,10 @@ namespace GUI_Database_app
 
             loginForm.IsVisibleChanged += (s, ev) =>
             {
-                if (loginForm.IsLoaded && !loginForm.IsVisible)
+                if (loginForm.IsLoaded && !loginForm.IsVisible && !string.IsNullOrEmpty(container.GetInstance<Data.Connection>().MySqlConn.ConnectionString))
                 {
                     var mainWindow = new View.MainWindow { DataContext = container.GetInstance<ViewModel.MainWindowVM>()};
+                    container.GetInstance<ViewModel.ServerPanelVM>().InitializeDatabases();
                     mainWindow.Show();
                 }
             };
