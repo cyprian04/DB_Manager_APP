@@ -35,21 +35,6 @@ namespace GUI_Database_app.View
             show = HideShowBtn.Background as ImageBrush;
         }
 
-        // public MainInteractionControl(Data.Connection CurrentUserConn_in)
-        // {
-        //     InitializeComponent();
-        //     CurrentUserConn = CurrentUserConn_in;
-        //     CurrentUserConn.DisplayCurrentListBox(DatabasesListBox);
-        //     show = HideShowBtn.Background as ImageBrush; 
-        //
-        //
-        //     SQL = new MainContentArea.SQLControl(CurrentUserConn);
-        //     Structure = new MainContentArea.StructureControl(CurrentUserConn);
-        //     Relations = new MainContentArea.RelationsControl(CurrentUserConn);
-        //
-        //     MainInteractionContentArea.Content = SQL;
-        // }
-
         private void DatabasesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
            // if (DatabasesListBox.SelectedItem != null)
