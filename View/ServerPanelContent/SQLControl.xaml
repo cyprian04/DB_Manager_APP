@@ -7,10 +7,6 @@
              mc:Ignorable="d" 
             d:DesignHeight="640" d:DesignWidth="800">
 
-    <UserControl.DataContext>
-        <local:SQL_VM/>
-    </UserControl.DataContext>
-
     <UserControl.Resources>
         <ResourceDictionary Source="/StylesDictionary/Dictionary.xaml"/>
     </UserControl.Resources>
@@ -42,8 +38,8 @@
 
                     <Border CornerRadius="9,9,9,9"
                             Background="#474973">
-                            
-                        <RichTextBox x:Name="SqlCommandTextBox"
+
+                            <RichTextBox x:Name="SqlCommandTextBox"
                                      Width="600"
                                      Height="200"
                                      Padding="4"
@@ -51,8 +47,9 @@
                                      Foreground="AliceBlue"
                                      CaretBrush="AliceBlue"
                                      FontFamily="Montserrat"
-                                     BorderThickness="0"/>
-                    </Border>
+                                     BorderThickness="0"
+                                     local:RichTextBoxHelper.Document="{Binding MyDocument, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Border>
 
                     <StackPanel Orientation="Horizontal"
                                 Margin="0,25,0,0"
@@ -77,7 +74,7 @@
                                 Foreground="White"
                                 Cursor="Hand"
                                 Margin="15,0,0,0"
-                                Click="btn_ExecuteSqlCommand"
+                                Command="{Binding ExecuteQuerryCommand}"
                                 Template="{StaticResource NavButtonTemplate}">
 
                                 <Button.Style>
