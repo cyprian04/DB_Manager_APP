@@ -27,6 +27,11 @@ namespace GUI_Database_app.Data
         }
         //private ListBox actualizedDbListBox, actualizedTablesListBox;
 
+        public void ChoosenDB(string db)
+        {
+            connection.ConnectionWithDb(db);
+        } 
+
         public void DisplayCurrentListBox(ObservableCollection<string> collection, string CurrentContext)
         {
             string query = CurrentContext == "Databases" ? "SHOW DATABASES;" : "SHOW TABLES;";
@@ -158,7 +163,7 @@ namespace GUI_Database_app.Data
            }
        }
       
-       public void ImportDB(string scriptPath)
+        public void ImportDB(string scriptPath)
        {
            try
            {
@@ -183,7 +188,7 @@ namespace GUI_Database_app.Data
            }
        }
       
-       public void ExportDB(string chosenDB)
+        public void ExportDB(string chosenDB)
        {
            try
            {
@@ -269,7 +274,7 @@ namespace GUI_Database_app.Data
            }
        }
       
-       private string EscapeSqlString(string value)
+        private string EscapeSqlString(string value)
        {
            return value.Replace("'", "''");
        }

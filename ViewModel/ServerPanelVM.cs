@@ -14,6 +14,7 @@ namespace GUI_Database_app.ViewModel
     {
         private ObservableCollection<string> databasesListBox = new ObservableCollection<string>();
         private string _selectedItem;
+        private string currentDB = "Not choosen";
         private readonly NavigationService navigationService;
         private readonly Data.DBServerContent dbServerContent;
         private UserControl _currentControl;
@@ -49,14 +50,29 @@ namespace GUI_Database_app.ViewModel
                 {
                     _selectedItem = value;
                     OnPropertyChanged(nameof(SelectedItem));
+                    dbServerContent.ChoosenDB(_selectedItem);
+                    CurrentDB = _selectedItem;
                 }
             }
         }
 
-        public ServerPanelVM(NavigationService navigationService, Data.DBServerContent dBServerContent)
+        public string CurrentDB
+        {
+            get { return currentDB; }
+            set
+            {
+                if (currentDB != value)
+                {
+                    currentDB = value;
+                    OnPropertyChanged(nameof(CurrentDB));
+                }
+            }
+        }
+
+        public ServerPanelVM(NavigationService navigationService, Data.DBServerContent dbServerContent)
         {
             this.navigationService = navigationService;
-            this.dbServerContent = dBServerContent;
+            this.dbServerContent = dbServerContent;
 
             navigationService.Register<View.ServerPanelContent.SQLControl>("SQL");
             navigationService.Register<View.ServerPanelContent.StructureControl>("Struct");
@@ -77,5 +93,6 @@ namespace GUI_Database_app.ViewModel
             UserControl newControl = navigationService.NavigateTo(destination);
             CurrentControl = (CurrentControl == null || CurrentControl.GetType() != newControl.GetType()) ? newControl : CurrentControl;
         }
+
     }
 }

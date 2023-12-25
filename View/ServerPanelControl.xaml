@@ -67,7 +67,7 @@
                         <ScrollViewer VerticalScrollBarVisibility="Disabled"
                                       HorizontalScrollBarVisibility="Auto">
                             <TextBlock x:Name="CurrentDBTextBlock"
-                                       Text="Not choosen"
+                                       Text="{Binding CurrentDB, Mode=TwoWay}"
                                        HorizontalAlignment="Center"
                                        Foreground="AliceBlue"
                                        FontWeight="Light"

@@ -14,7 +14,6 @@ namespace GUI_Database_app.Data
         private static string dbName, tbName;
    
         public string DbName {get => dbName; set => dbName = value;}
-             
         public string TbName { get => tbName; set => tbName = value; }
         public MySqlConnection MySqlConn { get => mySqlConn; set => mySqlConn = value; }
 
@@ -58,26 +57,21 @@ namespace GUI_Database_app.Data
 
         public void ConnectionWithDb(string DbName_in)
         {
-            if (DbName != DbName_in)
-            {
-                DbName = DbName_in;
+            DbName = DbName_in;
 
-                try
-                {
-                    MySqlConn.Open();
-                    MySqlConn.ChangeDatabase(DbName);
-                }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                finally
-                {
-                    MySqlConn.Close();
-                }
+            try
+            {
+                MySqlConn.Open();
+                MySqlConn.ChangeDatabase(DbName);
             }
-            else
-                MessageBox.Show("Already connected to this database");
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                MySqlConn.Close();
+            }
         }
 
         public void DisconnectUserFromServer()
