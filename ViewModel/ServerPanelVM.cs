@@ -15,16 +15,16 @@ namespace GUI_Database_app.ViewModel
 {
     class ServerPanelVM : ViewModelBase
     {
-        static ImageBrush show = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-show.png", UriKind.RelativeOrAbsolute)));
-        static ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
-        static GridLength defaultLeftColWidth = new GridLength(200);
-        static GridLength adjustedLeftColWidth = new GridLength(0);
+        private static ImageBrush show = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-show.png", UriKind.RelativeOrAbsolute)));
+        private static ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
+        private static GridLength defaultLeftColWidth = new GridLength(200);
+        private static GridLength adjustedLeftColWidth = new GridLength(0);
 
+        private ImageBrush hideShowBtn = show;
+        private GridLength currentContentColWidth = defaultLeftColWidth;
         private ObservableCollection<string> databasesListBox = new ObservableCollection<string>();
         private string _selectedItem;
         private string currentDB = "Not choosen";
-        private ImageBrush hideShowBtn = show;
-        private GridLength currentContentColWidth = defaultLeftColWidth;
 
         private readonly NavigationService navigationService;
         private readonly Data.DBServerContent dbServerContent;
