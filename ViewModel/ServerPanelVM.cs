@@ -17,14 +17,14 @@ namespace GUI_Database_app.ViewModel
     {
         static ImageBrush show = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-show.png", UriKind.RelativeOrAbsolute)));
         static ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
-
-        GridLength defaultLeftColWidth = new GridLength(200);
-        GridLength adjustedLeftColWidth = new GridLength(0);
+        static GridLength defaultLeftColWidth = new GridLength(200);
+        static GridLength adjustedLeftColWidth = new GridLength(0);
 
         private ObservableCollection<string> databasesListBox = new ObservableCollection<string>();
         private string _selectedItem;
         private string currentDB = "Not choosen";
         private ImageBrush hideShowBtn = show;
+        private GridLength currentContentColWidth = defaultLeftColWidth;
 
         private readonly NavigationService navigationService;
         private readonly Data.DBServerContent dbServerContent;
@@ -37,6 +37,15 @@ namespace GUI_Database_app.ViewModel
             {
                 hideShowBtn = value;
                 OnPropertyChanged(nameof(HideShowBtn));
+            }
+        }
+        public GridLength CurrentContentColWidth
+        {
+            get => currentContentColWidth;
+            set
+            {
+                currentContentColWidth = value;
+                OnPropertyChanged(nameof(CurrentContentColWidth));
             }
         }
         public UserControl CurrentControl
@@ -105,12 +114,12 @@ namespace GUI_Database_app.ViewModel
         }
 
         public ICommand NavigateToCommand => new RelayCommand(param => NavigateTo(param.ToString()));
-
         public ICommand ShowHideCommand => new RelayCommand(ShowHide);
 
         private void ShowHide(object parameter)
         {
             HideShowBtn = HideShowBtn != hide ? hide : show;
+            CurrentContentColWidth = CurrentContentColWidth != adjustedLeftColWidth ? adjustedLeftColWidth : defaultLeftColWidth; 
         }
 
         private void NavigateTo(string destination)
