@@ -21,18 +21,11 @@ namespace GUI_Database_app.View
     /// </summary>
     public partial class ServerPanelControl : UserControl
     {
-        ImageBrush show = null;
-        ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
-
-        GridLength defaultLeftColWidth = new GridLength(200);
-        GridLength adjustedLeftColWidth = new GridLength(0);
-
         bool hidden = false;
 
         public ServerPanelControl()
         {
             InitializeComponent();
-            show = HideShowBtn.Background as ImageBrush;
         }
 
         private void DatabasesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -74,21 +67,21 @@ namespace GUI_Database_app.View
         
         private void btn_HideShow(object sender, RoutedEventArgs e)
         {
-            if (!hidden)
-            {
-                HideShowBtn.Background = hide;
-                LeftContentColumn.Width = adjustedLeftColWidth;
-                RightContentColumn.SetValue(Grid.ColumnProperty, 0);
-        
-                hidden = true;
-            }
-            else
-            {
-                HideShowBtn.Background = show;
-                LeftContentColumn.Width = defaultLeftColWidth;
-        
-                hidden = false;
-            }
+            //if (!hidden)
+            //{
+            //    HideShowBtn.Background = hide;
+            //    LeftContentColumn.Width = adjustedLeftColWidth;
+            //    RightContentColumn.SetValue(Grid.ColumnProperty, 0);
+            //
+            //    hidden = true;
+            //}
+            //else
+            //{
+            //    HideShowBtn.Background = show;
+            //    LeftContentColumn.Width = defaultLeftColWidth;
+            //
+            //    hidden = false;
+            //}
         }
     }
 }

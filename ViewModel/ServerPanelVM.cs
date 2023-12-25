@@ -4,20 +4,41 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using GUI_Database_app.Navigation;
 
 namespace GUI_Database_app.ViewModel
 {
     class ServerPanelVM : ViewModelBase
     {
+        static ImageBrush show = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-show.png", UriKind.RelativeOrAbsolute)));
+        static ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
+
+        GridLength defaultLeftColWidth = new GridLength(200);
+        GridLength adjustedLeftColWidth = new GridLength(0);
+
         private ObservableCollection<string> databasesListBox = new ObservableCollection<string>();
         private string _selectedItem;
         private string currentDB = "Not choosen";
+        private ImageBrush hideShowBtn = show;
+
         private readonly NavigationService navigationService;
         private readonly Data.DBServerContent dbServerContent;
         private UserControl _currentControl;
+
+        public ImageBrush HideShowBtn
+        {
+            get => hideShowBtn;
+            set
+            {
+                hideShowBtn = value;
+                OnPropertyChanged(nameof(HideShowBtn));
+            }
+        }
         public UserControl CurrentControl
         {
             get => _currentControl;
@@ -27,7 +48,6 @@ namespace GUI_Database_app.ViewModel
                 OnPropertyChanged(nameof(CurrentControl));
             }
         }
-
         public ObservableCollection<string> DatabasesListBox
         {
             get { return databasesListBox; }
@@ -40,7 +60,6 @@ namespace GUI_Database_app.ViewModel
                 }
             }
         }
-
         public string SelectedItem
         {
             get { return _selectedItem; }
@@ -55,7 +74,6 @@ namespace GUI_Database_app.ViewModel
                 }
             }
         }
-
         public string CurrentDB
         {
             get { return currentDB; }
@@ -87,6 +105,13 @@ namespace GUI_Database_app.ViewModel
         }
 
         public ICommand NavigateToCommand => new RelayCommand(param => NavigateTo(param.ToString()));
+
+        public ICommand ShowHideCommand => new RelayCommand(ShowHide);
+
+        private void ShowHide(object parameter)
+        {
+            HideShowBtn = HideShowBtn != hide ? hide : show;
+        }
 
         private void NavigateTo(string destination)
         {
