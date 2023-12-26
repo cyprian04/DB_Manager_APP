@@ -29,7 +29,7 @@ namespace GUI_Database_app.Data
         public void ChoosenDB(string db)
         {
             connection.ConnectionWithDb(db);
-        } 
+        }
 
         public void DisplayCurrentListBox(ObservableCollection<string> collection, string CurrentContext)
         {
@@ -71,78 +71,49 @@ namespace GUI_Database_app.Data
             }
         }
 
-        public void ExecuteAndCheckSQLQuerry(TypeOfQuerry type, string query, DataGrid QuerryResultDataGrid, TextBlock TextQuerryResultInfo = null, Border BorderQuerryResultInfo = null)
-       {
+        public DataTable ExecuteAndCheckSQLQuerry(TypeOfQuerry type, string querry)
+        {
+            DataTable dataTable;
             try
             {
                 connection.OpenConn();
-                MySqlCommand cmd = new MySqlCommand(query, connection.MySqlConn);
-      
-                DataTable dataTable = new DataTable(); // special object from System.Data that stores data
-                using (MySqlDataReader reader = cmd.ExecuteReader())
-                {
-                    dataTable.Load(reader); // Load data into DataTable from reader
-                }
-      
+                MySqlCommand cmd = new MySqlCommand(querry, connection.MySqlConn);
+                dataTable = new DataTable();
+                using (MySqlDataReader reader = cmd.ExecuteReader()){ dataTable.Load(reader); }
+
                 switch (type)
                 {
-                    case TypeOfQuerry.defaultQuerry: // for executing querries from SQLControl
-      
+                    case TypeOfQuerry.defaultQuerry:
+
+                        if (querry.Trim().StartsWith("DROP DATABASE", StringComparison.OrdinalIgnoreCase) ||
+                            querry.Trim().StartsWith("CREATE DATABASE", StringComparison.OrdinalIgnoreCase))
+                        {
+                            connection.CloseConn();
+                            connection.OpenConn();
+                            //DisplayCurrentListBox(actualizedTablesListBox);
+                        }
+
+                        if (querry.Trim().StartsWith("DROP TABLE", StringComparison.OrdinalIgnoreCase) ||
+                            querry.Trim().StartsWith("CREATE TABLE", StringComparison.OrdinalIgnoreCase))
+                        {
+                            connection.CloseConn();
+                            connection.OpenConn();                            
+                            //DisplayCurrentListBox(actualizedTablesListBox);
+                        }
+
                         if (dataTable.Rows.Count != 0)
                         {
-                            QuerryResultDataGrid.ItemsSource = dataTable.DefaultView; // Set DataGrid's ItemsSource
-                            QuerryResultDataGrid.Visibility = Visibility.Visible;
+                            return dataTable;
                         }
-                        else
-                        {
-                            QuerryResultDataGrid.Visibility = Visibility.Hidden;
-                            QuerryResultDataGrid.ItemsSource = null;
-                        }
-      
-                        if (query.Trim().StartsWith("DROP DATABASE", StringComparison.OrdinalIgnoreCase) ||
-                           query.Trim().StartsWith("CREATE DATABASE", StringComparison.OrdinalIgnoreCase))
-                        {
-                            connection.CloseConn();
-                            //DisplayCurrentListBox(actualizedDbListBox);
-                            connection.OpenConn();
-                        }
-      
-                        if (query.Trim().StartsWith("DROP TABLE", StringComparison.OrdinalIgnoreCase) ||
-                           query.Trim().StartsWith("CREATE TABLE", StringComparison.OrdinalIgnoreCase))
-                        {
-                            connection.CloseConn();
-                            //DisplayCurrentListBox(actualizedTablesListBox);
-                            connection.OpenConn();
-                        }
-      
-                        TextQuerryResultInfo.Text = "Successfully executed the querry";
-                        BorderQuerryResultInfo.Background = Brushes.Green;
-      
-                        break;
-      
-                    case TypeOfQuerry.ShowData: // in case when one of the buttons in StructureControl is pressed
+
+                    break;
+                 
+                    case TypeOfQuerry.ShowData: 
                     case TypeOfQuerry.ShowStruct:
-      
-                        QuerryResultDataGrid.ItemsSource = dataTable.DefaultView;
-                        QuerryResultDataGrid.Visibility = Visibility.Visible;
-      
-                        break;
+
+                        return dataTable;
                 }
             }
-            //catch (MySqlException ex)
-            //{
-            //    if (type == TypeOfQuerry.defaultQuerry)
-            //    {
-            //        QuerryResultDataGrid.Visibility = Visibility.Hidden;
-            //
-            //        string[] Alllines = ex.Message.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-            //
-            //        TextQuerryResultInfo.Text = Alllines.FirstOrDefault();
-            //        BorderQuerryResultInfo.Background = Brushes.Red;
-            //    }
-            //    else
-            //        MessageBox.Show("Can't display content for table");
-            //}
             catch (Exception ex)
             {
                 string[] Alllines = ex.Message.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
@@ -151,9 +122,10 @@ namespace GUI_Database_app.Data
             finally
             {
                 connection.CloseConn();
-            }     
-       }
-      
+            }
+            return null;
+        }
+
         public void ImportDB(string scriptPath)
        {
            try

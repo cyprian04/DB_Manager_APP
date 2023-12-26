@@ -99,7 +99,8 @@
                            Background="Transparent"
                            BorderThickness="0"
                            Margin="10"
-                           Visibility="Hidden">
+                           Visibility="Visible"
+                           ItemsSource="{Binding QuerryResult,  Mode=TwoWay}">
 
                     <DataGrid.CellStyle>
                         <Style TargetType="DataGridCell">
