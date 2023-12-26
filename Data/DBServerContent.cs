@@ -14,6 +14,7 @@ namespace GUI_Database_app.Data
     class DBServerContent
     {
         private Connection connection;
+        public ObservableCollection<string> collection;
         public enum TypeOfQuerry
         {
             defaultQuerry,
@@ -34,7 +35,6 @@ namespace GUI_Database_app.Data
         public void DisplayCurrentListBox(ObservableCollection<string> collection, string CurrentContext)
         {
             string query = CurrentContext == "Databases" ? "SHOW DATABASES;" : "SHOW TABLES;";
-
             try
             {
                 connection.OpenConn();
@@ -50,16 +50,14 @@ namespace GUI_Database_app.Data
                         content.Add(element);
                     }
 
-                    // Update the content of the passed ObservableCollection
-                    Application.Current.Dispatcher.Invoke(() =>
+                    collection.Clear();
+                    foreach (var item in content)
                     {
-                        collection.Clear();
-                        foreach (var item in content)
-                        {
-                            collection.Add(item);
-                        }
-                    });
+                        collection.Add(item);
+                    }
+                  
                 }
+                this.collection = collection;
             }
             catch (MySqlException ex)
             {
@@ -73,7 +71,7 @@ namespace GUI_Database_app.Data
 
         public DataTable ExecuteAndCheckSQLQuerry(TypeOfQuerry type, string querry)
         {
-            DataTable dataTable;
+            DataTable dataTable = null;
             try
             {
                 connection.OpenConn();
@@ -81,38 +79,27 @@ namespace GUI_Database_app.Data
                 dataTable = new DataTable();
                 using (MySqlDataReader reader = cmd.ExecuteReader()){ dataTable.Load(reader); }
 
-                switch (type)
+                if(type == TypeOfQuerry.defaultQuerry)
                 {
-                    case TypeOfQuerry.defaultQuerry:
+                    if (querry.Trim().IndexOf("DROP DATABASE", StringComparison.OrdinalIgnoreCase) != -1 ||
+                        querry.Trim().IndexOf("CREATE DATABASE", StringComparison.OrdinalIgnoreCase) != -1)
+                    {
+                        connection.CloseConn();
+                        DisplayCurrentListBox(collection, "Databases");
+                        connection.OpenConn();
+                    }
 
-                        if (querry.Trim().StartsWith("DROP DATABASE", StringComparison.OrdinalIgnoreCase) ||
-                            querry.Trim().StartsWith("CREATE DATABASE", StringComparison.OrdinalIgnoreCase))
-                        {
-                            connection.CloseConn();
-                            connection.OpenConn();
-                            //DisplayCurrentListBox(actualizedTablesListBox);
-                        }
-
-                        if (querry.Trim().StartsWith("DROP TABLE", StringComparison.OrdinalIgnoreCase) ||
-                            querry.Trim().StartsWith("CREATE TABLE", StringComparison.OrdinalIgnoreCase))
-                        {
-                            connection.CloseConn();
-                            connection.OpenConn();                            
-                            //DisplayCurrentListBox(actualizedTablesListBox);
-                        }
-
-                        if (dataTable.Rows.Count != 0)
-                        {
-                            return dataTable;
-                        }
-
-                    break;
-                 
-                    case TypeOfQuerry.ShowData: 
-                    case TypeOfQuerry.ShowStruct:
-
-                        return dataTable;
+                    //if (querry.Trim().IndexOf("DROP TABLE", StringComparison.OrdinalIgnoreCase) != -1 ||
+                    //    querry.Trim().IndexOf("CREATE TABLE", StringComparison.OrdinalIgnoreCase) != -1)
+                    //{
+                    //    //DisplayCurrentListBox(actualizedTablesListBox);
+                    //}
                 }
+            }
+            catch (MySqlException ex)
+            {
+                string[] Alllines = ex.Message.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                MessageBox.Show(Alllines.FirstOrDefault());
             }
             catch (Exception ex)
             {
@@ -123,7 +110,7 @@ namespace GUI_Database_app.Data
             {
                 connection.CloseConn();
             }
-            return null;
+            return dataTable;
         }
 
         public void ImportDB(string scriptPath)
