@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Security;
 using System.Runtime.InteropServices;
+using System.Data;
 
 namespace GUI_Database_app.Data
 {
@@ -73,6 +74,24 @@ namespace GUI_Database_app.Data
                 {
                     MySqlConn.Close();
                 }
+            }
+        }
+
+        public bool VerifyConnectionDB(string dbName)
+        {
+            try
+            {
+                if (MySqlConn.State == ConnectionState.Closed) MySqlConn.Open();
+                MySqlConn.ChangeDatabase(dbName);
+                return true;
+            }
+            catch (MySqlException)
+            {
+                return false;
+            }
+            finally
+            {
+                if (MySqlConn.State == ConnectionState.Open)  MySqlConn.Close();
             }
         }
 

@@ -74,12 +74,18 @@ namespace GUI_Database_app.ViewModel
             get { return _selectedItem; }
             set
             {
-                if (_selectedItem != value)
+                if(value == null && !dbServerContent.GetVerifyConnectionDB(CurrentDB))
+                {
+                    _selectedItem = value;
+                    OnPropertyChanged(nameof(SelectedItem));
+                    CurrentDB = "Not choosen";
+                }
+                else if (_selectedItem != value)
                 {
                     _selectedItem = value;
                     OnPropertyChanged(nameof(SelectedItem));
                     dbServerContent.ChoosenDB(_selectedItem);
-                    CurrentDB = _selectedItem;
+                    if (_selectedItem != null) CurrentDB = _selectedItem ;
                 }
             }
         }

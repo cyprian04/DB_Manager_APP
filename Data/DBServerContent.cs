@@ -32,6 +32,11 @@ namespace GUI_Database_app.Data
             connection.ConnectionWithDb(db);
         }
 
+        public bool GetVerifyConnectionDB(string db)
+        {
+            return connection.VerifyConnectionDB(db);
+        }
+
         public void DisplayCurrentListBox(ObservableCollection<string> collection, string CurrentContext)
         {
             string query = CurrentContext == "Databases" ? "SHOW DATABASES;" : "SHOW TABLES;";
