@@ -80,12 +80,12 @@ namespace GUI_Database_app.ViewModel
                     OnPropertyChanged(nameof(SelectedItem));
                     CurrentDB = "Not choosen";
                 }
-                else if (_selectedItem != value)
+                else if (_selectedItem != value && value != null)
                 {
                     _selectedItem = value;
                     OnPropertyChanged(nameof(SelectedItem));
                     dbServerContent.ChoosenDB(_selectedItem);
-                    if (_selectedItem != null) CurrentDB = _selectedItem ;
+                    CurrentDB = _selectedItem;
                 }
             }
         }

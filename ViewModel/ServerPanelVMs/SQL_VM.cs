@@ -43,8 +43,11 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         private void ExecuteQuerry(object parameter)
         {
             string queryText = GetPlainTextFromFlowDocument(MyDocument);
-            if (!string.IsNullOrEmpty(queryText)) 
+            if (!string.IsNullOrEmpty(queryText))
+            {
                 QuerryResult = dBServerContent.ExecuteAndCheckSQLQuerry(Data.DBServerContent.TypeOfQuerry.defaultQuerry, queryText);
+                dBServerContent.DisplayCurrentListBox(dBServerContent.collection, "Databases");
+            }
             else 
                 MessageBox.Show("Type in SQL querry first!");
         }

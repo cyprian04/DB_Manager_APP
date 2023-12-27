@@ -58,22 +58,19 @@ namespace GUI_Database_app.Data
 
         public void ConnectionWithDb(string DbName_in)
         {
-            if (DbName_in != null)
+            try
             {
-                try
-                {
-                    MySqlConn.Open();
-                    MySqlConn.ChangeDatabase(DbName_in);
-                    DbName = DbName_in;
-                }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                finally
-                {
-                    MySqlConn.Close();
-                }
+                MySqlConn.Open();
+                MySqlConn.ChangeDatabase(DbName_in);
+                DbName = DbName_in;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                MySqlConn.Close();
             }
         }
 
