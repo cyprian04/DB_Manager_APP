@@ -17,6 +17,7 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         private readonly Data.DBServerContent dBServerContent;
         private FlowDocument _myDocument = new FlowDocument();
         private DataTable querryResult;
+        private bool _isVisible = false;
 
         public FlowDocument MyDocument
         {
@@ -30,6 +31,18 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
             {
                 querryResult = value;
                 OnPropertyChanged(nameof(QuerryResult));
+            }
+        }
+        public bool IsVisible
+        {
+            get { return _isVisible; }
+            set
+            {
+                if (_isVisible != value)
+                {
+                    _isVisible = value;
+                    OnPropertyChanged(nameof(IsVisible));
+                }
             }
         }
 
@@ -46,6 +59,7 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
             if (!string.IsNullOrEmpty(queryText))
             {
                 QuerryResult = dBServerContent.ExecuteAndCheckSQLQuerry(queryText);
+                IsVisible = QuerryResult.Rows.Count == 0 ? false : true;
                 dBServerContent.DisplayCurrentListBox(dBServerContent.collection, "Databases");
             }
             else 
