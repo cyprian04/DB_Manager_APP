@@ -45,7 +45,7 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
             string queryText = GetPlainTextFromFlowDocument(MyDocument);
             if (!string.IsNullOrEmpty(queryText))
             {
-                QuerryResult = dBServerContent.ExecuteAndCheckSQLQuerry(Data.DBServerContent.TypeOfQuerry.defaultQuerry, queryText);
+                QuerryResult = dBServerContent.ExecuteAndCheckSQLQuerry(queryText);
                 dBServerContent.DisplayCurrentListBox(dBServerContent.collection, "Databases");
             }
             else 

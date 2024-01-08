@@ -15,12 +15,6 @@ namespace GUI_Database_app.Data
     {
         private Connection connection;
         public ObservableCollection<string> collection;
-        public enum TypeOfQuerry
-        {
-            defaultQuerry,
-            ShowStruct,
-            ShowData
-        }
 
         public DBServerContent(Connection connection)
         {
@@ -42,7 +36,7 @@ namespace GUI_Database_app.Data
             string query = CurrentContext == "Databases" ? "SHOW DATABASES;" : "SHOW TABLES;";
             try
             {
-                connection.OpenConn();
+                if (connection.MySqlConn.State == ConnectionState.Closed) connection.OpenConn();
                 MySqlCommand cmd = new MySqlCommand(query, connection.MySqlConn);
 
                 using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -70,11 +64,11 @@ namespace GUI_Database_app.Data
             }
             finally
             {
-                connection.CloseConn();
+                if (connection.MySqlConn.State == ConnectionState.Open) connection.CloseConn();
             }
         }
 
-        public DataTable ExecuteAndCheckSQLQuerry(TypeOfQuerry type, string querry)
+        public DataTable ExecuteAndCheckSQLQuerry(string querry)
         {
             DataTable dataTable = null;
             try
@@ -83,23 +77,6 @@ namespace GUI_Database_app.Data
                 MySqlCommand cmd = new MySqlCommand(querry, connection.MySqlConn);
                 dataTable = new DataTable();
                 using (MySqlDataReader reader = cmd.ExecuteReader()){ dataTable.Load(reader); }
-
-                if(type == TypeOfQuerry.defaultQuerry)
-                {
-                    if (querry.Trim().IndexOf("DROP DATABASE", StringComparison.OrdinalIgnoreCase) != -1 ||
-                        querry.Trim().IndexOf("CREATE DATABASE", StringComparison.OrdinalIgnoreCase) != -1)
-                    {
-                        connection.CloseConn();
-                        DisplayCurrentListBox(collection, "Databases");
-                        connection.OpenConn();
-                    }
-
-                    //if (querry.Trim().IndexOf("DROP TABLE", StringComparison.OrdinalIgnoreCase) != -1 ||
-                    //    querry.Trim().IndexOf("CREATE TABLE", StringComparison.OrdinalIgnoreCase) != -1)
-                    //{
-                    //    //DisplayCurrentListBox(actualizedTablesListBox);
-                    //}
-                }
             }
             catch (MySqlException ex)
             {
