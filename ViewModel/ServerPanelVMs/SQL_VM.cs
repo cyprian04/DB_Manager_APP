@@ -60,7 +60,7 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
             {
                 QuerryResult = dBServerContent.ExecuteAndCheckSQLQuerry(queryText);
                 IsVisible = QuerryResult.Rows.Count == 0 ? false : true;
-                dBServerContent.DisplayCurrentListBox(dBServerContent.collection, "Databases");
+                dBServerContent.DisplayCurrentListBox("Databases", dBServerContent.collectionDB);
             }
             else 
                 MessageBox.Show("Type in SQL querry first!");

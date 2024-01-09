@@ -24,6 +24,7 @@ namespace GUI_Database_app.ViewModel
         private GridLength currentContentColWidth = defaultLeftColWidth;
         private ObservableCollection<string> databasesListBox = new ObservableCollection<string>();
         private string _selectedItem;
+        public event EventHandler<string> SelectedItemChanged;
         private string currentDB = "Not choosen";
 
         private readonly NavigationService navigationService;
@@ -87,6 +88,7 @@ namespace GUI_Database_app.ViewModel
                     dbServerContent.ChoosenDB(_selectedItem);
                     CurrentDB = _selectedItem;
                 }
+                SelectedItemChanged?.Invoke(this, _selectedItem);
             }
         }
         public string CurrentDB
@@ -99,6 +101,7 @@ namespace GUI_Database_app.ViewModel
                     currentDB = value;
                     OnPropertyChanged(nameof(CurrentDB));
                 }
+
             }
         }
 
@@ -116,7 +119,7 @@ namespace GUI_Database_app.ViewModel
 
         public void InitializeDatabases()
         {
-            dbServerContent.DisplayCurrentListBox(databasesListBox, "Databases");
+            dbServerContent.DisplayCurrentListBox("Databases", databasesListBox);
         }
 
         public ICommand NavigateToCommand => new RelayCommand(param => NavigateTo(param.ToString()));

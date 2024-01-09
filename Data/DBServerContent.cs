@@ -14,7 +14,8 @@ namespace GUI_Database_app.Data
     class DBServerContent
     {
         private Connection connection;
-        public ObservableCollection<string> collection;
+        public ObservableCollection<string> collectionDB;
+        public ObservableCollection<string> collectionTables;
 
         public DBServerContent(Connection connection)
         {
@@ -31,7 +32,7 @@ namespace GUI_Database_app.Data
             return connection.VerifyConnectionDB(db);
         }
 
-        public void DisplayCurrentListBox(ObservableCollection<string> collection, string CurrentContext)
+        public void DisplayCurrentListBox(string CurrentContext, ObservableCollection<string> collection)
         {
             string query = CurrentContext == "Databases" ? "SHOW DATABASES;" : "SHOW TABLES;";
             try
@@ -54,9 +55,9 @@ namespace GUI_Database_app.Data
                     {
                         collection.Add(item);
                     }
-                  
                 }
-                this.collection = collection;
+                if (CurrentContext == "Databases") collectionDB = collection;
+                else collectionTables = collection;
             }
             catch (MySqlException ex)
             {

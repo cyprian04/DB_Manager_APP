@@ -12,9 +12,9 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
     {
         private readonly Data.DBServerContent dbServerContent;
         private string currentContent = null;
-        private ObservableCollection<string> tableListBox;
+        private ObservableCollection<string> tableListBox = new ObservableCollection<string>();
         private string _selectedItem;
-        private string currentTb;
+        private string currentTB = "Not choosen";
 
         public ObservableCollection<string> TableListBox
         {
@@ -33,37 +33,45 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
             get { return _selectedItem; }
             set
             {
-                if (value == null && !dbServerContent.GetVerifyConnectionDB(CurrentTb))
+                if (value == null && !dbServerContent.GetVerifyConnectionDB(CurrentTB))
                 {
                     _selectedItem = value;
                     OnPropertyChanged(nameof(SelectedItem));
-                    CurrentTb = "Not choosen";
+                    CurrentTB = "Not choosen";
                 }
                 else if (_selectedItem != value && value != null)
                 {
                     _selectedItem = value;
                     OnPropertyChanged(nameof(SelectedItem));
                     dbServerContent.ChoosenDB(_selectedItem);
-                    CurrentTb = _selectedItem;
+                    CurrentTB = _selectedItem;
                 }
             }
         }
-        public string CurrentTb
+        public string CurrentTB
         {
-            get { return currentTb; }
+            get { return currentTB; }
             set
             {
-                if (currentTb != value)
+                if (currentTB != value)
                 {
-                    currentTb = value;
-                    OnPropertyChanged(nameof(CurrentTb));
+                    currentTB = value;
+                    OnPropertyChanged(nameof(CurrentTB));
                 }
             }
         }
 
-        public StructureVM(Data.DBServerContent dbServerContent)
+        public StructureVM(Data.DBServerContent dbServerContent, ServerPanelVM serverPanelVM)
         {
             this.dbServerContent = dbServerContent;
+            dbServerContent.collectionTables = TableListBox;
+
+            serverPanelVM.SelectedItemChanged += ServerPanelVM_SelectedItemChanged;
+        }
+
+        private void ServerPanelVM_SelectedItemChanged(object sender, string selectedItem)
+        {
+            dbServerContent.DisplayCurrentListBox("TABLES",tableListBox);
         }
 
         public ICommand ShowStructCommand => new RelayCommand(param => ShowTable(param.ToString()));
@@ -73,7 +81,7 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         {
             if (currentContent != content)
             {
-                dbServerContent.ExecuteAndCheckSQLQuerry(content);
+                dbServerContent.ExecuteAndCheckSQLQuerry(content + currentTB+";");
                 currentContent = content;
             }
         }

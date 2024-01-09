@@ -71,7 +71,7 @@
                         <ScrollViewer VerticalScrollBarVisibility="Disabled"
                                       HorizontalScrollBarVisibility="Auto">
                             <TextBlock x:Name="CurrentTableTextBlock"
-                                       Text="Not choosen"
+                                       Text="{Binding CurrentTB, Mode=TwoWay}"
                                        HorizontalAlignment="Center"
                                        Foreground="AliceBlue"
                                        FontWeight="Light"
@@ -124,8 +124,8 @@
                                Background="Transparent"
                                BorderThickness="0"
                                VerticalAlignment="Top"
-                               SelectionChanged="TablesListBox_SelectionChanged"
-                                ItemContainerStyle="{StaticResource ListBoxCustomItemStyle}">
+                               ItemsSource="{Binding TableListBox, Mode=TwoWay}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                               ItemContainerStyle="{StaticResource ListBoxCustomItemStyle}">
                         </ListBox>
                         
                     </Border>
@@ -143,7 +143,7 @@
                            Background="Transparent"
                            BorderThickness="0"
                            Margin="10"
-                           Visibility="Hidden">
+                           ItemsSource="{Binding QuerryResult,  Mode=TwoWay}">
 
                             <DataGrid.CellStyle>
                                 <Style TargetType="DataGridCell">
