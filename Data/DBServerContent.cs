@@ -22,6 +22,11 @@ namespace GUI_Database_app.Data
             this.connection = connection;
         }
 
+        public string GetDB()
+        {
+            return connection.DbName;
+        }
+
         public void ChoosenDB(string db)
         {
             connection.ConnectionWithDb(db);

@@ -33,7 +33,7 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
             get { return _selectedItem; }
             set
             {
-                if (value == null && !dbServerContent.GetVerifyConnectionDB(CurrentTB))
+                if (value == null && !dbServerContent.GetVerifyConnectionDB(dbServerContent.GetDB()))
                 {
                     _selectedItem = value;
                     OnPropertyChanged(nameof(SelectedItem));
@@ -43,7 +43,6 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
                 {
                     _selectedItem = value;
                     OnPropertyChanged(nameof(SelectedItem));
-                    dbServerContent.ChoosenDB(_selectedItem);
                     CurrentTB = _selectedItem;
                 }
             }
@@ -71,7 +70,8 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
 
         private void ServerPanelVM_SelectedItemChanged(object sender, string selectedItem)
         {
-            dbServerContent.DisplayCurrentListBox("TABLES",tableListBox);
+            if (selectedItem != null) dbServerContent.DisplayCurrentListBox("TABLES", tableListBox);
+            else tableListBox.Clear();
         }
 
         public ICommand ShowStructCommand => new RelayCommand(param => ShowTable(param.ToString()));
@@ -79,9 +79,9 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
 
         private void ShowTable(string content)
         {
-            if (currentContent != content)
+            if (currentContent != content && CurrentTB != "Not choosen")
             {
-                dbServerContent.ExecuteAndCheckSQLQuerry(content + currentTB+";");
+                dbServerContent.ExecuteAndCheckSQLQuerry(content + currentTB + ";");
                 currentContent = content;
             }
         }
