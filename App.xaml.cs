@@ -46,6 +46,7 @@ namespace GUI_Database_app
             container.Register<View.ServerPanelContent.RelationsControl>(Lifestyle.Singleton);
             container.GetInstance<View.ServerPanelControl>().DataContext = container.GetInstance<ViewModel.ServerPanelVM>();
             container.GetInstance<View.ServerPanelContent.SQLControl>().DataContext = container.GetInstance<ViewModel.ServerPanelVMs.SQL_VM>();
+            container.GetInstance<View.ServerPanelContent.StructureControl>().DataContext = container.GetInstance<ViewModel.ServerPanelVMs.StructureVM>();
 
 
             container.Verify();

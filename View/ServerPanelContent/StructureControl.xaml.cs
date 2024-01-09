@@ -76,22 +76,22 @@ namespace GUI_Database_app.View.ServerPanelContent
             }
         }
 
-        private void Struct_btn(object sender, RoutedEventArgs e)
-        {
-            if (querry != "DESCRIBE " + CurrentUserConn.TbName + ";")
-            {
-                querry = "DESCRIBE " + CurrentUserConn.TbName +";";
-                //CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowStruct, querry, TableStructureDataGrid);
-            }
-        }
-
-        private void Data_btn(object sender, RoutedEventArgs e)
-        {
-            if (querry != "SELECT * FROM " + CurrentUserConn.TbName + ";")
-            {
-                querry = "SELECT * FROM " + CurrentUserConn.TbName + ";";
-                //CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowData, querry, TableStructureDataGrid);
-            }
-        }
+        //private void Struct_btn(object sender, RoutedEventArgs e)
+        //{
+        //    if (querry != "DESCRIBE " + CurrentUserConn.TbName + ";")
+        //    {
+        //        querry = "DESCRIBE " + CurrentUserConn.TbName +";";
+        //        //CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowStruct, querry, TableStructureDataGrid);
+        //    }
+        //}
+        //
+        //private void Data_btn(object sender, RoutedEventArgs e)
+        //{
+        //    if (querry != "SELECT * FROM " + CurrentUserConn.TbName + ";")
+        //    {
+        //        querry = "SELECT * FROM " + CurrentUserConn.TbName + ";";
+        //        //CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowData, querry, TableStructureDataGrid);
+        //    }
+        //}
     }
 }
