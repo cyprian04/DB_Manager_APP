@@ -143,10 +143,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ServerPanelContent\RelationsControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\ServerPanelContent\SQLControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,9 +184,6 @@
     </Compile>
     <Compile Include="View\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ServerPanelContent\RelationsControl.xaml.cs">
-      <DependentUpon>RelationsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ServerPanelContent\SQLControl.xaml.cs">
       <DependentUpon>SQLControl.xaml</DependentUpon>

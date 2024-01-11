@@ -113,7 +113,6 @@ namespace GUI_Database_app.ViewModel
 
             navigationService.Register<View.ServerPanelContent.SQLControl>("SQL");
             navigationService.Register<View.ServerPanelContent.StructureControl>("Struct");
-            navigationService.Register<View.ServerPanelContent.RelationsControl>("Relations");
 
             NavigateTo("SQL");
         }

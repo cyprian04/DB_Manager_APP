@@ -90,16 +90,11 @@
                                     Style="{StaticResource NavButtonStyle}"
                                     Template="{StaticResource NavButtonTemplate}"
                                     Command="{Binding NavigateToCommand}" CommandParameter="SQL"/>
-                            
+
                             <Button Content="Structure"
                                     Style="{StaticResource NavButtonStyle}"
                                     Template="{StaticResource NavButtonTemplate}"
                                     Command="{Binding NavigateToCommand}" CommandParameter="Struct"/>
-                            
-                            <Button Content="Relations"
-                                    Style="{StaticResource NavButtonStyle}"
-                                    Template="{StaticResource NavButtonTemplate}"
-                                    Command="{Binding NavigateToCommand}" CommandParameter="Relations"/>
 
                             <Button Content="Import"
                                     Style="{StaticResource NavButtonStyle}"
