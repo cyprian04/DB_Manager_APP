@@ -104,12 +104,12 @@
                             <Button Content="Import"
                                     Style="{StaticResource NavButtonStyle}"
                                     Template="{StaticResource NavButtonTemplate}"
-                                    Click="btn_Import"/>
+                                    Command="{Binding ImportDBCommand}"/>
 
                             <Button Content="Export"
                                     Style="{StaticResource NavButtonStyle}"
                                     Template="{StaticResource NavButtonTemplate}"
-                                    Click="btn_Export"/>
+                                    Command="{Binding ExportDBCommand}"/>
 
                         </StackPanel>
                     </ScrollViewer>

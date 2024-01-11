@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using GUI_Database_app.Navigation;
+using Microsoft.Win32;
 
 namespace GUI_Database_app.ViewModel
 {
@@ -124,6 +125,9 @@ namespace GUI_Database_app.ViewModel
 
         public ICommand NavigateToCommand => new RelayCommand(param => NavigateTo(param.ToString()));
         public ICommand ShowHideCommand => new RelayCommand(ShowHide);
+        public ICommand ImportDBCommand => new RelayCommand(ImportDB);
+        public ICommand ExportDBCommand => new RelayCommand(ExportDB);
+
 
         private void ShowHide(object parameter)
         {
@@ -135,6 +139,31 @@ namespace GUI_Database_app.ViewModel
         {
             UserControl newControl = navigationService.NavigateTo(destination);
             CurrentControl = (CurrentControl == null || CurrentControl.GetType() != newControl.GetType()) ? newControl : CurrentControl;
+        }
+
+        private void ImportDB(object parameter)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Select a File",
+                Filter = "All Files (*.*)|*.*"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                MessageBox.Show("Selected file: " + openFileDialog.FileName);
+                //CurrentUserConn.ImportDB(openFileDialog.FileName);
+            }
+            else
+            {
+                MessageBox.Show("Abortet action");
+            }
+        }
+
+        private void ExportDB(object parameter)
+        {
+            if (SelectedItem != null) { } //  CurrentUserConn.ExportDB(DatabasesListBox.SelectedItem.ToString());
+            else MessageBox.Show("No database selected");
         }
 
     }
