@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         private readonly Data.DBServerContent dbServerContent;
         private string currentContent = null;
         private ObservableCollection<string> tableListBox = new ObservableCollection<string>();
+        private DataTable querryResult;
+        private bool _isVisible = false;
         private string _selectedItem;
         private string currentTB = "Not choosen";
 
@@ -25,6 +28,27 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
                 {
                     tableListBox = value;
                     OnPropertyChanged(nameof(TableListBox));
+                }
+            }
+        }
+        public DataTable QuerryResult
+        {
+            get { return querryResult; }
+            set
+            {
+                querryResult = value;
+                OnPropertyChanged(nameof(QuerryResult));
+            }
+        }
+        public bool IsVisible
+        {
+            get { return _isVisible; }
+            set
+            {
+                if (_isVisible != value)
+                {
+                    _isVisible = value;
+                    OnPropertyChanged(nameof(IsVisible));
                 }
             }
         }
@@ -81,7 +105,8 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         {
             if (currentContent != content && CurrentTB != "Not choosen")
             {
-                dbServerContent.ExecuteAndCheckSQLQuerry(content + currentTB + ";");
+                QuerryResult = dbServerContent.ExecuteAndCheckSQLQuerry(content + currentTB + ";");
+                IsVisible = QuerryResult.Rows.Count == 0 ? false : true;
                 currentContent = content;
             }
         }
