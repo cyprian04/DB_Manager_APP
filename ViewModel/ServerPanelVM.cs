@@ -152,7 +152,7 @@ namespace GUI_Database_app.ViewModel
             if (openFileDialog.ShowDialog() == true)
             {
                 MessageBox.Show("Selected file: " + openFileDialog.FileName);
-                //CurrentUserConn.ImportDB(openFileDialog.FileName);
+                dbServerContent.ImportDB(openFileDialog.FileName);
             }
             else
             {
@@ -162,7 +162,7 @@ namespace GUI_Database_app.ViewModel
 
         private void ExportDB(object parameter)
         {
-            if (SelectedItem != null) { } //  CurrentUserConn.ExportDB(DatabasesListBox.SelectedItem.ToString());
+            if (SelectedItem != null) dbServerContent.ExportDB(SelectedItem); 
             else MessageBox.Show("No database selected");
         }
 
