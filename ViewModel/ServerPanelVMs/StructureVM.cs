@@ -57,18 +57,20 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
             get { return _selectedItem; }
             set
             {
-                if (value == null && !dbServerContent.GetVerifyConnectionDB(dbServerContent.GetDB()))
+                if (value == null)
                 {
                     _selectedItem = value;
-                    OnPropertyChanged(nameof(SelectedItem));
                     CurrentTB = "Not choosen";
                 }
                 else if (_selectedItem != value && value != null)
                 {
                     _selectedItem = value;
-                    OnPropertyChanged(nameof(SelectedItem));
                     CurrentTB = _selectedItem;
-                }
+                }                    
+                if(QuerryResult != null) QuerryResult.Clear();
+                OnPropertyChanged(nameof(SelectedItem));
+                currentContent = null;
+                IsVisible = false;
             }
         }
         public string CurrentTB
