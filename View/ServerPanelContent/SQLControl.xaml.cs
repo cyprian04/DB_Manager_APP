@@ -21,12 +21,5 @@ namespace GUI_Database_app.View.ServerPanelContent
         {
             InitializeComponent();
         }
-
-        //private void btn_ExecuteSqlCommand(object sender, RoutedEventArgs e)
-        //{
-        //    // setting string value by getting first and last pointer in the textRange from our SqlCommandTextBox (RichTextBox)
-        //    querryText = new TextRange(SqlCommandTextBox.Document.ContentStart, SqlCommandTextBox.Document.ContentEnd).Text;
-        //    //CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.defaultQuerry, querryText, QuerryrResultDataGrid, TextQuerryResultInfo, BorderQuerryResultInfo);
-        //}
     }
 }

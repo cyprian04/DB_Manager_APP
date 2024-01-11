@@ -34,7 +34,6 @@ namespace GUI_Database_app.View.ServerPanelContent
         Thickness adjustedBorder = new Thickness(0, 2, 0, 0);
         
         private bool hidden = false;
-        private string querry = null;
 
         public StructureControl()
         {
@@ -75,23 +74,5 @@ namespace GUI_Database_app.View.ServerPanelContent
                 CurrentTableTextBlock.Text = TablesListBox.SelectedItem.ToString();
             }
         }
-
-        //private void Struct_btn(object sender, RoutedEventArgs e)
-        //{
-        //    if (querry != "DESCRIBE " + CurrentUserConn.TbName + ";")
-        //    {
-        //        querry = "DESCRIBE " + CurrentUserConn.TbName +";";
-        //        //CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowStruct, querry, TableStructureDataGrid);
-        //    }
-        //}
-        //
-        //private void Data_btn(object sender, RoutedEventArgs e)
-        //{
-        //    if (querry != "SELECT * FROM " + CurrentUserConn.TbName + ";")
-        //    {
-        //        querry = "SELECT * FROM " + CurrentUserConn.TbName + ";";
-        //        //CurrentUserConn.ExecuteAndCheckSQLQuerry(Data.Connection.TypeOfQuerry.ShowData, querry, TableStructureDataGrid);
-        //    }
-        //}
     }
 }
