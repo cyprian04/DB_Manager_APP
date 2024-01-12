@@ -50,7 +50,7 @@
 
                     <Button x:Name="HideShowBtn" 
                             Style="{StaticResource HideShowButtonStyle }" 
-                            Click="btn_HideShow"
+                            Command="{Binding ShowHideCommand}"
                             VerticalAlignment="Top">
                         <Button.Background>
                             <ImageBrush ImageSource="/Resources/icon-show.png"/>
