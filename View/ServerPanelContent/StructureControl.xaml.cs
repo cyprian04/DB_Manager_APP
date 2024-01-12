@@ -15,12 +15,8 @@ using System.Windows.Shapes;
 
 namespace GUI_Database_app.View.ServerPanelContent
 {
-    /// <summary>
-    /// Logika interakcji dla klasy StructureControl.xaml
-    /// </summary>
     public partial class StructureControl : UserControl
     {
-        Data.Connection CurrentUserConn = null;
         ImageBrush show = null;
         ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
 
@@ -68,7 +64,7 @@ namespace GUI_Database_app.View.ServerPanelContent
         {
             if (TablesListBox.SelectedItem != null)
             {
-                CurrentUserConn.TbName = TablesListBox.SelectedItem.ToString();
+                //CurrentUserConn.TbName = TablesListBox.SelectedItem.ToString();
                 TableStructureDataGrid.Visibility = Visibility.Hidden;
                 TableStructureDataGrid.ItemsSource = null;
                 CurrentTableTextBlock.Text = TablesListBox.SelectedItem.ToString();
