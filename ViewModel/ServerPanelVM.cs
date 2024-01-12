@@ -26,6 +26,7 @@ namespace GUI_Database_app.ViewModel
         private ObservableCollection<string> databasesListBox = new ObservableCollection<string>();
         private string _selectedItem;
         public event EventHandler<string> SelectedItemChanged;
+        public event EventHandler<string> HideShowBtnChanged;
         private string currentDB = "Not choosen";
 
         private readonly NavigationService navigationService;
@@ -131,6 +132,7 @@ namespace GUI_Database_app.ViewModel
         private void ShowHide(object parameter)
         {
             HideShowBtn = HideShowBtn != hide ? hide : show;
+            HideShowBtnChanged?.Invoke(this, HideShowBtn.ToString());
             CurrentContentColWidth = CurrentContentColWidth != adjustedLeftColWidth ? adjustedLeftColWidth : defaultLeftColWidth; 
         }
 

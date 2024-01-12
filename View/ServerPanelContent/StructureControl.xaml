@@ -16,10 +16,10 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Border CornerRadius="9,0,9,0"
-            Background="#555"
-            BorderBrush="#222"
-            BorderThickness="2,2,0,0">
+    <Border CornerRadius="{Binding MainAreaRadius}"
+            Background="#444"
+            BorderBrush="#999"
+            BorderThickness="2">
 
         <Grid>
             <Grid.RowDefinitions>
@@ -52,10 +52,10 @@
                             Style="{StaticResource HideShowButtonStyle }" 
                             Command="{Binding ShowHideCommand}"
                             VerticalAlignment="Top">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/Resources/icon-show.png"/>
-                        </Button.Background>
-                    </Button>
+                            <Button.Background>
+                                <Binding Path="HideShowBtn" Mode="TwoWay" />
+                            </Button.Background>
+                        </Button>
 
                     </StackPanel>
                 </Grid>
@@ -114,7 +114,7 @@
             <Grid Grid.Row="1">
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200" x:Name="LeftContentColumn"/>
+                    <ColumnDefinition Width="{Binding CurrentContentColWidth}" x:Name="LeftContentColumn"/>
                     <ColumnDefinition Width="*" x:Name="RightContentColumn"/>
                 </Grid.ColumnDefinitions>
 
@@ -138,10 +138,10 @@
 
                 <Grid Grid.Column="1">
                     <Border x:Name="RightContentColumnBorder" 
-                              CornerRadius="9,0,9,0"
-                              Background="#777"
-                              BorderBrush="#222"
-                              BorderThickness="2,2,0,0">
+                              CornerRadius="{Binding CurrentRadius}"
+                              Background="#444"
+                              BorderThickness="{Binding CurrentThickness}"
+                              BorderBrush="#999">
 
                         <DataGrid x:Name="TableStructureDataGrid" 
                            AutoGenerateColumns="True"

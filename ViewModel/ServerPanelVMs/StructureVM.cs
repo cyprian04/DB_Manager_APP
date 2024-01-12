@@ -16,17 +16,19 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
     {
         private static ImageBrush show = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-show.png", UriKind.RelativeOrAbsolute)));
         private static ImageBrush hide = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/icon-hide.png", UriKind.RelativeOrAbsolute)));
-        private static CornerRadius adjutedRightCol = new CornerRadius(0, 0, 9, 0);
-        private static CornerRadius defaultRightCol = new CornerRadius(9, 0, 9, 0);
+        private static CornerRadius adjutedRightCol = new CornerRadius(0, 0, 9, 9);
+        private static CornerRadius defaultRightCol = new CornerRadius(0, 0, 9, 0);
+
+        private static Thickness defaultBorder = new Thickness(2, 2, 0, 0);
+        private static Thickness adjustedBorder = new Thickness(0, 2, 0, 0);
         private static GridLength defaultLeftColWidth = new GridLength(200);
         private static GridLength adjustedLeftColWidth = new GridLength(0);
-        private static Thickness defaultBorder = new Thickness(2, 2, 0, 0);
-        private static Thickness adjustedBorder = new Thickness(0, 2, 0, 0);        
         
         private ImageBrush hideShowBtn = show;
-        private CornerRadius currentRadius = defaultRightCol;
-        private GridLength currentContentColWidth = defaultLeftColWidth;
+        private CornerRadius currentRadius = defaultRightCol;        
+        private CornerRadius mainAreaRadius = defaultRightCol;
         private Thickness currentThickness = defaultBorder;
+        private GridLength currentContentColWidth = defaultLeftColWidth;
 
         private readonly Data.DBServerContent dbServerContent;
         private string currentContent = null;
@@ -54,13 +56,13 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
                 OnPropertyChanged(nameof(CurrentRadius));
             }
         }
-        public GridLength CurrentContentColWidth
+        public CornerRadius MainAreaRadius
         {
-            get => currentContentColWidth;
+            get => mainAreaRadius;
             set
             {
-                currentContentColWidth = value;
-                OnPropertyChanged(nameof(CurrentContentColWidth));
+                mainAreaRadius = value;
+                OnPropertyChanged(nameof(MainAreaRadius));
             }
         }
         public Thickness CurrentThickness
@@ -72,6 +74,16 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
                 OnPropertyChanged(nameof(CurrentThickness));
             }
         }
+        public GridLength CurrentContentColWidth
+        {
+            get => currentContentColWidth;
+            set
+            {
+                currentContentColWidth = value;
+                OnPropertyChanged(nameof(CurrentContentColWidth));
+            }
+        }
+        
 
         public ObservableCollection<string> TableListBox
         {
@@ -146,12 +158,18 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
             dbServerContent.collectionTables = TableListBox;
 
             serverPanelVM.SelectedItemChanged += ServerPanelVM_SelectedItemChanged;
+            serverPanelVM.HideShowBtnChanged += ServerPanelVM_HideShowBtnChanged;
         }
 
         private void ServerPanelVM_SelectedItemChanged(object sender, string selectedItem)
         {
             if (selectedItem != null) dbServerContent.DisplayCurrentListBox("TABLES", tableListBox);
             else tableListBox.Clear();
+        }
+
+        private void ServerPanelVM_HideShowBtnChanged(object sender, string selectedItem)
+        {
+            MainAreaRadius = MainAreaRadius != adjutedRightCol ? adjutedRightCol : defaultRightCol;
         }
 
         public ICommand ShowStructCommand => new RelayCommand(param => ShowTable(param.ToString()));
@@ -171,6 +189,8 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         private void ShowHide(object parameter)
         {
             HideShowBtn = HideShowBtn != hide ? hide : show;
+            CurrentRadius = CurrentRadius != adjutedRightCol ? adjutedRightCol : defaultRightCol;
+            CurrentThickness = currentThickness != adjustedBorder ? adjustedBorder : defaultBorder;
             CurrentContentColWidth = CurrentContentColWidth != adjustedLeftColWidth ? adjustedLeftColWidth : defaultLeftColWidth;
         }
     }

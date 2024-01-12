@@ -46,7 +46,7 @@
                             Command="{Binding ShowHideCommand}"
                             VerticalAlignment="Top">
                             <Button.Background>
-                                <Binding Path="HideShowBtn " Mode="TwoWay" />
+                                <Binding Path="HideShowBtn" Mode="TwoWay" />
                             </Button.Background>
                         </Button>
                     </StackPanel>
