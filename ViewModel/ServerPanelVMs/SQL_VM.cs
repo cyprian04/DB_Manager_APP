@@ -14,11 +14,36 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
 {
     class SQL_VM : ViewModelBase
     {
+        private static CornerRadius adjutedRightCol = new CornerRadius(0, 0, 9, 9);
+        private static CornerRadius defaultRightCol = new CornerRadius(0, 0, 9, 0);
+        private static Thickness defaultBorder = new Thickness(2, 2, 0, 0);
+        private static Thickness adjustedBorder = new Thickness(0, 2, 0, 0);
+
+        private CornerRadius mainAreaRadius = defaultRightCol;
+        private Thickness currentThickness = defaultBorder;
         private readonly Data.DBServerContent dBServerContent;
         private FlowDocument _myDocument = new FlowDocument();
         private DataTable querryResult;
         private bool _isVisible = false;
 
+        public CornerRadius MainAreaRadius
+        {
+            get => mainAreaRadius;
+            set
+            {
+                mainAreaRadius = value;
+                OnPropertyChanged(nameof(MainAreaRadius));
+            }
+        }
+        public Thickness CurrentThickness
+        {
+            get => currentThickness;
+            set
+            {
+                currentThickness = value;
+                OnPropertyChanged(nameof(CurrentThickness));
+            }
+        }
         public FlowDocument MyDocument
         {
             get { return _myDocument; }
@@ -46,9 +71,16 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
             }
         }
 
-        public SQL_VM(Data.DBServerContent dBServerContent)
+        public SQL_VM(Data.DBServerContent dBServerContent, ServerPanelVM serverPanelVM)
         {
             this.dBServerContent = dBServerContent;
+            serverPanelVM.HideShowBtnChanged += ServerPanelVM_HideShowBtnChanged;
+
+        }
+
+        private void ServerPanelVM_HideShowBtnChanged(object sender, string selectedItem)
+        {
+            MainAreaRadius = MainAreaRadius != adjutedRightCol ? adjutedRightCol : defaultRightCol;
         }
 
         public ICommand ExecuteQuerryCommand => new RelayCommand(ExecuteQuerry);

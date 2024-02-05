@@ -84,7 +84,6 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
             }
         }
         
-
         public ObservableCollection<string> TableListBox
         {
             get { return tableListBox; }
