@@ -12,7 +12,7 @@
     </UserControl.DataContext>
 
     <Border CornerRadius="10,10,10,10"
-          BorderThickness="5"
+          BorderThickness="0"
           Background="#333">
 
         <Grid>

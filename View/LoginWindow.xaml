@@ -226,9 +226,9 @@
                              Height="28"
                              FontSize="14"
                              FontFamily="Montserrat"
-                             Foreground="Aquamarine"
+                             Foreground="AliceBlue"
                              FontWeight="Medium"
-                             CaretBrush="Aquamarine"
+                             CaretBrush="AliceBlue"
                              BorderBrush="DarkGray"
                              VerticalContentAlignment="Center">
 
