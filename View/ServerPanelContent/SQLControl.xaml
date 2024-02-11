@@ -20,7 +20,7 @@
     <Border CornerRadius="{Binding MainAreaRadius}"
             Background="#444"
             BorderBrush="#999"
-            BorderThickness="2">
+            BorderThickness="{Binding CurrentThickness}">
 
         <ScrollViewer VerticalScrollBarVisibility="Auto"
                       HorizontalScrollBarVisibility="Disabled"

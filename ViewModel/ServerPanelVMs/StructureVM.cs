@@ -28,6 +28,7 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         private CornerRadius currentRadius = defaultRightCol;        
         private CornerRadius mainAreaRadius = defaultRightCol;
         private Thickness currentThickness = defaultBorder;
+        private Thickness mainCurrentThickness = defaultBorder;
         private GridLength currentContentColWidth = defaultLeftColWidth;
 
         private readonly Data.DBServerContent dbServerContent;
@@ -72,6 +73,15 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
             {
                 currentThickness = value;
                 OnPropertyChanged(nameof(CurrentThickness));
+            }
+        }
+        public Thickness MainCurrentThickness
+        {
+            get => mainCurrentThickness;
+            set
+            {
+                mainCurrentThickness = value;
+                OnPropertyChanged(nameof(MainCurrentThickness));
             }
         }
         public GridLength CurrentContentColWidth
@@ -169,6 +179,7 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         private void ServerPanelVM_HideShowBtnChanged(object sender, string selectedItem)
         {
             MainAreaRadius = MainAreaRadius != adjutedRightCol ? adjutedRightCol : defaultRightCol;
+            MainCurrentThickness = MainCurrentThickness != adjustedBorder ? adjustedBorder : defaultBorder;
         }
 
         public ICommand ShowStructCommand => new RelayCommand(param => ShowTable(param.ToString()));

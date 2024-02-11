@@ -81,6 +81,7 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         private void ServerPanelVM_HideShowBtnChanged(object sender, string selectedItem)
         {
             MainAreaRadius = MainAreaRadius != adjutedRightCol ? adjutedRightCol : defaultRightCol;
+            CurrentThickness = CurrentThickness != adjustedBorder ? adjustedBorder : defaultBorder;
         }
 
         public ICommand ExecuteQuerryCommand => new RelayCommand(ExecuteQuerry);
