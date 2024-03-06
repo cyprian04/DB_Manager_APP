@@ -96,15 +96,46 @@
                                 VerticalAlignment="Center"
                                 Orientation="Horizontal">
 
-                        <Button Content="Table Structure"
-                                Style="{StaticResource NavButtonStyle}"
-                                Template="{StaticResource NavButtonTemplate}"
-                                Command="{Binding ShowStructCommand}" CommandParameter="DESCRIBE "/>
+                            <Button Content="Table Structure"
+                                    Margin ="0,0,20,0"
+                                    Foreground="AliceBlue"
+                                    FontWeight ="DemiBold" 
+                                    Cursor="Hand"
+                                    Template="{StaticResource NavButtonTemplate}"
+                                    Command="{Binding ShowStructCommand}" CommandParameter="DESCRIBE ">
 
-                        <Button Content="Table Data"
-                                Style="{StaticResource NavButtonStyle}"
-                                Template="{StaticResource NavButtonTemplate}"
-                                Command="{Binding ShowDataCommand}" CommandParameter="SELECT * FROM "/>
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#A2678A"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#278BEF"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+
+                            <Button Content="Table Data"
+                                    Margin ="0,0,20,0"
+                                    Foreground="AliceBlue"
+                                    FontWeight ="DemiBold" 
+                                    Cursor="Hand"
+                                    Template="{StaticResource NavButtonTemplate}"
+                                    Command="{Binding ShowDataCommand}" CommandParameter="SELECT * FROM ">
+
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#A2678A"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#278BEF"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+
+                            </Button>
                     </StackPanel>
                     </ScrollViewer>
                 </Grid>
