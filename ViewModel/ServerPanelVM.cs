@@ -24,14 +24,14 @@ namespace GUI_Database_app.ViewModel
         private ImageBrush hideShowBtn = show;
         private GridLength currentContentColWidth = defaultLeftColWidth;
         private ObservableCollection<string> databasesListBox = new ObservableCollection<string>();
-        private string _selectedItem;
+        private string selectedItem;
         public event EventHandler<string> SelectedItemChanged;
         public event EventHandler<string> HideShowBtnChanged;
         private string currentDB = "Not choosen";
 
         private readonly NavigationService navigationService;
         private readonly Data.DBServerContent dbServerContent;
-        private UserControl _currentControl;
+        private UserControl currentControl;
 
         public ImageBrush HideShowBtn
         {
@@ -53,10 +53,10 @@ namespace GUI_Database_app.ViewModel
         }
         public UserControl CurrentControl
         {
-            get => _currentControl;
+            get => currentControl;
             set
             {
-                _currentControl = value;
+                currentControl = value;
                 OnPropertyChanged(nameof(CurrentControl));
             }
         }
@@ -74,23 +74,23 @@ namespace GUI_Database_app.ViewModel
         }
         public string SelectedItem
         {
-            get { return _selectedItem; }
+            get { return selectedItem; }
             set
             {
                 if(value == null && !dbServerContent.GetVerifyConnectionDB(CurrentDB))
                 {
-                    _selectedItem = value;
+                    selectedItem = value;
                     OnPropertyChanged(nameof(SelectedItem));
                     CurrentDB = "Not choosen";
                 }
-                else if (_selectedItem != value && value != null)
+                else if (selectedItem != value && value != null)
                 {
-                    _selectedItem = value;
+                    selectedItem = value;
                     OnPropertyChanged(nameof(SelectedItem));
-                    dbServerContent.ChoosenDB(_selectedItem);
-                    CurrentDB = _selectedItem;
+                    dbServerContent.ChoosenDB(selectedItem);
+                    CurrentDB = selectedItem;
                 }
-                SelectedItemChanged?.Invoke(this, _selectedItem);
+                SelectedItemChanged?.Invoke(this, selectedItem);
             }
         }
         public string CurrentDB
@@ -156,9 +156,7 @@ namespace GUI_Database_app.ViewModel
                 dbServerContent.ImportDB(openFileDialog.FileName);
             }
             else
-            {
                 MessageBox.Show("Abortet action");
-            }
         }
 
         private void ExportDB(object parameter)

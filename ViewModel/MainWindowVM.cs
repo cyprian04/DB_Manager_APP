@@ -11,25 +11,25 @@ namespace GUI_Database_app.ViewModel
     {
         private readonly NavigationService navigationService;
 
-        private UserControl _currentControl;
+        private UserControl currentControl;
         public UserControl CurrentControl
         {
-            get => _currentControl;
+            get => currentControl;
             set
             {
-                _currentControl = value;
+                currentControl = value;
                 OnPropertyChanged(nameof(CurrentControl));
             }
         }        
-        private bool _isToolTipVisible = true;
+        private bool isToolTipVisible = true;
         public bool IsToolTipVisible
         {
-            get => _isToolTipVisible;
+            get => isToolTipVisible;
             set
             {
-                if (_isToolTipVisible != value)
+                if (isToolTipVisible != value)
                 {
-                    _isToolTipVisible = value;
+                    isToolTipVisible = value;
                     OnPropertyChanged(nameof(IsToolTipVisible));
                 }
             }

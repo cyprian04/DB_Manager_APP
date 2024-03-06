@@ -12,22 +12,22 @@ namespace GUI_Database_app.ViewModel
 {
     class LoginWindowVM : ViewModelBase
     {
-        private string _username;
-        private SecureString _password;
-        private string _host;
-        private bool _isVisible = true;
+        private string username;
+        private SecureString password;
+        private string host;
+        private bool isVisible = true;
 
-        private readonly ICurrentUser _currentUser;
-        private readonly Data.Connection _conn;
+        private readonly ICurrentUser currentUser;
+        private readonly Data.Connection conn;
 
         public bool IsVisible
         {
-            get { return _isVisible; }
+            get { return isVisible; }
             set
             {
-                if (_isVisible != value)
+                if (isVisible != value)
                 {
-                    _isVisible = value;
+                    isVisible = value;
                     OnPropertyChanged(nameof(IsVisible));
                 }
             }
@@ -35,10 +35,10 @@ namespace GUI_Database_app.ViewModel
 
         public string Username
         {
-            get => _username;
+            get => username;
             set
             {
-                _username = value;
+                username = value;
                 OnPropertyChanged(nameof(Username));
             }
         }
@@ -47,21 +47,21 @@ namespace GUI_Database_app.ViewModel
         {
             get
             {
-                return _password;
+                return password;
             }
             set
             {
-                _password = value;
+                password = value;
                 OnPropertyChanged(nameof(Password));
             }
         }
 
         public string Host
         {
-            get => _host;
+            get => host;
             set
             {
-                _host = value;
+                host = value;
                 OnPropertyChanged(nameof(Host));
             }
         }
@@ -70,18 +70,18 @@ namespace GUI_Database_app.ViewModel
 
         public LoginWindowVM(ICurrentUser currentUser, Data.Connection conn)
         {
-            _currentUser = currentUser;
-            _conn = conn;
+            this.currentUser = currentUser;
+            this.conn = conn;
             LoginCommand = new RelayCommand(Login);
         }
 
         private void Login(object parameter)
         {  
-            if (Host != null && Username !=null && _conn.VerifyCredentials(Host, Username, Password))
+            if (Host != null && Username !=null && conn.VerifyCredentials(Host, Username, Password))
             {
-                _currentUser.Username = Username;
-                _currentUser.Password = Password;
-                _currentUser.Host = Host;
+                currentUser.Username = Username;
+                currentUser.Password = Password;
+                currentUser.Host = Host;
                 IsVisible = false;
             }
             else

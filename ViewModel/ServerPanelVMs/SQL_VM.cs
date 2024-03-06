@@ -22,9 +22,9 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         private CornerRadius mainAreaRadius = defaultRightCol;
         private Thickness currentThickness = defaultBorder;
         private readonly Data.DBServerContent dBServerContent;
-        private FlowDocument _myDocument = new FlowDocument();
+        private FlowDocument myDocument = new FlowDocument();
         private DataTable querryResult;
-        private bool _isVisible = false;
+        private bool isVisible = false;
 
         public CornerRadius MainAreaRadius
         {
@@ -46,8 +46,8 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         }
         public FlowDocument MyDocument
         {
-            get { return _myDocument; }
-            set { _myDocument = value; }
+            get { return myDocument; }
+            set { myDocument = value; }
         }
         public DataTable QuerryResult
         {
@@ -60,12 +60,12 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         }
         public bool IsVisible
         {
-            get { return _isVisible; }
+            get { return isVisible; }
             set
             {
-                if (_isVisible != value)
+                if (isVisible != value)
                 {
-                    _isVisible = value;
+                    isVisible = value;
                     OnPropertyChanged(nameof(IsVisible));
                 }
             }

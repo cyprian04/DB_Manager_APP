@@ -35,8 +35,8 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         private string currentContent = null;
         private ObservableCollection<string> tableListBox = new ObservableCollection<string>();
         private DataTable querryResult;
-        private bool _isVisible = false;
-        private string _selectedItem;
+        private bool isVisible = false;
+        private string selectedItem;
         private string currentTB = "Not choosen";
 
         public ImageBrush HideShowBtn
@@ -117,30 +117,30 @@ namespace GUI_Database_app.ViewModel.ServerPanelVMs
         }
         public bool IsVisible
         {
-            get { return _isVisible; }
+            get { return isVisible; }
             set
             {
-                if (_isVisible != value)
+                if (isVisible != value)
                 {
-                    _isVisible = value;
+                    isVisible = value;
                     OnPropertyChanged(nameof(IsVisible));
                 }
             }
         }
         public string SelectedItem
         {
-            get { return _selectedItem; }
+            get { return selectedItem; }
             set
             {
                 if (value == null)
                 {
-                    _selectedItem = value;
+                    selectedItem = value;
                     CurrentTB = "Not choosen";
                 }
-                else if (_selectedItem != value && value != null)
+                else if (selectedItem != value && value != null)
                 {
-                    _selectedItem = value;
-                    CurrentTB = _selectedItem;
+                    selectedItem = value;
+                    CurrentTB = selectedItem;
                 }                    
                 if(QuerryResult != null) QuerryResult.Clear();
                 OnPropertyChanged(nameof(SelectedItem));
