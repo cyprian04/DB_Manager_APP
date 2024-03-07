@@ -128,6 +128,8 @@
                                 <RowDefinition Height="80"/>
                                 <RowDefinition Height="80"/>
                                 <RowDefinition Height="80"/>
+                                <RowDefinition Height="80"/>
+
                             </Grid.RowDefinitions>
 
                             <Grid Grid.Row="0">
@@ -139,11 +141,16 @@
                                  Style="{StaticResource IconIntroductionStyle}"/>
                             </Grid>
                             <Grid Grid.Row="2">
-                                <Image Source="/Resources/icon-signout.png"
+                                <Image Source="/Resources/icon-database.png"
                                  Style="{StaticResource IconIntroductionStyle}"/>
                             </Grid>
                             <Grid Grid.Row="3">
                                 <Image Source="/Resources/icon-settings.png"
+                                  Style="{StaticResource IconIntroductionStyle}"/>
+                            </Grid>
+
+                            <Grid Grid.Row="4">
+                                <Image Source="/Resources/icon-signout.png"
                                   Style="{StaticResource IconIntroductionStyle}"/>
                             </Grid>
 
@@ -156,19 +163,25 @@
 
                             <Grid Grid.Column="1"
                               Grid.Row="1">
-                                <TextBlock Text="View Icon represents  window where you can see tables inside your currently selected database."
+                                <TextBlock Text="Profile Icon represents  window where you can see informations about user (Coming soon)."
                                        Style="{StaticResource IntroductionTextStyle}"/>
                             </Grid>
 
                             <Grid Grid.Column="1"
                               Grid.Row="2">
-                                <TextBlock Text="Sql Icon represents window where you can insert SQL commands, view the tables structure and data, Import and Export databasese."
+                                <TextBlock Text="Database Icon represents window where you can insert SQL commands, view the tables structure and data, Import and Export databasese."
                                        Style="{StaticResource IntroductionTextStyle}"/>
                             </Grid>
 
                             <Grid Grid.Column="1"
                               Grid.Row="3">
-                                <TextBlock Text="Gear Icon represents settings window where you can set fonts style, dark/bright mode and other settings."
+                                <TextBlock Text="Gear Icon represents settings window where you can set fonts style and other settings."
+                                       Style="{StaticResource IntroductionTextStyle}"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1"
+                              Grid.Row="4">
+                                <TextBlock Text="Sign out icon is responsible for logging out."
                                        Style="{StaticResource IntroductionTextStyle}"/>
                             </Grid>
 
