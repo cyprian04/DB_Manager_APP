@@ -286,7 +286,7 @@
                                             <Button Style="{StaticResource LeftMenuBarBtnStyle}"
                                                     Command="{Binding NavigateToCommand}" CommandParameter="MainInteraction">
                                                 <Button.Background>
-                                                    <ImageBrush Stretch="None" ImageSource="/Resources/icon-database.png"/>
+                                                    <ImageBrush Stretch="None" ImageSource="/Resources/icon-db.png"/>
                                                 </Button.Background>
                                             </Button>
 

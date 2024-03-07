@@ -259,14 +259,13 @@
     <Resource Include="Resources\icon-server.png" />
     <Resource Include="Resources\icon-password.png" />
     <Resource Include="Resources\icon-user.png" />
-    <Resource Include="Resources\icon-sql.png" />
     <Resource Include="Resources\icon-hide.png" />
     <Resource Include="Resources\icon-show.png" />
     <Resource Include="Resources\icon-menu.png" />
     <Resource Include="Resources\icon-home.png" />
     <Resource Include="Resources\icon-profile.png" />
     <Resource Include="Resources\icon-signout.png" />
-    <Resource Include="Resources\icon-database.png" />
+    <Resource Include="Resources\icon-db.png" />
     <Content Include="Resources\login-video.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

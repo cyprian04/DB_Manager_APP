@@ -141,7 +141,7 @@
                                  Style="{StaticResource IconIntroductionStyle}"/>
                             </Grid>
                             <Grid Grid.Row="2">
-                                <Image Source="/Resources/icon-database.png"
+                                <Image Source="/Resources/icon-db.png"
                                  Style="{StaticResource IconIntroductionStyle}"/>
                             </Grid>
                             <Grid Grid.Row="3">
