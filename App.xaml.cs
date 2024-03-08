@@ -58,7 +58,7 @@ namespace GUI_Database_app
 
             loginForm.IsVisibleChanged += (s, ev) =>
             {
-                if (loginForm.IsLoaded && !loginForm.IsVisible && !string.IsNullOrEmpty(container.GetInstance<Data.Connection>().MySqlConn.ConnectionString))
+                if (loginForm.IsLoaded && !loginForm.IsVisible && !string.IsNullOrEmpty(container.GetInstance<ViewModel.LoginWindowVM>().Username))
                 {
                     var mainWindow = new View.MainWindow { DataContext = container.GetInstance<ViewModel.MainWindowVM>()};
                     container.GetInstance<ViewModel.ServerPanelVM>().InitializeDatabases();

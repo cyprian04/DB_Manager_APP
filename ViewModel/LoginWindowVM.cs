@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using GUI_Database_app.Model;
+using GUI_Database_app.View;
 
 namespace GUI_Database_app.ViewModel
 {
@@ -90,6 +91,8 @@ namespace GUI_Database_app.ViewModel
                 Username = null;
                 Host = null;
                 Password = null;
+                (parameter as BindablePasswordBox)?.ClearPassword();
+
             }
         }
     }

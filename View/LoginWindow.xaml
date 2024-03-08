@@ -209,7 +209,7 @@
                                Margin="0,25,0,0"
                                />
 
-                            <view:BindablePasswordBox Password="{Binding Password, Mode=TwoWay}"/>
+                            <view:BindablePasswordBox x:Name="pass" Password="{Binding Password, Mode=TwoWay}"/>
 
                             <TextBlock Text="Host"
                                Foreground="AliceBlue"
@@ -248,7 +248,8 @@
                             Foreground="White"
                             Cursor="Hand"
                             Margin="0,25,0,0"
-                            Command="{Binding LoginCommand}">
+                            Command="{Binding LoginCommand}"
+                            CommandParameter="{Binding ElementName=pass}">
 
                                 <Button.Style>
                                     <Style TargetType="Button">

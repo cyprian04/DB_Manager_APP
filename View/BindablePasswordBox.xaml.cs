@@ -34,9 +34,15 @@ namespace GUI_Database_app.View
             txtPassword.PasswordChanged += OnPasswordChanged;
         }
 
+        public void ClearPassword()
+        {
+            txtPassword.Clear();
+            Password = null;
+        }
+
         private void OnPasswordChanged(object sender, RoutedEventArgs e)
         {
-            Password = txtPassword.SecurePassword;
+                Password = txtPassword.SecurePassword;
         }
     }
 }
