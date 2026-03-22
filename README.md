@@ -1,5 +1,5 @@
 # DB_Manager_APP
-It's a desktop app in C# that allows to interfere with databases from accounts located on the databases server, For now tested only od MariaDB databases
+It's a desktop app in C# that allows to interfere with databases from accounts located on the databases server, For now tested only od MySQL databases
 
 
 App requaries installed database server. On that server you should have user with privileges to default databases and databases you want to manage remontly or localy.
